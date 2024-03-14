@@ -26,7 +26,10 @@ export default defineConfig({
         },
         {
           label: "Getting Started",
-          link: "getting_started",
+          items: [
+            { label: "Same Domain", link: "/license#comercial" },
+            { label: "Cross Domain", link: "/license#open" },
+          ],
         },
         {
           label: "API",

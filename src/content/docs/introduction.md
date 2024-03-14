@@ -4,7 +4,7 @@ description: Keep same and cross-domain iframes sized to their content
 next: Licenses
 ---
 
-The _iframe-resizer_ library aims to take away the pain points of using iframes.
+The _iframe-resizer_ library aims to take away the pain points with using iframes.
 
 In addition to keeping you iframe sized to the content, _iframe-resizer_ also provides the missing browser API features, that allows you to securely interate with the parent page.
 
@@ -12,7 +12,7 @@ In addition to keeping you iframe sized to the content, _iframe-resizer_ also pr
 - Get details of the position of the iframe, the scoll position and viewport of the parent page
 - Fixes in page linking in the iframe and allows links to propgate to the parent page
 - Adds `onMouseEnter` and `onMouseLeave` events to the iframe element
-- Simplified message passing between the ifram and the parent page
+- Simplified message passing between the iframe and the parent page
 - Automatic domain authentication
 
 ### Version 5
