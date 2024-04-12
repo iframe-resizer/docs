@@ -96,6 +96,12 @@ If you're still having problems, or you really want to not ignore the error, the
 
 If this does not fix the problem then check `x-Frame-Options` http header on the server that is sending the iframe content, as this can also block calls to `postMessage` if set incorrectly.
 
+### iFrame has not responded within 5 seconds
+
+This error happens when the iframe is slow to respond, or is blocked from responding to the request from the parent page.
+
+If everything is working, then this message can be ignored, or if you prefer you can set a longer timeout. On the otherhand if you are not getting a response and the child package has been loaded in the iframe, then you need to check that iframe has not been sandboxed, either by setting optins on the `<iframe>` tag, or with the `x-Frame-Options` http header of the iframe.
+
 ### ParentIFrame not found errors
 
 The `parentIFrame` object is created once the iFrame has been initially resized. If you wish to use it during page load you will need call it from the onReady.
@@ -131,9 +137,3 @@ By default only changes in height are detected, if you want to calculate the wid
 ```js
 iframeResize({ direction: "width" });
 ```
-
-### Frame has not responded within 5 seconds
-
-This error happens when the iframe is slow to respond, or is blocked from responding to the request from the parent page.
-
-If everything is working, then this message can be ignored, or if you prefer you can set a longer timeout. On the otherhand if you are not getting a response and the child package has been loaded in the iframe, then you need to check that iframe has not been sandboxed, either by setting optins on the `<iframe>` tag, or in the http headers of the iframe.
