@@ -9,7 +9,7 @@ The _iframe-resizer_ project is distrobuted via seporate packages for the parent
 
 ## Parent page setup
 
-In this section we detail how to setup the parent page using the Vanilla JavaScipt version of iframe-resizer using. The framework section of this guide details how to use _iframe-resizer_ with a range of popular frameworks and libraries.
+In this section we detail how to setup the parent page using the Vanilla JavaScipt version of _iframe-resizer_. The framework section of this guide details how to use _iframe-resizer_ with a range of popular frameworks and libraries.
 
 ### Install
 

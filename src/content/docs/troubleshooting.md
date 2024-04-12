@@ -3,7 +3,7 @@ title: Troubleshooting
 description: Fix common issues
 ---
 
-The first steps to investigate a problem is to make sure you are using the latest version and then enable the [log](#log) option, which outputs everything that happens to the [JavaScript Console](https://developers.google.com/chrome-developer-tools/docs/console#opening_the_console). This will enable you to see what both the iFrame and host page are up to and also see any JavaScript error messages.
+The first steps to investigate any problem is to make sure you are using the latest version and then check the [JavaScript Console](https://developers.google.com/chrome-developer-tools/docs/console#opening_the_console). _Iframe-resizer_ will output the details of any issues it detects and give advise on how to fix them.
 
 Solutions for the most common problems are outlined in this section. If you need further help, then please ask questions on [StackOverflow](http://stackoverflow.com/questions/tagged/iframe-resizer) with the `iframe-resizer` tag.
 
