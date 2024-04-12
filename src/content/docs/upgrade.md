@@ -29,18 +29,43 @@ This library has always supported resizing in both directions, but changing the 
 
 Use of the old values will trigger a deprication warning.
 
-### Changes to `getPageInfo()`
+### New `getParentInfo()` method replaces `getPageInfo()`
 
-The `getPageInfo()` method as been tidied up to bring it inline with modern browsers and fixes some outstanding bugs. These changes are as follows:
+The `getPageInfo()` method as been deprecated in favor of the new `getParentInfo()` method. Since it was first added to _iframe-resizer_ **getPageInfo** has been extended and extended and is now a bit of a mess of values.
 
-- The `scrollLeft` and `scrollTop` values have been renamed to `scrollX` and `scrollY` in order to match the names of these values in the DOM of modern browsers.
-- Added `scrollHeight` and `scrollWidth` values.
-- Fixed `windowHeight` / `windowWidth` to return the values of `window.innerHeight` and `window.innerWidth`. The previous version returned `window.outerWidth` and `window.outerHeight`, these outer values are available directly within the iframe.
-- Removed long deprecated `clientHeight` and `clientWidth` values.
-- Removed `documentHeight` / `documentWidth` because they return incorrect values and the correct values are available using `scrollHeight` and `scrollWidth`.
-- Returned values are now read only.
+The new **getParentInfo** method now groups values into three objects that contain infomation about the containing iframe tag, the parent document object and the parent viewport.
 
-The detection of changes to these values has also been improved.
+```js
+  // iframe.getBoundingRect()
+  iframe: {
+    width
+    height
+    top
+    right
+    bottom
+    left
+  },
+
+  // fron document.documentEkement
+  document: {
+    scrollWidth
+    scrollHeight
+  },
+
+  // window.visualViewport
+  viewport: {
+    width
+    height
+    offsetLeft
+    offsetTop
+    pageLeft
+    pageTop
+    scale
+  }
+}
+```
+
+Use of the old method will trigger a deprecation warning in the console.
 
 ### The `onInit()` method has been renamed to `onReady()`
 
