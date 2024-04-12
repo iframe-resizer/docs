@@ -134,4 +134,6 @@ iframeResize({ direction: "width" });
 
 ### Frame has not responded within 5 seconds
 
-This can happen when postMessage is being blocked in browser. There could be multiple reasons to that but in some cases we found that RocketLoader extension within Cloudflare was the reason. Try disabling it if you are using cloudflare.
+This error happens when the iframe is slow to respond, or is blocked from responding to the request from the parent page.
+
+If everything is working, then this message can be ignored, or if you prefer you can set a longer timeout. On the otherhand if you are not getting a response from the iframe and the child package has been loaded in the iframe, then you need to check that iframe has not been sandboxed, either by setting optins on the `<iframe>` tag, or in the http headers of the iframe.
