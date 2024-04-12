@@ -2,6 +2,7 @@
 title: Parent Page API
 description: Parent page api for iframe-resizer
 next: Child Page API
+prev: Getting Started
 ---
 
 The Parent API is for use on the page containing the `<iframe>` tag. It is split into three sections. [Options](#options) contains settings that can be passed when calling iframe-resizer. [Events](#events) are trigged by updates to the iframe, or messages from the iframe. [Methods](#methods) allow you to interact with iframe-resizer after the initial resizing.
