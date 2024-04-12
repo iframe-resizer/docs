@@ -35,7 +35,7 @@ Not having a valid [HTML document type](http://en.wikipedia.org/wiki/Document_ty
 
 ### IFrame not resizing
 
-The most common cause of this is not placing the [iframeResizer.contentWindow.min.js](https://raw.github.com/davidjbradshaw/iframe-resizer/master/js/iframeResizer.contentWindow.min.js) script inside the iFramed page. If the other page is on a domain outside your control and you can not add JavaScript to that page, then now is the time to give up all hope of ever getting the iFrame to size to the content. As it is impossible to work out the size of the contained page, without using JavaScript on both the parent and child pages.
+The most common cause of this is not placing the [@iframe-resizer/child](../getting_started/#child-page-setup) package inside the iFramed page.
 
 <!--
 ### IFrame not detecting CSS :hover events
@@ -90,7 +90,7 @@ When an iframe is located on your local machine the browser adds extra security 
 
 ### Failed to execute 'postMessage' on 'DOMWindow'
 
-This error occurs when the parent window tries to send a message to the iframe before it has loaded. IFrameResize makes multiple attempts to talk to the iFrame, so if everything is working then you can safely ignore this error message.
+This error occurs when the parent window tries to send a message to the iframe before it has loaded. This library makes multiple attempts to talk to the iFrame, so if everything is working then you can safely ignore this error message.
 
 If you're still having problems, or you really want to not ignore the error, then you can try delaying the call to `iframeResize()` until after the `onLoad` event of the iframe has fired.
 
@@ -109,7 +109,7 @@ The `parentIFrame` object is created once the iFrame has been initially resized.
     },
   };
 </script>
-<script src="js/iframeresizer.contentwindow.js"></script>
+<script src="node_modules/@iframe-resizer/child/index.umd.js"></script>
 ```
 
 ### PDF and OpenDocument files
@@ -118,11 +118,19 @@ It is not possible to add the required JavaScript to PDF and ODF files. However,
 
 ### Unexpected message received error
 
-By default the origin of incoming messages is checked against the `src` attribute of the iFrame. If they don't match an error is thrown. This behaviour can be disabled by setting the [checkOrigin](./docs/parent_page/options.md#checkorigin) option to **false**.
+By default the origin of incoming messages is checked against the `src` attribute of the iFrame. If they don't match an error is thrown. This behaviour can be disabled by setting the [checkOrigin](../api/parent/#checkorigin) option to **false**.
+
+```js
+iframeResize({ checkOrigin: false });
+```
 
 ### Width not resizing
 
-By default only changes in height are detected, if you want to calculate the width you need to set the `sizeWidth` option to true and the `sizeHeight` option to false.
+By default only changes in height are detected, if you want to calculate the width instead then you need to set the [direction](../api/parent/#direction) option to **'width'**.
+
+```js
+iframeResize({ direction: "width" });
+```
 
 ### Frame has not responded within 5 seconds
 
