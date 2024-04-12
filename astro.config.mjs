@@ -21,17 +21,19 @@ export default defineConfig({
         },
         {
           label: "Licenses",
-          items: [
-            { label: "Comercial License", link: "/license#comercial" },
-            { label: "Open Source License", link: "/license#open" },
-          ],
+          link: "license",
+          // items: [
+          //   { label: "Comercial License", link: "/license#comercial" },
+          //   { label: "Open Source License", link: "/license#open" },
+          // ],
         },
         {
           label: "Getting Started",
-          items: [
-            { label: "Same Domain", link: "/license#comercial" },
-            { label: "Cross Domain", link: "/license#open" },
-          ],
+          link: "getting_started",
+          // items: [
+          //   { label: "Same Domain", link: "/license#comercial" },
+          //   { label: "Cross Domain", link: "/license#open" },
+          // ],
         },
         {
           label: "API",
