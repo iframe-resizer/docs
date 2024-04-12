@@ -21,4 +21,4 @@ This version of _iframe-resizer_ has been extensively rewritten to use modern br
 
 This library is now able to detect events such as `:hover`, user resizing of elements, such as `<textarea>` and CSS animation that in the past caused problems. Indeed it will now be able to not only detect CSS animation events that cause the content to resize, but keep up with the animation and reszie the iframe in real time.
 
-With this release, the opertunity has been taken to refresh and simplify the API, if you are coming from a prevous version then their is an [Upgrade Guide](upgrade) to explain the changes.
+With this release, the opertunity has been taken to refresh and simplify the API, if you are coming from a prevous version then their is an [Upgrade Guide](../upgrade) to explain the changes.
