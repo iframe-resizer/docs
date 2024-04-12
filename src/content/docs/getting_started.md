@@ -29,12 +29,13 @@ The normal configuration is to have the iFrame resize when the browser window ch
 
 ```html
 <iframe id="myIframe" src="http://anotherdomain.com/iframe.html"></iframe>
+<script src="node_modules/@iframe-resizer/parent/index.umd.js"></script>
 <script>
   iframeResize();
 </script>
 ```
 
-## Child Page
+## Child Page Setup
 
 The child page needs to load it's own JavaScript package, to enable communication with the parent page.
 
@@ -45,6 +46,14 @@ npm install @iframe-resizer/child --save
 ```
 
 ### Usage
+
+This package just needs to be included on every page that you load into the iframe. It will queitly listern for a message from the parent page. When this is received it will automatically initialise itself.
+
+```html
+<script src="node_modules/@iframe-resizer/child/index.umd.js"></script>
+```
+
+## Troubleshooting
 
 If you have problems, check the [troubleshooting](../troubleshooting) section.
 
