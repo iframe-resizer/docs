@@ -81,11 +81,11 @@ These new options allow you to adjust the value returned by the iframe, they can
 
 ## Other Improvements
 
-In addition to the above API changes, _iframe-resizer 5_ includes the following additional enhancements.
+In addition to the above API changes, _iframe-resizer 5_ includes the following other enhancements.
 
 ### Direct communitcation for same domain iframes
 
-Iframe Resizer now detects when the iframe is on the same domain as the parent page, and will then pass messages directly via the browser DOM. This provides an additional performance improvement over always using `postMessage()`, which is now only used for cross-domain iframes.
+Iframe-resizer now detects when the iframe is on the same domain as the parent page, and will then pass messages directly via the browser DOM. This provides an additional performance improvement over always using `postMessage()`, which is now only used for cross-domain iframes.
 
 ### Visability checking
 

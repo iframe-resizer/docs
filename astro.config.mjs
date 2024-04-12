@@ -3,6 +3,8 @@ import starlight from "@astrojs/starlight";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://davidjbradshaw.github.io/iframe-resizer-docs",
+  base: "iframe-resizer-docs",
   integrations: [
     starlight({
       title: "iframe-resizer",
