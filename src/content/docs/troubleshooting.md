@@ -13,24 +13,31 @@ Bug reports and pull requests are welcome on the [issue tracker](https://github.
 
 When the resizer does not work using multiple IFrames on one page, make sure that each frame has an unique id or no ids at all.
 
+<!--
 ### IFrame not sizing correctly
 
 If a larger element of content is removed from the normal document flow, through the use of absolute positioning, it can prevent the browser working out the correct size of the page. In such cases you can change the [heightCalculationMethod](./parent_page/options.md#heightcalculationmethod) to uses one of the other sizing methods.
+-->
 
 ### IFrame not downsizing
 
-The most likely cause of this problem is having set the height of an element to be 100% of the page somewhere in your CSS. This is normally on the `html` or `body` elements, but it could be on any element in the page. This can sometimes be got around by using the `taggedElement` height calculation method and added a `data-iframe-height` attribute to the element that you want to define the bottom position of the page. You may find it useful to use `position: relative` on this element to define a bottom margin or allow space for a floating footer.
+The most likely cause of this problem is having set the height of an element to be 100% of the page somewhere in your CSS.
 
+This can often be got around by adding a `data-iframe-size` attribute to the element that you want to define the bottom position of the page.
+
+<!--
 Not having a valid [HTML document type](http://en.wikipedia.org/wiki/Document_type_declaration) in the iFrame can also sometimes prevent downsizing. At it's most simplest this can be the following.
 
 ```html
 <!DOCTYPE html>
 ```
+-->
 
 ### IFrame not resizing
 
 The most common cause of this is not placing the [iframeResizer.contentWindow.min.js](https://raw.github.com/davidjbradshaw/iframe-resizer/master/js/iframeResizer.contentWindow.min.js) script inside the iFramed page. If the other page is on a domain outside your control and you can not add JavaScript to that page, then now is the time to give up all hope of ever getting the iFrame to size to the content. As it is impossible to work out the size of the contained page, without using JavaScript on both the parent and child pages.
 
+<!--
 ### IFrame not detecting CSS :hover events
 
 CSS `:hover` events that cause the page to resize outside of the standard document flow can sometimes be difficult to detect. If this is an issue, then a workaround is to create `mouseover` and `mouseout` event listeners on the elements that are resized via CSS and have these events call the [parentIFrame.size()](##parentiframesize-customheight-customwidth) method. With jQuery this can be done as follows.
@@ -46,7 +53,6 @@ function resize(){
 $(*Element with hover style*).hover(resize);
 ```
 
-<!--
 ### IFrame not detecting textarea resizes
 
 Both FireFox and the WebKit based browsers allow the user to resize `textarea` input boxes. Unfortunately the WebKit browsers don't trigger the mutation event when this happens. This can be worked around to some extent with the following code.
@@ -68,7 +74,6 @@ $('textarea')
     }
   })
 ```
--->
 
 ### IFrame flickers
 
@@ -77,6 +82,7 @@ Some of the alternate [height calculation methods](./parent_page/options.md#heig
 In modern browsers, if the default [height calculation method](./parent_page/options.md#heightcalculationmethod) does not work, then it is normally best to use **taggedElement** or **lowestElement**, which are both flicker free.
 
 <i>Please see the notes section under [heightCalculationMethod](./parent_page/options.md#heightcalculationmethod) to understand the limitations of the different options.</i>
+-->
 
 ### Localhost 127.0.0.1 and file:///
 
