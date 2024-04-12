@@ -136,4 +136,4 @@ iframeResize({ direction: "width" });
 
 This error happens when the iframe is slow to respond, or is blocked from responding to the request from the parent page.
 
-If everything is working, then this message can be ignored, or if you prefer you can set a longer timeout. On the otherhand if you are not getting a response from the iframe and the child package has been loaded in the iframe, then you need to check that iframe has not been sandboxed, either by setting optins on the `<iframe>` tag, or in the http headers of the iframe.
+If everything is working, then this message can be ignored, or if you prefer you can set a longer timeout. On the otherhand if you are not getting a response and the child package has been loaded in the iframe, then you need to check that iframe has not been sandboxed, either by setting optins on the `<iframe>` tag, or in the http headers of the iframe.
