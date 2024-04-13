@@ -46,8 +46,8 @@ export default defineConfig({
           label: "Frameworks and Libraries",
           items: [
             { label: "React", link: "/frameworks/react" },
-            { label: "Vue 3", link: "/frameworks/vue3" },
-            { label: "Vue 2", link: "/frameworks/vue2" },
+            { label: "Vue", link: "/frameworks/vue3" },
+            // { label: "Vue 2", link: "/frameworks/vue2" },
             { label: "jQuery", link: "/frameworks/jquery" },
             {
               label: "Google Apps Scripts",
