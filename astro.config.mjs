@@ -54,7 +54,7 @@ export default defineConfig({
               label: "Google Apps Scripts",
               link: "/frameworks/google_apps_script",
             },
-            { label: "Angular", link: "/frameworks/angular" },
+            // { label: "Angular", link: "/frameworks/angular" },
             { label: "Ember", link: "/frameworks/ember" },
             { label: "Framework API", link: "/frameworks/api" },
           ],
