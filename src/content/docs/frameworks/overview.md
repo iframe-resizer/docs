@@ -1,3 +1,9 @@
+---
+title: Frameworks and Libraries
+description: Using iframe-resizer with frameworks
+prev: Child Page API
+---
+
 # Frameworks and library
 
 _Iframe-Resizer_ has support for a number of frameworks and libraries.

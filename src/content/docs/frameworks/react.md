@@ -1,7 +1,6 @@
 ---
 title: iframe-resizer/react
 description: React plugin for iframe-resizer
-prev: Child Page API
 ---
 
 ## Install
