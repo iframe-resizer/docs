@@ -25,7 +25,7 @@ This library provided the function `iframeResize()` which accepts a config objec
 const iframes = iframeResize( [{options}], [css selector] || [iframe] );
 ```
 
-Once the setup has run a [NodeList](https://developer.mozilla.org/en-US/docs/Web/API/NodeList) of the iframe that have had _iframe-resizer_ bound to them.
+Once the setup has run an array of the iframes that have had _iframe-resizer_ bound to them.
 
 ### Typical setup
 
