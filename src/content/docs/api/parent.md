@@ -5,11 +5,11 @@ next: Child Page API
 prev: Getting Started
 ---
 
-The Parent API is for use on the page containing the `<iframe>` tag. It is split into three sections. [Options](#options) contains settings that can be passed when calling iframe-resizer. [Events](#events) are trigged by updates to the iframe, or messages from the iframe. [Methods](#methods) allow you to interact with iframe-resizer after the initial resizing.
+The Parent API is for use on the page containing the `<iframe>` tag. It is split into three sections. [Options](#options) contains settings that can be passed when calling iframe-resizer. [Events](#events) are trigged by updates to the iframe, or messages from the iframe. [Methods](#methods) allow you to interact with _iframe-resizer_ after the initial resizing.
 
 ## Options
 
-The following options can be passed to iframe-resizer on the parent page.
+The following options can be passed to _iframe-resizer_ on the parent page.
 
 ### bodyBackground
 
@@ -96,7 +96,7 @@ Set the number of milliseconds after which a warning is logged if the iFrame has
 
 ## Events
 
-The following callback events can be passed to iframe-resizer on the parent page, as part of the [options](options.md) object.
+The following callback events can be passed to _iframe-resizer_ on the parent page, as part of the [options](options.md) object.
 
 ### onClose
 

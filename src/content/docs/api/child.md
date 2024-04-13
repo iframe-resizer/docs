@@ -5,7 +5,7 @@ prev: Parent Page API
 next: Frameworks
 ---
 
-The Child API is for use on the page contained within the `<iframe>` tag. It is split into three sections. [Options](#options) contains settings that can be passed when calling iframe-resizer. [Events](#events) are trigged by updates to the iframe, or messages from the iframe. [Methods](#methods) allow you to interact with iframe-resizer after the initial resizing.
+The Child API is for use on the page contained within the `<iframe>` tag. It is split into three sections. [Options](#options) contains settings that can be passed when calling iframe-resizer. [Events](#events) are trigged by updates to the iframe, or messages from the iframe. [Methods](#methods) allow you to interact with _iframe-resizer_ after the initial resizing.
 
 ## Options
 
@@ -55,7 +55,7 @@ Receive message posted from the parent page with the `iframe.iFrameResizer.sendM
 
     type: function()
 
-This function is called once iFrame-Resizer has been initialized after receiving a call from the parent page. If you need to call any of the [parentIFrame methods](https://github.com/davidjbradshaw/iframe-resizer/blob/master/docs/iframed_page/methods.md) during page load, then they should be called from this event handler.
+This function is called once _iframe-resizer_ has been initialized after receiving a call from the parent page. If you need to call any of the [parentIFrame methods](https://github.com/davidjbradshaw/iframe-resizer/blob/master/docs/iframed_page/methods.md) during page load, then they should be called from this event handler.
 
 ## Methods
 
@@ -151,4 +151,4 @@ Change the method use to workout the height of the iFrame.
 
 ### size()
 
-Manually force iFrame to resize. If for some reason a change in content size is not detected, this method allows you to nudge iframe-resizer to recalculate the page size.
+Manually force iFrame to resize. If for some reason a change in content size is not detected, this method allows you to nudge _iframe-resizer_ to recalculate the page size.

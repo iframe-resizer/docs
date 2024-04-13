@@ -3,7 +3,7 @@ title: Troubleshooting
 description: Fix common issues
 ---
 
-The first steps to investigate any problem is to make sure you are using the latest version and then check the [JavaScript Console](https://developers.google.com/chrome-developer-tools/docs/console#opening_the_console). _Iframe-resizer_ will output the details of any issues it detects and give advise on how to fix them.
+The first steps to investigate any problem is to make sure you are using the latest version and then check the [JavaScript Console](https://developers.google.com/chrome-developer-tools/docs/console#opening_the_console). _iframe-resizer_ will output the details of any issues it detects and give advise on how to fix them.
 
 Solutions for the most common problems are outlined in this section. If you need further help, then please ask questions on [StackOverflow](http://stackoverflow.com/questions/tagged/iframe-resizer) with the `iframe-resizer` tag.
 
@@ -86,7 +86,7 @@ In modern browsers, if the default [height calculation method](./parent_page/opt
 
 ### Localhost 127.0.0.1 and file:///
 
-When an iframe is located on your local machine the browser adds extra security restrictions to cross-domain iframes. These will stop iframe-resizer from functioning. If you need to test something locally, then it is best to use the external IP Address of the machine.
+When an iframe is located on your local machine the browser adds extra security restrictions to cross-domain iframes. These will stop _iframe-resizer_ from functioning. If you need to test something locally, then it is best to use the external IP Address of the machine.
 
 ### Failed to execute 'postMessage' on 'DOMWindow'
 
