@@ -19,9 +19,13 @@ npm install @iframe-resizer/parent --save
 
 ### Usage
 
+This library provided the function `iframeResize()` which accepts a config object and one or more iframes. Iframes can be passed via either CSS selector or reference. All these values are optional and if no iframe is provided, then it will bind _iframe-resizer_ to all iframes currently contained on the page.
+
 ```js
-const iframes = ( [{options}], [css selector] || [iframe] );
+const iframes = iframeResize( [{options}], [css selector] || [iframe] );
 ```
+
+Once the setup has run a [NodeList](https://developer.mozilla.org/en-US/docs/Web/API/NodeList) of the iframe that have had _iframe-resizer_ bound to them.
 
 ### Typical setup
 

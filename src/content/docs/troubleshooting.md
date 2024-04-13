@@ -132,8 +132,8 @@ iframeResize({ checkOrigin: false });
 
 ### Width not resizing
 
-By default only changes in height are detected, if you want to calculate the width instead then you need to set the [direction](../api/parent/#direction) option to **'width'**.
+By default only changes in height are detected, if you want to calculate the width instead then you need to set the [direction](../api/parent/#direction) option to **'horizontal'**.
 
 ```js
-iframeResize({ direction: "width" });
+iframeResize({ direction: "horizontal" });
 ```
