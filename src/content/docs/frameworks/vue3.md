@@ -1,5 +1,5 @@
 ---
-title: Vue3
+title: Vue 3
 description: Vue3 (with Typescript)
 ---
 

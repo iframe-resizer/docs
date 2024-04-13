@@ -9,9 +9,11 @@ The _iframe-resizer_ project is distrobuted via seporate packages for the parent
 
 ## Parent Page Setup
 
-In this section we detail how to setup the parent page using the Vanilla JavaScipt version of _iframe-resizer_. The framework section of this guide details how to use _iframe-resizer_ with a range of popular frameworks and libraries.
+In this section we detail how to setup the parent page using the Vanilla JavaScipt version of _iframe-resizer_. The [framework](../frameworks/overview) section of this guide details how to use _iframe-resizer_ with a range of popular frameworks and libraries.
 
 ### Install
+
+Install this package with the following command.
 
 ```bash
 npm install @iframe-resizer/parent --save
@@ -44,6 +46,8 @@ The normal configuration is to have the iFrame resize when the browser window ch
 The child page needs to load it's own JavaScript package, to enable communication with the parent page.
 
 ### Install
+
+Install this package with the following command.
 
 ```bash
 npm install @iframe-resizer/child --save

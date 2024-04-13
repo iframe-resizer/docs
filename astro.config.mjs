@@ -45,6 +45,7 @@ export default defineConfig({
         {
           label: "Frameworks and Libraries",
           items: [
+            { label: "Overview", link: "/frameworks/overview" },
             { label: "React", link: "/frameworks/react" },
             { label: "Vue", link: "/frameworks/vue3" },
             // { label: "Vue 2", link: "/frameworks/vue2" },

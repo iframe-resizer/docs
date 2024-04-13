@@ -12,7 +12,7 @@ Install this package with the following command.
 npm install --save @iframe-resizer/react
 ```
 
-You will also need to ensure that the `@iframe-resizer/child` package has been loaded into the iframe.
+You will also need to ensure that the [@iframe-resizer/child](../getting_started/#child-page-setup) package has been loaded into the iframe.
 
 ## Usage
 

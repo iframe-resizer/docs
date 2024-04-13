@@ -11,7 +11,7 @@ Install this package with the following command.
 npm install --save @iframe-resizer/jquery
 ```
 
-You will also need to ensure that the `@iframe-resizer/child` package has been loaded into the iframe.
+You will also need to ensure that the [@iframe-resizer/child](../getting_started/#child-page-setup) package has been loaded into the iframe.
 
 ## Usage
 
@@ -19,7 +19,7 @@ Use jQuery to find the iframes on the page and then pass them to the `iframeResi
 
 ```js
 <script src="node_modules/jquery/jquery.js"></script>
-<script src="node_modules/iframe-resizer/jquery/index.js"></script>
+<script src="node_modules/iframe-resizer/jquery/index.umd.js"></script>
 <script>
   $("iframe").iframeResize();
 </script>
