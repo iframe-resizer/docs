@@ -6,8 +6,10 @@ description: Creating your own framework component interface
 The `@iframe-resizer/core` package provides a [High Order Function](https://eloquentjavascript.net/05_higher_order.html), that allows you to configure _iframe-resizer_ and then connect a single [HTMLIFrameElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement).
 
 ```js
-connectResizer(options)(HTMLIFrameElement);
+const resizer = connectResizer(options)(HTMLIFrameElement);
 ```
+
+The return `resizer` object contains the [Parent Page API methods](../api/parent/#methods). This provides methods to disconnect _iframe-resizer_ from the iframe, so it can be safely removed from the page.
 
 ## Example component
 
