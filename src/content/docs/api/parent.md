@@ -172,13 +172,13 @@ Once the iFrame has been initialized, an `iFrameResizer` object is bound to it. 
 
 Remove the iFrame from the page. You should call this method, rather than using JavaScript to remove an iframe directly from the page.
 
-### moveToAnchor(anchor)
-
-Move to anchor in the iFrame.
-
 ### disconnect()
 
 Disconnect _iframe-resizer_ from the iFrame. This is option allows Virtual DOMs to remove an iFrame tag. It should not normally be required.
+
+### moveToAnchor(anchor)
+
+Move to anchor in the iFrame.
 
 ### resize()
 

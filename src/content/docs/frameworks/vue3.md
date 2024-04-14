@@ -10,22 +10,24 @@ import { Directive, DirectiveBinding } from "vue";
 import connectResizer from "@iframe-resizer/core";
 
 interface ResizableHTMLElement extends HTMLElement {
-  iFrameResizer?: {
-    removeListeners: () => void;
+  iframeResizer?: {
+    close: () => void;
+    disconnect: () => void;
+    moveToAnchor: (string) => void;
+    resize: () => void;
+    sendMessage: () => void;
   };
 }
 
-const resizer: Directive = {
+const iframeResizer: Directive = {
   mounted(el: HTMLElement, binding: DirectiveBinding) {
     const options = binding.value || {};
-    el.addEventListener("load", () => iframeResize(options, el));
+    const connectWithOptions = connectResizer(options);
+    el.addEventListener("load", () => connectWithOptions(el));
   },
   unmounted(el: HTMLElement) {
     const resizableEl = el as ResizableHTMLElement;
-
-    if (resizableEl.iFrameResizer) {
-      resizableEl.iFrameResizer.removeListeners();
-    }
+    resizableEl?.iframeResizer.disconnect();
   },
 };
 
@@ -37,7 +39,7 @@ Register the directive
 ```ts
 const app = createApp(App)
 ...
-app.directive('resizer', connectResizer)
+app.directive('iframeResizer', connectResizer)
 ...
 app.mount('#app')
 
@@ -46,5 +48,10 @@ app.mount('#app')
 and then include it on your page as follows.
 
 ```html
-<iframe v-resizer width="100%" src="myiframe.html" frameborder="0"></iframe>
+<iframe
+  v-iframeResizer
+  width="100%"
+  src="myiframe.html"
+  frameborder="0"
+></iframe>
 ```

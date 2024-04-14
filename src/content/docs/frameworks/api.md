@@ -63,4 +63,4 @@ useEffect(() => {
 
 The `connectResizer()()` function is used internally by `iframeResize()`, the main difference is that the later allows you to pass in any valid CSS Selector, an [HTMLElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement), or simply not specify anything and it will hunt for iframes on the page, where as `connectResize()()` requires a single `HTMLIFrameElement`.
 
-The return type for `connectResizer()()` is a `resizer` object containing the [Parent Page API methods](../api/parent/#methods), where as `iframeResizer()` returns an array of the iframes it has found on your behalf.
+The return type for `connectResizer()()` is a `resizer` object containing the [Parent Page API methods](../api/parent/#methods), whereas `iframeResizer()` returns an array of the iframes it has found on your behalf.
