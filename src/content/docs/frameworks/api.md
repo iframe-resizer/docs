@@ -30,9 +30,17 @@ window.jQuery.fn.iframeResize = function (options) {
 
 The actual `@iframe-resizer/jquery` plugin provides a few more [safety checks](https://github.com/davidjbradshaw/iframe-resizer/blob/master/packages/jquery/plugin.js) to help inexperinced users get up and running.
 
+## Removing an iframe from the page
+
+When removing an iframe you should use _iframe-resizer's_ [close()](../api/parent/#close) method. This prevents issues if the iframe is then later re-added to the page.
+
 ## Virtual DOMs
 
-For Frameworks that create Virtual DOMs, the parent page API provides a [disconnect](../api/parent/#disconnect) method to disconnect _iframe0resizer_ from the iframe element. This needs to be called before the iframe is removed from the page.
+For frameworks, such as React, that make use of a Virtual DOM. Their are a couple of additional considerations.
+
+When you add an iframe to a Virtual DOM, you need to ensure that `connectResizer()()` is only called on the first render of the iframe.
+
+Before having a Virtual DOM remove an iframe from the page, _iframe-resizer_ needs to be first disconnnect from the iframe. The Parent Page API provides a [disconnect](../api/parent/#disconnect) method to unbind _iframe-resizer_ from the iframe element.
 
 The following example of this is a simplified part of the `@iframe-resizer/react` component.
 
@@ -43,6 +51,8 @@ useEffect(() => {
 
   // Return function to be called before iframe is removed
   return () => resizer.disconnect();
+
+  // The empty array tells React to only run this function on the first render of the component.
 }, []);
 ```
 
