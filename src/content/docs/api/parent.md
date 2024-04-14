@@ -60,6 +60,8 @@ When enabled in page linking inside the iFrame and from the iFrame to the parent
 
 Modify the computed height of the iframe. This is useful if the page in the iframe returns a height value that is consitantly slightly different to how you want the iframe to be sized.
 
+<sup>\*</sup> This value can also be set on a per page basis in the iframe.
+
 ### offsetWidth
 
     default: 0
@@ -104,7 +106,7 @@ The following callback events can be passed to _iframe-resizer_ on the parent pa
 onClose: (iframeID) => boolean;
 ```
 
-Called before iFrame is closed via `parentIFrame.close()` or `iframe.iFrameResizer.close()` methods. Returning `false` will prevent the iFrame from closing.
+Called before the iFrame is closed via `parentIFrame.close()` or `iframe.iFrameResizer.close()` methods. Returning `false` will prevent the iFrame from closing.
 
 ### onClosed
 
@@ -112,7 +114,7 @@ Called before iFrame is closed via `parentIFrame.close()` or `iframe.iFrameResiz
 onClosed: (iframeID) => undefined;
 ```
 
-Called after iFrame is closed via `parentIFrame.close()` or `iframe.iFrameResizer.close()` methods.
+Called after the iFrame is closed via `parentIFrame.close()` or `iframe.iFrameResizer.close()` methods.
 
 ### onMessage
 
@@ -120,7 +122,7 @@ Called after iFrame is closed via `parentIFrame.close()` or `iframe.iFrameResize
 onMessage: ({ iframe, message }) => undefined;
 ```
 
-Receive message posted from iFrame with the `parentIFrame.sendMessage()` method.
+Receives messages posted from the iFrame with the `parentIFrame.sendMessage()` method.
 
 ### onMouseEnter
 
@@ -160,7 +162,7 @@ Function called after iFrame resized. Passes `messageData` object containing the
 onScroll: ({ x, y }) => [true | false];
 ```
 
-Called before the page is repositioned after a request from the iFrame, due to either an in page link, or a direct request from either [parentIFrame.scrollTo()](../iframed_page/methods.md#scrolltoxy) or [parentIFrame.scrollToOffset()](../iframed_page/methods.md#scrolltooffsetxy). If this function returns **false**, it will stop the library from repositioning the page, so that you can implement your own animated page scrolling instead.
+Called before the page is repositioned after a request from the iFrame, due to either an in page link, or a direct request from either [parentIFrame.scrollTo()](../child#scrolltoxy) or [parentIFrame.scrollToOffset()](../child#scrolltooffsetxy). If this function returns **false**, it will stop the library from repositioning the page, so that you can implement your own custom animated page scrolling instead.
 
 ## Methods
 
@@ -168,15 +170,15 @@ Once the iFrame has been initialized, an `iFrameResizer` object is bound to it. 
 
 ### close()
 
-Remove the iFrame from the page.
+Remove the iFrame from the page. You should call this method, rather than using JavaScript to remove an iframe directly from the page.
 
 ### moveToAnchor(anchor)
 
-Move to anchor in iFrame.
+Move to anchor in the iFrame.
 
-### removeListeners()
+### disconnect()
 
-Detach event listeners from iFrame. This is option allows Virtual DOMs to remove an iFrame tag. It should not normally be required.
+Disconnect _iframe-resizer_ from the iFrame. This is option allows Virtual DOMs to remove an iFrame tag. It should not normally be required.
 
 ### resize()
 

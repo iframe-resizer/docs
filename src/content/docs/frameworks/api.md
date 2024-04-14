@@ -30,8 +30,24 @@ window.jQuery.fn.iframeResize = function (options) {
 
 The actual `@iframe-resizer/jquery` plugin provides a few more [safety checks](https://github.com/davidjbradshaw/iframe-resizer/blob/master/packages/jquery/plugin.js) to help inexperinced users get up and running.
 
+## Virtual DOMs
+
+For Frameworks that create Virtual DOMs, the parent page API provides a [disconnect](../api/parent/#disconnect) method to disconnect _iframe0resizer_ from the iframe element. This needs to be called before the iframe is removed from the page.
+
+The following example of this is a simplified part of the `@iframe-resizer/react` component.
+
+```js
+useEffect(() => {
+  // Connect iframe-resizer to iframe
+  const resizer = connectResizer(props)(iframe);
+
+  // Return function to be called before iframe is removed
+  return () => resizer.disconnect();
+}, []);
+```
+
 ## connectResizer vs iframeResize
 
 The `connectResizer()()` function is used internally by `iframeResize()`, the main difference is that the later allows you to pass in any valid CSS Selector, an [HTMLElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement), or simply not specify anything and it will hunt for iframes on the page, where as `connectResize()()` requires a single HTMLIFrameElement.
 
-The return type for `connectResizer()()` is void, where as `iframeResizer()` returns an array of the iframes it has found on your behalf.
+The return type for `connectResizer()()` is an object containing the [Parent Page API methods](../api/parent/#methods), where as `iframeResizer()` returns an array of the iframes it has found on your behalf.

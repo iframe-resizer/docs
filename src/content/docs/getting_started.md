@@ -27,7 +27,7 @@ This library provided the function `iframeResize()` which accepts a config objec
 const iframes = iframeResize( [{options}], [css selector] || [iframe] );
 ```
 
-Once the setup has run an array of the iframes that have had _iframe-resizer_ bound to them.
+Once the setup has run, an array of the iframes that have had _iframe-resizer_ bound to them.
 
 ### Typical setup
 
@@ -55,7 +55,7 @@ npm install @iframe-resizer/child --save
 
 ### Usage
 
-This package just needs to be included on every page that you load into the iframe. It will queitly listern for a message from the parent page. When this is received it will automatically initialise itself.
+This package just needs to be included on every page that you load into the iframe. It will queitly listern for a message from the parent page. When this is received it will then automatically initialise itself.
 
 ```html
 <script src="node_modules/@iframe-resizer/child/index.umd.js"></script>

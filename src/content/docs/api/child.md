@@ -17,7 +17,7 @@ The following options can be set from within the iFrame page by creating a `wind
     targetOrigin: "http://mydomain.com",
   };
 </script>
-<script src="js/iframeresizer.contentwindow.js"></script>
+<script src="node_modules/@iframe-resizer/child/index.umd.js"></script>
 ```
 
 ### offsetHeight
