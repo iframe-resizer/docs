@@ -9,7 +9,7 @@ The `@iframe-resizer/core` package provides a [High Order Function](https://eloq
 const resizer = connectResizer(options)(HTMLIFrameElement);
 ```
 
-The return `resizer` object contains the [Parent Page API methods](../api/parent/#methods). This provides methods to disconnect _iframe-resizer_ from the iframe, so it can be safely removed from the page.
+The return `resizer` object contains the [Parent Page API methods](../api/parent/#methods). This provides methods to disconnect _iframe-resizer_ from the iframe, to enable it to be safely removed from the page.
 
 ## Example component
 
