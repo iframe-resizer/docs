@@ -52,12 +52,13 @@ useEffect(() => {
   // Return function to be called before iframe is removed
   return () => resizer.disconnect();
 
-  // The empty array tells React to only run this function on the first render of the component.
+  // The empty array tells React to only run this function
+  // on the first render of the component.
 }, []);
 ```
 
 ## connectResizer vs iframeResize
 
-The `connectResizer()()` function is used internally by `iframeResize()`, the main difference is that the later allows you to pass in any valid CSS Selector, an [HTMLElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement), or simply not specify anything and it will hunt for iframes on the page, where as `connectResize()()` requires a single HTMLIFrameElement.
+The `connectResizer()()` function is used internally by `iframeResize()`, the main difference is that the later allows you to pass in any valid CSS Selector, an [HTMLElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement), or simply not specify anything and it will hunt for iframes on the page, where as `connectResize()()` requires a single `HTMLIFrameElement`.
 
-The return type for `connectResizer()()` is an object containing the [Parent Page API methods](../api/parent/#methods), where as `iframeResizer()` returns an array of the iframes it has found on your behalf.
+The return type for `connectResizer()()` is a `resizer` object containing the [Parent Page API methods](../api/parent/#methods), where as `iframeResizer()` returns an array of the iframes it has found on your behalf.
