@@ -15,7 +15,7 @@ interface ResizableHTMLElement extends HTMLElement {
     disconnect: () => void;
     moveToAnchor: (string) => void;
     resize: () => void;
-    sendMessage: () => void;
+    sendMessage: (string) => void;
   };
 }
 
