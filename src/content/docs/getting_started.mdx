@@ -41,6 +41,22 @@ The normal configuration is to have the iFrame resize when the browser window ch
 </script>
 ```
 
+import { Aside } from "@astrojs/starlight/components";
+
+<Aside title="Commercial use">
+  To use <i>iframe-resizer</i> in a commercial website or application, you need
+  to purchase a one time license. See the pricing page for details.
+</Aside>
+
+<Aside type="tip" title="Non-commercial use">
+  For non-commercial use, <i>iframe-resizer</i> is free to use under the Gnu Public License. To confirm that you are using it on a non-commercial project set the license option to <b>GPL-V3</b>
+
+```js
+iframeResize({ license: "GPL-V3" });
+```
+
+</Aside>
+
 ## Child Page Setup
 
 The child page needs to load it's own JavaScript package, to enable communication with the parent page.
@@ -64,9 +80,3 @@ This package just needs to be included on every page that you load into the ifra
 ## Troubleshooting
 
 If you have problems, check the [troubleshooting](../troubleshooting) section.
-
-<!--
-### Example
-
-To see this working take a look at this [example](https://davidjbradshaw.github.io/iframe-resizer/example/) and watch the [console](https://developer.mozilla.org/en-US/docs/Tools/Web_Console).
--->
