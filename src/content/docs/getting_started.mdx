@@ -46,6 +46,8 @@ The normal configuration is to have the iFrame resize when the browser window ch
 </script>
 ```
 
+Setting the initial height of the iframe to `100vh` makes the loading in of the iframe appear smoother to the user, as they will only see the content below the iframe once it has completed loading and undergone it's initial sizing.
+
 import { Aside } from "@astrojs/starlight/components";
 
 <Aside title="Commercial use">
@@ -61,8 +63,6 @@ iframeResize({ license: "GPL-V3" });
 ```
 
 </Aside>
-
-Setting the initial height of the iframe to `100vh` makes the loading in of the iframe appear smoother to the user, as they will only see the content below the iframe once it has completed loading and undergone it's initial sizing.
 
 ## Child Page Setup
 
