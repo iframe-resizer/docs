@@ -37,7 +37,7 @@ The normal configuration is to have the iFrame resize when the browser window ch
 <iframe id="myIframe" src="http://anotherdomain.com/iframe.html"></iframe>
 <script src="node_modules/@iframe-resizer/parent/index.umd.js"></script>
 <script>
-  iframeResize();
+  iframeResize({ license: "xxxx" });
 </script>
 ```
 
