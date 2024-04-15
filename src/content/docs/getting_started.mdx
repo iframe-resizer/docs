@@ -34,10 +34,10 @@ Once the setup has run, an array of the iframes that have had _iframe-resizer_ b
 The normal configuration is to have the iFrame resize when the browser window changes size or the content of the iFrame changes. To set this up you need to configure one of the dimensions of the iFrame to a percentage and tell the library to only update the other dimension. Normally you would set the width to 100% and have the height scale to fit the content.
 
 ```html<style>
-  iframe {
-    width: 100%;
-    height: 100vh;
-  }
+iframe {
+  width: 100%;
+  height: 100vh;
+}
 </style>
 <iframe id="myIframe" src="http://anotherdomain.com/iframe.html"></iframe>
 <script src="node_modules/@iframe-resizer/parent/index.umd.js"></script>
