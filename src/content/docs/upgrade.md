@@ -94,3 +94,7 @@ The visability of both the iframe and the parent page are now observered. This a
 ### Ensures CSS sizing of iframe html and body tags set to auto
 
 The most common reason for Iframe Resizer to have difficulty resizing, or going into an endless loop of resizing, is the `<html>` and/or `<body>` elements having a size set on them by CSS. Iframe Resizer now inspects these elements and ensures that the height and width is set to `auto`.
+
+### TypeScript Types
+
+TypeScript Types are now included in the NPM module.
