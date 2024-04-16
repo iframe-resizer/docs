@@ -80,18 +80,27 @@ npm install @iframe-resizer/child --save
 
 This package just needs to be included on every page that you load into the iframe. It will queitly listern for a message from the parent page. When this is received it will then automatically initialise itself.
 
+{/* <!-- prettier-ignore-start --> */}
+
 import { Tabs, TabItem } from "@astrojs/starlight/components";
+
 <Tabs>
   <TabItem label="Vanilla js">
-    ```html
-    <script src="node_modules/@iframe-resizer/child/index.umd.js"></script>
-    ```
+```html
+<script src="node_modules/@iframe-resizer/child/index.umd.js"></script>
+```
   </TabItem>
-  <TabItem label="ES Modules">```js import '@iframe-resizer/child' ```</TabItem>
+  <TabItem label="ES Modules">
+```js
+import '@iframe-resizer/child'
+```</TabItem>
   <TabItem label="Common JS">
-    ```js require('@iframe-resizer/child') ```
+```js
+require('@iframe-resizer/child')
+```
   </TabItem>
-</Tabs>;
+</Tabs>
+{/* <!-- prettier-ignore-end --> */}
 
 ## Troubleshooting
 
