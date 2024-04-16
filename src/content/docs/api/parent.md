@@ -11,6 +11,14 @@ The Parent API is for use on the page containing the `<iframe>` tag. It is split
 
 The following options can be passed to _iframe-resizer_ on the parent page.
 
+### License
+
+    type:    string
+
+**Commercial Use** Enter the key provided with the [purchased](pricing) commercial license.
+
+**Open Source Use** If you are using _iframe-resizer_ on an open-source site or project, then you can use it for free under the terms of the [Gnu Public License V3](gpl). To accept these terms set the license to `GPL-V3`.
+
 ### bodyBackground
 
     default: null
