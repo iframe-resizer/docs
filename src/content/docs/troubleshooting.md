@@ -40,13 +40,13 @@ The most common cause of this is not placing the [@iframe-resizer/child](../gett
 <!--
 ### IFrame not detecting CSS :hover events
 
-CSS `:hover` events that cause the page to resize outside of the standard document flow can sometimes be difficult to detect. If this is an issue, then a workaround is to create `mouseover` and `mouseout` event listeners on the elements that are resized via CSS and have these events call the [parentIFrame.size()](##parentiframesize-customheight-customwidth) method. With jQuery this can be done as follows.
+CSS `:hover` events that cause the page to resize outside of the standard document flow can sometimes be difficult to detect. If this is an issue, then a workaround is to create `mouseover` and `mouseout` event listeners on the elements that are resized via CSS and have these events call the [parentIframe.size()](##parentiframesize-customheight-customwidth) method. With jQuery this can be done as follows.
 
 ```js
 function resize(){
-  if ('parentIFrame' in window) {
+  if ('parentIframe' in window) {
     // Fix race condition in FireFox with setTimeout
-    setTimeout(parentIFrame.size.bind(parentIFrame),0);
+    setTimeout(parentIframe.size.bind(parentIframe),0);
   }
 }
 
@@ -68,8 +68,8 @@ $('textarea')
   .on('mouseover mouseout', function() {
     if (this.offsetWidth !== this.x || this.offsetHeight !== this.y) {
       store.call(this)
-      if ('parentIFrame' in window) {
-        parentIFrame.size()
+      if ('parentIframe' in window) {
+        parentIframe.size()
       }
     }
   })
@@ -102,15 +102,15 @@ This error happens when the iframe is slow to respond, or is blocked from respon
 
 If everything is working, then this message can be ignored, or if you prefer you can set a longer timeout. On the otherhand if you are not getting a response and the child package has been loaded in the iframe, then you need to check that iframe has not been sandboxed, either by setting optins on the `<iframe>` tag, or with the `x-Frame-Options` http header of the iframe.
 
-### ParentIFrame not found errors
+### ParentIframe not found errors
 
-The `parentIFrame` object is created once the iFrame has been initially resized. If you wish to use it during page load you will need call it from the onReady.
+The `parentIframe` object is created once the iFrame has been initially resized. If you wish to use it during page load you will need call it from the onReady.
 
 ```html
 <script>
   window.iFrameResizer = {
-    onReady: function () {
-      var myId = window.parentIFrame.getId();
+    onReady() {
+      const myId = window.parentIframe.getId();
       console.log("The ID of the iFrame in the parent page is: " + myId);
     },
   };
