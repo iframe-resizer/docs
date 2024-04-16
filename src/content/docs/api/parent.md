@@ -174,7 +174,7 @@ Called before the page is repositioned after a request from the iFrame, due to e
 
 ## Methods
 
-Once the iFrame has been initialized, an `iFrameResizer` object is bound to it. This has the following methods available.
+Once the iFrame has been initialized, an `iframeResizer` object is bound to it. This has the following methods available.
 
 ### close()
 
