@@ -22,22 +22,28 @@ The following options can be set from within the iFrame page by creating a `wind
 
 ### offsetHeight
 
+```
     default: 0
     type:    integer
+```
 
 Modify the computed height of the iframe. This is useful if the page in the iframe returns a size value that is consitantly slightly different to how you want the iframe to be sized.
 
 ### offsetWidth
 
+```
     default: 0
     type:    integer
+```
 
 Modify the computed width of the iframe. This is useful if the page in the iframe returns a width value that is consitantly slightly different to how you want the iframe to be sized.
 
 ### targetOrigin
 
+```
     default: '*'
     type: string
+```
 
 This option allows you to restrict the domain of the parent page, to prevent other sites mimicking your parent page.
 

@@ -13,7 +13,9 @@ The following options can be passed to _iframe-resizer_ on the parent page.
 
 ### License
 
+```
     type:    string
+```
 
 **Commercial** Enter the key provided with the [purchased](/pricing) commercial license.
 
@@ -21,36 +23,46 @@ The following options can be passed to _iframe-resizer_ on the parent page.
 
 ### bodyBackground
 
+```
     default: null
     type:    string
+```
 
 Override the body background style in the iFrame.
 
 ### bodyMargin
 
+```
     default: null
     type:    string || number
+```
 
 Override the default body margin style in the iFrame. A string can be any valid value for the CSS margin attribute, for example '8px 3em'. A number value is converted into px.
 
 ### bodyPadding
 
+```
     default: null
     type:    string || number
+```
 
 Override the default body padding style in the iFrame. A string can be any valid value for the CSS margin attribute, for example '8px 3em'. A number value is converted into px.
 
 ### checkOrigin
 
+```
     default: true
     type:    boolean || array
+```
 
 When set to true, only allow incoming messages from the domain listed in the `src` property of the iFrame tag. If your iFrame navigates between different domains, ports or protocols; then you will need to provide an array of URLs or disable this option.
 
 ### direction
 
-> default: 'horizontal'
-> values: 'horizontal' || 'vertical' || 'none'
+```
+default: 'horizontal'
+values: 'horizontal' || 'vertical' || 'none'
+```
 
 Set the direction in which you want the iframe to automaticaly scale to the content size.
 
@@ -60,24 +72,28 @@ import { Aside } from "@astrojs/starlight/components";
   When setting the direction to `horizontal` it is best to avoid floating or
   positioning elements to the right side of the page, as this will interfer with
   working out the content width.
-  <br />
-  <br />
-  If you cmust have elements on the right of the page, then you will need to tell
-  _iframe-resizer_ which page element touse to calculated the width by adding a `data-iframe-size`
-  attribute.
+
+If you cmust have elements on the right of the page, then you will need to tell
+_iframe-resizer_ which page element touse to calculated the width by adding a `data-iframe-size`
+attribute.
+
 </Aside>
 
 ### inPageLinks
 
+```
     default: false
     type:    boolean
+```
 
 When enabled in page linking inside the iFrame and from the iFrame to the parent page will be enabled.
 
 ### offsetHeight
 
+```
     default: 0
     type:    integer
+```
 
 Modify the computed height of the iframe. This is useful if the page in the iframe returns a height value that is consitantly slightly different to how you want the iframe to be sized.
 
@@ -85,8 +101,10 @@ Modify the computed height of the iframe. This is useful if the page in the ifra
 
 ### offsetWidth
 
+```
     default: 0
     type:    integer
+```
 
 Modify the computed width of the iframe. This is useful if the page in the iframe returns a width value that is consitantly slightly different to how you want the iframe to be sized.
 
@@ -94,8 +112,10 @@ Modify the computed width of the iframe. This is useful if the page in the ifram
 
 ### scrolling
 
+```
     default: false
     type:    boolean | 'omit'
+```
 
 Enable scroll bars in iFrame.
 
@@ -105,15 +125,19 @@ Enable scroll bars in iFrame.
 
 ### tolerance
 
+```
     default: 0
     type:    integer
+```
 
 Set the number of pixels the iFrame content size has to change by, before triggering a resize of the iFrame.
 
 ### warningTimeout
 
+```
     default: 5000
     type:    integer
+```
 
 Set the number of milliseconds after which a warning is logged if the iFrame has not responded. Set to `0` to supress warning messages of this type.
 
