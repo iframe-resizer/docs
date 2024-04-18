@@ -14,7 +14,7 @@ The following options can be passed to _iframe-resizer_ on the parent page.
 ### License
 
 ```
-    type:    string
+type:    string
 ```
 
 **Commercial** Enter the key provided with the [purchased](/pricing) commercial license.
@@ -24,8 +24,8 @@ The following options can be passed to _iframe-resizer_ on the parent page.
 ### bodyBackground
 
 ```
-    default: null
-    type:    string
+default: null
+type:    string
 ```
 
 Override the body background style in the iFrame.
@@ -33,8 +33,8 @@ Override the body background style in the iFrame.
 ### bodyMargin
 
 ```
-    default: null
-    type:    string || number
+default: null
+type:    string || number
 ```
 
 Override the default body margin style in the iFrame. A string can be any valid value for the CSS margin attribute, for example '8px 3em'. A number value is converted into px.
@@ -42,8 +42,8 @@ Override the default body margin style in the iFrame. A string can be any valid 
 ### bodyPadding
 
 ```
-    default: null
-    type:    string || number
+default: null
+type:    string || number
 ```
 
 Override the default body padding style in the iFrame. A string can be any valid value for the CSS margin attribute, for example '8px 3em'. A number value is converted into px.
@@ -51,8 +51,8 @@ Override the default body padding style in the iFrame. A string can be any valid
 ### checkOrigin
 
 ```
-    default: true
-    type:    boolean || array
+default: true
+type:    boolean || array
 ```
 
 When set to true, only allow incoming messages from the domain listed in the `src` property of the iFrame tag. If your iFrame navigates between different domains, ports or protocols; then you will need to provide an array of URLs or disable this option.
@@ -82,8 +82,8 @@ attribute.
 ### inPageLinks
 
 ```
-    default: false
-    type:    boolean
+default: false
+type:    boolean
 ```
 
 When enabled in page linking inside the iFrame and from the iFrame to the parent page will be enabled.
@@ -91,8 +91,8 @@ When enabled in page linking inside the iFrame and from the iFrame to the parent
 ### offsetHeight
 
 ```
-    default: 0
-    type:    integer
+default: 0
+type:    integer
 ```
 
 Modify the computed height of the iframe. This is useful if the page in the iframe returns a height value that is consitantly slightly different to how you want the iframe to be sized.
@@ -102,8 +102,8 @@ Modify the computed height of the iframe. This is useful if the page in the ifra
 ### offsetWidth
 
 ```
-    default: 0
-    type:    integer
+default: 0
+type:    integer
 ```
 
 Modify the computed width of the iframe. This is useful if the page in the iframe returns a width value that is consitantly slightly different to how you want the iframe to be sized.
@@ -113,8 +113,8 @@ Modify the computed width of the iframe. This is useful if the page in the ifram
 ### scrolling
 
 ```
-    default: false
-    type:    boolean | 'omit'
+default: false
+type:    boolean | 'omit'
 ```
 
 Enable scroll bars in iFrame.
@@ -126,8 +126,8 @@ Enable scroll bars in iFrame.
 ### tolerance
 
 ```
-    default: 0
-    type:    integer
+default: 0
+type:    integer
 ```
 
 Set the number of pixels the iFrame content size has to change by, before triggering a resize of the iFrame.
@@ -135,8 +135,8 @@ Set the number of pixels the iFrame content size has to change by, before trigge
 ### warningTimeout
 
 ```
-    default: 5000
-    type:    integer
+default: 5000
+type:    integer
 ```
 
 Set the number of milliseconds after which a warning is logged if the iFrame has not responded. Set to `0` to supress warning messages of this type.
