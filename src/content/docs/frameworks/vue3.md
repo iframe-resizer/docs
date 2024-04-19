@@ -55,3 +55,7 @@ and then include it on your page as follows.
   frameborder="0"
 ></iframe>
 ```
+
+## Child page
+
+You will then need to install the [@iframe-rsizer/child](../getting_started/#child-page-setup) package on the page in the iframe.
