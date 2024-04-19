@@ -2,20 +2,20 @@
 import { Tabs, TabItem } from "@astrojs/starlight/components";
 import { Code } from 'astro-expressive-code/components'
 export interface Props {
-	pkg: string;
+	package: string;
 }
 
-const { pkg } = Astro.props;
+const props = Astro.props;
 ---
 
 <Tabs>
   <TabItem label="npm">
-    <Code code={`npm install ${pkg}`} lang="bash" />
+    <Code code={`npm install ${props.package}`} lang="bash" />
   </TabItem>
   <TabItem label="pnpm">
-    <Code code={`pnpm add ${pkg}`} lang="bash" />
+    <Code code={`pnpm add ${props.package}`} lang="bash" />
   </TabItem>
   <TabItem label="Yarn">
-    <Code code={`yarn add ${pkg}`} lang="bash" />
+    <Code code={`yarn add ${props.package}`} lang="bash" />
   </TabItem>
 </Tabs>
