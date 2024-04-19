@@ -9,18 +9,18 @@ const { pkg } = Astro.props;
 
 <Tabs>
   <TabItem label="NPM">
-    <pre>
-      <code>npm install {pkg}</code>
-    </pre>
+```bash
+npm install {pkg}
+```
   </TabItem>
   <TabItem label="Yarn">
-    <pre>
-      <code>yarn add {pkg}</code>
-    </pre>
+```bash
+yarn add {pkg}
+```
   </TabItem>
   <TabItem label="PNPM">
-    <pre>
-      <code>pnpm add {pkg}</code>
-    </pre>
+```bash
+pnpm add {pkg}
+```
   </TabItem>
 </Tabs>
