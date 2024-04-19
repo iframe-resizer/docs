@@ -1,3 +1,11 @@
+---
+title: Open Source License
+description: Open Source License for iframe-resizer
+---
+
+For open source projects and websites you can use _iframe-resizer_ for free under the terms of the Gnu General Public License.
+
+```
                      GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
@@ -619,3 +627,4 @@ Program, unless a warranty or assumption of liability accompanies a
 copy of the Program in return for a fee.
 
                      END OF TERMS AND CONDITIONS
+```
