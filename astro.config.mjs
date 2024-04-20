@@ -9,7 +9,12 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "iframe-resizer",
+      description: "Keep same and cross domain iFrames sized to their content",
       favicon: "/favicon.ico",
+      logo: {
+        src: "/logo.png",
+        alt: "iframe-resizer",
+      },
       components: {
         SocialIcons: "./src/components/socials.astro",
       },
