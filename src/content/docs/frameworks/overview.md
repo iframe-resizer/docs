@@ -9,7 +9,7 @@ _Iframe-Resizer_ has support for a number of frameworks and libraries.
 - [React](../react)
 - [Vue](../vue3)
 - [jQuery](../jquery)
-- [Google Apps Script](../goggle_apps_script)
+- [Google Apps Script](../google_apps_script)
 - [Ember](../ember)
 - Svelte
 - SolidJS
