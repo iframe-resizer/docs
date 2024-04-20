@@ -15,6 +15,7 @@ export default defineConfig({
         src: "/logo.png",
         alt: "iframe-resizer",
       },
+      customCss: ["./src/styles/theme.css"],
       components: {
         SocialIcons: "./src/components/socials.astro",
       },
