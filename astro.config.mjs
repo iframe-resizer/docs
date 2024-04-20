@@ -8,12 +8,12 @@ export default defineConfig({
   site: "https://iframe-resizer.com",
   integrations: [
     starlight({
-      title: "iframe-resizer",
+      // title: "iframe-resizer",
       description: "Keep same and cross domain iFrames sized to their content",
       favicon: "/favicon.ico",
       logo: {
         src: "/public/logo.png",
-        alt: "iframe-resizer",
+        // alt: "iframe-resizer",
       },
       customCss: ["./src/styles/theme.css"],
       components: {
