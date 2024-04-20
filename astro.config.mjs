@@ -8,7 +8,7 @@ export default defineConfig({
   site: "https://iframe-resizer.com",
   integrations: [
     starlight({
-      // title: "iframe-resizer",
+      title: "",
       description: "Keep same and cross domain iFrames sized to their content",
       favicon: "/favicon.ico",
       logo: {
