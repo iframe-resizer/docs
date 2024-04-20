@@ -12,7 +12,7 @@ export default defineConfig({
       description: "Keep same and cross domain iFrames sized to their content",
       favicon: "/favicon.ico",
       logo: {
-        src: "/logo.png",
+        src: "/public/logo.png",
         alt: "iframe-resizer",
       },
       customCss: ["./src/styles/theme.css"],
