@@ -30,7 +30,9 @@
   --sl-color-gray-7: #f4f7f3;
   --sl-color-black: #ffffff;
 }
-
-.sl-markdown-content a:not(:where(.not-content *)) {
+/* 
+.action a,
+.sl-markdown-content a:not(:where(.not-content *)) { */
+a {
   font-weight: 500;
 }
