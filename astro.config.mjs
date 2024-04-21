@@ -32,8 +32,8 @@ export default defineConfig({
           link: "license",
         },
         {
-          label: "Getting Started",
-          link: "getting_started",
+          label: "Setup",
+          link: "setup",
         },
         {
           label: "API",
