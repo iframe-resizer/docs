@@ -1,6 +1,7 @@
 ---
 title: Performance
 desciption: Performance optimising iframe-resizer
+next: Parent Page API
 ---
 
 On most pages _ifrane-resizer_ is able to detect changes in the iframe, recalculate
@@ -13,8 +14,8 @@ By default _iframe-resizer_ uses the size of the `<body/>` element to calculate 
 of the iframe's content. However, if their is content outside of the body, then
 _iframe-resizer_ has to fall back to checking the position of every element on the page.
 
-In some cases, such as anchoring content to the base of the iframe, this can prevent block
-the iframe from downsizing, as the content is now bound to the size of the window, rather
+In some cases, such as anchoring content to the base of the iframe, this can prevent the
+iframe from downsizing, as the content is now bound to the size of the window, rather
 than the document.
 
 To address the issues raised by content overflow, you have two options.
