@@ -1,5 +1,6 @@
 ---
 title: Performance
+desciption: Performance optimising iframe-resizer
 ---
 
 On most pages _ifrane-resizer_ is able to detect changes in the iframe, recalculate
@@ -28,3 +29,7 @@ When opperating cross domain, _iframe-resizer_ has to fall back to using the
 [PostMessage API](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage)
 to communicate between the parent and child pages. This adds a little overhead over
 using the browser DOM to pass message between the two pages.
+
+In most cases this slight delay is not an issue, however, you may wish the proxy the
+iframe onto the same domain as the parent page if you have animation in the iframe that
+effects it's size.
