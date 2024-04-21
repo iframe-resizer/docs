@@ -35,7 +35,7 @@ Not having a valid [HTML document type](http://en.wikipedia.org/wiki/Document_ty
 
 ### IFrame not resizing
 
-The most common cause of this is not placing the [@iframe-resizer/child](../getting_started/#child-page-setup) package inside the iFramed page.
+The most common cause of this is not placing the [@iframe-resizer/child](../../getting_started/#child-page-setup) package inside the iFramed page.
 
 <!--
 ### IFrame not detecting CSS :hover events
@@ -120,7 +120,7 @@ The `parentIframe` object is created once the iFrame has been initially resized.
 
 ### PDF and OpenDocument files
 
-It is not possible to add the required JavaScript to PDF and ODF files. However, you can get around this limitation by using [ViewerJS](http://viewerjs.org/) to render these files inside a HTML page, that also contains the iFrame [@iframe-resizer/child](../getting_started/#child-page-setup) package.
+It is not possible to add the required JavaScript to PDF and ODF files. However, you can get around this limitation by using [ViewerJS](http://viewerjs.org/) to render these files inside a HTML page, that also contains the iFrame [@iframe-resizer/child](../../getting_started/#child-page-setup) package.
 
 ### Unexpected message received error
 
