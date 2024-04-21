@@ -3,11 +3,12 @@ title: iframe-resizer/react
 description: React plugin for iframe-resizer
 ---
 
+import Install from "../../../components/Install.astro";
+import License from "../../../components/License.astro";
+
 ## Install
 
 Install this package with the following command.
-
-import Install from "../../../components/Install.astro";
 
 <Install package="@iframe-resizer/react" />
 
@@ -33,12 +34,15 @@ The normal configuration is to have the iframe resize when the browser window ch
 
 ```jsx
 <IframeResizer
+  license="xxxx"
   src="http://anotherdomain.com/iframe.html"
   style={{ width: "1px", minWidth: "100%" }}
 />
 ```
 
 **Note:** Using _min-width_ to set the width of the iFrame, works around an issue in iOS that can prevent the iFrame from sizing correctly.
+
+<License />
 
 ### Advanced Setup
 
