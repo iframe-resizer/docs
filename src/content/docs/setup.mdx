@@ -5,6 +5,9 @@ prev: Licenses
 next: API
 ---
 
+import Install from "../../components/Install.astro";
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+
 The _iframe-resizer_ project is distrobuted via seporate packages for the parent and child pages. This guide takes you through setting up the parent and then child pages.
 
 ## Parent Page Setup
@@ -14,8 +17,6 @@ In this section we detail how to setup the parent page using the Vanilla JavaSci
 ### Install
 
 Install this package with the following command.
-
-import Install from "../../components/Install.astro";
 
 <Install package="@iframe-resizer/parent" />
 
@@ -35,6 +36,8 @@ The normal configuration is to have the iFrame resize when the browser window ch
 
 {/* <!-- prettier-ignore-start --> */}
 
+<Tabs>
+  <TabItem label="Vanilla JS">
 ```html
 <style>
   iframe {
@@ -48,6 +51,60 @@ The normal configuration is to have the iFrame resize when the browser window ch
   iframeResize({ license: "xxxx" });
 </script>
 ```
+  </TabItem>
+  <TabItem label="ES Modules">
+```html
+<style>
+  iframe {
+    width: 100%;
+    height: 100vh;
+  }
+</style>
+<iframe id="myIframe" src="http://anotherdomain.com/iframe.html"></iframe>
+<script src="node_modules/@iframe-resizer/parent/index.umd.js"></script>
+```
+```js
+import iframeResize from '@iframe-resizer/parent'
+
+iframeResize({ license: "xxxx" });
+
+````
+</TabItem>
+  <TabItem label="Common JS">
+```html
+<style>
+  iframe {
+    width: 100%;
+    height: 100vh;
+  }
+</style>
+<iframe id="myIframe" src="http://anotherdomain.com/iframe.html"></iframe>
+<script src="node_modules/@iframe-resizer/parent/index.umd.js"></script>
+````
+
+```js
+const iframeResize = require("@iframe-resizer/parent");
+
+iframeResize({ license: "xxxx" });
+```
+
+  </TabItem>
+  <TabItem label="jsDeliver CDN">
+  ```html
+<style>
+  iframe {
+    width: 100%;
+    height: 100vh;
+  }
+</style>
+<iframe id="myIframe" src="http://anotherdomain.com/iframe.html"></iframe>
+<script src="https://cdn.jsdelivr.net/npm/@iframe-resizer/parent@latest"></script>
+<script>
+  iframeResize({ license: "xxxx" });
+</script>
+```
+  </TabItem>
+</Tabs>
 
 {/* <!-- prettier-ignore-end --> */}
 
@@ -85,8 +142,6 @@ Install this package with the following command.
 This package just needs to be included on every page that you load into the iframe. Where it will queitly listern for a message from the parent page, before initialising itself.
 
 {/* <!-- prettier-ignore-start --> */}
-
-import { Tabs, TabItem } from "@astrojs/starlight/components";
 
 <Tabs>
   <TabItem label="Vanilla JS">
