@@ -29,11 +29,16 @@ This library provided the function `iframeResize()` which accepts a config objec
 const iframes = iframeResize( [{options}], [css selector] || [iframe] )
 ```
 
-Once the setup has run, an array of the iframes that have had _iframe-resizer_ bound to them returned.
+Once the setup has run, an array of the iframes that have had _iframe-resizer_
+bound to them is returned.
 
 ### Typical setup
 
-The normal configuration is to have the iFrame resize when the browser window changes size or the content of the iFrame changes. To set this up you need to configure one of the dimensions of the iFrame to a percentage and tell the library to only update the other dimension. Normally you would set the width to 100% and have the height scale to fit the content.
+The normal configuration is to have the iframe resize when the browser window
+changes size or the content of the iframe changes. To set this up you need to
+configure one of the dimensions of the iframe to a percentage and tell the
+library to only update the other dimension. Normally you would set the width
+to 100% and have the height scale to fit the content.
 
 {/* <!-- prettier-ignore-start --> */}
 
@@ -107,13 +112,19 @@ iframeResize({ license: "xxxx" });
 
 {/* <!-- prettier-ignore-end --> */}
 
-Setting the initial height of the iframe to `100vh` makes the loading in of the iframe appear smoother to the user, as they will only see the content below the iframe once it has completed loading and undergone it's initial sizing.
+Setting the initial height of the iframe to `100vh` makes the loading in of
+the iframe appear smoother to the user, as they will only see the content
+below the iframe once it has completed loading and undergone it's initial
+sizing.
 
 <License />
 
 ## Child Page Setup
 
-The child page needs to load it's own JavaScript package, to enable communication with the parent page. The **@iframe-resizer/child** package is a small self-contained script with no dependancies. It is designed to be a good guest on someone else site and will only start running after recieving a message from the parent page.
+The child page needs to load it's own JavaScript package, to enable communication
+with the parent page. The **@iframe-resizer/child** package is a small self-contained
+script with no dependancies. It is designed to be a good guest on someone else site
+and will only start running after recieving a message from the parent page.
 
 ### Install
 
@@ -123,7 +134,9 @@ Install this package with the following command.
 
 ### Usage
 
-This package just needs to be included on every page that you load into the iframe. Where it will queitly listern for a message from the parent page, before initialising itself.
+This package just needs to be included on every page that you load into the iframe.
+Where it will queitly listern for a message from the parent page, before initialising
+itself.
 
 {/* <!-- prettier-ignore-start --> */}
 
@@ -150,3 +163,6 @@ require('@iframe-resizer/child')
   </TabItem>
 </Tabs>
 {/* <!-- prettier-ignore-end --> */}
+
+Once everting is setup, keep an eye on the browser console, as _ifrane-resizer_ will
+warn about an potential issues it detects and provide advice on how to fix them.
