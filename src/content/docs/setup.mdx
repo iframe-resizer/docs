@@ -5,8 +5,9 @@ prev: Licenses
 next: API
 ---
 
-import Install from "../../components/Install.astro";
 import { Tabs, TabItem } from "@astrojs/starlight/components";
+import Install from "../../components/Install.astro";
+import License from "../../../components/License.astro";
 
 The _iframe-resizer_ project is distrobuted via seporate packages for the parent and child pages. This guide takes you through setting up the parent and then child pages.
 
@@ -108,22 +109,7 @@ iframeResize({ license: "xxxx" });
 
 Setting the initial height of the iframe to `100vh` makes the loading in of the iframe appear smoother to the user, as they will only see the content below the iframe once it has completed loading and undergone it's initial sizing.
 
-import { Aside } from "@astrojs/starlight/components";
-
-<Aside title="Commercial licence" icon="seti:lock">
-  To use _iframe-resizer_ in a closed source website or application, you need to
-  purchase a one time license key. See the __[pricing](../pricing)__ page for
-  details.
-</Aside>
-
-<Aside type="tip" title="Open source licence" icon="seti:license">
-  For open source projects, _iframe-resizer_ is free to use under the Gnu Public License. To confirm that you are using it in an open-souce project set the license option to __GPL-V3__.
-
-```js
-iframeResize({ license: "GPL-V3" });
-```
-
-</Aside>
+<Licence />
 
 ## Child Page Setup
 
