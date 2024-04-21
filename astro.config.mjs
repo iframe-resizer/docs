@@ -36,6 +36,10 @@ export default defineConfig({
           link: "setup",
         },
         {
+          label: "Performance",
+          link: "performance",
+        },
+        {
           label: "API",
           items: [
             {
