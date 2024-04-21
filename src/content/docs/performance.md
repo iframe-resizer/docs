@@ -13,7 +13,11 @@ By default _iframe-resizer_ uses the size of the `<body/>` element to calculate 
 of the iframe's content. However, if their is content outside of the body, then
 _iframe-resizer_ has to fall back to checking the position of every element on the page.
 
-To address the issue raise by content overflow, you have two options.
+In some cases, such as anchoring content to the base of the iframe, this can prevent block
+the iframe from downsizing, as the content is now bound to the size of the window, rather
+than the document.
+
+To address the issues raised by content overflow, you have two options.
 
 1.  Adjust CSS and page design to keep all elements inside of the body element.
 
@@ -21,7 +25,10 @@ To address the issue raise by content overflow, you have two options.
     a `data-iframe-size` attribute. This attribute can be added to multiple elements and the
     one that returns the highest value will be used each time the page size is calculated.
     This attribute should be used sparingly, as the more of them on the page, the great the
-    amount of work required to calcute the page size.
+    amount of work required to calcute the page size.<br><br/>When explictly seeting the
+    element for page size calculation it may be useful to also set either the [offsetHeight]() / [offsetWidth]() option as well.
+
+If _iframe-resizer_ detects content overflow, it will log a warning to the browser console.
 
 ### Cross Domain
 
