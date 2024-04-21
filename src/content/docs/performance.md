@@ -25,8 +25,8 @@ To address the issues raised by content overflow, you have two options.
     a `data-iframe-size` attribute. This attribute can be added to multiple elements and the
     one that returns the highest value will be used each time the page size is calculated.
 
-    This attribute should be used sparingly, as the more of them on the page, the great the
-    amount of work required to calcute the page size. it may also be useful to set either the [offsetHeight](../parent/#offsetheight) / [offsetWidth](../parent/#offsetWidth) option as
+    This attribute should be used sparingly, as the more of them on the page, the greater the
+    amount of work required to calcute the page size. It may also be useful to set either the [offsetHeight](../parent/#offsetheight) / [offsetWidth](../parent/#offsetWidth) option as
     well.
 
 If _iframe-resizer_ detects content overflow, it will log a warning to the browser console.

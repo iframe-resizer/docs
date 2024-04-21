@@ -15,6 +15,8 @@ In addition to keeping you iframe sized to the content, _iframe-resizer_ also pr
 - Simplified message passing between the iframe and the parent page
 - Automatic domain authentication
 
+It can also be combined with [viewer.js](https://viewerjs.org) to display PDF and ODF documents in an iframe.
+
 ### Version 5
 
 This version of _iframe-resizer_ has been extensively rewritten to use modern browser APIs, this has enabled signicantly better performance and greater accuracy in the detection of content resizing events.
