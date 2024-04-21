@@ -26,8 +26,6 @@ The `<IframeResizer />` component can be passed all`<iframe>` atrributes, along 
 />
 ```
 
-The page in the iframe then needs ([iframeResizer.contentWindow.min.js](https://raw.github.com/davidjbradshaw/iframe-resizer/master/js/iframeResizer.contentWindow.min.js)) from [iframe-resizer](https://github.com/davidjbradshaw/iframe-resizer). _This file is designed to be a guest on someone else's system, so has no dependencies and won't do anything until it's activated by a message from the containing page_.
-
 ### Typical setup
 
 The normal configuration is to have the iframe resize when the browser window changes size or the content of the iFrame changes. To set this up you need to configure one of the dimensions of the iFrame to a percentage and tell the library to only update the other dimension. Normally you would set the width to 100% and have the height scale to fit the content.
