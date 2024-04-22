@@ -73,6 +73,10 @@ export default defineConfig({
               link: "/frameworks/jquery",
             },
             {
+              label: "WordPress",
+              link: "/frameworks/wordpress",
+            },
+            {
               label: "Google Apps Scripts",
               link: "/frameworks/google_apps_script",
             },
