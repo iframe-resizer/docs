@@ -81,14 +81,11 @@ export default defineConfig({
               link: "/frameworks/google_apps_script",
             },
             // { label: "Angular", link: "/frameworks/angular" },
-            {
-              label: "Ember",
-              link: "/frameworks/ember",
-            },
-            {
-              label: "Framework API",
-              link: "/frameworks/api",
-            },
+            // https://iframe-resizer.com/frameworks/wordpress/
+            // {
+            //   label: "Framework API",
+            //   link: "/frameworks/api",
+            // },
           ],
         },
         {

@@ -11,7 +11,7 @@ _Iframe-Resizer_ has support for a number of frameworks and libraries.
 - [jQuery](../jquery)
 - [WordPress](../wordpress)
 - [Google Apps Script](../google_apps_script)
-- [Ember](../ember)
+<!-- - [Ember](../ember) -->
 - Svelte
 - SolidJS
 - Angular
