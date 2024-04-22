@@ -6,7 +6,7 @@ desciption: Setup iframe-resizer in WordPress
 import License from "../../../components/License.astro";
 
 The _iframe-resizer_ project is comprised of seporate JS files for the parent and child pages.
-This guide takes you through setting up the parent and then child pages.
+This guide takes you through setting up the parent and then child pages in WordPress.
 
 ## Parent Page
 
@@ -17,7 +17,14 @@ In this section we detail how to setup the parent page.
 Download the file [iframe-resizer.parent.js](https://raw.githubusercontent.com/davidjbradshaw/iframe-resizer/master/js/iframe-resizer.parent.js)
 and then upload it into the `/wp-admin/js` folder in WordPress.
 
-###
+### Usage
+
+The normal configuration is to have the iframe resize when
+the browser window changes size or the content of the iframe
+changes. To set this up you need to configure one of the
+dimensions of the iframe to a percentage and tell the library
+to only update the other dimension. Normally you would set the
+width to 100% and have the height scale to fit the content.
 
 {/* <!-- prettier-ignore-start --> */}
 
@@ -68,3 +75,5 @@ The following line then needs to be added to every shown in the iframe.
 
 Once everting is setup, keep an eye on the browser console, as _ifrane-resizer_
 will warn about any potential issues it detects and provide advice on how to fix them.
+For more details on using _iframe-resizer_ see the [Performace](../../performace) and
+[Trouble Shooting](../../troubleshooting) sections of this guide.
