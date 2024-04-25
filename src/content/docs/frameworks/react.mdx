@@ -12,11 +12,18 @@ Install this package with the following command.
 
 <Install package="@iframe-resizer/react" />
 
-You will also need to ensure that the [@iframe-resizer/child](../../setup/#child-page-setup) package has been loaded into the iframe.
+You will also need to ensure that the [@iframe-resizer/child](../../setup/#child-page-setup)
+package has been loaded into the iframe.
 
 ## Usage
 
-The `<IframeResizer />` component can be passed all`<iframe>` atrributes, along with _[options](https://github.com/davidjbradshaw/iframe-resizer/blob/master/docs/parent_page/options.md)_ and _[events](https://github.com/davidjbradshaw/iframe-resizer/blob/master/docs/parent_page/events.md)_ from [iframe-resizer](https://github.com/davidjbradshaw/iframe-resizer). You can also optionally pass a `forwardRef` to gain access to a few _[methods](https://github.com/davidjbradshaw/iframe-resizer/blob/master/docs/parent_page/methods.md)_ that provide a simple interface to communicate with the page in the iframe.
+The `<IframeResizer />` component can be passed all`<iframe>` atrributes, along with
+_[options](https://github.com/davidjbradshaw/iframe-resizer/blob/master/docs/parent_page/options.md)_
+and _[events](https://github.com/davidjbradshaw/iframe-resizer/blob/master/docs/parent_page/events.md)_
+from [iframe-resizer](https://github.com/davidjbradshaw/iframe-resizer). You can also
+optionally pass a `forwardRef` to gain access to a few
+_[methods](https://github.com/davidjbradshaw/iframe-resizer/blob/master/docs/parent_page/methods.md)_
+that provide a simple interface to communicate with the page in the iframe.
 
 ```jsx
 <IframeResizer
@@ -28,7 +35,11 @@ The `<IframeResizer />` component can be passed all`<iframe>` atrributes, along 
 
 ### Typical setup
 
-The normal configuration is to have the iframe resize when the browser window changes size or the content of the iFrame changes. To set this up you need to configure one of the dimensions of the iFrame to a percentage and tell the library to only update the other dimension. Normally you would set the width to 100% and have the height scale to fit the content.
+The normal configuration is to have the iframe resize when the browser window changes
+size or the content of the iFrame changes. To set this up you need to configure one
+of the dimensions of the iFrame to a percentage and tell the library to only update
+the other dimension. Normally you would set the width to 100% and have the height
+scale to fit the content.
 
 ```jsx
 <IframeResizer
@@ -38,18 +49,52 @@ The normal configuration is to have the iframe resize when the browser window ch
 />
 ```
 
-**Note:** Using _min-width_ to set the width of the iFrame, works around an issue in iOS that can prevent the iFrame from sizing correctly.
+**Note:** Using _min-width_ to set the width of the iFrame, works around an issue in iOS
+that can prevent the iFrame from sizing correctly.
 
 <License />
 
 ## Child page
 
-You will then need to install the [@iframe-rsizer/child](../../setup/#child-page-setup) package on the page in the iframe.
+You will then need to install the [@iframe-rsizer/child](../../setup/#child-page-setup)
+package on the page in the iframe.
 
-### Advanced Setup
+## API Diffeneces
 
-This is a more advanced configuration, taken from the [example](https://github.com/davidjbradshaw/iframe-resizer-react/tree/master/example) folder,
-which demostrates the use of _options_, _events_ and _methods_ from the [iframe-resizer](https://github.com/davidjbradshaw/iframe-resizer) API.
+The React version of _iframe-resizer_ supports the [Parent Page API](../../parent) with
+a couple of minor changes to the available methods. To access this methods you need to
+pass a `forwardRef` as follows.
+
+```js
+import React, { useRef, useEffect } from 'react'
+import IframeResizer from '@iframe-resizer/react'
+
+export default () => {
+  const iframeRef = useRef(null)
+
+  useEffect(() => {
+    console.log(iframeRef?.current?.getIframeElement())
+  })
+
+  return (
+    <IframeResizer forwardRef={iframeRef} />
+  )
+```
+
+### close() and disconnect()
+
+These methods are not available, use React to remove the iframe from the page.
+
+### getIframeElement()
+
+Returns a ref to the iframe element.
+
+## Advanced Setup
+
+This is a more advanced configuration, taken from the
+[example](https://github.com/davidjbradshaw/iframe-resizer-react/tree/master/example)
+folder, which demostrates the use of _options_, _events_ and _methods_ from the
+[iframe-resizer](https://github.com/davidjbradshaw/iframe-resizer) API.
 
 ```jsx
 import React, { useRef, useState } from "react";
