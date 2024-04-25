@@ -73,13 +73,13 @@ The `onInit()` method has been deprecated in favour of `onReady()`. This brings 
 
 ### Fixed bug where height/width where returned as strings
 
-The onResized event was returning height/width as a strings, this has now been fixed to return a Number.
+The `onResized()` event was returning height/width as a strings, this has now been fixed to return a Number.
 
 ### Min/Max size values now taken from iframe computed CSS values
 
 These settings are now read from the computed style of the iframe tag. Setting them via the call to `iframeResize()` will trigger a deprication warning.
 
-### New `offsetSize` options
+### New `offsetSize` option
 
 Theis new option allow you to adjust the value returned by the iframe for the dimesion you are resizing, it can have either a positive or negative value.
 
