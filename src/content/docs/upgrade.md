@@ -73,7 +73,7 @@ The `onInit()` method has been deprecated in favour of `onReady()`. This brings 
 
 ### Fixed bug where height/width where returned as strings
 
-The `onResized()` event was returning height/width as a strings, this has now been fixed to return a Number.
+The `onResized()`, `onMouseEnter()` and `onMouseLeave()` events was returning `height`/`width` as a strings, this has now been fixed to return a Number.
 
 ### Min/Max size values now taken from iframe computed CSS values
 
