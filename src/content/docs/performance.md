@@ -8,7 +8,7 @@ On most pages _ifrane-resizer_ is able to detect changes in the iframe, recalcul
 the page size and adjust the iframe in sub nanosecond time. This page details a couple
 of situations that can impact performace and how to mitigate them.
 
-### Overflowing the body element
+## Overflowing the body element
 
 By default _iframe-resizer_ uses the size of the `<body/>` element to calculate the size
 of the iframe's content. However, if their is content outside of the body, then
@@ -32,7 +32,7 @@ To address the issues raised by content overflow, you have two options.
 
 If _iframe-resizer_ detects content overflow, it will log a warning to the browser console.
 
-### Cross Domain
+## Cross Domain
 
 When opperating cross domain, _iframe-resizer_ has to fall back to using the
 [PostMessage API](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage)
