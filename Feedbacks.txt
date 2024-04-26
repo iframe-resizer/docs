@@ -1,0 +1,62 @@
+
+Johan Stuyts bought you 3 coffees.
+Improved the user experience a lot. Very happy with it.
+
+Jason bought you 3 coffees.
+Epic library for a critical website need! Thanks for making this available!
+
+@warpstreamlabs bought you 20 coffees.
+Saved me a ton of time fiddling with iframe resizing, thank you.
+
+Dark Suds@simulakrum.com bought you 3 coffees.
+needed last minute resizing, your lib and instructions did the trick
+
+Darvin Martin bought you 5 coffees.
+Your iframe-resizer library was super-helpful! And the documentation was easy enough for a beginner like myself. Thank you!
+
+Wolfgang Scherer bought you 5 coffees.
+Perfect!
+
+claw_slaw_bibbly_bop bought you a coffee.
+I rolled my own for some of these features before I came across your lib. Thanks for your work. 
+
+Maureen bought you 3 coffees.
+Great work. Have been using this for years always with success!
+
+@AliAkinK bought you 3 coffees.
+Thank you, friend. Your iframe resizer is magic.
+
+Adam Pitzele bought you 2 coffees.
+After finding this project and verifying how well it works, it really made my day. Much appreciated!
+
+a hueller bought you 5 coffees.
+Your great iframe resizer "toolkit" saved my day already several times & always worked perfectly with just a few lines of code. Keep up the good work!👍
+
+@yongfook bought you 20 coffees.
+Tried using postMessage a while ago and I'm glad I didn't have to touch it this time!
+
+Someone bought you 5 coffees.
+Nasty problem to solve, your solution took 5 minutes to implement, zero pain. Much love.
+
+@aaronnay bought you 5 coffees.
+Fantastic solution! Made our iframed suite of apps sooo much better. Thank you!
+
+Jack bought you a coffee.
+Thank you for all your hard work! I was asked to embed a site I'd created into someone else's Wordpress site and this made it possible.
+
+NM bought you 4 coffees.
+Thank you.  It just works!!! Amazing :)
+
+@messageokcom bought you 20 coffees.
+Thank you. Great job!
+
+@jrockowitz bought you 5 coffees.
+You made it easy for me to share Drupal Webforms on any website, webpage, or application. Thanks.
+
+Someone bought you a coffee.
+iFrame Resizer just saved my bacon -- thanks for all your work on it!
+
+Someone bought you 5 coffees.
+Thank you for iframe-resizer! It has really helped me making our site work with partners.
+
+
