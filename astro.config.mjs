@@ -86,6 +86,10 @@ export default defineConfig({
             //   label: "Framework API",
             //   link: "/frameworks/api",
             // },
+            {
+              label: "Framework API",
+              link: "/frameworks/api",
+            },
           ],
         },
         {

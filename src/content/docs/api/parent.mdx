@@ -213,13 +213,9 @@ Called before the page is repositioned after a request from the iFrame, due to e
 
 Once the iFrame has been initialized, an `iframeResizer` object is bound to it. This has the following methods available.
 
-### close()
-
-Remove the iFrame from the page. You should call this method, rather than using JavaScript to remove an iframe directly from the page.
-
 ### disconnect()
 
-Disconnect _iframe-resizer_ from the iFrame. This is option allows Virtual DOMs to remove an iFrame tag. It should not normally be required.
+Disconnect _iframe-resizer_ from the iFrame. This method MUST to be called, before removing an iframe from the page.
 
 ### moveToAnchor(anchor)
 
