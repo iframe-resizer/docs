@@ -34,7 +34,7 @@ The actual `@iframe-resizer/jquery` plugin provides a few more [safety checks](h
 
 ## Removing an iframe from the page
 
-When removing an iframe you MUST call _iframe-resizer's_ [disconnect()](../api/parent/#disconnect) method, before removing the iframe element. This prevents issues if the iframe is then later re-added to the page.
+When removing an iframe you MUST first call _iframe-resizer's_ [disconnect()](../api/parent/#disconnect) method. This prevents issues if the iframe is then later re-added to the page.
 
 ## Virtual DOMs
 
