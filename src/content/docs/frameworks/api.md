@@ -42,7 +42,7 @@ For frameworks, such as React, that make use of a Virtual DOM. Their are a coupl
 
 When you add an iframe to a Virtual DOM, you need to ensure that `connectResizer()()` is only called on the first render of the iframe.
 
-Before having a Virtual DOM remove an iframe from the page, _iframe-resizer_ needs to be first disconnnect from the iframe. The Parent Page API provides a [disconnect](../api/parent/#disconnect) method to unbind _iframe-resizer_ from the iframe element.
+Before having a Virtual DOM remove an iframe from the page, _iframe-resizer_ needs to be first disconnnect from the iframe. The Parent Page API provides a [disconnec()](../api/parent/#disconnect) method to unbind _iframe-resizer_ from the iframe element.
 
 The following example of this is a simplified part of the `@iframe-resizer/react` component.
 
