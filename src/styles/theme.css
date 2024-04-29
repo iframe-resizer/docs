@@ -1,10 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Dark mode colors. */
 :root {
   --sl-color-accent-low: #222615;
-  /* --sl-color-accent: #64712d; */
   --sl-color-accent: #8d8838;
-  /* --sl-color-accent-high: #c6ccb5; */
   --sl-color-accent-high: #889e37;
+
   --sl-color-white: #ffffff;
   --sl-color-gray-1: #eaf0e8;
   --sl-color-gray-2: #bdc4bb;
@@ -17,7 +20,6 @@
 /* Light mode colors. */
 :root[data-theme="light"] {
   --sl-color-accent-low: #d5d9c8;
-  /* --sl-color-accent: #66732f; */
   --sl-color-accent: #889e37;
   --sl-color-accent-high: #2f3619;
   --sl-color-white: #151a13;
@@ -30,7 +32,8 @@
   --sl-color-gray-7: #f4f7f3;
   --sl-color-black: #ffffff;
 }
-/* 
+
+/*
 .action a,
 .sl-markdown-content a:not(:where(.not-content *)) { */
 a {
