@@ -33,7 +33,7 @@ export default defineConfig({
       link: "introduction"
     }, {
       label: "Licenses",
-      link: "license"
+      link: "licenses"
     }, {
       label: "Setup",
       link: "setup"
