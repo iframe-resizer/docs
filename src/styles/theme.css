@@ -4,9 +4,9 @@
 
 /* Dark mode colors. */
 :root {
-  --sl-color-accent-low: #222615;
-  --sl-color-accent: #8d8838;
-  --sl-color-accent-high: #889e37;
+  --sl-color-accent-low: #d5d9c8;
+  --sl-color-accent: #889e37;
+  --sl-color-accent-high: #8d8838;
 
   --sl-color-white: #ffffff;
   --sl-color-gray-1: #eaf0e8;
@@ -19,7 +19,7 @@
 }
 /* Light mode colors. */
 :root[data-theme="light"] {
-  --sl-color-accent-low: #d5d9c8;
+  --sl-color-accent-low: #222615;
   --sl-color-accent: #889e37;
   --sl-color-accent-high: #2f3619;
   --sl-color-white: #151a13;
@@ -60,13 +60,23 @@ h2 {
   margin: -1rem auto -2rem;
 }
 
-#priceGrid ul,
-#priceGrid li {
-  list-style-type: none;
+#priceGrid ul {
   padding: 0;
+  list-style-type: none;
+}
+#priceGrid li p {
+  padding: 0;
+  margin-top: .25rem !important;
+  margin-bottom: .5rem !important;
 }
 
 #priceGrid svg {
     float: left;
     margin-top: 5px;
+}
+
+.content-panel {
+  border-color: transparent;
+  border: 0 !important;
+  padding-bottom: 0;
 }
