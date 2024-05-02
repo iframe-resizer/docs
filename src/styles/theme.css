@@ -59,3 +59,14 @@ h2 {
 .hero img {
   margin: -1rem auto -2rem;
 }
+
+#priceGrid ul,
+#priceGrid li {
+  list-style-type: none;
+  padding: 0;
+}
+
+#priceGrid svg {
+    float: left;
+    margin-top: 5px;
+}
