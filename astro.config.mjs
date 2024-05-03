@@ -23,7 +23,7 @@ export default defineConfig({
     },
     customCss: ["./src/styles/theme.css"],
     components: {
-      SocialIcons: "./src/components/socials.astro"
+      SocialIcons: "./src/components/socials.astro",
     },
     social: {
       github: "https://github.com/davidjbradshaw/iframe-resizer"

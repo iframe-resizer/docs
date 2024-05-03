@@ -10,8 +10,8 @@
   /* --sl-color-accent-high: #8d8838; */
 
   --sl-color-white: #ffffff;
-  --sl-color-gray-1: #eaf0e8;
-  --sl-color-gray-2: #bdc4bb;
+  --sl-color-gray-1: #f4f7f3;
+  --sl-color-gray-2: #eaf0e8;
   --sl-color-gray-3: #82907f;
   --sl-color-gray-4: #4f5c4d;
   --sl-color-gray-5: #303c2d;
@@ -81,10 +81,15 @@ h2 {
     float: left;
     position: relative;
     top: 5px;
+    margin-bottom: 0;
 }
 
-#priceGrid .button {
-  margin-top: -16px !important;
+.astro-j6tvhyss {
+  text-align: center !important;
+}
+
+.page:where(.astro-vrdttmbt) {
+    min-height: calc(100vh - 212px);
 }
 
 .content-panel {

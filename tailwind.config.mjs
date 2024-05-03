@@ -1,4 +1,5 @@
 import starlightPlugin from '@astrojs/starlight-tailwind';
+const withMT = require("@material-tailwind/react/utils/withMT");
 
 // Generated color palettes
 const accent = {
@@ -22,7 +23,7 @@ const gray = {
 
 
 /** @type {import('tailwindcss').Config} */
-export default {
+export default withMT({
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		extend: {
@@ -30,4 +31,4 @@ export default {
 		},
 	},
 	plugins: [starlightPlugin()],
-};
+});

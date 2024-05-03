@@ -1,24 +1,14 @@
 ---
 import type { Props } from '@astrojs/starlight/props';
+import CallToAction from './CallToAction.astro';
+
+import Default from '@astrojs/starlight/components/SocialIcons.astro';
 ---
-
-<iframe
-  class="github-stars"
-  tabindex="-1"
-  src="https://ghbtns.com/github-btn.html?user=davidjbradshaw&repo=iframe-resizer&type=star&count=true&size=large"
-  frameborder="0"
-  scrolling="0"
-  width="150px"
-  height="30px"
-></iframe>
-
-<style>
-	a {
-		color: var(--sl-color-text-accent);
-		padding: 0.5em;
-		margin: -0.5em;
-	}
-	a:hover {
-		opacity: 0.66;
-	}
-</style>
+<span style="margin-top: 0.2rem;font-weight: 400;">
+	<CallToAction
+		link="../pricing"
+		className="ir-cta"
+		variant="minimal"
+	>Pricing</CallToAction>
+</span>
+<Default {...Astro.props}><slot /></Default>
