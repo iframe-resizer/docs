@@ -1,5 +1,6 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import logo from '../assets/logo-home.svg';
 
 const title = 'iframe-resizer';
 const template = 'splash';
@@ -7,12 +8,7 @@ const template = 'splash';
 const hero = {
   tagline: 'Keep same and cross domain iframes sized to their content',
   image: {
-    file: {
-      src: '../public/logo-home.svg',
-      format: 'svg',
-      width: 120,
-      height: 120,
-    },
+    file: logo,
   },
   actions: [{
    text: 'Get Started',
