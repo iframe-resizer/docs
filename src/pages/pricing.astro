@@ -3,6 +3,7 @@ import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import Tick from '../components/Tick.astro';
 import NoTick from '../components/NoTick.astro';
 import Contact from '../components/Contact.astro';
+import Feedback from '../components/Feedback.astro';
 import Footer from '../components/Footer.astro';
 
 const title = 'Pricing for iframe-resizer';
@@ -297,7 +298,7 @@ const template = 'splash';
   </style>
 
 
-  <div id="moreLicenses">
+  <section id="moreLicenses">
     <div>
       <h2>SaaS/OEM License</h2>
       <p>
@@ -321,10 +322,46 @@ const template = 'splash';
         <a href="https://www.gnu.org/licenses/gpl-faq.html#GPLRequireSourcePostedPublic" target="_blank" rel="nofollow">GPL FAQ</a>.
       </p>
     </div>
-  </div>
+  </section>
 
 
+  <style>
 
+    #feedback {
+      margin-top: 7ex;
+    }
+
+    #feedback h2 {
+      margin: 5ex auto 0;
+      text-align: center;
+    }
+
+    #feedback h3 {
+      margin: 0;
+      font-size: .1rem !important;
+      font-family: var(--font-inter), sans-serif;
+    }
+
+    
+  </style>
+
+  <section id="feedback">
+    <h2>Feedback on iframe-resizer</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4 md:p-6">
+      <Feedback inital="JS" name="Johan Stuyts">Improved the user experience a lot. Very happy with it.</Feedback>
+      <Feedback inital="J" name="Jason">Epic library for a critical website need! Thanks for making this available!</Feedback>
+      <Feedback inital="WL" name="Warpstream Labs" contact="@warpstreamlabs">Saved me a ton of time fiddling with iframe resizing, thank you.</Feedback>
+      <Feedback inital="J" name="Jack">Thank you for all your hard work! I was asked to embed a site I'd created into someone else's Wordpress site and this made it possible.</Feedback>
+      <Feedback inital="DM" name="Darvin Martin">iframe-resizer library was super-helpful! And the documentation was easy enough for a beginner like myself. Thank you!</Feedback>
+      <Feedback inital="A" name="A Hueller">Your great iframe resizer "toolkit" saved my day already several times & always worked perfectly with just a few lines of code. Keep up the good work!</Feedback>
+      <Feedback inital="CB" name="claw_slaw_bibbly_bop">I rolled my own for some of these features before I came across your lib. Thanks for your work. </Feedback>
+      <Feedback inital="AP" name="Adam Pitzele">After finding this project and verifying how well it works, it really made my day. Much appreciated!</Feedback>
+      <Feedback inital="LM" name="Laurence Martinier">Nasty problem to solve, your solution took 5 minutes to implement, zero pain. Much love.</Feedback>
+      <Feedback inital="JR" name="J Rockowitz">You made it easy for me to share Drupal Webforms on any website, webpage, or application. Thanks.</Feedback>
+      <Feedback inital="M" name="Maureen">Great work. Have been using this for years always with success!</Feedback>
+      <Feedback inital="D" name="Dark">Needed last minute resizing, your lib and instructions did the trick.</Feedback>
+    </div>
+  </section>
 
 
 </StarlightPage>

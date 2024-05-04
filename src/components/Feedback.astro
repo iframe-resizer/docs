@@ -1,0 +1,24 @@
+---
+export interface Props {
+	name: string;
+  inital: string;
+  contact?: string;
+}
+
+const { name, inital, contact } = Astro.props;
+---
+
+
+<div class="rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 dark:bg-gray-950 mt-0" style="margin-top:0">
+  <div class="p-6 pb-4" >
+    <p class="mb-4 italic">
+      "<slot/>"
+    </p>
+    <div class="flex items-center" >
+    <span class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full mr-3" >
+      <span class="text-white flex h-full w-full items-center justify-center rounded-full bg-muted" style="background-color:#985d3b;border-radius: 9999px;">{inital}</span>
+    </span>
+  <div >
+  <h3 class="text-gray-800 dark:text-gray-200" style="font-size:1.1rem">{name}</h3>
+ <!-- <p class="text-gray-500 dark:text-gray-400 text-sm">{contact}</p> -->
+</div>
