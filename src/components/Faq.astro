@@ -1,0 +1,13 @@
+---
+export interface Props {
+	question: string;
+}
+
+const { question } = Astro.props;
+---
+
+<div class="question" style="margin: 3ex 0">
+  <h3 style="color:var(--ir-color-primary);font-size:1.4rem;margin: 0 0 0.5rem">{question}</h3>
+  <slot/>
+</div>
+  <hr style="width: 90%;margin:0 5%"/>

@@ -34,6 +34,15 @@
   --sl-color-black: #ffffff;
 }
 
+:root {
+  --ir-color-primary:#889e37;
+  --ir-color-secondary: #985d3b;
+}
+
+.sub-heading {
+  color: var(--ir-color-secondary)
+}
+
 /*
 .action a,
 .sl-markdown-content a:not(:where(.not-content *)) { */

@@ -4,6 +4,7 @@ import Tick from '../components/Tick.astro';
 import NoTick from '../components/NoTick.astro';
 import Contact from '../components/Contact.astro';
 import Feedback from '../components/Feedback.astro';
+import Faq from '../components/Faq.astro';
 import Footer from '../components/Footer.astro';
 
 const title = 'Pricing for iframe-resizer';
@@ -145,10 +146,69 @@ const template = 'splash';
   </div>
 
 
-  <div class="text-center italic" style="margin:4ex 0 5ex;">All licenses are a one time purchase, and include free updates for the lifetime of version 5. </div>
+  <div class="text-center italic" style="margin:4ex 0 0;">All licenses are a one time purchase, and include free updates for the lifetime of version 5. </div>
 
 
-  <h2  class="text-center">Compare Licenses</h2>
+
+  <style>
+
+    #moreLicenses {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 5ex 0 0;
+    }
+    #moreLicenses div {
+      display: inline-block;
+      width: 40%;
+      margin: 0 ;
+      vertical-align: top;
+      text-align: center;
+      font-size: .98rem;
+    }
+
+    #moreLicenses div:first-child {
+      margin: 0 6% 0 0;
+    }
+
+
+    #moreLicenses h2 {
+      margin: 1ex 0;
+    }
+
+  </style>
+
+
+  <section id="moreLicenses">
+    <div>
+      <h2>SaaS/OEM License</h2>
+      <p>
+        If you want to include <i>iframe-resizer</i> in downloadable or installable products such as 
+        Themes, Component Libraries, as part of a commercial interface builder, SDK, or toolkit, 
+        choose the Commercial OEM license. Commercial OEM licenses are customized for each customer.
+      </p>
+      <p>
+        <Contact/>.
+      </p>
+    </div>
+    <div>
+      <h2>Free for Open Source</h2>
+      <p>
+        <i>iframe-resizer</i> is an Open Source application licensed under a 
+        <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="nofollow">GPLv3 license</a>. 
+        This license allows you to use <i>iframe-resizer</i> in Open Source projects but it requires your 
+        project and source code be publicly published, include attribution, and be licensed under GPLv3. 
+      </p><p>
+        Questions? Read the 
+        <a href="https://www.gnu.org/licenses/gpl-faq.html#GPLRequireSourcePostedPublic" target="_blank" rel="nofollow">GPL FAQ</a>.
+      </p>
+    </div>
+  </section>
+
+
+
+
+  <h2 class="text-center" style="margin-top: 4ex">Compare Licenses</h2>
 
   <style>
     sup {
@@ -269,60 +329,10 @@ const template = 'splash';
     </tbody>
   </table>
 
-  <style>
+<div class="text-center italic" style="margin:2ex 0 0;">
+  Questions? See the <a href="#faq">FAQ</a> or <Contact/>. 
+</div>
 
-    #moreLicenses {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 7ex;
-    }
-    #moreLicenses div {
-      display: inline-block;
-      width: 40%;
-      margin: 0 ;
-      vertical-align: top;
-      text-align: center;
-      font-size: .98rem;
-    }
-
-    #moreLicenses div:first-child {
-      margin: 0 6% 0 0;
-    }
-
-
-    #moreLicenses h2 {
-      margin: 1ex 0;
-    }
-
-  </style>
-
-
-  <section id="moreLicenses">
-    <div>
-      <h2>SaaS/OEM License</h2>
-      <p>
-        If you want to include <i>iframe-resizer</i> in downloadable or installable products such as 
-        Themes, Component Libraries, as part of a commercial interface builder, SDK, or toolkit, 
-        choose the Commercial OEM license. Commercial OEM licenses are customized for each customer.
-      </p>
-      <p>
-        <Contact/>.
-      </p>
-    </div>
-    <div>
-      <h2>Free for Open Source</h2>
-      <p>
-        <i>iframe-resizer</i> is an Open Source application licensed under a 
-        <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="nofollow">GPLv3 license</a>. 
-        This license allows you to use <i>iframe-resizer</i> in Open Source projects but it requires your 
-        project and source code be publicly published, include attribution, and be licensed under GPLv3. 
-      </p><p>
-        Questions? Read the 
-        <a href="https://www.gnu.org/licenses/gpl-faq.html#GPLRequireSourcePostedPublic" target="_blank" rel="nofollow">GPL FAQ</a>.
-      </p>
-    </div>
-  </section>
 
 
   <style>
@@ -346,7 +356,7 @@ const template = 'splash';
   </style>
 
   <section id="feedback">
-    <h2>Feedback on iframe-resizer</h2>
+    <h2 class="text-3xl font-bold  sm:text-4xl md:text-5xl">Feedback on iframe-resizer</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4 md:p-6">
       <Feedback inital="JS" name="Johan Stuyts">Improved the user experience a lot. Very happy with it.</Feedback>
       <Feedback inital="J" name="Jason">Epic library for a critical website need! Thanks for making this available!</Feedback>
@@ -363,6 +373,74 @@ const template = 'splash';
     </div>
   </section>
 
+  <style>
+    #faq {
+      margin-top: 7ex;
+    }
+
+    #faq h3 {
+      margin: 5ex auto 0;
+      text-align: center;
+    }
+
+    #faq p {
+      margin: 0 0 .5rem;
+    }
+
+    #faq a {
+      font-weight: 600;
+    }
+
+    
+  </style>
+
+  <section id="faq">
+    <div class="mt-16 space-y-2 text-center" style="margin-top: 4rem">
+      <h2 class="text-3xl font-bold sm:text-4xl md:text-5xl">Frequently Asked Questions</h2>
+      <p class="sub-heading " style="margin: 0 0 2rem;font-weight:600">Answers to the most common questions about licensing</p>
+    </div>
+    <Faq question="Can I try iframe-resizer before buying it?">
+      <p>
+        Yes! You're welcome to try the library using the open source version. 
+        You will need to buy a license if you want to use it in a commercial project.
+      </p>
+      <p>
+        See the <a href="/setup">Getting Started</a> guide for more information.
+      </p>
+    </Faq>
+    <Faq question="Is it a one-time payment?">
+      <p>
+        The Basic, Proffession and Business licenses are a one-time payment and include future updates
+        to version 5.
+      </p>
+      <p>
+        If you want to include <i>iframe-resizer</i> in downloadable or installable products like Wordpress themes, 
+        HTML templates, as part of a commercial interface builder, SDK, or toolkit, you'll need a Commercial OEM 
+        license. Commercial OEM licenses are customized for each customer. <Contact/> if you need this license.
+      </p>
+    </Faq>
+    <Faq question="Can I use iframe-resizer to build commercial products?">
+      <p></p>
+    </Faq>
+    <Faq question="Is the payment secure?">
+      <p></p>
+    </Faq>
+    <Faq question="Is support included in the license?">
+      <p></p>
+    </Faq>
+    <Faq question="Can I use the license for multiple projects?">
+      <p></p>
+    </Faq>
+    <Faq question="Can I be refunded?">
+      <p></p>
+    </Faq>
+    <Faq question="Can I upgrade from one license to another?">
+      <p></p>
+    </Faq>
+    <Faq question="How can I get an invoice for my purchase?">
+      <p></p>
+    </Faq>
+  </section>
 
 </StarlightPage>
 
