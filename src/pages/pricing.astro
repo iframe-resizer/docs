@@ -173,6 +173,11 @@ const template = 'splash';
       padding: 8px 16px;
       text-align: center;
     }
+    
+    #compare tbody th {
+      padding-left: 24px;
+      text-align: left;
+    }
 
     #compare tr:nth-child(even) {
       background-color: var( --sl-color-bg-nav);
@@ -262,6 +267,65 @@ const template = 'splash';
       </tr>
     </tbody>
   </table>
+
+  <style>
+
+    #moreLicenses {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 7ex;
+    }
+    #moreLicenses div {
+      display: inline-block;
+      width: 40%;
+      margin: 0 ;
+      vertical-align: top;
+      text-align: center;
+      font-size: .98rem;
+    }
+
+    #moreLicenses div:first-child {
+      margin: 0 6% 0 0;
+    }
+
+
+    #moreLicenses h2 {
+      margin: 1ex 0;
+    }
+
+  </style>
+
+
+  <div id="moreLicenses">
+    <div>
+      <h2>SaaS/OEM License</h2>
+      <p>
+        If you want to include <i>iframe-resizer</i> in downloadable or installable products such as 
+        Themes, Component Libraries, as part of a commercial interface builder, SDK, or toolkit, 
+        choose the Commercial OEM license. Commercial OEM licenses are customized for each customer.
+      </p>
+      <p>
+        <Contact/>.
+      </p>
+    </div>
+    <div>
+      <h2>Free for Open Source</h2>
+      <p>
+        <i>iframe-resizer</i> is an Open Source application licensed under a 
+        <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="nofollow">GPLv3 license</a>. 
+        This license allows you to use <i>iframe-resizer</i> in Open Source projects but it requires your 
+        project to be public, provide attribution and be licensed under GPLv3. 
+      </p><p>
+        Questions? Read the 
+        <a href="https://www.gnu.org/licenses/gpl-faq.html#GPLRequireSourcePostedPublic" target="_blank" rel="nofollow">GPL FAQ</a>.
+      </p>
+    </div>
+  </div>
+
+
+
+
 
 </StarlightPage>
 
