@@ -1,5 +1,8 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import Tick from '../components/Tick.astro';
+import NoTick from '../components/NoTick.astro';
+import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
 
 const title = 'Pricing for iframe-resizer';
@@ -8,10 +11,10 @@ const template = 'splash';
 
 <StarlightPage frontmatter={{ title, template }}  hasSidebar={false}>
 
-  <div class="text-center" style="font-weight:500;font-size:1.2rem;margin: -2ex 0 3ex">Find the right license for your project.</div>
+  <div class="text-center" style="font-weight:600;font-size:1.2rem;margin: -2ex 0 3ex;color:#985d3b">Find the right license for your project</div>
 
   <div id="priceGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
-    <div class="bg-white rounded-lg shadow-lg dark:bg-gray-950 border-2 border-primary" style="background-color: transparent;">
+    <div class="rounded-lg shadow-lg dark:bg-gray-950 border-2 border-primary" style="">
       <div class="p-6 border-b border-gray-200 dark:border-gray-800">
         <h3 class="text-2xl font-bold">Basic</h3>
         <div class="flex items-baseline my-4">
@@ -19,104 +22,28 @@ const template = 'splash';
         </div>
         <ul class="space-y-2">
           <li>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="w-5 h-5 inline-block mr-2 text-green-500"
-            >
-              <path d="M20 6 9 17l-5-5"></path>
-            </svg>
+            <Tick />
             Same Domain
           </li>
           <li>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="w-5 h-5 inline-block mr-2 text-green-500"
-            >
-              <path d="M20 6 9 17l-5-5"></path>
-            </svg>
+            <Tick />
             For 1 developer
           </li>
           <li>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="w-5 h-5 inline-block mr-2 text-green-500"
-            >
-              <path d="M20 6 9 17l-5-5"></path>
-            </svg>
+            <Tick />
             For 1 website
           </li>
           <li>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="w-5 h-5 inline-block mr-2 text-green-500"
-            >
-              <path d="M20 6 9 17l-5-5"></path>
-            </svg>
+            <Tick />
             Basic Github support only
           </li>
           <li>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="w-5 h-5 inline-block mr-2 text-green-500"
-            >
-            </svg> 
-            __ 
+            <NoTick/>
+            <sup>__</sup> 
           </li>
           <li>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="w-5 h-5 inline-block mr-2 text-green-500"
-            >
-            </svg> 
-            __ 
+            <NoTick/>
+            <sup>__</sup> 
           </li>
         </ul>
       </div>
@@ -129,7 +56,7 @@ const template = 'splash';
         </a>
       </div>
     </div>
-    <div class="bg-white rounded-lg shadow-lg dark:bg-gray-950 border-2 border-primary" style="margin-top:0;border-color: var(--sl-color-accent);background-color: transparent;">
+    <div class="rounded-lg shadow-lg dark:bg-gray-950 border-2 border-primary" style="margin-top:0;border-color: var(--sl-color-accent);">
       <div class="p-6 border-b border-gray-200 dark:border-gray-800">
         <h3 class="text-2xl font-bold">Professional</h3>
         <div class="flex items-baseline my-4">
@@ -138,106 +65,28 @@ const template = 'splash';
         
         <ul class="space-y-2">
           <li>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="w-5 h-5 inline-block mr-2 text-green-500"
-            >
-              <path d="M20 6 9 17l-5-5"></path>
-            </svg>
+            <Tick />
             Cross-Domain
           </li>
           <li>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="w-5 h-5 inline-block mr-2 text-green-500"
-            >
-              <path d="M20 6 9 17l-5-5"></path>
-            </svg>
+            <Tick />
             For up to 8 developers
           </li>
           <li>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="w-5 h-5 inline-block mr-2 text-green-500"
-            >
-              <path d="M20 6 9 17l-5-5"></path>
-            </svg>
+            <Tick />
             For 1 website
           </li>
           <li>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="w-5 h-5 inline-block mr-2 text-green-500"
-            >
-              <path d="M20 6 9 17l-5-5"></path>
-            </svg>
+            <Tick />
             Extended API
           </li>
           <li>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="w-5 h-5 inline-block mr-2 text-green-500"
-            >
-              <path d="M20 6 9 17l-5-5"></path>
-            </svg>
+            <Tick />
             Basic Github support only
           </li>
           <li>
-            
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="w-5 h-5 inline-block mr-2 text-green-500"
-            >
-            </svg> 
-            __ 
+            <NoTick/>
+            <sup>__</sup> 
           </li>
         </ul>
       </div>
@@ -250,7 +99,7 @@ const template = 'splash';
         </a>
       </div>
     </div>
-    <div class="bg-white rounded-lg shadow-lg dark:bg-gray-950 border-2 border-primary" style="margin-top:0;background-color: transparent;">
+    <div class="rounded-lg shadow-lg dark:bg-gray-950 border-2 border-primary" style="margin-top:0;">
       <div class="p-6 border-b border-gray-200 dark:border-gray-800">
         <h3 class="text-2xl font-bold">Business</h3>
         <div class="flex items-baseline my-4">
@@ -258,105 +107,27 @@ const template = 'splash';
         </div>
         <ul class="space-y-2">
           <li>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="w-5 h-5 inline-block mr-2 text-green-500"
-            >
-              <path d="M20 6 9 17l-5-5"></path>
-            </svg>
+            <Tick />
             Multi-domain
           </li>
           <li>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="w-5 h-5 inline-block mr-2 text-green-500"
-            >
-              <path d="M20 6 9 17l-5-5"></path>
-            </svg>
+            <Tick />
             Unlimited developers
           </li>
           <li>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="w-5 h-5 inline-block mr-2 text-green-500"
-            >
-              <path d="M20 6 9 17l-5-5"></path>
-            </svg>
+            <Tick />
             Unlimited websites
           </li>
           <li>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="w-5 h-5 inline-block mr-2 text-green-500"
-            >
-              <path d="M20 6 9 17l-5-5"></path>
-            </svg>
+            <Tick />
             Extended API
           </li>
           <li>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="w-5 h-5 inline-block mr-2 text-green-500"
-            >
-              <path d="M20 6 9 17l-5-5"></path>
-            </svg>
+            <Tick />
             Premium support
           </li>
           <li>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="w-5 h-5 inline-block mr-2 text-green-500"
-            >
-              <path d="M20 6 9 17l-5-5"></path>
-            </svg>
+            <Tick />
             Mobile Applications
           </li>
         </ul>
@@ -376,11 +147,121 @@ const template = 'splash';
   <div class="text-center italic" style="margin:3ex;">All licenses are a one time purchase, and include free updates for the lifetime of version 5. </div>
 
 
-  <h2  class="text-center">Compare Plans</h2>
+  <h2  class="text-center">Compare Licenses</h2>
+
+  <style>
+    sup {
+      position: relative;
+      top: 1ex;
+    }
+
+    #compare {
+      display: table;
+      width: 100%;
+      margin-top: 4ex;
+    }
+ 
+
+    #compare th {
+      border: 0 transparent none;
+      padding: 8px 16px;
+      text-align: center;
+    }
+
+    #compare td {
+      border: 0 transparent none;
+      padding: 8px 16px;
+      text-align: center;
+    }
+
+    #compare tr:nth-child(even) {
+      background-color: var( --sl-color-bg-nav);
+    }
+
+    #compare tr:hover {
+      background-color: #f1f1f1;
+    }
+  </style>
 
 
-
-
+  <table id="compare" style="width:100%">
+    <thead>
+      <tr>
+        <td></td>
+        <th>Open Source</th>
+        <th>Basic</th>
+        <th>Professional</th>
+        <th>Business</th>
+        <th>OEM</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>License Type</th>
+        <td>GPL v3</td>
+        <td>Commercial</td>
+        <td>Commercial</td>
+        <td>Commercial</td>
+        <td>OEM</td>
+      </tr>
+      <tr>
+        <th>Number of Developers</th>
+        <td>Unlimited</td>
+        <td>1 developer</td>
+        <td>8 developers</td>
+        <td>Unlimited</td>
+        <td>Unlimited</td>
+      </tr>
+      <tr>
+        <th>Number of Domains</th>
+        <td>Unlimited</td>
+        <td>1 website with<br /> local iframes</td>
+        <td>1 website with unlimited<br /> external iframes</td>
+        <td>Unlimited</td>
+        <td>Unlimited</td>
+      </tr>
+      <tr>
+        <th>Premium support</th>
+        <td>―</td>
+        <td>―</td>
+        <td>―</td>
+        <td><Tick/></td>
+        <td><Tick/></td>
+      </tr>
+      <tr>
+        <th>Mobile applications</th>
+        <td><Tick/></td>
+        <td>―</td>
+        <td>―</td>
+        <td><Tick/></td>
+        <td><Tick/></td>
+      </tr>
+      <tr>
+        <th>Downloadabl software</th>
+        <td><Tick/></td>
+        <td>―</td>
+        <td>―</td>
+        <td>―</td>
+        <td><Contact/></td>
+      </tr>
+      <tr>
+        <th>Distrobution rights (Saas / OEM)</th>
+        <td><Tick/></td>
+        <td>―</td>
+        <td>―</td>
+        <td>―</td>
+        <td><Contact/></td>
+      </tr>
+      <tr>
+        <th>Intranet</th>
+        <td>―</td>
+        <td>―</td>
+        <td>―</td>
+        <td>―</td>
+        <td><Contact/></td>
+      </tr>
+    </tbody>
+  </table>
 
 </StarlightPage>
 
