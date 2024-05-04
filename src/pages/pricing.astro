@@ -1,5 +1,6 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { Icon } from '@astrojs/starlight/components'
 import Tick from '../components/Tick.astro';
 import NoTick from '../components/NoTick.astro';
 import Contact from '../components/Contact.astro';
@@ -34,6 +35,10 @@ const template = 'splash';
           <li>
             <Tick />
             For 1 website
+          </li>
+          <li>
+            <Tick />
+            Local iframes only
           </li>
           <li>
             <Tick />
@@ -80,6 +85,10 @@ const template = 'splash';
           </li>
           <li>
             <Tick />
+            Unlimited external iframes
+          </li>
+          <li>
+            <Tick />
             Extended API
           </li>
           <li>
@@ -119,6 +128,10 @@ const template = 'splash';
           <li>
             <Tick />
             Unlimited websites
+          </li>
+          <li>
+            <Tick />
+            Unlimited external iframes
           </li>
           <li>
             <Tick />
@@ -195,12 +208,18 @@ const template = 'splash';
       <h2>Free for Open Source</h2>
       <p>
         <i>iframe-resizer</i> is an Open Source application licensed under a 
-        <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="nofollow">GPLv3 license</a>. 
+        <a href="/gpl">GPLv3 license</a>. 
         This license allows you to use <i>iframe-resizer</i> in Open Source projects but it requires your 
         project and source code be publicly published, include attribution, and be licensed under GPLv3. 
       </p><p>
         Questions? Read the 
-        <a href="https://www.gnu.org/licenses/gpl-faq.html#GPLRequireSourcePostedPublic" target="_blank" rel="nofollow">GPL FAQ</a>.
+        <a 
+          href="https://www.gnu.org/licenses/gpl-faq.html#GPLRequireSourcePostedPublic" 
+          target="_blank" 
+          rel="nofollow" 
+        >
+          GPL FAQ 
+        </a><!-- Icon name="external" / -->.
       </p>
     </div>
   </section>
