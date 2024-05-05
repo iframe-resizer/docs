@@ -27,16 +27,9 @@ default: 0
 type:    integer
 ```
 
-Modify the computed height of the iframe. This is useful if the page in the iframe returns a size value that is consitantly slightly different to how you want the iframe to be sized.
+Modify the computed size of the iframe. This is useful if the page in the iframe returns a size value that is consitantly slightly different to how you want the iframe to be sized. This can be set to a positive or
+negative value.
 
-### offsetWidth
-
-```
-default: 0
-type:    integer
-```
-
-Modify the computed width of the iframe. This is useful if the page in the iframe returns a width value that is consitantly slightly different to how you want the iframe to be sized.
 
 ### targetOrigin
 
@@ -45,7 +38,9 @@ default: '*'
 type: string
 ```
 
-This option allows you to restrict the domain of the parent page, to prevent other sites mimicking your parent page.
+This option allows you to restrict the domain of the parent page, to prevent other sites mimicking your 
+parent page. This option is really a last line of defence and you should also setup a <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP" target="_blank">Content Security Policy</a> on your webserver.
+
 
 ## Events
 
@@ -61,7 +56,7 @@ Receive message posted from the parent page with the `iframe.iFrameResizer.sendM
 
     type: function()
 
-This function is called once _iframe-resizer_ has been initialized after receiving a call from the parent page. If you need to call any of the [parentIframe methods](https://github.com/davidjbradshaw/iframe-resizer/blob/master/docs/iframed_page/methods.md) during page load, then they should be called from this event handler.
+This function is called once _iframe-resizer_ has been initialized after receiving a call from the parent page. If you need to call any of the following methods during page load, then they should be called from this event handler.
 
 ## Methods
 
@@ -73,7 +68,7 @@ if ("parentIframe" in window) {
 }
 ```
 
-### autoResize([bool])
+### autoResize(<span class="args">[bool]</span>)
 
 Turn autoResizing of the iFrame on and off. Returns bool of current state.
 
@@ -85,7 +80,7 @@ Remove the iFrame from the parent page.
 
 Returns the ID of the iFrame that the page is contained in.
 
-### getParentInfo(callback||false)
+### getParentInfo(<span class="args">callback || false</span>)
 
 Ask the containing page for its positioning coordinates. You need to provide a callback which receives an object with the following read only properties:
 
@@ -120,32 +115,19 @@ Ask the containing page for its positioning coordinates. You need to provide a c
 }
 ```
 
-<!--
-* **documentHeight** The containing document's height in pixels (the equivalent of  `document.documentElement.clientHeight` in the container)
-* **documentWidth** The containing document's width in pixels (the equivalent of `document.documentElement.clientWidth` in the container)
-* **iframeHeight** The height of the iframe in pixels
-* **iframeWidth** The width of the iframe in pixels
-* **offsetLeft** The number of pixels between the left edge of the containing page and the left edge of the iframe
-* **offsetTop** The number of pixels between the top edge of the containing page and the top edge of the iframe
-* **scrollX** The number of pixels between the top edge of the iframe and the top edge of the iframe viewport (`window.scrollX`)
-* **scrollY** The number of pixels between the left edge of the iframe and the left edge of the iframe viewport (`window.scrollY`)
-* **windowHeight** The containing window's height in pixels (the equivalent of `window.innerHeight` in the container)
-* **windowWidth** The containing window's width in pixels (the equivalent of `window.innerWidth` in the container)
--->
-
 Your callback function will be recalled when the parent page is scrolled or resized.
 
 Pass `false` to disable the callback.
 
-### scrollTo(x,y)
+### scrollTo(<span class="args">x, y</span>)
 
 Scroll the parent page to the coordinates x and y.
 
-### scrollToOffset(x,y)
+### scrollToOffset(<span class="args">x, y</span>)
 
 Scroll the parent page to the coordinates x and y relative to the position of the iFrame.
 
-### sendMessage(message,[targetOrigin])
+### sendMessage(<span class="args">message, [targetOrigin]</span>)
 
 Send data to the containing page, `message` can be any data type that can be serialized into JSON. The `targetOrigin` option is used to restrict where the message is sent to; to stop an attacker mimicking your parent page. See the MDN documentation on [postMessage](https://developer.mozilla.org/en-US/docs/Web/API/Window.postMessage) for more details.
 

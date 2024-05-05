@@ -88,27 +88,18 @@ type:    boolean
 
 When enabled in page linking inside the iFrame and from the iFrame to the parent page will be enabled.
 
-### offsetHeight
+### offset
 
 ```
 default: 0
 type:    integer
 ```
 
-Modify the computed height of the iframe. This is useful if the page in the iframe returns a height value that is consitantly slightly different to how you want the iframe to be sized.
+Modify the computed size of the iframe. This is useful if the page in the iframe returns a size value 
+that is consitantly slightly different to how you want the iframe to be sized.
 
 <sup>\*</sup> This value can also be set on a per page basis in the iframe.
 
-### offsetWidth
-
-```
-default: 0
-type:    integer
-```
-
-Modify the computed width of the iframe. This is useful if the page in the iframe returns a width value that is consitantly slightly different to how you want the iframe to be sized.
-
-<sup>\*</sup> This value can also be set on a per page basis in the iframe.
 
 ### scrolling
 
@@ -151,7 +142,7 @@ The following callback events can be passed to _iframe-resizer_ on the parent pa
 onClose: (iframeID) => boolean;
 ```
 
-Called before the iFrame is closed via `parentIFrame.close()` or `iframe.iFrameResizer.close()` methods. Returning `false` will prevent the iFrame from closing.
+Called before the iFrame is closed via `parentIFrame.close()` method. Returning `false` will prevent the iFrame from closing.
 
 ### onClosed
 
@@ -159,7 +150,7 @@ Called before the iFrame is closed via `parentIFrame.close()` or `iframe.iFrameR
 onClosed: (iframeID) => undefined;
 ```
 
-Called after the iFrame is closed via `parentIFrame.close()` or `iframe.iFrameResizer.close()` methods.
+Called after the iFrame is closed via `parentIFrame.close()` method.
 
 ### onMessage
 
@@ -217,7 +208,7 @@ Once the iFrame has been initialized, an `iframeResizer` object is bound to it. 
 
 Disconnect _iframe-resizer_ from the iFrame. This method MUST to be called, before removing an iframe from the page.
 
-### moveToAnchor(anchor)
+### moveToAnchor(<span class="args">anchor</span>)
 
 Move to anchor in the iFrame.
 
@@ -225,6 +216,6 @@ Move to anchor in the iFrame.
 
 Tell the iFrame to resize itself.
 
-### sendMessage(message, [targetOrigin])
+### sendMessage(<span class="args">message, [targetOrigin]</span>)
 
 Send data to the containing page, `message` can be any data type that can be serialized into JSON. The `targetOrigin` option is used to restrict where the message is sent to, in case your iFrame navigates away to another domain.
