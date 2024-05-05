@@ -3,6 +3,7 @@ title: WordPress
 desciption: Setup iframe-resizer in WordPress
 ---
 
+import { Tabs, TabItem } from "@astrojs/starlight/components";
 import License from "../../../components/License.astro";
 
 The _iframe-resizer_ project is comprised of seporate JS files for the parent and child pages.
@@ -14,7 +15,10 @@ In this section we detail how to setup the parent page.
 
 ### Download Parent JS
 
-Download the file [iframe-resizer.parent.js](https://raw.githubusercontent.com/davidjbradshaw/iframe-resizer/master/js/iframe-resizer.parent.js)
+Download the file 
+[iframe-resizer.parent.js](https://raw.githubusercontent.com/davidjbradshaw/iframe-resizer/master/js/iframe-resizer.parent.js)
+or
+[iframe-resizer.jquery.js](https://raw.githubusercontent.com/davidjbradshaw/iframe-resizer/master/js/iframe-resizer.jquery.js)
 and then upload it into the `/wp-admin/js` folder in WordPress.
 
 ### Usage
@@ -28,6 +32,8 @@ width to 100% and have the height scale to fit the content.
 
 {/* <!-- prettier-ignore-start --> */}
 
+<Tabs>
+  <TabItem label="Vanilla JS">
 ```html
 <style>
   iframe {
@@ -40,9 +46,29 @@ width to 100% and have the height scale to fit the content.
 
 <script src="/wp-admin/js/iframe-resizer.parent.js"></script>
 <script>
-  iframeResize({ license: "xxxx" });
+  iframeResize({ license: 'xxxx', '#myIframe' });
 </script>
 ```
+  </TabItem>
+
+  <TabItem label="jQuery">
+```html
+<style>
+  iframe {
+    width: 100%;
+    height: 100vh;
+  }
+</style>
+
+<iframe id="myIframe" src="http://anotherdomain.com/iframe.html"></iframe>
+
+<script src="/wp-admin/js/iframe-resizer.jquery.js"></script>
+<script>
+  $('#myIframe').iframeResize({ license: "xxxx" });
+</script>
+```
+  </TabItem>
+</Tabs>
 
 {/* <!-- prettier-ignore-end --> */}
 
@@ -67,13 +93,14 @@ and then upload it into the `/wp-admin/js` folder in WordPress.
 
 ### Usage
 
-The following line then needs to be added to every shown in the iframe.
+The following line then needs to be added to every page shown in the iframe.
 
 ```html
 <script src="/wp-admin/js/iframe-resizer.child.js"></script>
 ```
 
-Once everting is setup, keep an eye on the browser console, as _ifrane-resizer_
-will warn about any potential issues it detects and provide advice on how to fix them.
-For more details on using _iframe-resizer_ see the [Performace](../../performace) and
-[Trouble Shooting](../../troubleshooting) sections of this guide.
+Once everyting is setup, keep an eye on the [browser console](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools),
+as _ifrane-resizer_ will warn about any potential issues it detects and provide advice 
+on how to fix them. For more details on using _iframe-resizer_ see the 
+[Performace](../../performace) and [Trouble Shooting](../../troubleshooting) sections 
+of this guide.

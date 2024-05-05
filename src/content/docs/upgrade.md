@@ -31,9 +31,10 @@ Use of the old values will trigger a deprication warning.
 
 ### New `getParentInfo()` method replaces `getPageInfo()`
 
-The `getPageInfo()` method as been deprecated in favor of the new `getParentInfo()` method. Since it was first added to _iframe-resizer_ **getPageInfo** has been extended and extended and is now a bit of a mess of values.
+The `getPageInfo()` method as been deprecated in favor of the new `getParentInfo()` method. Since it was first added to _iframe-resizer_ **getPageInfo** has been extended and extended and become a mishmash of properties from the 
+parent page DOM.
 
-The new **getParentInfo** method now groups values into three objects that contain infomation about the containing iframe tag, the parent document object and the parent viewport.
+The new **getParentInfo** method now groups values into three objects that contain infomation about the containing iframe tag, the parent document object, and the parent viewport.
 
 ```js
   // iframe.getBoundingRect()
@@ -69,19 +70,29 @@ Use of the old method will trigger a deprecation warning in the console.
 
 ### The `onInit()` method has been renamed to `onReady()`
 
-The `onInit()` method has been deprecated in favour of `onReady()`. This brings the parent page and iframe names for this event inline with each other. Use of `onInit()` will trigger a deprecation warning in the console.
+The `onInit()` method has been deprecated in favour of `onReady()`. This brings the parent page and iframe names for this event inline with each other. 
+
+Use of `onInit()` will trigger a deprecation warning in the console.
+
+### The `size()` method has been renamed to `resize()`
+
+The `size()` method in the Child Page API has been deprecated in favour of `resize()`. This brings the child page name inlime with the Parent Page API. 
+
+Use of `size()` will trigger a deprecation warning in the console.
 
 ### Fixed bug where height/width where returned as strings
 
-The `onResized()`, `onMouseEnter()` and `onMouseLeave()` events was returning `height`/`width` as a strings, this has now been fixed to return numbers.
+The `onResized()`, `onMouseEnter()` and `onMouseLeave()` events was returning `height`/`width` as a strings, this 
+has now been fixed to return numbers.
 
 ### Min/Max size values now taken from iframe computed CSS values
 
 These settings are now read from the computed style of the iframe tag. Setting them via the call to `iframeResize()` will trigger a deprication warning.
 
-### New `offsetSize` option
+### Added new `offset` option
 
-Theis new option allow you to adjust the value returned by the iframe for the dimesion you are resizing, it can have either a positive or negative value.
+Theis new option allow you to adjust the value returned by the iframe for the dimesion you are resizing, it can 
+have either a positive or negative value.
 
 ## Other Improvements
 
@@ -91,9 +102,15 @@ In addition to the above API changes, _iframe-resizer 5_ includes the following 
 
 Iframe-resizer now detects when the iframe is on the same domain as the parent page, and will then pass messages directly via the browser DOM. This provides an additional performance improvement over always using `postMessage()`, which is now only used for cross-domain iframes.
 
+### Improved content resize detection
+
+Dropping suppoert for leagacy browsers, has allowed version 5 to use the latest browser APIs to detect content changes, this greatly improves before performance and event detection, whilst also elementing the issue of one changing being picked up by multiple different browser events.
+
 ### Visability checking
 
-The visability of both the iframe and the parent page are now observered. This allows resizing to be disabled while the iframe is not visible to the user.
+The visability of both the iframe and the parent page are now observered, using the 
+[Page Visability API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API). 
+This allows resizing to be disabled while the iframe is not visible to the user.
 
 ### Ensures CSS sizing of iframe html and body tags set to auto
 

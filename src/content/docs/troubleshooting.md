@@ -19,11 +19,10 @@ When the resizer does not work using multiple IFrames on one page, make sure tha
 If a larger element of content is removed from the normal document flow, through the use of absolute positioning, it can prevent the browser working out the correct size of the page. In such cases you can change the [heightCalculationMethod](./parent_page/options.md#heightcalculationmethod) to uses one of the other sizing methods.
 -->
 
-### IFrame not downsizing
+### IFrame not resizing
 
-The most likely cause of this problem is having set the height of an element to be 100% of the page somewhere in your CSS.
-
-This can often be got around by adding a `data-iframe-size` attribute to the element that you want to define the bottom position of the page.
+The most common cause of this is not placing the [@iframe-resizer/child](../../setup/#child-page-setup) package inside the iFramed page. If this does not fix the problem then check `x-Frame-Options` http header on the server 
+that is sending the iframe content, as this can also block `postMessage` calls from _iframe-resizer_ to if set incorrectly.
 
 <!--
 Not having a valid [HTML document type](http://en.wikipedia.org/wiki/Document_type_declaration) in the iFrame can also sometimes prevent downsizing. At it's most simplest this can be the following.
@@ -33,60 +32,15 @@ Not having a valid [HTML document type](http://en.wikipedia.org/wiki/Document_ty
 ```
 -->
 
-### IFrame not resizing
-
-The most common cause of this is not placing the [@iframe-resizer/child](../../setup/#child-page-setup) package inside the iFramed page.
-
-<!--
-### IFrame not detecting CSS :hover events
-
-CSS `:hover` events that cause the page to resize outside of the standard document flow can sometimes be difficult to detect. If this is an issue, then a workaround is to create `mouseover` and `mouseout` event listeners on the elements that are resized via CSS and have these events call the [parentIframe.size()](##parentiframesize-customheight-customwidth) method. With jQuery this can be done as follows.
-
-```js
-function resize(){
-  if ('parentIframe' in window) {
-    // Fix race condition in FireFox with setTimeout
-    setTimeout(parentIframe.size.bind(parentIframe),0);
-  }
-}
-
-$(*Element with hover style*).hover(resize);
-```
-
-### IFrame not detecting textarea resizes
-
-Both FireFox and the WebKit based browsers allow the user to resize `textarea` input boxes. Unfortunately the WebKit browsers don't trigger the mutation event when this happens. This can be worked around to some extent with the following code.
-
-```js
-function store() {
-  this.x = this.offsetWidth
-  this.y = this.offsetHeight
-}
-
-$('textarea')
-  .each(store)
-  .on('mouseover mouseout', function() {
-    if (this.offsetWidth !== this.x || this.offsetHeight !== this.y) {
-      store.call(this)
-      if ('parentIframe' in window) {
-        parentIframe.size()
-      }
-    }
-  })
-```
-
-### IFrame flickers
-
-Some of the alternate [height calculation methods](./parent_page/options.md#heightcalculationmethod), such as **max** can cause the iFrame to flicker. This is due to the fact that to check for downsizing, the iFrame first has to be downsized before the new height can be worked out. This effect can be reduced by setting a [minSize](./docs/parent_page/options.md#minheight--minwidth) value, so that the iFrame is not reset to zero height before regrowing.
-
-In modern browsers, if the default [height calculation method](./parent_page/options.md#heightcalculationmethod) does not work, then it is normally best to use **taggedElement** or **lowestElement**, which are both flicker free.
-
-<i>Please see the notes section under [heightCalculationMethod](./parent_page/options.md#heightcalculationmethod) to understand the limitations of the different options.</i>
--->
-
 ### Localhost 127.0.0.1 and file:///
 
 When an iframe is located on your local machine the browser adds extra security restrictions to cross-domain iframes. These will stop _iframe-resizer_ from functioning. If you need to test something locally, then it is best to use the external IP Address of the machine.
+
+### IFrame not downsizing
+
+The most likely cause of this problem is having set the height of an element to be 100% of the page somewhere in your CSS.
+
+This can often be got around by adding a `data-iframe-size` attribute to the element that you want to define the bottom position of the page.
 
 ### Failed to execute 'postMessage' on 'DOMWindow'
 
@@ -94,7 +48,6 @@ This error occurs when the parent window tries to send a message to the iframe b
 
 If you're still having problems, or you really want to not ignore the error, then you can try delaying the call to `iframeResize()` until after the `onLoad` event of the iframe has fired.
 
-If this does not fix the problem then check `x-Frame-Options` http header on the server that is sending the iframe content, as this can also block calls to `postMessage` if set incorrectly.
 
 ### iFrame has not responded within 5 seconds
 
@@ -104,7 +57,7 @@ If everything is working, then this message can be ignored, or if you prefer you
 
 ### ParentIframe not found errors
 
-The `parentIframe` object is created once the iFrame has been initially resized. If you wish to use it during page load you will need call it from the onReady.
+The `parentIframe` object is created once the iframe has been initially resized. If you wish to use it during page load you will need call it from the [onReady()](../api/child#onready) startup event handler.
 
 ```html
 <script>

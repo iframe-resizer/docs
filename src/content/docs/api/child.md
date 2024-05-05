@@ -137,6 +137,6 @@ Send data to the containing page, `message` can be any data type that can be ser
 Change the method use to workout the height of the iFrame.
 -->
 
-### size()
+### resize()
 
 Manually force iFrame to resize. If for some reason a change in content size is not detected, this method allows you to nudge _iframe-resizer_ to recalculate the page size.

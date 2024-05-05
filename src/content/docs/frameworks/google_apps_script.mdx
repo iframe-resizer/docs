@@ -7,10 +7,10 @@ import License from "../../../components/License.astro";
 
 The [Google Apps Script](https://www.google.com/script/start/) platform creates a nested
 iframe between your app and the page it is host on. This creates a unique challenge for
-_iFrame Resizer_, as it needs to be able to talk directly with the iframe it is using to
+_iframe-resizer_, as it needs to be able to talk directly with the iframe it is using to
 calculate the page size from.
 
-This can be overcome by providing _iFrame Resizer_ some hints on where it can fimd the nested iframe, in order to establlish communication between the parent page and the GAS iframe.
+This can be overcome by providing _iframe-resizer_ some hints on where it can fimd the nested iframe, in order to establlish communication between the parent page and the GAS iframe.
 
 ### Child Page
 
@@ -27,8 +27,9 @@ package to your GAS application.
 
 ### Parent Page
 
-The parent page needs to wait to recieve the above message before starting _iFrame Resizer_.
-Once recieved the contained referrences from the GAS application iframe, can be passed along to _iFrame Resizer_ as follows.
+The parent page needs to wait to recieve the above message before starting _iframe-resizer_.
+Once it has recieved the contained referrences from the GAS application iframe, these can then 
+be passed along to _iframe-resizer_ as follows.
 
 ```js
 window.addEventListener(
@@ -53,3 +54,9 @@ window.addEventListener(
 The value for `offsetHeight` may need to be adjusted based on the content of your GAS application.
 
 <License />
+
+Once everyting is setup, keep an eye on the [browser console](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools),
+as _ifrane-resizer_ will warn about any potential issues it detects and provide advice 
+on how to fix them. For more details on using _iframe-resizer_ see the 
+[Performace](../../performace) and [Trouble Shooting](../../troubleshooting) sections 
+of this guide.
