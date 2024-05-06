@@ -15,6 +15,7 @@
     "@astrojs/starlight-tailwind": "^2.0.2",
     "@astrojs/tailwind": "^5.1.0",
     "@iframe-resizer/child": "latest",
+    "@iframe-resizer/parent": "^5.0.0-alpha.12",
     "@iframe-resizer/react": "latest",
     "@material-tailwind/react": "^2.1.9",
     "@types/react": "^18.3.1",

@@ -25,7 +25,7 @@ export default ({ src }) => {
         onMessage={onMessage}
         onResized={onResized}
         src={src}
-        style={{ width: '100%', height: '100vh'}}
+        style={{ width: '100%', height: '10vh'}}
       />
       <MessageData data={messageData} />
     </>
