@@ -1,14 +1,21 @@
 ---
 import type { Props } from '@astrojs/starlight/props';
 import CallToAction from './CallToAction.astro';
+import Contact from './Contact.astro';
 
 import Default from '@astrojs/starlight/components/SocialIcons.astro';
 ---
-<span style="margin-top: 0.2rem;font-weight: 400;">
+<span class="topLink" style="margin-top: 0.2rem;font-weight: 400 !important;">
+	<CallToAction
+		link="../examples"
+		variant="topbar"
+	>Examples</CallToAction>
+	&nbsp;
 	<CallToAction
 		link="../pricing"
-		className="ir-cta"
-		variant="minimal"
+		variant="topbar"
 	>Pricing</CallToAction>
+	&nbsp;
+	<Contact class="action topbar  astro-balv45lp" />
 </span>
 <Default {...Astro.props}><slot /></Default>

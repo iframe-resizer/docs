@@ -46,8 +46,23 @@ const { class: customClass, ...attrs } = Astro.props.attrs || {}
 	.action.secondary {
 		border: 1px solid;
 	}
-	.action.minimal {
+	.action.minimal,
+	.action.topbar {
 		padding-inline: 0;
+	}
+
+	.action.topbar {
+		color: var(--sl-color-text-accent);
+		/* font-size: var(--sl-text-sm); */
+		font-weight: 600;
+		padding-bottom: 0.15rem;
+		margin-bottom: 0.7rem
+	}
+
+	.action.action.topbar:hover {
+		border-bottom: solid 2px var(--sl-color-text-accent);
+		border-radius: 0;
+		margin-bottom: calc(0.7rem - 2px);
 	}
 
 	@media (min-width: 50rem) {
