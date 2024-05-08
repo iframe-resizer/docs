@@ -23,18 +23,18 @@ The name of the tag attributes have now been consolidated from `data-iframe-heig
 
 Use of the old calculation options or the old tag names will trigger a deprecation warning in the console with advice on how to update your config.
 
-### New `direction` option replaces `sizeHeight` / `sizeWidth` and `autoResize`
+### New <span class="option">direction</span> option replaces <span class="option">sizeHeight</span> / <span class="option">sizeWidth</span> and <span class="option">autoResize</span>
 
 This library has always supported resizing in both directions, but changing the direction confusingly required the setting of multiple different options in the config. This has now been consolidated into the new single `direction` option, which can have the following values: `vertical`, `horizontal` or `none`.
 
 Use of the old values will trigger a deprication warning.
 
-### New `getParentInfo()` method replaces `getPageInfo()`
+### New <span class="option">getParentProperties()</span> method replaces <span class="option">getPageInfo()</span>
 
-The `getPageInfo()` method as been deprecated in favor of the new `getParentInfo()` method. Since it was first added to _iframe-resizer_ **getPageInfo** has been extended and extended and become a mishmash of properties from the 
+The `getPageInfo()` method as been deprecated in favor of the new `getParentProperties()` method. Since it was first added to _iframe-resizer_ **getParentProperties** has been extended and extended and become a mishmash of properties from the 
 parent page DOM.
 
-The new **getParentInfo** method now groups values into three objects that contain infomation about the containing iframe tag, the parent document object, and the parent viewport.
+The new **getParentProperties** method now groups values into three objects that contain infomation about the containing iframe tag, the parent document object, and the parent viewport.
 
 ```js
   // iframe.getBoundingRect()
@@ -68,13 +68,13 @@ The new **getParentInfo** method now groups values into three objects that conta
 
 Use of the old method will trigger a deprecation warning in the console.
 
-### The `onInit()` method has been renamed to `onReady()`
+### The <span class="option">onInit()</span> method has been renamed to <span class="option">onReady()</span>
 
 The `onInit()` method has been deprecated in favour of `onReady()`. This brings the parent page and iframe names for this event inline with each other. 
 
 Use of `onInit()` will trigger a deprecation warning in the console.
 
-### The `size()` method has been renamed to `resize()`
+### The <span class="option">size()</span> method has been renamed to <span class="option">resize()</span>
 
 The `size()` method in the Child Page API has been deprecated in favour of `resize()`. This brings the child page name inlime with the Parent Page API. 
 
@@ -85,11 +85,11 @@ Use of `size()` will trigger a deprecation warning in the console.
 The `onResized()`, `onMouseEnter()` and `onMouseLeave()` events was returning `height`/`width` as a strings, this 
 has now been fixed to return numbers.
 
-### Min/Max size values now taken from iframe computed CSS values
+### The <span class="option">minHeight</span>, <span class="option">minWidth</span>, <span class="option">maxHeight</span> and <span class="option">minWidth</span> options have been removed
 
-These settings are now read from the computed style of the iframe tag. Setting them via the call to `iframeResize()` will trigger a deprication warning.
+These settings are no longer required, as all target browswers now support setting these on the iframe via CSS.
 
-### Added new `offset` option
+### Added new <span class="option">offset</span> option
 
 Theis new option allow you to adjust the value returned by the iframe for the dimesion you are resizing, it can 
 have either a positive or negative value.
@@ -100,7 +100,7 @@ In addition to the above API changes, _iframe-resizer 5_ includes the following 
 
 ### Direct communitcation for same domain iframes
 
-Iframe-resizer now detects when the iframe is on the same domain as the parent page, and will then pass messages directly via the browser DOM. This provides an additional performance improvement over always using `postMessage()`, which is now only used for cross-domain iframes.
+_Iframe-resizer_ now detects when the iframe is on the same domain as the parent page, and will then pass messages directly via the browser DOM. This provides an additional performance improvement over always using `postMessage()`, which is now only used for cross-domain iframes.
 
 ### Improved content resize detection
 
@@ -118,4 +118,4 @@ The most common reason for Iframe Resizer to have difficulty resizing, or going 
 
 ### TypeScript Types
 
-TypeScript Types are now included in the NPM module.
+TypeScript Types are now included in the NPM module for the parent and React packages.

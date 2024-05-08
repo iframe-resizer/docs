@@ -4,7 +4,7 @@ import JS from '../../components/js-child.astro'
 
 
 
-<h2>parentIframe.getParentInfo()</h2>
+<h2>parentIframe.getParentProperties()</h2>
 <table id="data"></table>
 
 <!-- 
@@ -51,7 +51,7 @@ import JS from '../../components/js-child.astro'
     offsetHeight: -1,
 
     onReady: () => {
-      parentIFrame.getParentInfo((pageInfo) => {
+      parentIFrame.getParentProperties((pageInfo) => {
         dataTable.innerHTML = Object.entries(pageInfo).map(rowParent).join('\n')
       })
     },

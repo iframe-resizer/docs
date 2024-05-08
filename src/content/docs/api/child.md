@@ -20,7 +20,7 @@ The following options can be set from within the iFrame page by creating a `wind
 <script src="node_modules/@iframe-resizer/child/index.umd.js"></script>
 ```
 
-### offsetHeight
+### offset
 
 ```
 default: 0
@@ -68,7 +68,7 @@ if ("parentIframe" in window) {
 }
 ```
 
-### autoResize(<span class="args">[bool]</span>)
+### autoResize(<span class="args">bool</span>)
 
 Turn autoResizing of the iFrame on and off. Returns bool of current state.
 
@@ -80,7 +80,7 @@ Remove the iFrame from the parent page.
 
 Returns the ID of the iFrame that the page is contained in.
 
-### getParentInfo(<span class="args">callback || false</span>)
+### getParentProperties(<span class="args">callback</span>)
 
 Ask the containing page for its positioning coordinates. You need to provide a callback which receives an object with the following read only properties:
 
@@ -117,7 +117,17 @@ Ask the containing page for its positioning coordinates. You need to provide a c
 
 Your callback function will be recalled when the parent page is scrolled or resized.
 
-Pass `false` to disable the callback.
+This method returns a `disable()` function, that you can call to stop updates from
+the parent page. The following example requests the propeties from the parent page
+and passes a callback that logs them to the console and then disables further updates.
+
+```js
+const disableParentProperties = 
+  parentIframe.getParentProperties(parentProps) => {
+    console.log('Parent Page Props', parentProps)
+    disableParentProperties()
+  })
+```
 
 ### scrollTo(<span class="args">x, y</span>)
 

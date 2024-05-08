@@ -656,14 +656,14 @@ This version of <i>iframe-resizer</> can auto detect the most suitable ${type} c
 
       getId: () => myID,
 
-      getPageInfo(callback) {
+      getParentProperties(callback) {
         if (typeof callback === 'function') {
           onPageInfo = callback;
           sendMsg(0, 0, 'pageInfo');
           advise(`
-<rb>Deprecated Method (getPageInfo()</>
+<rb>Deprecated Method (getParentProperties()</>
           
-The <b>getPageInfo()</> method has been deprecated and replaced with  <b>getParentInfo()</>. Use of this method will be removed in a future version of <i>iframe-resizer</>.
+The <b>getParentProperties()</> method has been deprecated and replaced with  <b>getParentProperties()</>. Use of this method will be removed in a future version of <i>iframe-resizer</>.
 `);
           return
         }
@@ -672,7 +672,7 @@ The <b>getPageInfo()</> method has been deprecated and replaced with  <b>getPare
         sendMsg(0, 0, 'pageInfoStop');
       },
 
-      getParentInfo(callback) {
+      getParentProperties(callback) {
         if (typeof callback === 'function') {
           onParentInfo = callback;
           sendMsg(0, 0, 'parentInfo');

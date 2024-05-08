@@ -350,7 +350,7 @@ The \u001B[1monInit()\u001B[m function is deprecated and has been replaced with 
       log(iframeId, '--');
     }
 
-    function getPageInfo() {
+    function getParentProperties() {
       const bodyPosition = document.body.getBoundingClientRect();
       const iFramePosition = messageData.iframe.getBoundingClientRect();
       const { scrollY, scrollX, innerHeight, innerWidth } = window;
@@ -372,7 +372,7 @@ The \u001B[1monInit()\u001B[m function is deprecated and has been replaced with 
       })
     }
 
-    function getParentInfo() {
+    function getParentProperties() {
       const { iframe } = messageData;
       const { scrollWidth, scrollHeight } = document.documentElement;
       const { width, height, offsetLeft, offsetTop, pageLeft, pageTop, scale } =
@@ -473,8 +473,8 @@ The \u001B[1monInit()\u001B[m function is deprecated and has been replaced with 
       }
     };
 
-    const sendPageInfoToIframe = sendInfoToIframe('pageInfo', getPageInfo);
-    const sendParentInfoToIframe = sendInfoToIframe('parentInfo', getParentInfo);
+    const sendPageInfoToIframe = sendInfoToIframe('pageInfo', getParentProperties);
+    const sendParentInfoToIframe = sendInfoToIframe('parentInfo', getParentProperties);
 
     const startPageInfoMonitor = startInfoMonitor(
       sendPageInfoToIframe,
