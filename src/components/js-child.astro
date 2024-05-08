@@ -1,4 +1,12 @@
-    <script>/*!
+<style>
+
+
+
+</style>
+
+
+<script>
+/*!
  *  @preserve
  *  
  *  @module     iframe-resizer/child 5.0.0 (iife) 
@@ -873,6 +881,7 @@ ${logMsg}`,
   function switchToAutoOverflow({
     ceilBoundingSize,
     dimension,
+    getDimension,
     isHeight,
     scrollSize,
   }) {
@@ -898,6 +907,8 @@ When present the <i>${side} margin of the ${furthest} element</> with a <b>data-
       log(`Switching from ${widthCalcMode} to autoOverflow`);
       widthCalcMode = 'autoOverflow';
     }
+
+    return getDimension.taggedElement()
   }
 
   const prevScrollSize = {
@@ -967,6 +978,7 @@ When present the <i>${side} margin of the ${furthest} element</> with a <b>data-
           : switchToAutoOverflow({
               ceilBoundingSize,
               dimension,
+              getDimension,
               isHeight,
               scrollSize,
             })
@@ -988,6 +1000,7 @@ When present the <i>${side} margin of the ${furthest} element</> with a <b>data-
         switchToAutoOverflow({
           ceilBoundingSize,
           dimension,
+          getDimension,
           isHeight,
           scrollSize,
         });

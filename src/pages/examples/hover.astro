@@ -1,0 +1,45 @@
+---
+import JS from '../../components/js-child.astro'
+---
+
+
+<style>
+    body {
+    margin:14px 10px;
+    font-family: Roboto, sans-serif;
+    font-weight: lighter;
+  }
+
+  xmp {
+    height: 20rem;
+  }
+</style>
+
+
+<xmp>
+  Mouse over this box. 
+
+
+  The ifrane will change size due solely to 
+  the CSS hover effect on the this element.
+</xmp>
+
+
+
+<div id="code">
+  <style>
+    xmp {
+      background-color: #eee;
+      padding: 20px;
+      display: block;
+    }
+
+    xmp:hover {
+      border: #c33 solid 40px;
+    }
+  </style>
+</div>
+
+
+
+<JS/>

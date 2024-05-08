@@ -1,5 +1,7 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro'
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+
 import JS from '../components/js-parent.astro'
 
 const title = 'Examples'
@@ -7,10 +9,67 @@ const title = 'Examples'
 
 
 <StarlightPage frontmatter={{ title }} >
-  <iframe 
-    src="/examples/frame.animate" 
-    title="Animate Example" 
-    style="width: 100%; border: 2px inset">
-  </iframe>
+  <style>
+     iframe {
+      width: 100%; 
+      border: 3px inset
+    }
+
+    iframe#horizontal {
+      height: 200px;
+      width: 1px ;
+    }
+  </style>
+
+  <p>
+    This page contains examples of <i>iframe-resizer</i> working with various different 
+    types of content, which can make detecting the content changing and calculating the 
+    size of the iframe challenging.
+  </p>
+  <p>
+    To overcome this <i>iframe-resizer</i> has a number of of methods to both detect 
+    content changes and calculate the size of the iframe. Each time the content changes,
+    the most appropriate method is selected to calculate the new size.
+  </p>
+
+  <Tabs>
+    <TabItem label="Vertical">
+      <iframe 
+        id="vertical"
+        src="/examples/animate" 
+        title="Vertical Example">
+      </iframe>
+    </TabItem>
+    <TabItem label="Horizontal">
+      <iframe 
+        id="horizontal"
+        src="/examples/horizontal" 
+        title="Horizontal Example">
+      </iframe>
+    </TabItem>
+    <TabItem label="TextArea">
+      <iframe 
+        id="textarea"
+        src="/examples/textarea" 
+        title="TextArea Example">
+      </iframe>
+    </TabItem>
+    <TabItem label="Hover">
+      <iframe
+        id="hover"
+        src="/examples/hover" 
+        title="Hover Example">
+      </iframe>
+    </TabItem>
+    <TabItem label="Footer">
+      <iframe 
+        id="footer"
+        src="/examples/footer" 
+        title="Footer Example">
+      </iframe>
+    </TabItem>
+  </Tabs>
+
 </StarlightPage>
+
 <JS/>

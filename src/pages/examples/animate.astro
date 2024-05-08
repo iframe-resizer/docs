@@ -25,17 +25,21 @@ import JS from '../../components/js-child.astro'
   
   const row = ([key, value]) => `
     <tr>
-      <th class="astro-jxkbbzhe">${key}</th>
-      <td class="astro-jxkbbzhe">${value}</td>
+      <th class="astro-462sifux">${key}</th>
+      <td class="astro-462sifux">${value}</td>
     </tr>`
 
-  const rowParent = ([key, info]) =>
-  `<tr>
-    <th class="astro-jxkbbzhe">${key}</th>
-    <td>
-      <table class="astro-jxkbbzhe">${Object.entries(info).map(row).join('\n')}</table>
-    </td>
-  </tr>`
+  const rowParent = ([key, info]) => {
+    delete info.x
+    delete info.y
+  
+    return `<tr>
+      <th class="astro-462sifux">${key}</th>
+      <td>
+        <table class="astro-462sifux">${Object.entries(info).map(row).join('\n')}</table>
+      </td>
+    </tr>`
+  }
 
   window.iFrameResizer = {
     // We cheat a little here, as the iframe resize can be one
@@ -58,6 +62,12 @@ import JS from '../../components/js-child.astro'
 <style>
   body {
     margin:14px 10px;
+    font-family: Roboto, sans-serif;
+    font-weight: lighter;
+  }
+
+  h2 {
+    font-weight: lighter;  
   }
 
   p {
@@ -81,6 +91,7 @@ import JS from '../../components/js-child.astro'
    margin: 2px 0 10px;
   }
   table#data table th {
+    font-weight: normal;
     width: 110px !important;
     padding: 0;
   }
