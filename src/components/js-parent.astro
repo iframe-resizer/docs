@@ -57,7 +57,7 @@
 
   const output = (type, iframeId, ...msg) =>
     // eslint-disable-next-line no-console
-    window?.console[type](formatLogHeader(iframeId), ...msg);
+    window?.console[type].apply(null, [formatLogHeader(iframeId), ...msg]);
 
   const log = (iframeId, ...msg) =>
     isLogEnabled(iframeId) === true ? output('log', iframeId, ...msg) : null;
@@ -68,7 +68,8 @@
 
   const advise = (iframeId, msg) =>
     // eslint-disable-next-line no-console
-    window?.console.warn(
+    window?.console.warn.apply(
+      null,
       formatLogMsg(
         iframeId,
         window.chrome // Only show formatting in Chrome as not supported in other browsers
