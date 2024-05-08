@@ -39,23 +39,15 @@ import JS from '../../components/js-child.astro'
 
   window.iFrameResizer = {
     // We cheat a little here, as the iframe resize can be one
-    // frame behind the actual content height in the iframe if
-    // we're having to use postMessage due to operating cross
-    // domain.
+    // frame behind the actual content height in the iframe.
     //
     // Making the offsetHeight -1, ensures that the content height
     // will always fill the iframe when downsizing and avoid any
     // annoying 1px gaps at the bottom.
-    //
-    // You should not need to do this with same domain iframes.
     offsetHeight: -1,
 
     onReady: () => {
-      //   parentIFrame.getPageInfo((pageInfo) => {
-      //     dataTable.innerHTML = Object.entries(pageInfo).map(row).join('\n')
-      //   })
       parentIFrame.getParentInfo((pageInfo) => {
-        console.log(pageInfo)
         dataTable.innerHTML = Object.entries(pageInfo).map(rowParent).join('\n')
       })
     },
