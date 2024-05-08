@@ -86,7 +86,12 @@ import JS from '../../components/js-child.astro'
 <div data-iframe-size id="bar"></div>
 
 <div data-iframe-size id="abs">
-  <p>This element animates to a width of 720px using CSS keyframes.</p>
+  <p>
+    This element animates between 200px and 720px wide using CSS keyframes.
+    <br/><br/>
+    The iframe width is capped to 100% of the containing element width.
+
+  </p>
 </div>
 
 <JS/>
