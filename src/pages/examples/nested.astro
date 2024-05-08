@@ -1,15 +1,18 @@
 ---
-import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro'
 import { Tabs, TabItem } from "@astrojs/starlight/components";
 
-import JS from '../components/js-parent.astro'
+import JSP from '../../components/js-parent.astro'
+import JSC from '../../components/js-child.astro'
 
-const title = 'Examples'
 ---
 
-
-<StarlightPage frontmatter={{ title }} >
   <style>
+     body {
+      margin:14px 10px;
+      font-family: Roboto, sans-serif;
+      font-weight: lighter;
+    }
+
      iframe {
       width: 100%; 
       border: 3px inset
@@ -18,19 +21,10 @@ const title = 'Examples'
     iframe#horizontal {
       height: 200px;
       width: 1px ;
+      max-width: 100%;
     }
   </style>
 
-  <p>
-    This page contains examples of <i>iframe-resizer</i> working with various different 
-    types of content, which can make detecting the content changing and calculating the 
-    size of the iframe challenging.
-  </p>
-  <p>
-    To overcome this <i>iframe-resizer</i> has a number of of methods to both detect 
-    content changes and calculate the size of the iframe. Each time the content changes,
-    the most appropriate method is selected to calculate the new size.
-  </p>
 
   <Tabs>
     <TabItem label="Vertical">
@@ -68,15 +62,15 @@ const title = 'Examples'
         title="Footer Example">
       </iframe>
     </TabItem> -->
-    <TabItem label="Nested">
+    <!-- <TabItem label="Nested">
       <iframe 
         id="nested"
         src="/examples/nested" 
         title="Nested Example">
-      </iframe>
+      </iframe> -->
     </TabItem>
   </Tabs>
 
-</StarlightPage>
 
-<JS/>
+<JSP/>
+<JSC/>
