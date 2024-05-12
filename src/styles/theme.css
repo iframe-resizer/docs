@@ -93,6 +93,22 @@ h1.astro-j6tvhyss {
   margin: -1rem auto -2rem;
 }
 
+button.buy {
+  background-color: var(--ir-color-primary);
+  opacity: 0.9;
+  color: white !important;
+  /* color: var(--sl-color-black) !important; */
+  font-weight: 600;
+  letter-spacing: .05rem
+}
+
+button.buy-highlight {
+  background-color: var(--ir-color-primary);
+  border-color: var(--ir-color-primary);
+  opacity: 1;
+}
+
+
 #priceGrid ul {
   padding: 0;
   list-style-type: none;
