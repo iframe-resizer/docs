@@ -21,7 +21,10 @@ export default defineConfig({
         src: "/public/logo.svg"
         // alt: "iframe-resizer",
       },
-      customCss: ["./src/styles/theme.css"],
+      customCss: [
+        "./src/styles/theme.css",
+        '@fontsource/audiowide/400.css',
+      ],
       components: {
         SocialIcons: "./src/components/socials.astro",
       },

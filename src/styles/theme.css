@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 /* Dark mode colors. */
 :root {
   --sl-color-accent-low: #222615;
@@ -64,14 +65,28 @@ h1.astro-j6tvhyss {
 }
 
 .hero h1 {
-  font-size: clamp(3.5rem, calc(0.45rem + 5vw), 6rem);
+  font-family: 'Audiowide', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  /* font-size: clamp(3.5rem, calc(0.45rem + 5vw), 6rem); */
+  font-size: clamp(2.5rem, calc(0.45rem + 5vw), 4.2rem);
+  /* letter-spacing: .5rem; */
+  margin-top: 6.4rem;
+}
+
+@media screen and (max-width: 799px) {
+  .hero h1 {
+    margin-top: 1rem
+  }
+  
 }
 
 .tagline {
-  /* color: #985d3b; */
+  color: #985d3b;
   font-weight: 500;
   font-size: clamp(var(--sl-text-2xl), calc(0.0625rem + 3vw), 1.6rem);
-  margin: -0.6rem 0 0.6rem;
+  letter-spacing: -0.01rem;
+  margin: -1rem 0 2.6rem;
 }
 
 .hero img {
