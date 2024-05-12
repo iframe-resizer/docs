@@ -124,6 +124,21 @@ h1.astro-j6tvhyss {
     min-height: calc(100vh - 212px);
 }
 
+label:where(.astro-4yphtoen) {
+  color: var(--sl-color-accent);
+}
+label:where(.astro-4yphtoen) select {
+  margin: 1px 0 0 1rem;
+  font-size: var(--sl-text-base);
+  font-weight: 600;
+}
+
+label:where(.astro-4yphtoen) svg {
+  width: 1.5em;
+  height: 1.5em;
+  margin-top: 1px;
+}
+
 .content-panel {
   border-color: transparent;
   border: 0 !important;
