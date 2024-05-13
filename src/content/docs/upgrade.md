@@ -104,7 +104,7 @@ _Iframe-resizer_ now detects when the iframe is on the same domain as the parent
 
 ### Improved content resize detection
 
-Dropping suppoert for leagacy browsers, has allowed version 5 to use the latest browser APIs to detect content changes, this greatly improves before performance and event detection, whilst also elementing the issue of one changing being picked up by multiple different browser events.
+Dropping suppoert for leagacy browsers, has allowed version 5 to use the latest browser APIs to detect content changes, this greatly improves both performance and event detection, whilst also elementing the issue of one changing being picked up by multiple different browser events.
 
 ### Visability checking
 
