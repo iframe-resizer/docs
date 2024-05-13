@@ -105,8 +105,6 @@ button.buy {
   background-color: var(--ir-color-primary);
   border-color: var(--ir-color-primary);
   opacity: 0.9;
-  /* color: white !important; */
-  /* color: var(--sl-color-black) !important; */
   font-weight: 600;
   letter-spacing: .05rem
 }
@@ -117,10 +115,10 @@ button.buy-highlight {
 }
 
 button.buy:hover {
-  cursor: pointer !important;
+  cursor: pointer;
   opacity: .8;
+  /* color: var(--sl-color-black); */
 }
-
 
 #priceGrid ul {
   padding: 0;
