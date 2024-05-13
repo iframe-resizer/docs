@@ -11,7 +11,14 @@ const title = 'Pricing for iframe-resizer';
 const template = 'splash';
 ---
 
+
 <StarlightPage frontmatter={{ title, template }}  hasSidebar={false}>
+  <script>
+    window.buy = (type) => {
+      alert('Coming very soon. Please contact us directly if you need a license before then.')
+      console.log('Buy:', type)
+    }
+  </script>
 
   <div class="text-center" style="font-weight:600;font-size:1.2rem;margin: -2ex 0 4ex;color:#985d3b">Find the right license for your project</div>
 
@@ -54,7 +61,7 @@ const template = 'splash';
         </ul>
       </div>
       <div class="p-6" style="margin:0">
-        <button class="buy inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 h-10 px-4 py-2 w-full">
+        <button onclick="buy('basic')" class="buy inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 h-10 px-4 py-2 w-full">
           Buy Now
         </button>
         <a style="font-weight:600" class="block text-center text-sm mt-2 underline" href="/commercial">
@@ -101,7 +108,7 @@ const template = 'splash';
         </ul>
       </div>
       <div class="p-6" style="margin:0">
-        <button class="buy buy-highlight inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 h-10 px-4 py-2 w-full">
+        <button onclick="buy('pro')" class="buy buy-highlight inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 h-10 px-4 py-2 w-full">
           Buy Now
         </button>
         <a style="font-weight:600" class="block text-center text-sm mt-2 underline" href="/commercial">
@@ -147,7 +154,7 @@ const template = 'splash';
         </ul>
       </div>
       <div class="p-6" style="margin:0">
-        <button class="buy inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 h-10 px-4 py-2 w-full">
+        <button onclick="buy('business')" class="buy inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 h-10 px-4 py-2 w-full">
           Buy Now
         </button>
         <a style="font-weight:600" class="block text-center text-sm mt-2 underline" href="/commercial">
@@ -159,7 +166,6 @@ const template = 'splash';
 
 
   <div class="text-center italic" style="margin: 3ex 0 0;">Above licenses are a one time purchase, and include free updates for the lifetime of version 5. </div>
-
 
 
   <style>

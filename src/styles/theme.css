@@ -103,6 +103,7 @@ h1.astro-j6tvhyss {
 button.buy {
   /* background-color: var(--sl-color-gray-5); */
   background-color: var(--ir-color-primary);
+  border-color: var(--ir-color-primary);
   opacity: 0.9;
   /* color: white !important; */
   /* color: var(--sl-color-black) !important; */
@@ -112,8 +113,12 @@ button.buy {
 
 button.buy-highlight {
   background-color: var(--ir-color-primary);
-  border-color: var(--ir-color-primary);
   opacity: 1;
+}
+
+button.buy:hover {
+  cursor: pointer !important;
+  opacity: .8;
 }
 
 
