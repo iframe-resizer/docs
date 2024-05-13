@@ -9,13 +9,16 @@ const props = Astro.props;
 ---
 
 <Tabs>
-  <TabItem label="npm">
-    <Code code={`npm install ${props.package}`} lang="bash" />
-  </TabItem>
-  <TabItem label="pnpm">
-    <Code code={`pnpm add ${props.package}`} lang="bash" />
+  <TabItem label="NPM">
+    <Code code={`npm install ${props.package} --save`} lang="bash" />
   </TabItem>
   <TabItem label="Yarn">
     <Code code={`yarn add ${props.package}`} lang="bash" />
+  </TabItem>
+  <TabItem label="PNPM">
+    <Code code={`pnpm add ${props.package}`} lang="bash" />
+  </TabItem>
+  <TabItem label="Bun">
+    <Code code={`bun add ${props.package}`} lang="bash" />
   </TabItem>
 </Tabs>
