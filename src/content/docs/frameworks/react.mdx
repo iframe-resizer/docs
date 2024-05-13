@@ -138,8 +138,8 @@ export default App
 The `<MessageData/>` component is then used to display some of the data returned from the iframe.
 
 ```jsx
-const MessageData = ({ data }) => {
-  return data ? (
+const MessageData = ({ data }) =>
+ data ? (
     data.message ? (
       <span>
         <b>Frame ID:</b> {data.iframe.id} <br/>
@@ -154,7 +154,6 @@ const MessageData = ({ data }) => {
       </span>
     )
   ) : null
-}
 
 export default MessageData
 ```
