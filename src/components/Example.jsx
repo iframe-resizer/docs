@@ -21,7 +21,7 @@ export default ({ src }) => {
       <IframeResizer
         forwardRef={iframeRef}
         inPageLinks
-        license="GPL-V3"
+        license="GPLv3"
         onMessage={onMessage}
         onResized={onResized}
         src={src}
