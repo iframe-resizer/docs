@@ -4,8 +4,13 @@ description: Child page api for iframe-resizer
 prev: Parent Page API
 next: Frameworks
 ---
+import { Aside } from "@astrojs/starlight/components";
 
 The Child API is for use on the page contained within the `<iframe>` tag. It is split into three sections. [Options](#options) contains settings that can be passed when calling iframe-resizer. [Events](#events) are trigged by updates to the iframe, or messages from the iframe. [Methods](#methods) allow you to interact with _iframe-resizer_ after the initial resizing.
+
+<Aside type="note" title="">
+  The features on this page are available in the Professional, Business and Open-source editions.
+</Aside>
 
 ## Options
 
@@ -140,12 +145,6 @@ Scroll the parent page to the coordinates x and y relative to the position of th
 ### sendMessage(<span class="args">message, [targetOrigin]</span>)
 
 Send data to the containing page, `message` can be any data type that can be serialized into JSON. The `targetOrigin` option is used to restrict where the message is sent to; to stop an attacker mimicking your parent page. See the MDN documentation on [postMessage](https://developer.mozilla.org/en-US/docs/Web/API/Window.postMessage) for more details.
-
-<!--
-### setHeightCalculationMethod(heightCalculationMethod)
-
-Change the method use to workout the height of the iFrame.
--->
 
 ### resize()
 
