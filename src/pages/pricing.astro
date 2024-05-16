@@ -14,9 +14,14 @@ const template = 'splash';
 
 <StarlightPage frontmatter={{ title, template }}  hasSidebar={false}>
   <script>
+    const store = {
+      basic: 'https://store.iframe-resizer.com/buy/b54bc023-0ef5-4076-a0c7-39e27112ff07',
+      pro: 'https://store.iframe-resizer.com/buy/78085a54-ce2d-4571-b188-97b16fe88df5',
+      business: 'https://store.iframe-resizer.com/buy/a5ba2b0f-6b7b-49d9-a70a-fe93e33b7586',
+    }
+
     window.buy = (type) => {
-      alert('Coming very soon. Please contact us directly if you need a license before then.')
-      console.log('Buy:', type)
+      location.href = store[type]
     }
   </script>
 
@@ -61,7 +66,7 @@ const template = 'splash';
         </ul>
       </div>
       <div class="p-6" style="margin:0">
-        <button onclick="buy('basic')" class="buy inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 h-10 px-4 py-2 w-full">
+        <button onclick="window.buy('basic')" class="buy inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 h-10 px-4 py-2 w-full">
           Buy Now
         </button>
         <a style="font-weight:600" class="block text-center text-sm mt-2 underline" href="/commercial">
@@ -108,7 +113,7 @@ const template = 'splash';
         </ul>
       </div>
       <div class="p-6" style="margin:0">
-        <button onclick="buy('pro')" class="buy buy-highlight inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 h-10 px-4 py-2 w-full">
+        <button onclick="window.buy('pro')" class="buy buy-highlight inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 h-10 px-4 py-2 w-full">
           Buy Now
         </button>
         <a style="font-weight:600" class="block text-center text-sm mt-2 underline" href="/commercial">
@@ -154,7 +159,7 @@ const template = 'splash';
         </ul>
       </div>
       <div class="p-6" style="margin:0">
-        <button onclick="buy('business')" class="buy inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 h-10 px-4 py-2 w-full">
+        <button onclick="window.buy('business')" class="buy inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 h-10 px-4 py-2 w-full">
           Buy Now
         </button>
         <a style="font-weight:600" class="block text-center text-sm mt-2 underline" href="/commercial">
