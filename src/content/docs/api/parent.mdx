@@ -197,7 +197,7 @@ Function called after iFrame resized. Passes `messageData` object containing the
 ### onScroll
 
 ```js
-onScroll: ({ top, left, iframeId }) => [true | false];
+onScroll: ({ iframe, top, left, }) => [true | false];
 ```
 
 Called before the page is repositioned after a request from the iFrame, due to either an in page link, or a direct request from either [parentIFrame.scrollTo()](../child#scrolltoxy) or [parentIFrame.scrollToOffset()](../child#scrolltooffsetxy). If this function returns **false**, it will stop the library from repositioning the page, so that you can implement your own custom animated page scrolling instead.
