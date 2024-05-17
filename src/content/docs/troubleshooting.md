@@ -71,7 +71,7 @@ The `parentIframe` object is created once the iframe has been initially resized.
 <script src="node_modules/@iframe-resizer/child/index.umd.js"></script>
 ```
 
-### Scolling does not scroll to where I want it scroll to
+### Srcolling does not scroll to where I want it
 
 The scrolling events in _iframe-resizer_ aim to mimic how they work by default in the parent page. If this
 is not the behavior that you want then, you can use the [onScroll](api/parent#onscroll) event handler in
