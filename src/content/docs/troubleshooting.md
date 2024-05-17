@@ -71,6 +71,13 @@ The `parentIframe` object is created once the iframe has been initially resized.
 <script src="node_modules/@iframe-resizer/child/index.umd.js"></script>
 ```
 
+### Scolling does not scroll to where I want it scroll to
+
+The scrolling events in _iframe-resizer_ aim to mimic how they work by default in the parent page. If this
+is not the behavior that you want then, you can use the [onScroll](api/parent#onscroll) event handler in
+the Parent Page API to adjust how scrolling works to you own requirements.
+
+
 ### PDF and OpenDocument files
 
 It is not possible to add the required JavaScript to PDF and ODF files. However, you can get around this limitation by using [ViewerJS](http://viewerjs.org/) to render these files inside a HTML page, that also contains the iFrame [@iframe-resizer/child](../../setup/#child-page-setup) package.
