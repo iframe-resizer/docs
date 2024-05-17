@@ -100,6 +100,10 @@ h1.astro-j6tvhyss {
   letter-spacing: 0.04rem;
 }
 
+.secondary {
+  color: var(--ir-color-secondary);
+}
+
 button.buy {
   /* background-color: var(--sl-color-gray-5); */
   background-color: var(--ir-color-primary);
