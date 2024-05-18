@@ -6,11 +6,11 @@ next: Licenses
 
 The _iframe-resizer_ library aims to take away the pain points with using iframes.
 
-In addition to keeping you iframe sized to the content, _iframe-resizer_ also provides the missing browser API features, that allows you to securely intergrate your iframe content with the parent page.
+In addition to keeping you iframe sized to the content, _iframe-resizer_ also provides the missing browser API features, that allows you to securely integrate your iframe content with the parent page.
 
 - Scroll the page, relative to the iframe or parent page's position
-- Get details of the position of the iframe, the scoll position and viewport of the parent page
-- Fixes in page linking in the iframe and allows links to propgate to the parent page
+- Get details of the position of the iframe, the scroll position and viewport of the parent page
+- Fixes in page linking in the iframe and allows links to propagate to the parent page
 - Adds `onMouseEnter` and `onMouseLeave` events to the iframe element
 - Simplified message passing between the iframe and the parent page
 - Automatic domain authentication
@@ -19,6 +19,6 @@ It can also be combined with [viewer.js](https://viewerjs.org) to display PDF an
 
 ## Version 5
 
-This version of _iframe-resizer_ has been extensively rewritten to use modern browser APIs, this has enabled signicantly better performance and greater accuracy in the detection of content resizing events.
+This version of _iframe-resizer_ has been extensively rewritten to use modern browser APIs, this has enabled significantly better performance and greater accuracy in the detection of content resizing events.
 
-With this release, the opertunity has been taken to refresh and simplify the API, if you are coming from a prevous version then their is an [Upgrade Guide](/upgrade) to explain the changes.
+With this release, the opportunity has been taken to refresh and simplify the API, if you are coming from a previous version then their is an [Upgrade Guide](/upgrade) to explain the changes.

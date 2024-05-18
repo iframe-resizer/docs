@@ -53,7 +53,7 @@ If you're still having problems, or you really want to not ignore the error, the
 
 This error happens when the iframe is slow to respond, or is blocked from responding to the request from the parent page.
 
-If everything is working, then this message can be ignored, or if you prefer you can set a longer timeout. On the otherhand if you are not getting a response and the child package has been loaded in the iframe, then you need to check that iframe has not been sandboxed, either by setting optins on the `<iframe>` tag, or with the `x-Frame-Options` http header of the iframe.
+If everything is working, then this message can be ignored, or if you prefer you can set a longer timeout. On the other hand if you are not getting a response and the child package has been loaded in the iframe, then you need to check that iframe has not been sandboxed, either by setting options on the `<iframe>` tag, or with the `x-Frame-Options` http header of the iframe.
 
 ### ParentIframe not found errors
 
@@ -84,7 +84,7 @@ It is not possible to add the required JavaScript to PDF and ODF files. However,
 
 ### Unexpected message received error
 
-By default the origin of incoming messages is checked against the `src` attribute of the iFrame. If they don't match an error is thrown. This behaviour can be disabled by setting the [checkOrigin](../api/parent/#checkorigin) option to **false**.
+By default the origin of incoming messages is checked against the `src` attribute of the iFrame. If they don't match an error is thrown. This behavior can be disabled by setting the [checkOrigin](../api/parent/#checkorigin) option to **false**.
 
 ```js
 iframeResize({ checkOrigin: false });

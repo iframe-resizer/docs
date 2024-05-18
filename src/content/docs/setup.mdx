@@ -7,7 +7,7 @@ import { Tabs, TabItem } from "@astrojs/starlight/components";
 import Install from "../../components/Install.astro";
 import License from "../../components/License.astro";
 
-The _iframe-resizer_ project is distrobuted via seporate packages for the parent and
+The _iframe-resizer_ project is distributed via separate packages for the parent and
 child pages. This guide takes you through setting up the parent and then child pages.
 
 ## Parent Page Setup
@@ -124,8 +124,8 @@ sizing.
 
 The child page needs to load it's own JavaScript package, to enable communication
 with the parent page. The **@iframe-resizer/child** package is a small self-contained
-script with no dependancies. It is designed to be a good guest on someone else site
-and will only start running after recieving a message from the parent page.
+script with no dependencies. It is designed to be a good guest on someone else site
+and will only start running after receiving a message from the parent page.
 
 ### Install
 
@@ -136,7 +136,7 @@ Install this package with the following command.
 ### Usage
 
 This package just needs to be included on every page that you load into the iframe.
-Where it will queitly listern for a message from the parent page, before initialising
+Where it will quietly listen for a message from the parent page, before initializing
 itself.
 
 {/* <!-- prettier-ignore-start --> */}
@@ -165,5 +165,5 @@ require('@iframe-resizer/child')
 </Tabs>
 {/* <!-- prettier-ignore-end --> */}
 
-Once everting is setup, keep an eye on the browser console, as _ifrane-resizer_ will
+Once everting is setup, keep an eye on the browser console, as _iframe-resizer_ will
 warn about any potential issues it detects and provide advice on how to fix them.

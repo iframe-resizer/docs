@@ -4,9 +4,9 @@ desciption: Performance optimising iframe-resizer
 next: Parent Page API
 ---
 
-On most pages _ifrane-resizer_ is able to detect changes in the iframe, recalculate
+On most pages _iframe-resizer_ is able to detect changes in the iframe, recalculate
 the page size and adjust the iframe in sub nanosecond time. This page details a couple
-of situations that can impact performace and how to mitigate them.
+of situations that can impact performance and how to mitigate them.
 
 ## Overflowing the body element
 
@@ -22,18 +22,18 @@ To address the issues raised by content overflow, you have two options.
 
 1.  Adjust CSS and page design to keep all elements inside of the body element.
 
-2.  Explicity designate which page element should be used to track the page size, by adding
+2.  Explicitly designate which page element should be used to track the page size, by adding
     a `data-iframe-size` attribute. This attribute can be added to multiple elements and the
     one that returns the highest value will be used each time the page size is calculated.
 
     This attribute should be used sparingly, as the more of them on the page, the greater the
-    amount of work required to calcute the page size. It may also be useful to set the [offset](../parent/#offset) option as well.
+    amount of work required to calculate the page size. It may also be useful to set the [offset](../parent/#offset) option as well.
 
 If _iframe-resizer_ detects content overflow, it will log a warning to the browser console.
 
 ## Cross Domain
 
-When opperating cross domain, _iframe-resizer_ has to fall back to using the
+When operating cross domain, _iframe-resizer_ has to fall back to using the
 [PostMessage API](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage)
 to communicate between the parent and child pages. This adds a little overhead over
 using the browser DOM to pass message between the two pages.

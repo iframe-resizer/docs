@@ -9,7 +9,7 @@ For open source projects and websites you can use _iframe-resizer_ for free unde
 iframeResize({ license: "GPLv3" });
 ```
 
-For more infomation about version 3 of the GPL see: [https://www.gnu.org/licenses/quick-guide-gplv3.html](https://www.gnu.org/licenses/quick-guide-gplv3.html).
+For more information about version 3 of the GPL see: [https://www.gnu.org/licenses/quick-guide-gplv3.html](https://www.gnu.org/licenses/quick-guide-gplv3.html).
 
 ```
                      GNU GENERAL PUBLIC LICENSE

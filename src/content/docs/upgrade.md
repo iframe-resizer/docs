@@ -91,7 +91,7 @@ These settings are no longer required, as all target browswers now support setti
 
 ### Added new <span class="option">offset</span> option
 
-Theis new option allow you to adjust the value returned by the iframe for the dimesion you are resizing, it can 
+This new option allow you to adjust the value returned by the iframe for the dimension you are resizing, it can 
 have either a positive or negative value.
 
 ## Other Improvements
@@ -104,12 +104,12 @@ _Iframe-resizer_ now detects when the iframe is on the same domain as the parent
 
 ### Improved content resize detection
 
-Dropping suppoert for leagacy browsers, has allowed version 5 to use the latest browser APIs to detect content changes, this greatly improves both performance and event detection, whilst also elementing the issue of one changing being picked up by multiple different browser events.
+Dropping support for legacy browsers, has allowed version 5 to use the latest browser APIs to detect content changes, this greatly improves both performance and event detection, whilst also eliminating the issue of one changing being picked up by multiple different browser events.
 
-### Visability checking
+### Visibility checking
 
-The visability of both the iframe and the parent page are now observered, using the 
-[Page Visability API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API). 
+The visibility of both the iframe and the parent page are now observed, using the 
+[Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API). 
 This allows resizing to be disabled while the iframe is not visible to the user.
 
 ### Ensures CSS sizing of iframe html and body tags set to auto
