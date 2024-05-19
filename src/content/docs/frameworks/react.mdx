@@ -37,8 +37,8 @@ that provide a simple interface to communicate with the page in the iframe.
 ### Typical setup
 
 The normal configuration is to have the iframe resize when the browser window changes
-size or the content of the iFrame changes. To set this up you need to configure one
-of the dimensions of the iFrame to a percentage and tell the library to only update
+size or the content of the iframe changes. To set this up you need to configure one
+of the dimensions of the iframe to a percentage and tell the library to only update
 the other dimension. Normally you would set the width to 100% and have the height
 scale to fit the content.
 
@@ -76,7 +76,7 @@ export default () => {
   const iframeRef = useRef(null)
 
   useEffect(() => {
-    console.log(iframeRef?.getIframeElement())
+    console.log(iframeRef?.getElement())
   })
 
   return (
@@ -88,9 +88,13 @@ export default () => {
 
 This method is not available, use React to remove the iframe from the page.
 
-### getIframeElement()
+### getElement()
 
-Returns a ref to the iframe element.
+Returns the iframe element.
+
+### getRef()
+
+Returns a ref to the iframe.
 
 ## Advanced Example
 

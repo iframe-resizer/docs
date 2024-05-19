@@ -11,7 +11,7 @@ Bug reports and pull requests are welcome on the [issue tracker](https://github.
 
 ### Multiple IFrames on one page
 
-When the resizer does not work using multiple IFrames on one page, make sure that each frame has an unique id or no ids at all.
+When the resizer does not work using multiple IFrames on one page, make sure that each iframe has a unique id.
 
 <!--
 ### IFrame not sizing correctly
@@ -21,11 +21,10 @@ If a larger element of content is removed from the normal document flow, through
 
 ### IFrame not resizing
 
-The most common cause of this is not placing the [@iframe-resizer/child](../../setup/#child-page-setup) package inside the iFramed page. If this does not fix the problem then check `x-Frame-Options` http header on the server 
-that is sending the iframe content, as this can also block `postMessage` calls from _iframe-resizer_ to if set incorrectly.
+The most common cause of this is not placing the [@iframe-resizer/child](../../setup/#child-page-setup) package inside the iframed page. If this does not fix the problem then check `x-Frame-Options` http header on the server that is sending the iframe content, as this can also block `postMessage` calls from _iframe-resizer_ to if set incorrectly.
 
 <!--
-Not having a valid [HTML document type](http://en.wikipedia.org/wiki/Document_type_declaration) in the iFrame can also sometimes prevent downsizing. At it's most simplest this can be the following.
+Not having a valid [HTML document type](http://en.wikipedia.org/wiki/Document_type_declaration) in the iframe can also sometimes prevent downsizing. At it's most simplest this can be the following.
 
 ```html
 <!DOCTYPE html>
@@ -34,9 +33,9 @@ Not having a valid [HTML document type](http://en.wikipedia.org/wiki/Document_ty
 
 ### Localhost 127.0.0.1 and file:///
 
-When an iframe is located on your local machine the browser adds extra security restrictions to cross-domain iframes. These will stop _iframe-resizer_ from functioning. If you need to test something locally, then it is best to use the external IP Address of the machine.
+When an iframe is located on your local machine the browser adds extra security restrictions to cross-domain iframes. These can stop _iframe-resizer_ from functioning. If you need to test something locally, then it is best to use the external IP Address of the machine.
 
-### IFrame not downsizing
+### Iframe not downsizing
 
 The most likely cause of this problem is having set the height of an element to be 100% of the page somewhere in your CSS.
 
@@ -44,12 +43,11 @@ This can often be got around by adding a `data-iframe-size` attribute to the ele
 
 ### Failed to execute 'postMessage' on 'DOMWindow'
 
-This error occurs when the parent window tries to send a message to the iframe before it has loaded. This library makes multiple attempts to talk to the iFrame, so if everything is working then you can safely ignore this error message.
+This error occurs when the parent window tries to send a message to the iframe before it has loaded. This library makes multiple attempts to talk to the iframe, so if everything is working then you can safely ignore this error message.
 
 If you're still having problems, or you really want to not ignore the error, then you can try delaying the call to `iframeResize()` until after the `onLoad` event of the iframe has fired.
 
-
-### iFrame has not responded within 5 seconds
+### Iframe has not responded within 5 seconds
 
 This error happens when the iframe is slow to respond, or is blocked from responding to the request from the parent page.
 
@@ -61,14 +59,13 @@ The `parentIframe` object is created once the iframe has been initially resized.
 
 ```html
 <script>
-  window.iFrameResizer = {
+  window.iframeResizer = {
     onReady() {
       const myId = window.parentIframe.getId();
-      console.log("The ID of the iFrame in the parent page is: " + myId);
+      console.log("The ID of the iframe in the parent page is: " + myId);
     },
   };
 </script>
-<script src="node_modules/@iframe-resizer/child/index.umd.js"></script>
 ```
 
 ### Scrolling does not scroll to where I want it
@@ -77,14 +74,13 @@ The scrolling events in _iframe-resizer_ aim to mimic how they work by default i
 is not the behavior that you want, then you can use the [onScroll](../api/parent#onscroll) event handler in
 the Parent Page API to adjust how scrolling works to you own requirements.
 
-
 ### PDF and OpenDocument files
 
-It is not possible to add the required JavaScript to PDF and ODF files. However, you can get around this limitation by using [ViewerJS](http://viewerjs.org/) to render these files inside a HTML page, that also contains the iFrame [@iframe-resizer/child](../../setup/#child-page-setup) package.
+It is not possible to add the required JavaScript to PDF and ODF files. However, you can get around this limitation by using [ViewerJS](http://viewerjs.org/) to render these files inside a HTML page, that also contains the iframe [@iframe-resizer/child](../../setup/#child-page-setup) package.
 
 ### Unexpected message received error
 
-By default the origin of incoming messages is checked against the `src` attribute of the iFrame. If they don't match an error is thrown. This behavior can be disabled by setting the [checkOrigin](../api/parent/#checkorigin) option to **false**.
+By default the origin of incoming messages is checked against the `src` attribute of the iframe. If they don't match an error is thrown. This behavior can be disabled by setting the [checkOrigin](../api/parent/#checkorigin) option to **false**.
 
 ```js
 iframeResize({ checkOrigin: false });

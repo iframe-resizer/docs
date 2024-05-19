@@ -15,7 +15,7 @@ export default defineConfig({
     }),
     starlight({
       title: "iframe-resizer",
-      description: "Keep same and cross domain iFrames sized to their content",
+      description: "Keep same and cross domain iframes sized to their content",
       favicon: "/favicon.ico",
       logo: {
         src: "/public/logo.svg"

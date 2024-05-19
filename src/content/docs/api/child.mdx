@@ -14,11 +14,11 @@ The Child API is for use on the page contained within the `<iframe>` tag. It is 
 
 ## Options
 
-The following options can be set from within the iFrame page by creating a `window.iFrameResizer` object before the JavaScript file is loaded into the page.
+The following options can be set from within the iframe page by creating a `window.iframeResizer` object before the JavaScript file is loaded into the page.
 
 ```html
 <script>
-  window.iFrameResizer = {
+  window.iframeResizer = {
     targetOrigin: "http://mydomain.com",
   };
 </script>
@@ -55,7 +55,7 @@ The following events can be included in the [options](options.md) object attache
 
     type: function (message)
 
-Receive message posted from the parent page with the `iframe.iFrameResizer.sendMessage()` method.
+Receive message posted from the parent page with the `iframe.iframeResizer.sendMessage()` method.
 
 ### onReady
 
@@ -65,7 +65,7 @@ This function is called once _iframe-resizer_ has been initialized after receivi
 
 ## Methods
 
-These methods are available in the iFrame via the `window.parentIframe` object. These method should be contained by a test for the `window.parentIframe` object, in case the page is not loaded inside an iFrame. For example:
+These methods are available in the iframe via the `window.parentIframe` object. These method should be contained by a test for the `window.parentIframe` object, in case the page is not loaded inside an iframe. For example:
 
 ```js
 if ("parentIframed" in window) {
@@ -75,15 +75,15 @@ if ("parentIframed" in window) {
 
 ### autoResize(<span class="args">bool</span>)
 
-Turn autoResizing of the iFrame on and off. Returns bool of current state.
+Turn autoResizing of the iframe on and off. Returns bool of current state.
 
 ### close()
 
-Remove the iFrame from the parent page.
+Remove the iframe from the parent page.
 
 ### getId()
 
-Returns the ID of the iFrame that the page is contained in.
+Returns the ID of the iframe that the page is contained in.
 
 ### getParentProperties(<span class="args">callback</span>)
 
@@ -140,7 +140,7 @@ Scroll the parent page to the coordinates x and y.
 
 ### scrollToOffset(<span class="args">x, y</span>)
 
-Scroll the parent page to the coordinates x and y relative to the position of the iFrame.
+Scroll the parent page to the coordinates x and y relative to the position of the iframe.
 
 ### sendMessage(<span class="args">message, [targetOrigin]</span>)
 
@@ -148,4 +148,4 @@ Send data to the containing page, `message` can be any data type that can be ser
 
 ### resize()
 
-Manually force iFrame to resize. If for some reason a change in content size is not detected, this method allows you to nudge _iframe-resizer_ to recalculate the page size.
+Manually force iframe to resize. If for some reason a change in content size is not detected, this method allows you to nudge _iframe-resizer_ to recalculate the page size.

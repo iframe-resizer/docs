@@ -14,7 +14,7 @@ Vue.directive("iframeResizer", {
     connectResizer(value)(el);
   },
   unbind: function (el) {
-    el.iFrameResizer.disconnect();
+    el.iframeResizer.disconnect();
   },
 });
 ```

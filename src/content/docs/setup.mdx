@@ -12,19 +12,22 @@ child pages. This guide takes you through setting up the parent and then child p
 
 ## Parent Page Setup
 
-In this section we detail how to setup the parent page using the Vanilla JavaScipt
+In this section we detail how to setup the parent page using the Vanilla JavaScript
 version of _iframe-resizer_. The [framework](../frameworks/overview) section of this
 guide details how to use _iframe-resizer_ with a range of popular frameworks and libraries.
 
 ### Install
 
-Install this package with the following command.
+Install parent page package with the following command.
 
 <Install package="@iframe-resizer/parent" />
 
 ### Usage
 
-This library provided the function `iframeResize()` which accepts a config object and one or more iframes. Iframes can be passed via either CSS selector or reference. All these values are optional and if no iframe is provided, then it will bind _iframe-resizer_ to all iframes currently contained on the page.
+This library provided the function `iframeResize()` which accepts a config object and one or 
+more iframes. Iframes can be passed via either CSS selector or reference. All these values
+are optional and if no iframe is provided, then it will bind _iframe-resizer_ to all iframes
+currently contained on the page.
 
 ```js
 const iframes = iframeResize( [{options}], [css selector] || [iframe] )
@@ -92,10 +95,9 @@ const iframeResize = require("@iframe-resizer/parent");
 
 iframeResize({ license: "xxxx" });
 ```
-
   </TabItem>
   <TabItem label="jsDeliver CDN">
-  ```html
+```html
 <style>
   iframe {
     width: 100%;

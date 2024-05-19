@@ -20,14 +20,14 @@ than the document.
 
 To address the issues raised by content overflow, you have two options.
 
-1.  Adjust CSS and page design to keep all elements inside of the body element.
+1. Adjust CSS and page design to keep all elements inside of the body element.
 
-2.  Explicitly designate which page element should be used to track the page size, by adding
-    a `data-iframe-size` attribute. This attribute can be added to multiple elements and the
-    one that returns the highest value will be used each time the page size is calculated.
+2. Explicitly designate which page element should be used to track the page size, by adding
+   a `data-iframe-size` attribute. This attribute can be added to multiple elements and the
+   one that returns the highest value will be used each time the page size is calculated.
 
-    This attribute should be used sparingly, as the more of them on the page, the greater the
-    amount of work required to calculate the page size. It may also be useful to set the [offset](../parent/#offset) option as well.
+   This attribute should be used sparingly, as the more of them on the page, the greater the
+   amount of work required to calculate the page size. It may also be useful to set the [offset](../parent/#offset) option as well.
 
 If _iframe-resizer_ detects content overflow, it will log a warning to the browser console.
 

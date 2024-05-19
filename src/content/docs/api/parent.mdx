@@ -28,7 +28,7 @@ default: null
 type:    string
 ```
 
-Override the body background style in the iFrame.
+Override the body background style in the iframe.
 
 ### bodyMargin
 
@@ -37,7 +37,7 @@ default: null
 type:    string || number
 ```
 
-Override the default body margin style in the iFrame. A string can be any valid value for the CSS margin attribute, for example '8px 3em'. A number value is converted into px.
+Override the default body margin style in the iframe. A string can be any valid value for the CSS margin attribute, for example '8px 3em'. A number value is converted into px.
 
 ### bodyPadding
 
@@ -46,7 +46,7 @@ default: null
 type:    string || number
 ```
 
-Override the default body padding style in the iFrame. A string can be any valid value for the CSS margin attribute, for example '8px 3em'. A number value is converted into px.
+Override the default body padding style in the iframe. A string can be any valid value for the CSS margin attribute, for example '8px 3em'. A number value is converted into px.
 
 ### checkOrigin
 
@@ -55,7 +55,9 @@ default: true
 type:    boolean || array
 ```
 
-When set to true, only allow incoming messages from the domain listed in the `src` property of the iFrame tag. If your iFrame navigates between different domains, ports or protocols; then you will need to provide an array of URLs or disable this option.
+When set to true, only allow incoming messages from the domain listed in the `src` property of the iframe
+tag. If your iframe navigates between different domains, ports or protocols; then you will need to provide 
+an array of URLs or disable this option.
 
 ### direction
 
@@ -86,7 +88,7 @@ default: false
 type:    boolean
 ```
 
-When enabled in page linking inside the iFrame and from the iFrame to the parent page will be enabled.
+When enabled in page linking inside the iframe and from the iframe to the parent page will be enabled.
 
 <sup>*</sup> This option is available in the  Professional, Business and Open-source editions.
 
@@ -110,11 +112,11 @@ default: false
 type:    boolean | 'omit'
 ```
 
-Enable scroll bars in iFrame.
+Enable scroll bars in iframe.
 
 - **true** applies `scrolling="yes"`
 - **false** applies `scrolling="no"`
-- **'omit'** applies no `scrolling` attribute to the iFrame
+- **'omit'** applies no `scrolling` attribute to the iframe
 
 ### tolerance
 
@@ -123,7 +125,7 @@ default: 0
 type:    integer
 ```
 
-Set the number of pixels the iFrame content size has to change by, before triggering a resize of the iFrame.
+Set the number of pixels the iframe content size has to change by, before triggering a resize of the iframe.
 
 ### warningTimeout
 
@@ -132,7 +134,7 @@ default: 5000
 type:    integer
 ```
 
-Set the number of milliseconds after which a warning is logged if the iFrame has not responded. Set to `0` to supress warning messages of this type.
+Set the number of milliseconds after which a warning is logged if the iframe has not responded. Set to `0` to supress warning messages of this type.
 
 ## Events
 
@@ -144,7 +146,7 @@ The following callback events can be passed to _iframe-resizer_ on the parent pa
 onClose: (iframeID) => boolean;
 ```
 
-Called before the iFrame is closed via `parentIFrame.close()` method. Returning `false` will prevent the iFrame from closing.
+Called before the iframe is closed via `parentIframe.close()` method. Returning `false` will prevent the iframe from closing.
 
 ### onClosed
 
@@ -152,7 +154,7 @@ Called before the iFrame is closed via `parentIFrame.close()` method. Returning 
 onClosed: (iframeID) => undefined;
 ```
 
-Called after the iFrame is closed via `parentIFrame.close()` method.
+Called after the iframe is closed via `parentIframe.close()` method.
 
 ### onMessage
 
@@ -160,7 +162,7 @@ Called after the iFrame is closed via `parentIFrame.close()` method.
 onMessage: ({ iframe, message }) => undefined;
 ```
 
-Receives messages posted from the iFrame with the `parentIFrame.sendMessage()` method.
+Receives messages posted from the iframe with the `parentIframe.sendMessage()` method.
 
 ### onMouseEnter
 
@@ -168,7 +170,7 @@ Receives messages posted from the iFrame with the `parentIFrame.sendMessage()` m
 onMouseEnter: ({ iframe, height, width, type }) => undefined;
 ```
 
-Function called after the mouse enters the iframe. Passes `messageData` object containing the **iFrame**, **screenX**, **screenY** and the **type** of event that triggered the callback.
+Function called after the mouse enters the iframe. Passes `messageData` object containing the **iframe**, **screenX**, **screenY** and the **type** of event that triggered the callback.
 
 ### onMouseLeave
 
@@ -176,7 +178,7 @@ Function called after the mouse enters the iframe. Passes `messageData` object c
 onMouseLeave: ({ iframe, height, width, type }) => undefined;
 ```
 
-Function called after the mouse leaves the iframe. Passes `messageData` object containing the **iFrame**, **screenX**, **screenY** and the **type** of event that triggered the callback.
+Function called after the mouse leaves the iframe. Passes `messageData` object containing the **iframe**, **screenX**, **screenY** and the **type** of event that triggered the callback.
 
 ### onReady
 
@@ -192,7 +194,7 @@ Called after initial setup.
 onResized: ({ iframe, height, width, type }) => undefined;
 ```
 
-Function called after iFrame resized. Passes `messageData` object containing the **iFrame**, **height**, **width** and the **type** of event that triggered the iFrame to resize.
+Function called after iframe resized. Passes `messageData` object containing the **iframe**, **height**, **width** and the **type** of event that triggered the iframe to resize.
 
 ### onScroll
 
@@ -200,7 +202,7 @@ Function called after iFrame resized. Passes `messageData` object containing the
 onScroll: ({ iframe, top, left, }) => [true | false];
 ```
 
-Called before the page is repositioned after a request from the iFrame, due to either an in page link, or a direct request from either [parentIFrame.scrollTo()](../child#scrolltoxy) or [parentIFrame.scrollToOffset()](../child#scrolltooffsetxy). If this function returns **false**, it will stop the library from repositioning the page, so that you can implement your own custom scrolling instead.
+Called before the page is repositioned after a request from the iframe, due to either an in page link, or a direct request from either [parentIframe.scrollTo()](../child#scrolltoxy) or [parentIframe.scrollToOffset()](../child#scrolltooffsetxy). If this function returns **false**, it will stop the library from repositioning the page, so that you can implement your own custom scrolling instead.
 
 The following example shows how to adjust the scroll point. This can be useful if you have a sticky header on your page and you need ensure the target scroll point does not get covered by your header.
 ```js
@@ -221,20 +223,20 @@ iframeResize({
 
 ## Methods
 
-Once the iFrame has been initialized, an `iframeResizer` object is bound to it. This has the following methods available.
+Once the iframe has been initialized, an `iframeResizer` object is bound to it. This has the following methods available.
 
 ### disconnect()
 
-Disconnect _iframe-resizer_ from the iFrame. This method MUST to be called, before removing an iframe from the page.
+Disconnect _iframe-resizer_ from the iframe. This method MUST to be called, before removing an iframe from the page.
 
 ### moveToAnchor(<span class="args">anchor</span>)
 
-Move to anchor in the iFrame.
+Move to anchor in the iframe.
 
 ### resize()
 
-Tell the iFrame to resize itself.
+Tell the iframe to resize itself.
 
 ### sendMessage(<span class="args">message, [targetOrigin]</span>)
 
-Send data to the containing page, `message` can be any data type that can be serialized into JSON. The `targetOrigin` option is used to restrict where the message is sent to, in case your iFrame navigates away to another domain.
+Send data to the containing page, `message` can be any data type that can be serialized into JSON. The `targetOrigin` option is used to restrict where the message is sent to, in case your iframe navigates away to another domain.

@@ -10,12 +10,13 @@ iframe between your app and the page it is host on. This creates a unique challe
 _iframe-resizer_, as it needs to be able to talk directly with the iframe it is using to
 calculate the page size from.
 
-This can be overcome by providing _iframe-resizer_ some hints on where it can fimd the nested iframe, in order to establlish communication between the parent page and the GAS iframe.
+This can be overcome by providing _iframe-resizer_ some hints on where it can find the 
+nested iframe, in order to establish communication between the parent page and your GAS App.
 
 ### Child Page
 
-The first step is to add the following line of code into your GAS application. This will
-send a message to the parent page when your application loads that contains details of where
+The first step is to add the following line of code into your GAS app. This will
+send a message to the parent page when your app loads which contains details of where
 the iframe is located.
 
 ```html
@@ -23,12 +24,12 @@ top.postMessage('gasFrame', '*')
 ```
 
 You will also need to install the [@iframe-resizer/child](../../setup/#child-page-setup)
-package to your GAS application.
+package to your GAS app.
 
 ### Parent Page
 
-The parent page needs to wait to recieve the above message before starting _iframe-resizer_.
-Once it has recieved the contained referrences from the GAS application iframe, these can then 
+The parent page needs to wait to receive the above message before starting _iframe-resizer_.
+Once it has received the contained references from the GAS app iframe, these can then 
 be passed along to _iframe-resizer_ as follows.
 
 ```js
@@ -51,7 +52,7 @@ window.addEventListener(
 );
 ```
 
-The value for `offsetHeight` may need to be adjusted based on the content of your GAS application.
+The value for `offsetHeight` may need to be adjusted based on the content of your GAS app.
 
 <License />
 

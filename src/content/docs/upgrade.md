@@ -5,19 +5,19 @@ description: Upgrading to iframe-resizer 5
 
 Version 5 of _iframe-resizer_ drops support for legacy browsers and changes the way content resize events are detected. These changes greatly improves detection of content changes and _iframe-resizer_ can now detect a number of events, such as user `<textarea>` resizing and CSS animation that previous versions struggled with.
 
-These changes, along with further code optimisations, have lead to a large improvement in the performance of this library and it is now possible to have _iframe-resizer_ both detect and keep up with CSS animations that causes the iframe to resize on every annimation frame.
+These changes, along with further code optimizations, have lead to a large improvement in the performance of this library and it is now possible to have _iframe-resizer_ both detect and keep up with CSS animations that causes the iframe to resize on every animation frame.
 
 In addition to this, _iframe-resizer 5_ contains a number of other improvements and API changes that should be considered when upgrading from a previous version.
 
 ## API Changes
 
-Over the last decade _iframe-resizer_ has had a gradaul increase in the number of available configuration options. With _iframe-resizer 5_ the aim has been to reduce and clarify these options in order to reduce complexity of using this library. The library will now auto detect a number of settings and also log advisory warnings to the console where it thinks you should make changes to the config.
+Over the last decade _iframe-resizer_ has had a gradual increase in the number of available configuration options. With _iframe-resizer 5_ the aim has been to reduce and clarify these options in order to reduce complexity of using this library. The library will now auto detect a number of settings and also log advisory warnings to the console where it thinks you should make changes to the config.
 
 ### Auto detection of the best content size calculation method
 
-The previous versions of _iframe-resizer_ offered the choice of a wide ranage of ways to calculate the size of the content in the iframe and it was left to the developer to determine which was the most appropreate by setting the `heightCalculationMethod` or `widthCalculationMethod` options.
+The previous versions of _iframe-resizer_ offered the choice of a wide range of ways to calculate the size of the content in the iframe and it was left to the developer to determine which was the most appropriate by setting the `heightCalculationMethod` or `widthCalculationMethod` options.
 
-With _iframe-resizer 5_, these options have been deprecated and _iframe-resizer_ will now inspect the the page layout to automatically determine which is the best page size calculation method every time the iframe is resized. If it is determind that the best calculation method is `taggedElement` and the page has no tags, an advisory warning will be logged in the console to suggest adding these.
+With _iframe-resizer 5_, these options have been deprecated and _iframe-resizer_ will now inspect the the page layout to automatically determine which is the best page size calculation method every time the iframe is resized. If it is determined that the best calculation method is `taggedElement` and the page has no tags, an advisory warning will be logged in the console to suggest adding these.
 
 The name of the tag attributes have now been consolidated from `data-iframe-height` and `date-iframe-width`, to the single tag `data-iframe-size`.
 
@@ -27,14 +27,14 @@ Use of the old calculation options or the old tag names will trigger a deprecati
 
 This library has always supported resizing in both directions, but changing the direction confusingly required the setting of multiple different options in the config. This has now been consolidated into the new single `direction` option, which can have the following values: `vertical`, `horizontal` or `none`.
 
-Use of the old values will trigger a deprication warning.
+Use of the old values will trigger a deprecation warning.
 
 ### New <span class="option">getParentProperties()</span> method replaces <span class="option">getPageInfo()</span>
 
 The `getPageInfo()` method as been deprecated in favor of the new `getParentProperties()` method. Since it was first added to _iframe-resizer_ **getParentProperties** has been extended and extended and become a mishmash of properties from the 
 parent page DOM.
 
-The new **getParentProperties** method now groups values into three objects that contain infomation about the containing iframe tag, the parent document object, and the parent viewport.
+The new **getParentProperties** method now groups values into three objects that contain information about the containing iframe tag, the parent document object, and the parent viewport.
 
 ```js
   // iframe.getBoundingRect()
@@ -47,7 +47,7 @@ The new **getParentProperties** method now groups values into three objects that
     left
   },
 
-  // fron document.documentEkement
+  // from document.documentElement
   document: {
     scrollWidth
     scrollHeight
@@ -70,35 +70,33 @@ Use of the old method will trigger a deprecation warning in the console.
 
 ### The <span class="option">onInit()</span> method has been renamed to <span class="option">onReady()</span>
 
-The `onInit()` method has been deprecated in favour of `onReady()`. This brings the parent page and iframe names for this event inline with each other. 
+The `onInit()` method in the Parent Page API has been deprecated in favour of `onReady()`. This brings the parent page and iframe names for this event inline with each other. 
 
 Use of `onInit()` will trigger a deprecation warning in the console.
 
 ### The <span class="option">size()</span> method has been renamed to <span class="option">resize()</span>
 
-The `size()` method in the Child Page API has been deprecated in favour of `resize()`. This brings the child page name inlime with the Parent Page API. 
+The `size()` method in the Child Page API has been deprecated in favour of `resize()`. This brings the child page name in lime with the Parent Page API. 
 
 Use of `size()` will trigger a deprecation warning in the console.
 
 ### Fixed bug where height/width where returned as strings
 
-The `onResized()`, `onMouseEnter()` and `onMouseLeave()` events was returning `height`/`width` as a strings, this 
-has now been fixed to return numbers.
+The `onResized()`, `onMouseEnter()` and `onMouseLeave()` events was returning `height`/`width` as a strings, this has now been fixed to return numbers.
 
 ### The <span class="option">minHeight</span>, <span class="option">minWidth</span>, <span class="option">maxHeight</span> and <span class="option">minWidth</span> options have been removed
 
-These settings are no longer required, as all target browswers now support setting these on the iframe via CSS.
+These settings are no longer required, as all target browsers now support setting these on the iframe via CSS.
 
 ### Added new <span class="option">offset</span> option
 
-This new option allow you to adjust the value returned by the iframe for the dimension you are resizing, it can 
-have either a positive or negative value.
+This new option allow you to adjust the value returned by the iframe for the dimension you are resizing, it can have either a positive or negative value.
 
 ## Other Improvements
 
 In addition to the above API changes, _iframe-resizer 5_ includes the following other enhancements.
 
-### Direct communitcation for same domain iframes
+### Direct communication for same domain iframes
 
 _Iframe-resizer_ now detects when the iframe is on the same domain as the parent page, and will then pass messages directly via the browser DOM. This provides an additional performance improvement over always using `postMessage()`, which is now only used for cross-domain iframes.
 
@@ -118,4 +116,4 @@ The most common reason for Iframe Resizer to have difficulty resizing, or going 
 
 ### TypeScript Types
 
-TypeScript Types are now included in the NPM module for the parent and React packages.
+TypeScript Types are now included in the NPM modules for the Parent, Child and React packages.
