@@ -24,6 +24,13 @@ export default defineConfig({
             defer: true,
           },
         },
+        {
+          tag: "script",
+          attrs: {
+            src: "/js/fathom.js",
+            defer: true,
+          },
+        },
       ],
       title: "iframe-resizer",
       description: "Keep same and cross domain iframes sized to their content",
