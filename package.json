@@ -10,22 +10,23 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/react": "^3.3.1",
-    "@astrojs/starlight": "^0.21.5",
+    "@astrojs/react": "^3.3.4",
+    "@astrojs/starlight": "^0.23.1",
     "@astrojs/starlight-tailwind": "^2.0.2",
     "@astrojs/tailwind": "^5.1.0",
     "@fontsource/audiowide": "^5.0.20",
     "@iframe-resizer/child": "latest",
-    "@iframe-resizer/parent": "^5.0.0-alpha.12",
+    "@iframe-resizer/parent": "^5.0.0",
     "@iframe-resizer/react": "latest",
     "@material-tailwind/react": "^2.1.9",
-    "@types/react": "^18.3.1",
+    "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
-    "astro": "^4.7.0",
+    "astro": "^4.8.6",
+    "astro-feelback": "^0.3.4",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "sharp": "^0.33.3",
+    "sharp": "^0.33.4",
     "tailwindcss": "^3.4.3"
   }
 }
