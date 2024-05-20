@@ -21,7 +21,7 @@ const template = 'splash';
     }
 
     window.buy = (type) => {
-      window?.fathom?.trackEvent('buy', { type });
+      window?.fathom?.trackEvent(`Buy: ${type} `, { type });
       location.href = store[type]
     }
   </script>
