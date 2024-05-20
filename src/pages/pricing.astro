@@ -29,8 +29,16 @@ const template = 'splash';
       },
     }
 
+    const cap = (string) =>
+      string.charAt(0).toUpperCase() + string.slice(1);
+
     window.buy = (type) => {
-      window?.fathom?.trackEvent(`Buy: ${type}`, { type, _value: store[type].value });
+      try {
+        window?.fathom?.trackEvent(`Buy: ${cap(type)}`, { _value: store[type].value });
+      } catch (e) {
+        console.error(e);
+      }
+      
       location.href = store[type].link
     }
   </script>
