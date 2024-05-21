@@ -4,8 +4,14 @@ import JS from '../../components/js-child.astro'
 
 
 <style>
+  .frame {
+    border: 3px inset;
+    height: 200px !important;
+    padding: 0 20px;
+  }
+
   body {
-    margin:14px 10px;
+    margin:0;
     font-family: Roboto, sans-serif;
     font-weight: lighter;
   }
@@ -36,15 +42,17 @@ import JS from '../../components/js-child.astro'
 
   #bar {
     height: 20px;
-    width: 402px;
+    width: 400px;
     background-color: rgb(135, 248, 180);
-    margin: 0;
     padding: 0;
+    z-index: -2;
+    margin-right: 2px;
   }
 
   #abs {
     position: absolute;
     padding: 0px;
+    margin-right:2px;
     height: 140px;
     align-content: center;
     vertical-align: middle;
@@ -53,7 +61,7 @@ import JS from '../../components/js-child.astro'
     animation-duration: 6s;
     animation-iteration-count: infinite;
     animation-name: animate;
-    z-index: 6;
+    z-index: -1;
   }
 
   #abs p {
@@ -68,7 +76,7 @@ import JS from '../../components/js-child.astro'
 
   @keyframes animate {
     from {
-      width: 200px;
+      width: 310px;
     }
 
     to {
@@ -82,16 +90,16 @@ import JS from '../../components/js-child.astro'
   to calculate the height of the iframe, when the content overflows the
   <body> element.     
 -->
+<div class="frame">
+  <div data-iframe-size id="bar"></div>
 
-<div data-iframe-size id="bar"></div>
+  <div data-iframe-size id="abs">
+    <p>
+      This element animates between 310px and 720px wide using CSS keyframes.
+      <br/><br/>
+      The iframe width is capped to 100% of the containing element width.
 
-<div data-iframe-size id="abs">
-  <p>
-    This element animates between 200px and 720px wide using CSS keyframes.
-    <br/><br/>
-    The iframe width is capped to 100% of the containing element width.
-
-  </p>
+    </p>
+  </div>
 </div>
-
 <JS/>
