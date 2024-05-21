@@ -15,7 +15,7 @@ const template = 'splash';
 <StarlightPage frontmatter={{ title, template }}  hasSidebar={false}>
   <script>
     const store = {
-      basic: {
+      solo: {
         link: 'https://store.iframe-resizer.com/buy/b54bc023-0ef5-4076-a0c7-39e27112ff07',
         value: 16,
       },
@@ -43,14 +43,44 @@ const template = 'splash';
     }
   </script>
 
+  <style>
+
+    .subline {
+      height: 0;
+      margin-bottom: -0.6rem;
+      position: relative;
+    }
+
+    .subline > span {
+      position: absolute;
+      top: -5.65em;
+    }
+
+    .pointer {
+      cursor: pointer;
+    }
+
+    .buy{
+      font-size: larger;
+    }
+
+    .license {
+      font-style: 600;
+      letter-spacing: 0.02em;
+      position: relative;
+      top: 0.25em;
+    }
+
+  </style>
+
   <div class="text-center" style="font-weight:600;font-size:1.2rem;margin: -2ex 0 4ex;color:#985d3b">Find the right license for your project</div>
 
   <div id="priceGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
-    <div class="rounded-lg shadow-lg dark:bg-gray-950 border-2 border-primary" style="border-color: var(--sl-color-gray-5)">
+    <div onclick="window.buy('solo')" class="pointer rounded-lg shadow-lg dark:bg-gray-950 border-2 border-primary" style="border-color: var(--sl-color-gray-5)">
       <div class="p-6 border-b border-gray-200 dark:border-gray-800" style="border-color: var(--sl-color-gray-5);border-bottom-width:2px">
-        <h3 class="text-2xl font-bold">Basic</h3>
-        <div class="flex items-baseline my-4">
-          <span class="text-4xl font-bold">$16</span>
+        <h3 class="text-2xl font-bold">Solo <span class="text-4xl font-bold float-right">$16</span></h3>
+        <div class="flex items-baseline my-4  subline">
+          <span class="rounded-full font-bold">&nbsp;</span>
         </div>
         <ul class="space-y-2">
           <li>
@@ -84,19 +114,19 @@ const template = 'splash';
         </ul>
       </div>
       <div class="p-6" style="margin:0">
-        <button onclick="window.buy('basic')" class="buy inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 h-10 px-4 py-2 w-full">
-          Buy Now
+        <button onclick="window.buy('solo')" style="color: var(--sl-color-black)" class="buy inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 h-10 px-4 py-2 w-full">
+          Buy
         </button>
-        <a style="font-weight:600" class="block text-center text-sm mt-2 underline" href="/commercial">
+        <a class="license block text-center text-sm mt-2 underline" href="/commercial">
           License Agreement
         </a>
       </div>
     </div>
-    <div class="rounded-lg shadow-lg dark:bg-gray-950 border-2 border-primary" style="margin-top:0;border-color: var(--sl-color-accent);">
+    <div onclick="window.buy('pro')" class="pointer rounded-lg shadow-lg dark:bg-gray-950 border-2 border-primary" style="margin-top:0;border-color: var(--sl-color-accent);">
       <div class="p-6 border-b border-gray-200 dark:border-gray-800" style="border-color: var(--sl-color-accent);border-bottom-width:2px">
-        <h3 class="text-2xl font-bold">Professional</h3>
-        <div class="flex items-baseline my-4">
-          <span class="text-4xl font-bold">$76</span>
+        <h3 class="text-2xl font-bold">Professional <span class="text-4xl font-bold float-right">$76</span></h3>
+        <div class="flex items-baseline my-4 justify-center subline">
+          <span class="rounded-full font-bold" style="background-color: var(--sl-color-accent); padding: 0 0.8em 0 1em;font-weight: 600;color: var(--sl-color-black);letter-spacing: 0.02em;">Most popular</span>
         </div>
         
         <ul class="space-y-2">
@@ -131,19 +161,19 @@ const template = 'splash';
         </ul>
       </div>
       <div class="p-6" style="margin:0">
-        <button onclick="window.buy('pro')" class="buy buy-highlight inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 h-10 px-4 py-2 w-full">
-          Buy Now
+        <button onclick="window.buy('pro')" style="color: var(--sl-color-black)" class="buy buy-highlight inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 h-10 px-4 py-2 w-full">
+          Buy
         </button>
-        <a style="font-weight:600" class="block text-center text-sm mt-2 underline" href="/commercial">
+        <a class="license block text-center text-sm mt-2 underline" href="/commercial">
           License Agreement
         </a>
       </div>
     </div>
-    <div class="rounded-lg shadow-lg dark:bg-gray-950 border-2 border-primary" style="margin-top:0;border-color: var(--sl-color-gray-5)">
+    <div onclick="window.buy('business')" class="pointer rounded-lg shadow-lg dark:bg-gray-950 border-2 border-primary" style="margin-top:0;border-color: var(--sl-color-gray-5)">
       <div class="p-6 border-b  dark:border-gray-800"  style="border-color: var(--sl-color-gray-5);border-bottom-width:2px">
-        <h3 class="text-2xl font-bold">Business</h3>
-        <div class="flex items-baseline my-4">
-          <span class="text-4xl font-bold">$486</span>
+        <h3 class="text-2xl font-bold">Business <span class="text-4xl font-bold float-right">$486</span></h3>
+        <div class="flex items-baseline my-4 subline">
+          <span class="rounded-full font-bold">&nbsp;</span>
         </div>
         <ul class="space-y-2">
           <li>
@@ -177,10 +207,10 @@ const template = 'splash';
         </ul>
       </div>
       <div class="p-6" style="margin:0">
-        <button onclick="window.buy('business')" class="buy inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 h-10 px-4 py-2 w-full">
-          Buy Now
+        <button onclick="window.buy('business')" style="color: var(--sl-color-black)" class="buy inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 h-10 px-4 py-2 w-full">
+          Buy
         </button>
-        <a style="font-weight:600" class="block text-center text-sm mt-2 underline" href="/commercial">
+        <a class="license block text-center text-sm mt-2 underline" href="/commercial">
           License Agreement
         </a>
       </div>
@@ -302,7 +332,7 @@ const template = 'splash';
       <tr>
         <td></td>
         <th>Open Source</th>
-        <th>Basic</th>
+        <th>Solo</th>
         <th>Professional</th>
         <th>Business</th>
         <th>OEM</th>
@@ -472,7 +502,7 @@ const template = 'splash';
     </Faq>
     <Faq question="Is it a one-time payment?">
       <p>
-        The Basic, Proffession and Business licenses are a one-time payment and include future updates
+        The Solo, Professional and Business licenses are a one-time payment and include future updates
         to version 5.
       </p>
       <p>
@@ -504,7 +534,7 @@ const template = 'splash';
         and integration questions.
       </p>
       <p>
-        The Basic and Professional licenses only include standard support via
+        The Solo and Professional licenses only include standard support via
         <a href="https://github.com/davidjbradshaw/iframe-resizer/issues" target="blank">Github Issues</a>.
       </p>
     </Faq>
