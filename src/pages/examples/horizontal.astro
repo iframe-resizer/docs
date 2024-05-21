@@ -5,13 +5,14 @@ import JS from '../../components/js-child.astro'
 
 <style>
   #outer {
-    border-right-width: 1px;
+    margin-right: 1px;
   }
 
   .frame {
     border: 3px inset;
-    height: 186px !important;
+    height: 187px !important;
     padding: 0 20px;
+    background-color: white;
   }
 
   body {
@@ -109,9 +110,12 @@ import JS from '../../components/js-child.astro'
 </div>
 
 <script>
+  const { backgroundColor } = top.getComputedStyle(top.document.body)
   const { style } = window.document.getElementById('outer')
-  style.borderColor = top.getComputedStyle(top.document.body).backgroundColor
-  style.borderRightWidth = '1px'
+  style.borderColor = backgroundColor
+  // style.borderRightWidth = '1px'
+  document.body.style.background = backgroundColor
+
 </script>
 
 
