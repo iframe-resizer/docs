@@ -109,7 +109,9 @@ import JS from '../../components/js-child.astro'
 </div>
 
 <script>
-  window.document.getElementById('outer').style.borderColor = top.getComputedStyle(top.document.body).backgroundColor
+  const { style } = window.document.getElementById('outer')
+  style.borderColor = top.getComputedStyle(top.document.body).backgroundColor
+  style.borderRightWidth = '1px'
 </script>
 
 
