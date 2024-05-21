@@ -4,9 +4,13 @@ description: Keep same and cross-domain iframes sized to their content
 next: Licenses
 ---
 
-The _iframe-resizer_ library aims to take away the pain points with using iframes.
+The _iframe-resizer_ library aims to take away the pain points with using iframes. It will resize your iframe to match the size of it's content and then monitor your content to ensure the iframe is always the perfect size.
 
-In addition to keeping you iframe sized to the content, _iframe-resizer_ also provides the missing browser API features, that allows you to securely integrate your iframe content with the parent page.
+As browsers don't provide a single consistently reliable method to calculate content size, _iframe-resizer_ automatically inspects your page and selects the best value for your content every time it detects something changed.
+
+Supports both internal (same-domain) iframes and external iframes via a simple JS file that is designed to be a zero impact guest on the sites hosting it.
+
+Additionally _iframe-resizer_  provides a range of missing browser API features, that allows you to securely integrate your iframe content with the parent page.
 
 - Scroll the page, relative to the iframe or parent page's position
 - Get details of the position of the iframe, the scroll position and viewport of the parent page
@@ -15,7 +19,7 @@ In addition to keeping you iframe sized to the content, _iframe-resizer_ also pr
 - Simplified message passing between the iframe and the parent page
 - Automatic domain authentication
 
-It can also be combined with [viewer.js](https://viewerjs.org) to display PDF and ODF documents in an iframe.
+When combined with [viewer.js](https://viewerjs.org) it can even size iframes containing PDF and ODF documents.
 
 ## Version 5
 
