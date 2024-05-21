@@ -90,7 +90,7 @@ import JS from '../../components/js-child.astro'
   to calculate the height of the iframe, when the content overflows the
   <body> element.     
 -->
-<div style="border-right: solid 1px var(--sl-color-black)">
+<div id="outer">
   <div class="frame">
     <div data-iframe-size id="bar"></div>
 
@@ -103,4 +103,10 @@ import JS from '../../components/js-child.astro'
     </div>
   </div>
 </div>
+
+<script>
+  window.document.getElementById('outer').style.borderColor = top.getComputedStyle(top.document.body).backgroundColor
+</script>
+
+
 <JS/>
