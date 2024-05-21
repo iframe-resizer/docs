@@ -19,7 +19,7 @@ The previous versions of _iframe-resizer_ offered the choice of a wide range of 
 
 With _iframe-resizer 5_, these options have been deprecated and _iframe-resizer_ will now inspect the the page layout to automatically determine which is the best page size calculation method every time the iframe is resized. If it is determined that the best calculation method is `taggedElement` and the page has no tags, an advisory warning will be logged in the console to suggest adding these.
 
-The name of the tag attributes have now been consolidated from `data-iframe-height` and `date-iframe-width`, to the single tag `data-iframe-size`.
+The name of the tag attributes have now been consolidated from `data-iframe-height` and `data-iframe-width`, to the single tag `data-iframe-size`.
 
 Use of the old calculation options or the old tag names will trigger a deprecation warning in the console with advice on how to update your config.
 
@@ -76,13 +76,13 @@ Use of `onInit()` will trigger a deprecation warning in the console.
 
 ### The <span class="option">size()</span> method has been renamed to <span class="option">resize()</span>
 
-The `size()` method in the Child Page API has been deprecated in favour of `resize()`. This brings the child page name in lime with the Parent Page API. 
+The `size()` method in the Child Page API has been deprecated in favour of `resize()`. This brings the child page name in line with the Parent Page API. 
 
 Use of `size()` will trigger a deprecation warning in the console.
 
-### Fixed bug where height/width where returned as strings
+### Fixed bug where height/width were returned as strings
 
-The `onResized()`, `onMouseEnter()` and `onMouseLeave()` events was returning `height`/`width` as a strings, this has now been fixed to return numbers.
+The `onResized()`, `onMouseEnter()` and `onMouseLeave()` events were returning `height`/`width` as a strings, this has now been fixed to return numbers.
 
 ### The <span class="option">minHeight</span>, <span class="option">minWidth</span>, <span class="option">maxHeight</span> and <span class="option">minWidth</span> options have been removed
 
