@@ -1,4 +1,4 @@
-# iframe-resizer webiste and docs
+# iframe-resizer website and docs
 
 https://iframe-resizer.com
 
