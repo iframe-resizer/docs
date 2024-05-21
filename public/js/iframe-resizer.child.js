@@ -1,7 +1,7 @@
 /*!
  *  @preserve
  *
- *  @module     iframe-resizer/child 5.0.0-RC.3 (iife)
+ *  @module     iframe-resizer/child 5.0.1 (iife)
  *
  *  @license    GPL-3.0 for non-commercial use only.
  *              For commercial use, you must purchase a license from
@@ -18,7 +18,7 @@
 
 !(function () {
   "use strict";
-  const e = "5.0.0-RC.3",
+  const e = "5.0.0",
     t = 10,
     n = "data-iframe-size";
   const o = (e, t, n, o) => e.addEventListener(t, n, o || !1),
@@ -53,10 +53,10 @@
     },
     c = {
       height: () => (
-        re("Custom height calculation function not defined"), Te.auto()
+        re("Custom height calculation function not defined"), Ie.auto()
       ),
       width: () => (
-        re("Custom width calculation function not defined"), Ie.auto()
+        re("Custom width calculation function not defined"), ke.auto()
       ),
     },
     s = {
@@ -89,9 +89,9 @@
     E = null,
     O = "",
     M = !0,
-    C = !1,
-    P = null,
-    A = !0,
+    A = !1,
+    C = null,
+    P = !0,
     T = !1,
     I = 1,
     k = f,
@@ -152,7 +152,7 @@
           t = N.slice(h).split(":");
         (H = t[0]),
           ($ = void 0 === t[1] ? $ : Number(t[1])),
-          (C = void 0 === t[2] ? C : e(t[2])),
+          (A = void 0 === t[2] ? A : e(t[2])),
           (L = void 0 === t[3] ? L : e(t[3])),
           (z = void 0 === t[6] ? z : e(t[6])),
           (j = t[7]),
@@ -177,7 +177,7 @@
           (_ = e?.onMessage || _),
             (ee = e?.onReady || ee),
             "number" == typeof e?.offset &&
-              (M && (b = e?.offset), C && (w = e?.offset)),
+              (M && (b = e?.offset), A && (w = e?.offset)),
             (J = e?.targetOrigin || J),
             (k = e?.heightCalculationMethod || k),
             (G = e?.widthCalculationMethod || G);
@@ -255,23 +255,23 @@
               : !1 === e &&
                 !0 === z &&
                 ((z = !1), de("remove"), F?.disconnect(), E?.disconnect()),
-            Le(0, 0, "autoResize", JSON.stringify(z)),
+            qe(0, 0, "autoResize", JSON.stringify(z)),
             z
           ),
           close() {
-            Le(0, 0, "close");
+            qe(0, 0, "close");
           },
           getId: () => H,
           getPageInfo(e) {
             if ("function" == typeof e)
               return (
                 (te = e),
-                Le(0, 0, "pageInfo"),
+                qe(0, 0, "pageInfo"),
                 void ae(
                   "<rb>Deprecated Method</>\n          \nThe <b>getPageInfo()</> method has been deprecated and replaced with  <b>getParentProperties()</>. Use of this method will be removed in a future version of <i>iframe-resizer</>.\n"
                 )
               );
-            (te = null), Le(0, 0, "pageInfoStop");
+            (te = null), qe(0, 0, "pageInfoStop");
           },
           getParentProperties(e) {
             if ("function" != typeof e)
@@ -280,9 +280,9 @@
               );
             return (
               (ne = e),
-              Le(0, 0, "parentInfo"),
+              qe(0, 0, "parentInfo"),
               () => {
-                (ne = null), Le(0, 0, "parentInfoStop");
+                (ne = null), qe(0, 0, "parentInfoStop");
               }
             );
           },
@@ -290,16 +290,16 @@
             R.findTarget(e);
           },
           reset() {
-            Be();
+            Le();
           },
           scrollTo(e, t) {
-            Le(t, e, "scrollTo");
+            qe(t, e, "scrollTo");
           },
           scrollToOffset(e, t) {
-            Le(t, e, "scrollToOffset");
+            qe(t, e, "scrollToOffset");
           },
           sendMessage(e, t) {
-            Le(0, 0, "message", JSON.stringify(e), t);
+            qe(0, 0, "message", JSON.stringify(e), t);
           },
           setHeightCalculationMethod(e) {
             (k = e), pe();
@@ -311,7 +311,7 @@
             J = e;
           },
           resize(e, t) {
-            xe(
+            Ne(
               "size",
               `parentIFrame.size(${`${e || ""}${t ? `,${t}` : ""}`})`,
               e,
@@ -330,7 +330,7 @@
       (function () {
         if (!0 !== D) return;
         function e(e) {
-          Le(0, 0, e.type, `${e.screenY}:${e.screenX}`);
+          qe(0, 0, e.type, `${e.screenY}:${e.screenX}`);
         }
         function t(t, n) {
           o(window.document, t, e);
@@ -354,12 +354,12 @@
         function i(e) {
           function t(e) {
             const t = n(e);
-            Le(t.y, t.x, "scrollToOffset");
+            qe(t.y, t.x, "scrollToOffset");
           }
           const o = e.split("#")[1] || e,
             i = decodeURIComponent(o),
             r = document.getElementById(i) || document.getElementsByName(i)[0];
-          void 0 === r ? Le(0, 0, "inPageLink", `#${o}`) : t(r);
+          void 0 === r ? qe(0, 0, "inPageLink", `#${o}`) : t(r);
         }
         function r() {
           const { hash: e, href: t } = window.location;
@@ -391,7 +391,7 @@
             : s());
         return { findTarget: i };
       })()),
-      xe("init", "Init message from host page", void 0, void 0, e),
+      Ne("init", "Init message from host page", void 0, void 0, e),
       ee(),
       (B = !1);
   }
@@ -405,7 +405,7 @@
     ({
       add(t) {
         function n() {
-          xe(e.eventName, e.eventType);
+          Ne(e.eventName, e.eventType);
         }
         (d[t] = n), o(window, t, n, { passive: !0 });
       },
@@ -426,7 +426,7 @@
   }
   function me() {
     const e = document.querySelectorAll(`[${n}]`);
-    (T = e.length > 0), (P = T ? e : Ee(document)());
+    (T = e.length > 0), (C = T ? e : Oe(document)());
   }
   function fe(e, t, n, o) {
     return (
@@ -442,17 +442,17 @@
     );
   }
   function pe() {
-    k = fe(k, f, Te, "height");
+    k = fe(k, f, Ie, "height");
   }
   function he() {
-    G = fe(G, v, Ie, "width");
+    G = fe(G, v, ke, "width");
   }
   function ye() {
     !0 === z &&
       (de("add"),
       (E = (function () {
         function e(e) {
-          e.forEach(Se), me();
+          e.forEach($e), me();
         }
         function t() {
           const t = new window.MutationObserver(e),
@@ -474,52 +474,59 @@
           },
         };
       })()),
-      (F = new ResizeObserver(ge)),
-      ze(window.document));
+      (F = new ResizeObserver(ve)),
+      Se(window.document));
   }
-  function ge(e) {
-    xe(
-      "resizeObserver",
-      `resizeObserver: ${(function (e) {
-        switch (!0) {
-          case !oe(e):
-            return "";
-          case oe(e.id):
-            return `${e.nodeName.toUpperCase()}#${e.id}`;
-          case oe(e.name):
-            return `${e.nodeName.toUpperCase()} (${e.name})`;
-          default:
-            return (
-              e.nodeName.toUpperCase() +
-              (oe(e.className) ? `.${e.className}` : "")
-            );
-        }
-      })(e[0].target)}`
-    );
+  let ge;
+  function ve(e) {
+    if (!Array.isArray(e) || 0 === e.length) return;
+    const t = e[0].target;
+    (ge = () =>
+      Ne(
+        "resizeObserver",
+        `resizeObserver: ${(function (e) {
+          switch (!0) {
+            case !oe(e):
+              return "";
+            case oe(e.id):
+              return `${e.nodeName.toUpperCase()}#${e.id}`;
+            case oe(e.name):
+              return `${e.nodeName.toUpperCase()} (${e.name})`;
+            default:
+              return (
+                e.nodeName.toUpperCase() +
+                (oe(e.className) ? `.${e.className}` : "")
+              );
+          }
+        })(t)}`
+      )),
+      setTimeout(() => {
+        ge && ge(), (ge = void 0);
+      }, 0);
   }
-  const ve = (e) => {
+  const be = (e) => {
       const t = getComputedStyle(e);
       return "" !== t?.position && "static" !== t?.position;
     },
-    be = () => [...Ee(document)()].filter(ve);
-  function we(e) {
+    we = () => [...Oe(document)()].filter(be);
+  function ze(e) {
     e && F.observe(e);
   }
-  function ze(e) {
-    [...be(), ...g.flatMap((t) => e.querySelector(t))].forEach(we);
-  }
   function Se(e) {
-    "childList" === e.type && ze(e.target);
+    [...we(), ...g.flatMap((t) => e.querySelector(t))].forEach(ze);
   }
   function $e(e) {
+    "childList" === e.type && Se(e.target);
+  }
+  function je(e) {
     const t = (n = e).charAt(0).toUpperCase() + n.slice(1);
     var n;
     let o,
       i = 0,
-      r = P.length,
+      r = C.length,
       a = 0,
       c = performance.now();
-    P.forEach((t) => {
+    C.forEach((t) => {
       T || !m || t.checkVisibility(l)
         ? ((i =
             t.getBoundingClientRect()[e] +
@@ -552,26 +559,26 @@
       a
     );
   }
-  const je = (e) => [
+  const Ee = (e) => [
       e.bodyOffset(),
       e.bodyScroll(),
       e.documentElementOffset(),
       e.documentElementScroll(),
       e.documentElementBoundingClientRect(),
     ],
-    Ee = (e) => () =>
+    Oe = (e) => () =>
       e.querySelectorAll(
         "* :not(head):not(meta):not(base):not(title):not(script):not(link):not(style):not(map):not(area):not(option):not(optgroup):not(template):not(track):not(wbr):not(nobr)"
       );
-  let Oe = !1;
-  function Me({
+  let Me = !1;
+  function Ae({
     ceilBoundingSize: e,
     dimension: t,
     getDimension: n,
     isHeight: o,
     scrollSize: i,
   }) {
-    if (!Oe) return (Oe = !0), n.taggedElement();
+    if (!Me) return (Me = !0), n.taggedElement();
     const r = o ? "bottom" : "right";
     return (
       ae(
@@ -585,11 +592,11 @@
   }
   const Ce = { height: 0, width: 0 },
     Pe = { height: 0, width: 0 };
-  function Ae(e, t) {
+  function Te(e, t) {
     function n() {
       return (Pe[i] = r), (Ce[i] = c), r;
     }
-    const o = e === Te,
+    const o = e === Ie,
       i = o ? "height" : "width",
       r = e.documentElementBoundingClientRect(),
       a = Math.ceil(r),
@@ -610,7 +617,7 @@
       case !o:
         return t
           ? e.taggedElement()
-          : Me({
+          : Ae({
               ceilBoundingSize: a,
               dimension: i,
               getDimension: e,
@@ -622,7 +629,7 @@
       case r > c:
         return n();
       case !t:
-        return Me({
+        return Ae({
           ceilBoundingSize: a,
           dimension: i,
           getDimension: e,
@@ -632,12 +639,12 @@
     }
     return Math.max(e.taggedElement(), n());
   }
-  const Te = {
+  const Ie = {
       enabled: () => M,
       getOffset: () => b,
       type: "height",
-      auto: () => Ae(Te, !1),
-      autoOverflow: () => Ae(Te, !0),
+      auto: () => Te(Ie, !1),
+      autoOverflow: () => Te(Ie, !0),
       bodyOffset: () => {
         const { body: e } = document,
           n = getComputedStyle(e);
@@ -648,24 +655,24 @@
         );
       },
       bodyScroll: () => document.body.scrollHeight,
-      offset: () => Te.bodyOffset(),
+      offset: () => Ie.bodyOffset(),
       custom: () => c.height(),
       documentElementOffset: () => document.documentElement.offsetHeight,
       documentElementScroll: () => document.documentElement.scrollHeight,
       documentElementBoundingClientRect: () =>
         document.documentElement.getBoundingClientRect().bottom,
-      max: () => Math.max(...je(Te)),
-      min: () => Math.min(...je(Te)),
-      grow: () => Te.max(),
-      lowestElement: () => $e("bottom"),
-      taggedElement: () => $e("bottom"),
+      max: () => Math.max(...Ee(Ie)),
+      min: () => Math.min(...Ee(Ie)),
+      grow: () => Ie.max(),
+      lowestElement: () => je("bottom"),
+      taggedElement: () => je("bottom"),
     },
-    Ie = {
-      enabled: () => C,
+    ke = {
+      enabled: () => A,
       getOffset: () => w,
       type: "width",
-      auto: () => Ae(Ie, !1),
-      autoOverflow: () => Ae(Ie, !0),
+      auto: () => Te(ke, !1),
+      autoOverflow: () => Te(ke, !0),
       bodyScroll: () => document.body.scrollWidth,
       bodyOffset: () => document.body.offsetWidth,
       custom: () => c.width(),
@@ -673,43 +680,43 @@
       documentElementOffset: () => document.documentElement.offsetWidth,
       documentElementBoundingClientRect: () =>
         document.documentElement.getBoundingClientRect().right,
-      max: () => Math.max(...je(Ie)),
-      min: () => Math.min(...je(Ie)),
-      rightMostElement: () => $e("right"),
-      scroll: () => Math.max(Ie.bodyScroll(), Ie.documentElementScroll()),
-      taggedElement: () => $e("right"),
+      max: () => Math.max(...Ee(ke)),
+      min: () => Math.min(...Ee(ke)),
+      rightMostElement: () => je("right"),
+      scroll: () => Math.max(ke.bodyScroll(), ke.documentElementScroll()),
+      taggedElement: () => je("right"),
     };
-  function ke(e, t, n, o, i) {
+  function xe(e, t, n, o, i) {
     let r, a;
     !(function () {
       const e = (e, t) => !(Math.abs(e - t) <= Z);
       return (
-        (r = void 0 === n ? Te[k]() : n),
-        (a = void 0 === o ? Ie[G]() : o),
-        (M && e(I, r)) || (C && e(Y, a))
+        (r = void 0 === n ? Ie[k]() : n),
+        (a = void 0 === o ? ke[G]() : o),
+        (M && e(I, r)) || (A && e(Y, a))
       );
     })() && "init" !== e
-      ? !(e in { init: 1, size: 1 }) && ((M && k in y) || (C && G in y)) && Be()
-      : (Ne(), (I = r), (Y = a), Le(I, Y, e, i));
+      ? !(e in { init: 1, size: 1 }) && ((M && k in y) || (A && G in y)) && Le()
+      : (Re(), (I = r), (Y = a), qe(I, Y, e, i));
   }
-  function xe(e, t, n, o, i) {
-    document.hidden || ke(e, 0, n, o, i);
+  function Ne(e, t, n, o, i) {
+    document.hidden || xe(e, 0, n, o, i);
   }
-  function Ne() {
+  function Re() {
     Q ||
       ((Q = !0),
       requestAnimationFrame(() => {
         Q = !1;
       }));
   }
-  function Re(e) {
-    (I = Te[k]()), (Y = Ie[G]()), Le(I, Y, e);
-  }
   function Be(e) {
-    const t = k;
-    (k = f), Ne(), Re("reset"), (k = t);
+    (I = Ie[k]()), (Y = ke[G]()), qe(I, Y, e);
   }
-  function Le(e, t, n, o, i) {
+  function Le(e) {
+    const t = k;
+    (k = f), Re(), Be("reset"), (k = t);
+  }
+  function qe(e, t, n, o, i) {
     q < 0 ||
       (void 0 !== i || (i = J),
       (function () {
@@ -719,22 +726,22 @@
         U ? window.parent.iframeParentListener(p + r) : V.postMessage(p + r, i);
       })());
   }
-  function qe(e) {
+  function De(e) {
     const t = {
         init: function () {
           (N = e.data),
             (V = e.source),
             ce(),
-            (A = !1),
+            (P = !1),
             setTimeout(() => {
               x = !1;
             }, u);
         },
         reset() {
-          x || Re("resetPage");
+          x || Be("resetPage");
         },
         resize() {
-          xe("resizeParent");
+          Ne("resizeParent");
         },
         moveToAnchor() {
           R.findTarget(o());
@@ -744,11 +751,11 @@
         },
         pageInfo() {
           const e = o();
-          te ? te(JSON.parse(e)) : Le(0, 0, "pageInfoStop");
+          te ? te(JSON.parse(e)) : qe(0, 0, "pageInfoStop");
         },
         parentInfo() {
           const e = o();
-          ne ? ne(Object.freeze(JSON.parse(e))) : Le(0, 0, "parentInfoStop");
+          ne ? ne(Object.freeze(JSON.parse(e))) : qe(0, 0, "parentInfoStop");
         },
         message() {
           const e = o();
@@ -762,7 +769,7 @@
         (void 0 !== window.jQuery && "" in window.jQuery.prototype),
       r = () => e.data.split(":")[2] in { true: 1, false: 1 };
     p === `${e.data}`.slice(0, h) &&
-      (!1 !== A
+      (!1 !== P
         ? r() && t.init()
         : (function () {
             const o = n();
@@ -771,23 +778,23 @@
               : i() || r() || re(`Unexpected message (${e.data})`);
           })());
   }
-  function De() {
+  function He() {
     "loading" !== document.readyState &&
       window.parent.postMessage("[iFrameResizerChild]Ready", "*");
   }
-  function He(e) {
-    return qe(e), K;
+  function We(e) {
+    return De(e), K;
   }
   "undefined" != typeof window &&
-    ((window.iframeChildListener = (e) => qe({ data: e, sameDomain: !0 })),
-    o(window, "message", qe),
-    o(window, "readystatechange", De),
-    De());
+    ((window.iframeChildListener = (e) => De({ data: e, sameDomain: !0 })),
+    o(window, "message", De),
+    o(window, "readystatechange", He),
+    He());
   try {
     top?.document?.getElementById("banner") &&
       ((K = {}),
-      (window.mockMsgListener = He),
-      i(window, "message", qe),
-      define([], () => He));
+      (window.mockMsgListener = We),
+      i(window, "message", De),
+      define([], () => We));
   } catch (e) {}
 })();
