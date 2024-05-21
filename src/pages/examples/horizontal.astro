@@ -6,7 +6,7 @@ import JS from '../../components/js-child.astro'
 <style>
   .frame {
     border: 3px inset;
-    height: 200px !important;
+    height: 186px !important;
     padding: 0 20px;
   }
 
@@ -90,16 +90,17 @@ import JS from '../../components/js-child.astro'
   to calculate the height of the iframe, when the content overflows the
   <body> element.     
 -->
-<div class="frame">
-  <div data-iframe-size id="bar"></div>
+<div style="border-right: solid 1px var(--sl-color-black)">
+  <div class="frame">
+    <div data-iframe-size id="bar"></div>
 
-  <div data-iframe-size id="abs">
-    <p>
-      This element animates between 310px and 720px wide using CSS keyframes.
-      <br/><br/>
-      The iframe width is capped to 100% of the containing element width.
-    </p>
+    <div data-iframe-size id="abs">
+      <p>
+        This element animates between 310px and 720px wide using CSS keyframes.
+        <br/><br/>
+        The iframe width is capped to 100% of the containing element width.
+      </p>
+    </div>
   </div>
-  
 </div>
 <JS/>
