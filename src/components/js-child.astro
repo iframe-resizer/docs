@@ -1,1 +1,15 @@
+<script>
+
+  function setColors() {
+    const { backgroundColor, color } = top.getComputedStyle(top.document.body)
+    const style = document.body
+
+    document.body.style.background = backgroundColor
+    document.body.style.color = color
+  }
+
+  setColors()
+
+</script>
+
 <script src="/js/iframe-resizer.child.js" is:inline></script>

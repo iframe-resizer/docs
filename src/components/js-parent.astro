@@ -4,7 +4,11 @@
 
 <script src="/js/iframe-resizer.parent.js" is:inline></script>
 
-<script> 
-  window.iframeResize({ license: 'GPLv3', direction: 'horizontal' }, '#horizontal');
+<script>
+  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
+
+  const tolerance = isSafari ? 2 : 0
+
+  window.iframeResize({ license: 'GPLv3', direction: 'horizontal', tolerance }, '#horizontal');
   window.iframeResize({ license: 'GPLv3', offset: -1 });
 </script>
