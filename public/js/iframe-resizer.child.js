@@ -18,7 +18,7 @@
 
 !(function () {
   "use strict";
-  const e = "5.0.0",
+  const e = "5.0.1",
     t = 10,
     n = "data-iframe-size";
   const o = (e, t, n, o) => e.addEventListener(t, n, o || !1),
@@ -484,7 +484,7 @@
     (ge = () =>
       Ne(
         "resizeObserver",
-        `resizeObserver: ${(function (e) {
+        `Resize Observed: ${(function (e) {
           switch (!0) {
             case !oe(e):
               return "";
@@ -554,7 +554,7 @@
         B ||
         T ||
         ae(
-          `<rb>Performance Warning</>\n\nCalculating the page size took an excessive amount of time. To improve performace add the <b>data-iframe-size</> attribute to the ${e} most element on the page.\n${s}`
+          `<rb>Performance Warning</>\n\nCalculating the page size took an excessive amount of time. To improve performance add the <b>data-iframe-size</> attribute to the ${e} most element on the page.\n${s}`
         ),
       a
     );
@@ -691,8 +691,8 @@
     !(function () {
       const e = (e, t) => !(Math.abs(e - t) <= Z);
       return (
+        (a = Math.ceil(void 0 === o ? ke[G]() : o)),
         (r = void 0 === n ? Ie[k]() : n),
-        (a = void 0 === o ? ke[G]() : o),
         (M && e(I, r)) || (A && e(Y, a))
       );
     })() && "init" !== e

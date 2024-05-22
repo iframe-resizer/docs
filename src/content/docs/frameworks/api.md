@@ -59,6 +59,8 @@ useEffect(() => {
 }, []);
 ```
 
+The full [React component](https://github.com/davidjbradshaw/iframe-resizer/blob/master/packages/react/index.jsx) further demonstrates integration with the [Parent Page API](/api/parent/).
+
 ## connectResizer vs iframeResize
 
 The `connectResizer()()` function is used internally by `iframeResize()`, the main difference is that the later allows you to pass in any valid CSS Selector, an [HTMLElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement), or simply not specify anything and it will hunt for iframes on the page, where as `connectResize()()` requires a single `HTMLIFrameElement`.
