@@ -5,7 +5,7 @@ import JS from '../../components/js-child.astro'
 
 <style>
   #outer {
-    border-right: solid 3px white;
+    border-right: solid 5px white;
   }
 
   .frame {
@@ -114,7 +114,7 @@ import JS from '../../components/js-child.astro'
   const { style } = window.document.getElementById('outer')
   style.borderColor = backgroundColor
   // style.borderRightWidth = '1px'
-  document.body.style.background = backgroundColor
+  document.body.style.background = `${backgroundColor} !important`
 
 </script>
 
