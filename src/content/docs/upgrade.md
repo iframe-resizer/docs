@@ -7,6 +7,8 @@ Version 5 of _iframe-resizer_ drops support for legacy browsers and changes the 
 
 These changes, along with further code optimizations, have lead to a large improvement in the performance of this library and it is now possible to have _iframe-resizer_ both detect and keep up with CSS animations that causes the iframe to resize on every animation frame.
 
+In addition to this, _iframe-resizer 5_ contains a number of other improvements and minor API changes that are detailed in this guide.
+
 ## New Packages
 
 The main change has been to split the single npm package that contained both the parent and child JavaScript files into two separate packages, called `@iframe-resizer/parent` and `@iframe-resizer/child`. The jQuery plugin has also be split out into `@iframe-resizer/jquery` and the React version renamed to `@iframe-resizer/react`.
