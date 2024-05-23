@@ -13,7 +13,7 @@ In addition to this, _iframe-resizer 5_ contains a number of other improvements 
 
 The main change has been to split the single npm package that contained both the parent and child JavaScript files into two separate packages, called `@iframe-resizer/parent` and `@iframe-resizer/child`. The jQuery plugin has also be split out into `@iframe-resizer/jquery` and the React version renamed to `@iframe-resizer/react`.
 
-These new packages are designed to be drop in replacements for the old version and where the API has changed the old deprecated call will trigger a waring in the browser console with advise on how to update you code.
+These new packages are designed to be drop in replacements for the previous version and in most situations will work without further code changes. Where the API has changed, the deprecated feature will trigger a waring in the browser console with advise on how to update your code.
 
 ## API Changes
 
@@ -34,6 +34,10 @@ Use of the old calculation options or the old tag names will trigger a deprecati
 This library has always supported resizing in both directions, but changing the direction confusingly required the setting of multiple different options in the config. This has now been consolidated into the new single `direction` option, which can have the following values: `vertical`, `horizontal` or `none`.
 
 Use of the old values will trigger a deprecation warning.
+
+### New <span class="option">offset</span> option
+
+This new option allow you to adjust the value returned by the iframe for the dimension you are resizing, it can have either a positive or negative value.
 
 ### New <span class="option">getParentProperties()</span> method replaces <span class="option">getPageInfo()</span>
 
@@ -93,10 +97,6 @@ The `onResized()`, `onMouseEnter()` and `onMouseLeave()` events were returning `
 ### The <span class="option">minHeight</span>, <span class="option">minWidth</span>, <span class="option">maxHeight</span> and <span class="option">minWidth</span> options have been removed
 
 These settings are no longer required, as all target browsers now support setting these on the iframe via CSS.
-
-### Added new <span class="option">offset</span> option
-
-This new option allow you to adjust the value returned by the iframe for the dimension you are resizing, it can have either a positive or negative value.
 
 ## Other Improvements
 
