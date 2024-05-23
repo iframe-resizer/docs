@@ -15,4 +15,4 @@ _Iframe-Resizer_ has support for a number of frameworks and libraries.
 
 Their is also a [Framework API](../api) that provides a simplified interface for creating additional _iframe-resizer_ platform components.
 
-If you create a wrapper component, library plugin for _iframe-resizer_, or include it in another component library. Then please create a PR and add it to this page.
+If you create a wrapper component or library plugin for _iframe-resizer_, or include it in another component library. Then please create a [PR](https://github.com/iframe-resizer/docs/pulls) to add it to this page.
