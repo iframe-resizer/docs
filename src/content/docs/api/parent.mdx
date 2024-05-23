@@ -5,7 +5,10 @@ next: Child Page API
 prev: Getting Started
 ---
 
-The Parent API is for use on the page containing the `<iframe>` tag. It is split into three sections. [Options](#options) contains settings that can be passed when calling iframe-resizer. [Events](#events) are trigged by updates to the iframe, or messages from the iframe. [Methods](#methods) allow you to interact with _iframe-resizer_ after the initial resizing.
+The Parent API is for use on the page containing the `<iframe>` tag. It is split into three sections. 
+[Options](#options) contains settings that can be passed when calling iframe-resizer. [Events](#events) 
+are triggered by updates to the iframe, or messages from the iframe. [Methods](#methods) allow you to 
+interact with _iframe-resizer_ after the initial resizing.
 
 ## Options
 
@@ -19,7 +22,8 @@ type:    string
 
 **Commercial** Enter the key provided with the [purchased](/pricing/) commercial license.
 
-**Open Source** If you are using _iframe-resizer_ on an open-source site or project, then you can use it for free under the terms of the [Gnu Public License V3](/gpl/). To accept these terms set the license to `GPLv3`.
+**Open Source** If you are using _iframe-resizer_ on an open-source site or project, then you can use it 
+for free under the terms of the [Gnu Public License V3](/gpl/). To accept these terms set the license to `GPLv3`.
 
 ### bodyBackground
 
@@ -37,7 +41,8 @@ default: null
 type:    string || number
 ```
 
-Override the default body margin style in the iframe. A string can be any valid value for the CSS margin attribute, for example '8px 3em'. A number value is converted into px.
+Override the default body margin style in the iframe. A string can be any valid value for the CSS margin 
+attribute, for example '8px 3em'. A number value is converted into px.
 
 ### bodyPadding
 
@@ -46,7 +51,8 @@ default: null
 type:    string || number
 ```
 
-Override the default body padding style in the iframe. A string can be any valid value for the CSS margin attribute, for example '8px 3em'. A number value is converted into px.
+Override the default body padding style in the iframe. A string can be any valid value for the CSS margin 
+attribute, for example '8px 3em'. A number value is converted into px.
 
 ### checkOrigin
 
@@ -66,13 +72,13 @@ default: 'vertical'
 values: 'horizontal' || 'vertical' || 'none'
 ```
 
-Set the direction in which you want the iframe to automaticaly scale to the content size.
+Set the direction in which you want the iframe to automatically scale to the content size.
 
 import { Aside } from "@astrojs/starlight/components";
 
 <Aside type="tip" title="Horizontal Resizing">
   When setting the direction to `horizontal` it is best to avoid floating or
-  positioning elements to the right side of the page, as this can interfer with
+  positioning elements to the right side of the page, as this can interfere with
   working out the content width.
 
 If you must have elements on the right of the page, then you may need to tell
@@ -134,11 +140,13 @@ default: 5000
 type:    integer
 ```
 
-Set the number of milliseconds after which a warning is logged if the iframe has not responded. Set to `0` to supress warning messages of this type.
+Set the number of milliseconds after which a warning is logged if the iframe has not responded. Set to `0` to 
+suppress warning messages of this type.
 
 ## Events
 
-The following callback events can be passed to _iframe-resizer_ on the parent page, as part of the [options](options.md) object.
+The following callback events can be passed to _iframe-resizer_ on the parent page, as part of the 
+[options](#options) object.
 
 ### onClose
 
@@ -146,7 +154,8 @@ The following callback events can be passed to _iframe-resizer_ on the parent pa
 onClose: (iframeID) => boolean;
 ```
 
-Called before the iframe is closed via `parentIframe.close()` method. Returning `false` will prevent the iframe from closing.
+Called before the iframe is closed via `parentIframe.close()` method. Returning `false` will prevent the iframe 
+from closing.
 
 ### onClosed
 
@@ -170,7 +179,8 @@ Receives messages posted from the iframe with the `parentIframe.sendMessage()` m
 onMouseEnter: ({ iframe, height, width, type }) => undefined;
 ```
 
-Function called after the mouse enters the iframe. Passes `messageData` object containing the **iframe**, **screenX**, **screenY** and the **type** of event that triggered the callback.
+Function called after the mouse enters the iframe. Passes `messageData` object containing the **iframe**, 
+**screenX**, **screenY** and the **type** of event that triggered the callback.
 
 ### onMouseLeave
 
@@ -178,7 +188,8 @@ Function called after the mouse enters the iframe. Passes `messageData` object c
 onMouseLeave: ({ iframe, height, width, type }) => undefined;
 ```
 
-Function called after the mouse leaves the iframe. Passes `messageData` object containing the **iframe**, **screenX**, **screenY** and the **type** of event that triggered the callback.
+Function called after the mouse leaves the iframe. Passes `messageData` object containing the **iframe**, 
+**screenX**, **screenY** and the **type** of event that triggered the callback.
 
 ### onReady
 
@@ -194,7 +205,8 @@ Called after initial setup.
 onResized: ({ iframe, height, width, type }) => undefined;
 ```
 
-Function called after iframe resized. Passes `messageData` object containing the **iframe**, **height**, **width** and the **type** of event that triggered the iframe to resize.
+Function called after iframe resized. Passes `messageData` object containing the **iframe**, **height**, 
+**width** and the **type** of event that triggered the iframe to resize.
 
 ### onScroll
 
@@ -202,9 +214,14 @@ Function called after iframe resized. Passes `messageData` object containing the
 onScroll: ({ iframe, top, left, }) => [true | false];
 ```
 
-Called before the page is repositioned after a request from the iframe, due to either an in page link, or a direct request from either [parentIframe.scrollTo()](/child/#scrolltoxy) or [parentIframe.scrollToOffset()](/child/#scrolltooffsetxy). If this function returns **false**, it will stop the library from repositioning the page, so that you can implement your own custom scrolling instead.
+Called before the page is repositioned after a request from the iframe, due to either an in page link, or a direct
+request from either [parentIframe.scrollTo()](/api/child/#scrolltoxy) or 
+[parentIframe.scrollToOffset()](/api/child/#scrolltooffsetxy). If this function returns **false**, it will stop 
+the library from repositioning the page, so that you can implement your own custom scrolling instead.
 
-The following example shows how to adjust the scroll point. This can be useful if you have a sticky header on your page and you need ensure the target scroll point does not get covered by your header.
+The following example shows how to adjust the scroll point. This can be useful if you have a sticky header on your 
+page and you need ensure the target scroll point does not get covered by your header.
+
 ```js
 const SCROLL_OFFSET = 50
 
@@ -239,4 +256,5 @@ Tell the iframe to resize itself.
 
 ### sendMessage(<span class="args">message, [targetOrigin]</span>)
 
-Send data to the containing page, `message` can be any data type that can be serialized into JSON. The `targetOrigin` option is used to restrict where the message is sent to, in case your iframe navigates away to another domain.
+Send data to the containing page, `message` can be any data type that can be serialized into JSON. The `targetOrigin` 
+option is used to restrict where the message is sent to, in case your iframe navigates away to another domain.

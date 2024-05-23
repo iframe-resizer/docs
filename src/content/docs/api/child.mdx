@@ -6,7 +6,10 @@ next: Frameworks
 ---
 import { Aside } from "@astrojs/starlight/components";
 
-The Child API is for use on the page contained within the `<iframe>` tag. It is split into three sections. [Options](#options) contains settings that can be passed when calling iframe-resizer. [Events](#events) are trigged by updates to the iframe, or messages from the iframe. [Methods](#methods) allow you to interact with _iframe-resizer_ after the initial resizing.
+The Child API is for use on the page contained within the `<iframe>` tag. It is split into three sections. 
+[Options](#options) contains settings that can be passed when calling iframe-resizer. [Events](#events) are 
+triggered by updates to the iframe, or messages from the iframe. [Methods](#methods) allow you to interact with 
+_iframe-resizer_ after the initial resizing.
 
 <Aside type="note" title="">
   The features on this page are available in the Professional, Business and Open-source editions.
@@ -14,7 +17,8 @@ The Child API is for use on the page contained within the `<iframe>` tag. It is 
 
 ## Options
 
-The following options can be set from within the iframe page by creating a `window.iframeResizer` object before the JavaScript file is loaded into the page.
+The following options can be set from within the iframe page by creating a `window.iframeResizer` object before 
+the JavaScript file is loaded into the page.
 
 ```html
 <script>
@@ -32,7 +36,8 @@ default: 0
 type:    integer
 ```
 
-Modify the computed size of the iframe. This is useful if the page in the iframe returns a size value that is consitantly slightly different to how you want the iframe to be sized. This can be set to a positive or
+Modify the computed size of the iframe. This is useful if the page in the iframe returns a size value that is 
+constantly slightly different to how you want the iframe to be sized. This can be set to a positive or
 negative value.
 
 
@@ -44,7 +49,9 @@ type: string
 ```
 
 This option allows you to restrict the domain of the parent page, to prevent other sites mimicking your 
-parent page. This option is really a last line of defense and you should also setup a <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP" target="_blank">Content Security Policy</a> on your webserver.
+parent page. This option is really a last line of defense and you should also setup a 
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP" target="_blank">Content Security Policy</a> 
+on your webserver.
 
 
 ## Events
@@ -61,11 +68,15 @@ Receive message posted from the parent page with the `iframe.iframeResizer.sendM
 
     type: function()
 
-This function is called once _iframe-resizer_ has been initialized after receiving a call from the parent page. If you need to call any of the following methods during page load, then they should be called from this event handler.
+This function is called once _iframe-resizer_ has been initialized after receiving a call from the parent 
+page. If you need to call any of the following methods during page load, then they should be called from 
+this event handler.
 
 ## Methods
 
-These methods are available in the iframe via the `window.parentIframe` object. These method should be contained by a test for the `window.parentIframe` object, in case the page is not loaded inside an iframe. For example:
+These methods are available in the iframe via the `window.parentIframe` object. These method should be
+contained by a test for the `window.parentIframe` object, in case the page is not loaded inside an iframe. 
+For example:
 
 ```js
 if ("parentIframed" in window) {
@@ -87,7 +98,8 @@ Returns the ID of the iframe that the page is contained in.
 
 ### getParentProperties(<span class="args">callback</span>)
 
-Ask the containing page for its positioning coordinates. You need to provide a callback which receives an object with the following read only properties:
+Ask the containing page for its positioning coordinates. You need to provide a callback which receives an 
+object with the following read only properties:
 
 ```js
 {
@@ -144,8 +156,12 @@ Scroll the parent page to the coordinates x and y relative to the position of th
 
 ### sendMessage(<span class="args">message, [targetOrigin]</span>)
 
-Send data to the containing page, `message` can be any data type that can be serialized into JSON. The `targetOrigin` option is used to restrict where the message is sent to; to stop an attacker mimicking your parent page. See the MDN documentation on [postMessage](https://developer.mozilla.org/en-US/docs/Web/API/Window.postMessage) for more details.
+Send data to the containing page, `message` can be any data type that can be serialized into JSON. 
+The `targetOrigin` option is used to restrict where the message is sent to; to stop an attacker
+mimicking your parent page. See the MDN documentation on 
+[postMessage](https://developer.mozilla.org/en-US/docs/Web/API/Window.postMessage) for more details.
 
 ### resize()
 
-Manually force iframe to resize. If for some reason a change in content size is not detected, this method allows you to nudge _iframe-resizer_ to recalculate the page size.
+Manually force iframe to resize. If for some reason a change in content size is not detected, this 
+method allows you to nudge _iframe-resizer_ to recalculate the page size.
