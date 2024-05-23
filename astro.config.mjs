@@ -96,14 +96,6 @@ export default defineConfig({
               label: "jQuery",
               link: "/frameworks/jquery",
             },
-            {
-              label: "WordPress",
-              link: "/frameworks/wordpress",
-            },
-            {
-              label: "Google Apps Scripts",
-              link: "/frameworks/google_apps_script",
-            },
             // { label: "Angular", link: "/frameworks/angular" },
             // https://iframe-resizer.com/frameworks/wordpress/
             // {
@@ -113,6 +105,19 @@ export default defineConfig({
             {
               label: "Framework API",
               link: "/frameworks/api",
+            },
+          ],
+        },
+        {
+          label: "Platform Guides",
+          items: [
+            {
+              label: "WordPress",
+              link: "/guides/wordpress",
+            },
+            {
+              label: "Google Apps Scripts",
+              link: "/guides/google_apps_script",
             },
           ],
         },
