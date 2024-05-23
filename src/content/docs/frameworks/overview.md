@@ -6,9 +6,9 @@ prev: Child Page API
 
 _Iframe-Resizer_ has support for a number of frameworks and libraries.
 
-- [React](../react/)
-- [Vue](../vue3/)
-- [jQuery](../jquery/)
+- [React](/frameworks/react/)
+- [Vue](/frameworks/vue3/)
+- [jQuery](/frameworks/jquery/)
 - Svelte
 - SolidJS
 <!-- - Angular -->

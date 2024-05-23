@@ -1,5 +1,6 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
+import starlightLinksValidator from "starlight-links-validator";
 import react from "@astrojs/react";
 
 import tailwind from "@astrojs/tailwind";
@@ -9,6 +10,7 @@ export default defineConfig({
   site: "https://iframe-resizer.com",
   integrations: [
     react(),
+    starlightLinksValidator(),
     tailwind({
       // Disable the default base styles:
       applyBaseStyles: false,
