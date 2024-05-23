@@ -9,7 +9,7 @@ The `@iframe-resizer/core` package provides a [High Order Function](https://eloq
 const resizer = connectResizer(options)(HTMLIFrameElement);
 ```
 
-The return `resizer` object contains the [Parent Page API methods](../api/parent/#methods). This provides methods to disconnect _iframe-resizer_ from the iframe, to enable it to be safely removed from the page.
+The return `resizer` object contains the [Parent Page API methods](/api/parent/#methods). This provides methods to disconnect _iframe-resizer_ from the iframe, to enable it to be safely removed from the page.
 
 ## Example component
 
@@ -34,7 +34,7 @@ The actual `@iframe-resizer/jquery` plugin provides a few more [safety checks](h
 
 ## Removing an iframe from the page
 
-When removing an iframe you MUST first call _iframe-resizer's_ [disconnect()](../api/parent/#disconnect) method. This prevents issues if the iframe is then later re-added to the page with the same ID.
+When removing an iframe you MUST first call _iframe-resizer's_ [disconnect()](/api/parent/#disconnect) method. This prevents issues if the iframe is then later re-added to the page with the same ID.
 
 ## Virtual DOMs
 
@@ -42,7 +42,7 @@ For frameworks, such as React, that make use of a Virtual DOM. Their are a coupl
 
 When you add an iframe to a Virtual DOM, you need to ensure that `connectResizer()()` is only called on the first render of the iframe.
 
-Before having a Virtual DOM remove an iframe from the page, _iframe-resizer_ needs to be first disconnect from the iframe. The Parent Page API provides a [disconnect()](../api/parent/#disconnect) method to unbind _iframe-resizer_ from the iframe element.
+Before having a Virtual DOM remove an iframe from the page, _iframe-resizer_ needs to be first disconnect from the iframe. The Parent Page API provides a [disconnect()](/api/parent/#disconnect) method to unbind _iframe-resizer_ from the iframe element.
 
 The following example of this is a simplified part of the `@iframe-resizer/react` component.
 
@@ -65,4 +65,4 @@ The full [React component](https://github.com/davidjbradshaw/iframe-resizer/blob
 
 The `connectResizer()()` function is used internally by `iframeResize()`, the main difference is that the later allows you to pass in any valid CSS Selector, an [HTMLElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement), or simply not specify anything and it will hunt for iframes on the page, where as `connectResize()()` requires a single `HTMLIFrameElement`.
 
-The return type for `connectResizer()()` is a `resizer` object containing the [Parent Page API methods](../api/parent/#methods), whereas `iframeResizer()` returns an array of the iframes it has found on your behalf.
+The return type for `connectResizer()()` is a `resizer` object containing the [Parent Page API methods](/api/parent/#methods), whereas `iframeResizer()` returns an array of the iframes it has found on your behalf.
