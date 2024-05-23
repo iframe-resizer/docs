@@ -25,5 +25,5 @@ When combined with [viewer.js](https://viewerjs.org) it can even resize iframes 
 
 This version of _iframe-resizer_ has been extensively rewritten to use modern browser APIs, this has enabled significantly better performance and greater accuracy in the detection of content resizing events.
 
-With this release, the opportunity has been taken to refresh and simplify the API, if you are coming from a previous version then their is an [Upgrade Guide](/upgrade) to explain the changes.
+With this release, the opportunity has been taken to refresh and simplify the API, if you are coming from a previous version then their is an [Upgrade Guide](/upgrade/) to explain the changes.
 

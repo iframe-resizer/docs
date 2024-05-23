@@ -17,9 +17,9 @@ The following options can be passed to _iframe-resizer_ on the parent page.
 type:    string
 ```
 
-**Commercial** Enter the key provided with the [purchased](/pricing) commercial license.
+**Commercial** Enter the key provided with the [purchased](/pricing/) commercial license.
 
-**Open Source** If you are using _iframe-resizer_ on an open-source site or project, then you can use it for free under the terms of the [Gnu Public License V3](/gpl). To accept these terms set the license to `GPLv3`.
+**Open Source** If you are using _iframe-resizer_ on an open-source site or project, then you can use it for free under the terms of the [Gnu Public License V3](/gpl/). To accept these terms set the license to `GPLv3`.
 
 ### bodyBackground
 
@@ -202,7 +202,7 @@ Function called after iframe resized. Passes `messageData` object containing the
 onScroll: ({ iframe, top, left, }) => [true | false];
 ```
 
-Called before the page is repositioned after a request from the iframe, due to either an in page link, or a direct request from either [parentIframe.scrollTo()](/child#scrolltoxy) or [parentIframe.scrollToOffset()](/child#scrolltooffsetxy). If this function returns **false**, it will stop the library from repositioning the page, so that you can implement your own custom scrolling instead.
+Called before the page is repositioned after a request from the iframe, due to either an in page link, or a direct request from either [parentIframe.scrollTo()](/child/#scrolltoxy) or [parentIframe.scrollToOffset()](/child/#scrolltooffsetxy). If this function returns **false**, it will stop the library from repositioning the page, so that you can implement your own custom scrolling instead.
 
 The following example shows how to adjust the scroll point. This can be useful if you have a sticky header on your page and you need ensure the target scroll point does not get covered by your header.
 ```js

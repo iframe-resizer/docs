@@ -21,7 +21,7 @@ If a larger element of content is removed from the normal document flow, through
 
 ### IFrame not resizing
 
-The most common cause of this is not placing the [@iframe-resizer/child](/setup/#child-page-setup) package inside the iframed page. If this does not fix the problem then check `x-Frame-Options` http header on the server that is sending the iframe content, as this can also block `postMessage` calls from _iframe-resizer_ to if set incorrectly.
+The most common cause of this is not placing the [@iframe-resizer/child](/setup/#child-page-setup/) package inside the iframed page. If this does not fix the problem then check `x-Frame-Options` http header on the server that is sending the iframe content, as this can also block `postMessage` calls from _iframe-resizer_ to if set incorrectly.
 
 <!--
 Not having a valid [HTML document type](http://en.wikipedia.org/wiki/Document_type_declaration) in the iframe can also sometimes prevent downsizing. At it's most simplest this can be the following.
@@ -55,7 +55,7 @@ If everything is working, then this message can be ignored, or if you prefer you
 
 ### ParentIframe not found errors
 
-The `parentIframe` object is created once the iframe has been initially resized. If you wish to use it during page load you will need call it from the [onReady()](/api/child#onready) startup event handler.
+The `parentIframe` object is created once the iframe has been initially resized. If you wish to use it during page load you will need call it from the [onReady()](/api/child/#onready) startup event handler.
 
 ```html
 <script>
@@ -71,7 +71,7 @@ The `parentIframe` object is created once the iframe has been initially resized.
 ### Scrolling does not scroll to where I want it
 
 The scrolling events in _iframe-resizer_ aim to mimic how they work by default in the parent page. If this
-is not the behavior that you want, then you can use the [onScroll](/api/parent#onscroll) event handler in
+is not the behavior that you want, then you can use the [onScroll](/api/parent/#onscroll) event handler in
 the Parent Page API to adjust how scrolling works to you own requirements.
 
 ### PDF and OpenDocument files
