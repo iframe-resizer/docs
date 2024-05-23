@@ -3,15 +3,18 @@ title: Open Source License
 description: Open Source License for iframe-resizer
 ---
 
-For open source projects and websites you can use _iframe-resizer_ for free under the terms of the Gnu General Public License version 3. To accept these terms, use the license key `GPLv3`.
+For open source projects and websites you can use _iframe-resizer_ for free under
+the terms of the Gnu General Public License version 3. To accept these terms, use
+the license key `GPLv3`.
 
 ```js
 iframeResize({ license: "GPLv3" });
 ```
 
-For more information about version 3 of the GPL see: [https://www.gnu.org/licenses/quick-guide-gplv3.html](https://www.gnu.org/licenses/quick-guide-gplv3.html).
+For more information about version 3 of the GPL see: 
+[https://www.gnu.org/licenses/quick-guide-gplv3.html](https://www.gnu.org/licenses/quick-guide-gplv3.html).
 
-```
+```txt
                      GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 

@@ -13,12 +13,6 @@ Bug reports and pull requests are welcome on the [issue tracker](https://github.
 
 When the resizer does not work using multiple IFrames on one page, make sure that each iframe has a unique id.
 
-<!--
-### IFrame not sizing correctly
-
-If a larger element of content is removed from the normal document flow, through the use of absolute positioning, it can prevent the browser working out the correct size of the page. In such cases you can change the [heightCalculationMethod](./parent_page/options.md#heightcalculationmethod) to uses one of the other sizing methods.
--->
-
 ### IFrame not resizing
 
 The most common cause of this is not placing the [@iframe-resizer/child](/setup/#child-page-setup/) package inside the iframed page. If this does not fix the problem then check `x-Frame-Options` http header on the server that is sending the iframe content, as this can also block `postMessage` calls from _iframe-resizer_ to if set incorrectly.
