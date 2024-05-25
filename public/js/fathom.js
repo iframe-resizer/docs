@@ -20,7 +20,7 @@ document.querySelectorAll("a").forEach((item) => {
       return trackLinkOut("click", `Mozilla from ${document.title}`)
 
     case item.href.includes("viewerjs.org"):
-      return trackLinkOut("click", "PDF/ODF")
+      return trackLinkOut("click", `PDF/ODF Viewer from ${document.title}`)
 
     case item.href.includes("mail"):
       return trackLinkOut("click", `Contact email from ${document.title}`)
