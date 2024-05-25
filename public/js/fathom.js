@@ -1,4 +1,4 @@
-const track = (includes, log) =>
+const trackLinkOut = (includes, log) =>
   item.addEventListener(includes, () => {
     fathom?.trackEvent(`$log} from ${document.title}`);
   });
@@ -14,19 +14,19 @@ document.querySelectorAll("a").forEach((item) => {
 
   switch (true) {
     case item.href.includes("github.com"):
-      return track("click", `GitHub from ${document.title}`)
+      return trackLinkOut("click", `GitHub from ${document.title}`)
 
     case item.href.includes("mozilla.org"):
-      return track("click", `Mozilla from ${document.title}`)
+      return trackLinkOut("click", `Mozilla from ${document.title}`)
 
     case item.href.includes("viewerjs.org"):
-      return track("click", "PDF/ODF")
+      return trackLinkOut("click", "PDF/ODF")
 
     case item.href.includes("mail"):
-      return track("click", `Contact email from ${document.title}`)
+      return trackLinkOut("click", `Contact email from ${document.title}`)
 
     case item.href.includes("http"):
-      return track("click", `External Link: ${item.href} from ${document.title}`)
+      return trackLinkOut("click", `External Link: ${item.href} from ${document.title}`)
     
     default:
       return
