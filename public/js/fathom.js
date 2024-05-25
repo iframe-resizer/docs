@@ -1,6 +1,6 @@
 const last = (arr) => arr[arr.length - 1];
 
-const trackLinkOut = (item) => (target) =>
+const trackLink =  (target) =>
   addEventListener('click', () => {
     fathom?.trackEvent(`${target} from ${document.title.split(' | ')[0].replace('IFRAME-RESIZER', 'Homepage')}`);
   });
@@ -11,7 +11,6 @@ if (document.title === '404') {
 
 document.querySelectorAll('a').forEach((a) => {
   const { href } = a
-  const trackLink = trackLinkOut(a)
 
   if (
     false === href.includes("iframe-resizer.com") &&
