@@ -11,8 +11,8 @@ if (document.title === '404') {
 
 document.querySelectorAll('a').forEach((item) => {
   const trackLink = trackLinkOut(item)
-  
-  if (item.href.includes('iframe-resizer')) {
+
+  if (false === item.href.includes('iframe-resizer.com') && false === item.href.includes('localhost')) {
     item.target = '_blank'
   }
 
