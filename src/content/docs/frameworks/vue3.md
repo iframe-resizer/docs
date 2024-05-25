@@ -58,7 +58,7 @@ and then include it on your page as follows.
 
 ## Child page
 
-You will then need to install the [@iframe-resizer/child](/getting_started/#child-page-setup) package on the page in the iframe.
+You will then need to install the [@iframe-resizer/child](/setup/#child-page-setup) package on the page in the iframe.
 
 Once everything is setup, keep an eye on the [browser console](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools),
 as _iframe-resizer_ will warn about any potential issues it detects and provide advice
