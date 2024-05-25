@@ -2,7 +2,6 @@ const last = (arr) => arr[arr.length - 1];
 
 const trackLinkExt =  (el) => (target) =>
   el.addEventListener('click', () => 
-    console.log(`Tracking: ${target} from ${document.title.split(' | ')[0].replace('IFRAME-RESIZER', 'Homepage')}`) ||
     window.fathom?.trackEvent(`${target} from ${document.title.split(' | ')[0].replace('IFRAME-RESIZER', 'Homepage')}`)
   )
 
