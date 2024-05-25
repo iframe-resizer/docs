@@ -215,8 +215,8 @@ onScroll: ({ iframe, top, left, }) => [true | false];
 ```
 
 Called before the page is repositioned after a request from the iframe, due to either an in page link, or a direct
-request from either [parentIframe.scrollTo()](/api/child/#scrolltoxy) or 
-[parentIframe.scrollToOffset()](/api/child/#scrolltooffsetxy). If this function returns **false**, it will stop 
+request from either [parentIframe.scrollTo()](/api/child/#scrolltox-y) or 
+[parentIframe.scrollToOffset()](/api/child/#scrolltooffsetx-y). If this function returns **false**, it will stop 
 the library from repositioning the page, so that you can implement your own custom scrolling instead.
 
 The following example shows how to adjust the scroll point. This can be useful if you have a sticky header on your 
