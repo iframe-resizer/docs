@@ -6,8 +6,9 @@
 /* Dark mode colors. */
 :root {
   --sl-color-accent-low: #222615;
-  --sl-color-accent: #889e37;
-  --sl-color-accent-high: #889e37;
+  --sl-color-accent: #829735;
+  /* --sl-color-accent: #829735; */
+  --sl-color-accent-high: #829735;
   /* --sl-color-accent-high: #8d8838; */
 
   --sl-color-white: #ffffff;
@@ -22,7 +23,7 @@
 /* Light mode colors. */
 :root[data-theme="light"] {
   --sl-color-accent-low: #222615;
-  --sl-color-accent: #889e37;
+  --sl-color-accent: #829735;
   --sl-color-accent-high: #2f3619;
   --sl-color-white: #151a13;
   --sl-color-gray-1: #1f2a1c;
@@ -36,7 +37,7 @@
 }
 
 :root {
-  --ir-color-primary:#889e37;
+  --ir-color-primary:#829735;
   --ir-color-secondary: #985d3b;
 }
 
@@ -187,4 +188,19 @@ table td svg{
   font-weight: 200;
   padding:0 0.25rem 0 0.05rem;
 }
+
+body {
+  letter-spacing: 0.02rem;
+}
+
+body a {
+  letter-spacing: 0.03rem;
+}
+
+body h1,
+body h2,
+body h3{
+  letter-spacing: 0.01rem;
+}
+
 
