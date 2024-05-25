@@ -15,7 +15,7 @@ When the resizer does not work using multiple IFrames on one page, make sure tha
 
 ### IFrame not resizing
 
-The most common cause of this is not placing the [@iframe-resizer/child](/setup/#child-page-setup/) package inside the iframed page. If this does not fix the problem then check `x-Frame-Options` http header on the server that is sending the iframe content, as this can also block `postMessage` calls from _iframe-resizer_ to if set incorrectly.
+The most common cause of this is not placing the [@iframe-resizer/child](/setup#child-page-setup) package inside the iframed page. If this does not fix the problem then check `x-Frame-Options` http header on the server that is sending the iframe content, as this can also block `postMessage` calls from _iframe-resizer_ to if set incorrectly.
 
 <!--
 Not having a valid [HTML document type](http://en.wikipedia.org/wiki/Document_type_declaration) in the iframe can also sometimes prevent downsizing. At it's most simplest this can be the following.
@@ -49,7 +49,7 @@ If everything is working, then this message can be ignored, or if you prefer you
 
 ### ParentIframe not found errors
 
-The `parentIframe` object is created once the iframe has been initially resized. If you wish to use it during page load you will need call it from the [onReady()](/api/child/#onready) startup event handler.
+The `parentIframe` object is created once the iframe has been initially resized. If you wish to use it during page load you will need call it from the [onReady()](/api/child#onready) startup event handler.
 
 ```html
 <script>
@@ -65,16 +65,16 @@ The `parentIframe` object is created once the iframe has been initially resized.
 ### Scrolling does not scroll to where I want it
 
 The scrolling events in _iframe-resizer_ aim to mimic how they work by default in the parent page. If this
-is not the behavior that you want, then you can use the [onScroll](/api/parent/#onscroll) event handler in
+is not the behavior that you want, then you can use the [onScroll](/api/parent#onscroll) event handler in
 the Parent Page API to adjust how scrolling works to you own requirements.
 
 ### PDF and OpenDocument files
 
-It is not possible to add the required JavaScript to PDF and ODF files. However, you can get around this limitation by using [ViewerJS](http://viewerjs.org/) to render these files inside a HTML page, that also contains the iframe [@iframe-resizer/child](/setup/#child-page-setup) package.
+It is not possible to add the required JavaScript to PDF and ODF files. However, you can get around this limitation by using [ViewerJS](http://viewerjs.org) to render these files inside a HTML page, that also contains the iframe [@iframe-resizer/child](/setup#child-page-setup) package.
 
 ### Unexpected message received error
 
-By default the origin of incoming messages is checked against the `src` attribute of the iframe. If they don't match an error is thrown. This behavior can be disabled by setting the [checkOrigin](/api/parent/#checkorigin) option to **false**.
+By default the origin of incoming messages is checked against the `src` attribute of the iframe. If they don't match an error is thrown. This behavior can be disabled by setting the [checkOrigin](/api/parent#checkorigin) option to **false**.
 
 ```js
 iframeResize({ checkOrigin: false });
@@ -82,7 +82,7 @@ iframeResize({ checkOrigin: false });
 
 ### Width not resizing
 
-By default only changes in height are detected, if you want to calculate the width instead then you need to set the [direction](/api/parent/#direction) option to **'horizontal'**.
+By default only changes in height are detected, if you want to calculate the width instead then you need to set the [direction](/api/parent#direction) option to **'horizontal'**.
 
 ```js
 iframeResize({ direction: "horizontal" });

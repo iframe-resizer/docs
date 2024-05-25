@@ -12,14 +12,14 @@ Install this package with the following command.
 
 <Install package="@iframe-resizer/react" bun />
 
-You will also need to ensure that the [@iframe-resizer/child](/setup/#child-page-setup)
+You will also need to ensure that the [@iframe-resizer/child](/setup#child-page-setup)
 package has been loaded into every page that loads into the iframe.
 
 ## Usage
 
 The `<IframeResizer />` component can be passed all`<iframe>` attributes, along with
-_[options](/api/parent/#options)_ and _[events](/api/parent/#events)_ from _iframe-resizer_. 
-You can also optionally pass a `forwardRef` to gain access to a few _[methods](/api/parent/#methods)_
+_[options](/api/parent#options)_ and _[events](/api/parent#events)_ from _iframe-resizer_. 
+You can also optionally pass a `forwardRef` to gain access to a few _[methods](/api/parent#methods)_
 that provide a simple interface to communicate with the page in the iframe.
 
 ```jsx
@@ -56,12 +56,12 @@ sizing.
 
 ## Child page
 
-You will then need to install the [@iframe-resizer/child](/setup/#child-page-setup)
+You will then need to install the [@iframe-resizer/child](/setup#child-page-setup)
 package on every page in the iframe.
 
 ## API Differences
 
-The React version of _iframe-resizer_ supports the [Parent Page API](/api/parent/) with
+The React version of _iframe-resizer_ supports the [Parent Page API](/api/parent) with
 a couple of minor changes to the available methods. To access these methods you need to
 pass a `forwardRef` as follows.
 
@@ -96,7 +96,7 @@ Returns a ref to the iframe.
 ## Advanced Example
 
 This is a more advanced configuration, which demonstrates the use of
-_options_, _events_ and _methods_ from the [Parent Page API](/api/parent/).
+_options_, _events_ and _methods_ from the [Parent Page API](/api/parent).
 
 ```jsx
 import { useRef, useState } from 'react'

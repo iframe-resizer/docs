@@ -20,10 +20,10 @@ The following options can be passed to _iframe-resizer_ on the parent page.
 type:    string
 ```
 
-**Commercial** Enter the key provided with the [purchased](/pricing/) commercial license.
+**Commercial** Enter the key provided with the [purchased](/pricing) commercial license.
 
 **Open Source** If you are using _iframe-resizer_ on an open-source site or project, then you can use it 
-for free under the terms of the [Gnu Public License V3](/gpl/). To accept these terms set the license to `GPLv3`.
+for free under the terms of the [Gnu Public License V3](/gpl). To accept these terms set the license to `GPLv3`.
 
 ### bodyBackground
 
@@ -215,8 +215,8 @@ onScroll: ({ iframe, top, left, }) => [true | false];
 ```
 
 Called before the page is repositioned after a request from the iframe, due to either an in page link, or a direct
-request from either [parentIframe.scrollTo()](/api/child/#scrolltox-y) or 
-[parentIframe.scrollToOffset()](/api/child/#scrolltooffsetx-y). If this function returns **false**, it will stop 
+request from either [parentIframe.scrollTo()](/api/child#scrolltox-y) or 
+[parentIframe.scrollToOffset()](/api/child#scrolltooffsetx-y). If this function returns **false**, it will stop 
 the library from repositioning the page, so that you can implement your own custom scrolling instead.
 
 The following example shows how to adjust the scroll point. This can be useful if you have a sticky header on your 
