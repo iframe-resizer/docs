@@ -9,16 +9,16 @@ if (document.title === '404') {
   fathom?.trackEvent(`404: ${document.referrer || 'Direct'}`)
 }
 
-document.querySelectorAll('a').forEach((item) => {
-  const { href } = item
-  const trackLink = trackLinkOut(item)
+document.querySelectorAll('a').forEach((a) => {
+  const { href } = a
+  const trackLink = trackLinkOut(a)
 
   if (
     false === href.includes("iframe-resizer.com") &&
     false === href.includes("localhost") &&
     false === href.includes("lemon")
   ) {
-    target = "_blank";
+    a.target = "_blank"
   }
 
   switch (true) {
@@ -26,7 +26,7 @@ document.querySelectorAll('a').forEach((item) => {
       return trackLink('GitHub')
 
     case href.includes('mozilla.org'):
-      return trackLink(`Mozilla ${last(item.href.split('/'))}`)
+      return trackLink(`Mozilla ${last(href.split('/'))}`)
 
     case href.includes('viewerjs.org'):
       return trackLink('PDF/ODF Viewer')
@@ -35,7 +35,7 @@ document.querySelectorAll('a').forEach((item) => {
       return trackLink('Contact')
 
     case href.includes('http'):
-      return trackLink(`External Link: ${item.href}`)
+      return trackLink(`External Link: ${href}`)
     
     default:
       return
