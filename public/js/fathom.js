@@ -1,3 +1,5 @@
+const last = (arr) => arr[arr.length - 1];
+
 const trackLinkOut = (item) => (target) =>
   item.addEventListener('click', () => {
     fathom?.trackEvent(`$(target) from ${document.title}`);
@@ -19,13 +21,13 @@ document.querySelectorAll('a').forEach((item) => {
       return trackLink('GitHub')
 
     case item.href.includes('mozilla.org'):
-      return trackLink('Mozilla')
+      return trackLink(`Mozilla ${last(item.href.split('/'))}`)
 
     case item.href.includes('viewerjs.org'):
       return trackLink('PDF/ODF Viewer')
 
     case item.href.includes('mail'):
-      return trackLink('Contact email')
+      return trackLink('Contact')
 
     case item.href.includes('http'):
       return trackLink(`External Link: ${item.href}`)
