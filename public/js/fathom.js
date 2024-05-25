@@ -1,7 +1,7 @@
 const last = (arr) => arr[arr.length - 1];
 
 const trackLinkOut = (item) => (target) =>
-  item.addEventListener('click', () => {
+  addEventListener('click', () => {
     fathom?.trackEvent(`${target} from ${document.title.split(' | ')[0].replace('IFRAME-RESIZER', 'Homepage')}`);
   });
 
@@ -10,26 +10,31 @@ if (document.title === '404') {
 }
 
 document.querySelectorAll('a').forEach((item) => {
+  const { href } = item
   const trackLink = trackLinkOut(item)
 
-  if (false === item.href.includes('iframe-resizer.com') && false === item.href.includes('localhost')) {
-    item.target = '_blank'
+  if (
+    false === href.includes("iframe-resizer.com") &&
+    false === href.includes("localhost") &&
+    false === href.includes("lemon")
+  ) {
+    target = "_blank";
   }
 
   switch (true) {
-    case item.href.includes('github.com'):
+    case href.includes('github.com'):
       return trackLink('GitHub')
 
-    case item.href.includes('mozilla.org'):
+    case href.includes('mozilla.org'):
       return trackLink(`Mozilla ${last(item.href.split('/'))}`)
 
-    case item.href.includes('viewerjs.org'):
+    case href.includes('viewerjs.org'):
       return trackLink('PDF/ODF Viewer')
 
-    case item.href.includes('mail'):
+    case href.includes('mail'):
       return trackLink('Contact')
 
-    case item.href.includes('http'):
+    case href.includes('http'):
       return trackLink(`External Link: ${item.href}`)
     
     default:
