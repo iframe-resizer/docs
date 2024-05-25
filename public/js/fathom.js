@@ -1,7 +1,7 @@
 const trackLinkOut = (item) => (includes, log) =>
   item.addEventListener(includes, () => {
     fathom?.trackEvent(`$log} from ${document.title}`);
-  });
+  })
 
 if (document.title === "404") {
   fathom?.trackEvent(`404: ${document.referrer || "Direct"}`)
