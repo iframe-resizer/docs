@@ -2,7 +2,7 @@ const last = (arr) => arr[arr.length - 1];
 
 const trackLinkOut = (item) => (target) =>
   item.addEventListener('click', () => {
-    fathom?.trackEvent(`$(target) from ${document.title}`);
+    fathom?.trackEvent(`$(target) from ${document.title.split(' | ')[0].replace('IFRAME-RESIZER', 'Homepage')}`);
   });
 
 if (document.title === '404') {
