@@ -16,5 +16,8 @@ document.querySelectorAll('a').forEach((item) => {
       fathom?.trackEvent("Email Contact");
     });
   }
-})
 
+  if (item.href.includes("http")) {
+    item.target = "_blank";
+  }
+})
