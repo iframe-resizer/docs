@@ -6,20 +6,20 @@ desciption: Setup iframe-resizer in WordPress
 import { Tabs, TabItem } from "@astrojs/starlight/components";
 import License from "../../../components/License.astro";
 
-The _iframe-resizer_ project is comprised of seporate JS files for the parent and child pages.
+The _iframe-resizer_ project is comprised of separate JS files for the parent and child pages.
 This guide takes you through setting up the parent and then child pages in WordPress.
+
+## Download
+
+Download the latest version of  <a href="https://github.com/davidjbradshaw/iframe-resizer/raw/master/iframe-resizer.zip">iframe-resizer.zip</a>.
+This file contains a three files, for the parent page you can choose between the vanilla JS (<b>iframe-resizer.parent.js</b>) 
+version and a jQuery (<b>iframe-resizer.jquery.js</b>) version. Finally the third file (<b>iframe-resizer.child.js</b>)
+needs placing in every page show in your iframe.
+
 
 ## Parent Page
 
 In this section we detail how to setup the parent page.
-
-### Download Parent JS
-
-Download the either the vanilla JS
-([iframe-resizer.parent.js](https://raw.githubusercontent.com/davidjbradshaw/iframe-resizer/master/js/iframe-resizer.parent.js))
-or the jQuery
-([iframe-resizer.jquery.js](https://raw.githubusercontent.com/davidjbradshaw/iframe-resizer/master/js/iframe-resizer.jquery.js))
-version and then upload it into the `/wp-admin/js` folder in WordPress.
 
 ### Usage
 
@@ -85,11 +85,6 @@ The child page needs to load it's own JavaScript package, to enable communicatio
 with the parent page. This is a small self-contained script with no dependencies.
 It is designed to be a good guest on someone else site and will only start running
 after receiving a message from the parent page.
-
-### Download Child JS
-
-Download the file [iframe-resizer.child.js](https://raw.githubusercontent.com/davidjbradshaw/iframe-resizer/master/js/iframe-resizer.child.js)
-and then upload it into the `/wp-admin/js` folder in WordPress.
 
 ### Usage
 

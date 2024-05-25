@@ -3,6 +3,9 @@ import { Tabs, TabItem } from "@astrojs/starlight/components";
 import { Code } from 'astro-expressive-code/components'
 export interface Props {
 	package: string;
+  download: boolean;
+  cdn: boolean;
+  bun: boolean;
 }
 
 const props = Astro.props;
@@ -18,7 +21,21 @@ const props = Astro.props;
   <TabItem label="PNPM">
     <Code code={`pnpm add ${props.package}`} lang="bash" />
   </TabItem>
-  <TabItem label="Bun">
+  {(props.bun === true) && <TabItem label="Bun">
     <Code code={`bun add ${props.package}`} lang="bash" />
-  </TabItem>
+  </TabItem> }
+  {(props.cdn === true) && <TabItem label="jsDeliver CDN">
+    <Code code={`<script src="https://cdn.jsdelivr.net/npm/@iframe-resizer/${props.package}@latest"></script>`} lang="js" />
+  </TabItem>}
+  {(props.download === true) && <TabItem label="Download">
+      <b>Download</b>  <a href="https://github.com/davidjbradshaw/iframe-resizer/raw/master/iframe-resizer.zip">
+        iframe-resizer.zip</a>.
+  </TabItem>}
 </Tabs>
+
+<!-- {(props.download === true) && 
+
+  <div class="mt-4">
+    Or download the latest version  <a href={`https://www.npmjs.com/package/${props.package}`} target="_blank" class="underline">NPM</a>
+  </div>
+} -->
