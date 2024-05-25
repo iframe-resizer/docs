@@ -12,7 +12,7 @@ if (document.title === '404') {
 document.querySelectorAll('a').forEach((item) => {
   const trackLink = trackLinkOut(item)
   
-  if (!item.href.includes('iframe-resizer') && !item.href.includes('mailto:) {
+  if (item.href.includes('iframe-resizer')) {
     item.target = '_blank'
   }
 
