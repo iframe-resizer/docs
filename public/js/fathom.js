@@ -5,7 +5,6 @@ const track = (includes, log) =>
 
 if (document.title === "404") {
   fathom?.trackEvent(`404: ${document.referrer || "Direct"}`)
-  return
 }
 
 document.querySelectorAll("a").forEach((item) => {
