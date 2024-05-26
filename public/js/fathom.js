@@ -5,7 +5,7 @@ const trackLinkExt =  (el) => (target) =>
     window.fathom?.trackEvent(`${target} from ${document.title.split(' | ')[0].replace('IFRAME-RESIZER', 'Homepage')}`)
   )
 
-if (document.title === '404') {
+if (document.title.includes('404')) {
   window.fathom?.trackEvent(`404: ${document.referrer || 'Direct'}`)
 }
 
