@@ -19,7 +19,7 @@ document.querySelectorAll('a').forEach((a) => {
     !href.includes("lemon")
   ) {
     a.target = "_blank"
-  }
+  } else return
 
   switch (true) {
     case href.includes('github.com'):
