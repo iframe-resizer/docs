@@ -6,7 +6,9 @@ const trackLinkExt =  (el) => (target) =>
   )
 
 if (document.title.includes('404')) {
-  window.fathom?.trackEvent(`404: ${document.referrer || 'Direct'} | ${location.pathname}`)
+  window.fathom?.trackEvent(
+    `404 ${location.pathname} | ${document.referrer || "Direct"}`
+  );
 }
 
 document.querySelectorAll('a').forEach((a) => {
