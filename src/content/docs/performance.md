@@ -1,6 +1,6 @@
 ---
 title: Performance
-desciption: Performance optimising iframe-resizer
+description: Performance optimizing iframe-resizer
 next: Parent Page API
 ---
 
