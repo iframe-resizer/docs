@@ -8,7 +8,7 @@ The _iframe-resizer_ library aims to take away the pain points with using iframe
 
 As browsers don't provide a single consistently reliable method to calculate content size, _iframe-resizer_ automatically inspects your page and selects the best value for your content every time it detects something changed.
 
-Supports both internal (same-domain) iframes and external iframes via a simple JS file that is designed to be a zero impact guest on the sites hosting it.
+Supports both internal (same-domain) and external (cross-domain) iframes via a simple JS file that is designed to be a zero impact guest on the sites hosting it.
 
 Additionally _iframe-resizer_  provides a range of missing browser API features, that allows you to securely integrate your iframe content with the parent page.
 
@@ -26,4 +26,3 @@ When combined with [viewer.js](https://viewerjs.org) it can even resize iframes 
 This version of _iframe-resizer_ has been extensively rewritten to use modern browser APIs, this has enabled significantly better performance and greater accuracy in the detection of content resizing events.
 
 With this release, the opportunity has been taken to refresh and simplify the API, if you are coming from a previous version then their is an [Upgrade Guide](/upgrade) to explain the changes.
-
