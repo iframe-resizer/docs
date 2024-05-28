@@ -23,25 +23,28 @@ document.querySelectorAll('a').forEach((a) => {
   else a.target = "_blank"
 
   switch (true) {
+    case href.includes("zip"):
+      return trackLink("Download");
+    
     case href.includes("github.com"):
-      return trackLink("GitHub")
+      return trackLink("GitHub");
 
     case href.includes("mozilla.org"):
-      return trackLink(`Mozilla ${last(href.split("/"))}`)
+      return trackLink(`Mozilla ${last(href.split("/"))}`);
 
     case href.includes("viewerjs.org"):
-      return trackLink("PDF/ODF Viewer")
+      return trackLink("PDF/ODF Viewer");
 
     case href.includes("mail"):
-      return trackLink("Contact")
+      return trackLink("Contact");
 
     case href.includes("gnu.org"):
-      return trackLink("GPL v3")
+      return trackLink("GPL v3");
 
     case href.includes("http"):
-      return trackLink(`External Link: ${href}`)
+      return trackLink(`External Link: ${href}`);
 
     default:
-      return
+      return;
   }
 })
