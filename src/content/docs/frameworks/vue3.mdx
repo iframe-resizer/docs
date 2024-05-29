@@ -1,0 +1,80 @@
+---
+title: Vue
+description: Official iframe-resizer Vue component
+---
+
+import Install from '../../../components/Install.astro';
+import License from '../../../components/License.astro';
+
+This is an initial beta release of Vue for _iframe-resizer_ and we invite feedback on it and this setup guide. Please leave any comments on this [GitHub issue](https://github.com/davidjbradshaw/iframe-resizer/issues/1261).
+
+## Install
+
+Install this package with the following command.
+
+<Install package="@iframe-resizer/vue" bun />
+
+You will also need to ensure that the [@iframe-resizer/child](/setup#child-page-setup)
+package has been loaded into every page that loads into the iframe.
+
+## Usage
+
+The `<IframeResizer />` component can be passed all`<iframe>` attributes, along with
+_[options](/api/parent#options)_ and _[events](/api/parent#events)_ from _iframe-resizer_.
+Events need to be in the Vue format `@on-ready(func)`.
+
+
+```jsx
+<IframeResizer
+  {iframe attributes}
+  {iframe-resizer options}
+  {iframe-resizer events}
+/>
+```
+
+### Typical setup
+
+The normal configuration is to have the iframe resize when the browser window changes
+size or the content of the iframe changes. To set this up you need to configure one
+of the dimensions of the iframe to a percentage and tell the library to only update
+the other dimension. Normally you would set the width to 100% and have the height
+scale to fit the content.
+
+```vue
+<script setup>
+  import IframeResizer from '@iframe-resizer/vue/sfc'
+</script>
+
+<template>
+  <IframeResizer
+    license="xxxx"
+    src="http://anotherdomain.com/iframe.html"
+    class="iframe"
+  />
+</template>
+
+<style scoped>
+  .iframe {
+    width: 100%;
+    height: 100vh;
+  }
+</style>
+```
+
+Setting the initial height of the iframe to `100vh` makes the loading in of
+the iframe appear smoother to the user, as they will only see the content
+below the iframe once it has completed loading and undergone it's initial
+sizing.
+
+<License />
+
+## Child page
+
+You will then need to install the [@iframe-resizer/child](/setup#child-page-setup)
+package on every page in the iframe.
+
+Once everything is setup, keep an eye on the [browser console](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools),
+as _iframe-resizer_ will warn about any potential issues it detects and provide advice 
+on how to fix them. For more details on using _iframe-resizer_ see the 
+[Performance](/performance) and [Trouble Shooting](/troubleshooting) sections 
+of this guide.
