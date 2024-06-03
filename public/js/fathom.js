@@ -28,27 +28,33 @@ document.querySelectorAll('a').forEach((a) => {
 
   switch (true) {
     case href.includes("zip"):
-      return trackLink("Download")
-    
+      return trackLink("Download");
+
     case href.includes("github.com"):
-      return trackLink("GitHub")
+      return trackLink("GitHub");
+
+    case href.includes("stackoverflow.com"):
+      return trackLink("Stack Overflow");
 
     case href.includes("mozilla.org"):
-      return trackLink(`Mozilla ${last(href.split("/"))}`)
+      return trackLink(`Mozilla ${last(href.split("/"))}`);
 
     case href.includes("viewerjs.org"):
-      return trackLink("PDF/ODF Viewer")
+      return trackLink("PDF/ODF Viewer");
 
     case href.includes("mail"):
-      return trackLink("Contact")
+      return trackLink("Contact");
 
     case href.includes("gnu.org"):
-      return trackLink("GPL v3")
+      return trackLink("GPL v3");
+
+    case href.includes("console"):
+      return trackLink("Console");
 
     case href.includes("http"):
-      return trackLink(`External Link: ${href}`)
+      return trackLink(`External Link: ${href}`);
 
     default:
-      return
+      return;
   }
 })
