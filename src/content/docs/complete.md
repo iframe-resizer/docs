@@ -7,7 +7,7 @@ hero:
   tagline: Thank you for purchasing a license for <i>iframe-resizer</i>.
   actions:
    - text: 'Setup iframe-resizer'
-     link: 'introduction'
+     link: '/setup'
      icon: 'right-arrow'
      variant: 'primary'
 ---
