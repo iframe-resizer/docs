@@ -7,7 +7,7 @@ next: Frameworks
 import { Aside } from "@astrojs/starlight/components";
 
 The Child API is for use on the page contained within the `<iframe>` tag. It is split into three sections. 
-[Options](#options) contains settings that can be passed when calling iframe-resizer. [Events](#events) are 
+[Settings](#settings) contains settings that can be passed when calling iframe-resizer. [Events](#events) are 
 triggered by updates to the iframe, or messages from the iframe. [Methods](#methods) allow you to interact with 
 _iframe-resizer_ after the initial resizing.
 
@@ -15,10 +15,9 @@ _iframe-resizer_ after the initial resizing.
   The features on this page are available in the Professional, Business and Open-source editions.
 </Aside>
 
-## Options
+## Settings
 
-The following options can be set from within the iframe page by creating a `window.iframeResizer` object before 
-the JavaScript file is loaded into the page.
+The following Settings can be set from within the iframe page by creating a `window.iframeResizer` object on the page.
 
 ```html
 <script>
@@ -26,7 +25,6 @@ the JavaScript file is loaded into the page.
     targetOrigin: "http://mydomain.com",
   };
 </script>
-<script src="node_modules/@iframe-resizer/child/index.umd.js"></script>
 ```
 
 ### offset
@@ -56,7 +54,17 @@ on your web server.
 
 ## Events
 
-The following events can be included in the [options](#options) object attached to the iframed page.
+The following events can be included in the [Settings](#settings) object attached to the iframed page.
+
+```html
+<script>
+  window.iframeResizer = {
+    onReady: () => {
+      // your code
+    },
+  };
+</script>
+```
 
 ### onMessage
 

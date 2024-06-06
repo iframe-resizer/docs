@@ -56,7 +56,7 @@ to 100% and have the height scale to fit the content.
   }
 </style>
 <iframe id="myIframe" src="http://anotherdomain.com/iframe.html"></iframe>
-<script src="node_modules/@iframe-resizer/parent/index.umd.js"></script>
+<script src="/node_modules/@iframe-resizer/parent/index.umd.js"></script>
 <script>
   iframeResize({ license: "xxxx" });
 </script>
@@ -122,10 +122,16 @@ sizing.
 
 <License />
 
+### API
+
+The [Parent Page API](/api/parent) includes a range of options, events and methods to 
+enable you to securely interact with both _iframe-resizer_ and the child page.
+
+
 ## Child Page Setup
 
-The child page needs to load it's own JavaScript package, to enable communication
-with the parent page. The **@iframe-resizer/child** package is a small self-contained
+The child page needs to load it's own JavaScript package into the iframe, in order to enable communication
+with the [parent page](#parent-page-setup). The **@iframe-resizer/child** package is a small self-contained
 script with no dependencies. It is designed to be a good guest on someone else site
 and will only start running after receiving a message from the parent page.
 
@@ -146,7 +152,7 @@ itself.
 <Tabs>
   <TabItem label="Vanilla JS">
 ```html
-<script src="node_modules/@iframe-resizer/child/index.umd.js"></script>
+<script src="/node_modules/@iframe-resizer/child/index.umd.js"></script>
 ```
   </TabItem>
   <TabItem label="ES Modules">
@@ -167,5 +173,13 @@ require('@iframe-resizer/child')
 </Tabs>
 {/* <!-- prettier-ignore-end --> */}
 
-Once everting is setup, keep an eye on the browser console, as _iframe-resizer_ will
-warn about any potential issues it detects and provide advice on how to fix them.
+Once everything is setup, keep an eye on the [browser console](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools),
+as _iframe-resizer_ will warn about any potential issues it detects and provide advice 
+on how to fix them. For more details on using _iframe-resizer_ see the 
+[Performance](/performance) and [Trouble Shooting](/troubleshooting) sections 
+of this guide.
+
+### API
+
+The [Child Page API](/api/child) includes a range of settings, events and methods to 
+enable you to securely interact with both _iframe-resizer_ and the parent page.
