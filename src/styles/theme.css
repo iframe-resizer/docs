@@ -67,8 +67,21 @@ h1.astro-j6tvhyss {
 
 @media (min-width: 50rem) {
   body .hero:where(.astro-jbfsktt5) {
-    margin-top: -1.5rem;
+    padding-block-start: clamp(1px,  calc(5vmin - 1.5rem), 8rem);
+    padding-block-end: clamp(2.5rem, calc(1rem + 10vmin), 8rem);
   }
+}
+
+@media (max-width: 799px) {
+    .md\:grid-cols-3 {
+        grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (min-width: 800px) {
+    .md\:grid-cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 }
 
 .hero h1 {
@@ -76,7 +89,7 @@ h1.astro-j6tvhyss {
   font-style: normal;
   font-weight: 400;
   /* font-size: clamp(3.5rem, calc(0.45rem + 5vw), 6rem); */
-  font-size: clamp(2.5rem, calc(0.45rem + 5vw), 4.2rem);
+  font-size: clamp(2.5rem, calc(0.45rem + 5vw), 4.rem);
   /* letter-spacing: .5rem; */
   margin-top: 6.4rem;
 }
