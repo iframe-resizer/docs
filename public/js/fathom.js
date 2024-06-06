@@ -22,9 +22,11 @@ document.querySelectorAll('a').forEach((a) => {
   if (
     href.includes("iframe-resizer.com") ||
     href.includes("localhost") ||
+    href.includes("127.0.0") ||
     href.includes("lemon")
-  ) return
-  else a.target = "_blank"
+  )
+    return;
+  else a.target = "_blank";
 
   switch (true) {
     case href.includes("zip"):
