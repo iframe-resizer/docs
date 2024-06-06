@@ -15,6 +15,9 @@ if (document.title.includes('404')) {
   )
 }
 
+if (getLocation.toLowerCase() === 'complete')
+  window.fathom?.trackEvent('Buy: Completed')
+
 document.querySelectorAll('a').forEach((a) => {
   const { href } = a
   const trackLink = trackLinkExt(a)
