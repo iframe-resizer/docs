@@ -9,6 +9,8 @@
 
   const tolerance = isSafari ? 2 : 0
 
-  window.iframeResize({ license: 'GPLv3', direction: 'horizontal', tolerance }, '#horizontal');
-  window.iframeResize({ license: 'GPLv3', offset: -1 });
+  const bodyBackground = getComputedStyle(document.body).backgroundColor
+
+  window.iframeResize({ license: 'GPLv3', bodyBackground, direction: 'horizontal', tolerance }, '#horizontal');
+  window.iframeResize({ license: 'GPLv3', bodyBackground, offset: -2 }, '.vertical');
 </script>

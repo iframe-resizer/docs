@@ -1,9 +1,8 @@
 <script>
 
   try {
-    const { backgroundColor, color } = top.getComputedStyle(top.document.body)
+    const { color } = top.getComputedStyle(top.document.body)
 
-    document.body.style.background = backgroundColor
     document.body.style.color = color
   } catch (e) {
   }
