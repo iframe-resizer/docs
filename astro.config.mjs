@@ -122,6 +122,10 @@ export default defineConfig({
               link: "/guides/google_apps_script",
             },
           ],
+        }, 
+        {
+          label: "Accessibility",
+          link: "accessibility",
         },
         {
           label: "Troubleshooting",

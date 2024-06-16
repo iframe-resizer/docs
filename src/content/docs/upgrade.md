@@ -39,12 +39,12 @@ Use of the old values will trigger a deprecation warning.
 
 This new option allow you to adjust the value returned by the iframe for the dimension you are resizing, it can have either a positive or negative value.
 
-### New <span class="option">getParentProperties()</span> method replaces <span class="option">getPageInfo()</span>
+### New <span class="option">getParentProps()</span> method replaces <span class="option">getPageInfo()</span>
 
-The `getPageInfo()` method as been deprecated in favor of the new `getParentProperties()` method. Since it was first added to _iframe-resizer_ **getPageInfo** has been extended and extended and become a mishmash of properties from the 
+The `getPageInfo()` method as been deprecated in favor of the new `getParentProps()` method. Since it was first added to _iframe-resizer_ **getPageInfo** has been extended and extended and become a mishmash of properties from the 
 parent page DOM.
 
-The new **getParentProperties** method now groups values into three objects that contain information about the containing iframe tag, the parent document object, and the parent viewport.
+The new **getParentProps** method now groups values into three objects that contain information about the containing iframe tag, the parent document object, and the parent viewport.
 
 ```js
   // iframe.getBoundingRect()

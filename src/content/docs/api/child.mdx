@@ -27,6 +27,8 @@ The following Settings can be set from within the iframe page by creating a `win
 </script>
 ```
 
+With options that can be set in both the parent page and in the iframe, then the setting in the iframe takes preference. 
+
 ### offset
 
 ```
@@ -38,6 +40,18 @@ Modify the computed size of the iframe. This is useful if the page in the iframe
 constantly slightly different to how you want the iframe to be sized. This can be set to a positive or
 negative value.
 
+### sizeSelector
+
+```
+default: ''
+type:    string
+```
+
+Use a CSS Selector to specify which element should be used to calculate the content size in the iframe. When the
+selector returns multiple elements, all of them are inspected and the largest value returned, every time time the 
+page updates or resizes.
+
+Alternatively you can directly add a `data-iframe-size` attribute to an element to achieve the same effect.
 
 ### targetOrigin
 
@@ -104,7 +118,7 @@ Remove the iframe from the parent page.
 
 Returns the ID of the iframe that the page is contained in.
 
-### getParentProperties(<span class="args">callback</span>)
+### getParentProps(<span class="args">callback</span>)
 
 Ask the containing page for its positioning coordinates. You need to provide a callback which receives an 
 object with the following read only properties:
@@ -148,11 +162,15 @@ and passes a callback that logs them to the console and then disables further up
 
 ```js
 const disableParentProperties = 
-  parentIframe.getParentProperties(parentProps) => {
+  parentIframe.getParentProps(parentProps) => {
     console.log('Parent Page Props', parentProps)
     disableParentProperties()
   })
 ```
+
+### scrollBy(<span class="args">x, y</span>)
+
+Scroll the parent page by the given amount.
 
 ### scrollTo(<span class="args">x, y</span>)
 
