@@ -3,7 +3,8 @@ title: Licenses
 description: License for iframe-resizer
 ---
 
-import CallToAction from "../../components/CallToAction.astro";
+import CallToAction from "/src/components/CallToAction.astro";
+import FeedbackComponent from "/src/components/Feelback.astro";
 
 The _iframe-resizer_ library it is available with either a 
 Commercial License, or an Open Source License.
@@ -49,8 +50,9 @@ comments in the JavaScript files should be kept intact (even after combination o
   link="/gpl" 
   className="ir-cta" 
   icon={{ type: "icon", name: "rocket" }}
-  >Use Open Source License</CallToAction> 
+  >Use Open Source License</CallToAction>
+  <br/>
   
-
-
 {/* <!-- prettier-ignore-end --> */}
+
+<FeedbackComponent />

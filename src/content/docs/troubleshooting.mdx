@@ -3,6 +3,8 @@ title: Troubleshooting
 description: Fix common issues
 ---
 
+import FeedbackComponent from "/src/components/Feelback.astro";
+
 The first steps to investigate any problem is to make sure you are using the latest version and then check the [JavaScript Console](https://developers.google.com/chrome-developer-tools/docs/console#opening_the_console). _iframe-resizer_ will output the details of any issues it detects and give advise on how to fix them.
 
 Solutions for the most common problems are outlined in this section. If you need further help, then please ask questions on [StackOverflow](http://stackoverflow.com/questions/tagged/iframe-resizer) with the `iframe-resizer` tag.
@@ -16,14 +18,6 @@ When the resizer does not work using multiple IFrames on one page, make sure tha
 ### IFrame not resizing
 
 The most common cause of this is not placing the [@iframe-resizer/child](/setup#child-page-setup) package inside the iframed page. If this does not fix the problem then check `x-Frame-Options` http header on the server that is sending the iframe content, as this can also block `postMessage` calls from _iframe-resizer_ if set incorrectly.
-
-<!--
-Not having a valid [HTML document type](http://en.wikipedia.org/wiki/Document_type_declaration) in the iframe can also sometimes prevent downsizing. At it's most simplest this can be the following.
-
-```html
-<!DOCTYPE html>
-```
--->
 
 ### Localhost 127.0.0.1 and file:///
 
@@ -91,3 +85,5 @@ By default only changes in height are detected, if you want to calculate the wid
 ```js
 iframeResize({ direction: "horizontal" });
 ```
+
+<FeedbackComponent />

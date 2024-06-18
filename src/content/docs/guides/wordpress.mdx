@@ -4,7 +4,8 @@ description: Setup iframe-resizer in WordPress
 ---
 
 import { Tabs, TabItem } from "@astrojs/starlight/components";
-import License from "../../../components/License.astro";
+import License from "/src/components/License.astro";
+import FeedbackComponent from "/src/components/Feelback.astro";
 
 The _iframe-resizer_ project is comprised of separate JS files for the parent and child pages.
 This guide takes you through setting up the parent and then child pages in WordPress.
@@ -100,3 +101,5 @@ as _iframe-resizer_ will warn about any potential issues it detects and provide 
 on how to fix them. For more details on using _iframe-resizer_ see the 
 [Performance](/performance) and [Trouble Shooting](/troubleshooting) sections 
 of this guide.
+
+<FeedbackComponent />
