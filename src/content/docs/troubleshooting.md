@@ -15,7 +15,7 @@ When the resizer does not work using multiple IFrames on one page, make sure tha
 
 ### IFrame not resizing
 
-The most common cause of this is not placing the [@iframe-resizer/child](/setup#child-page-setup) package inside the iframed page. If this does not fix the problem then check `x-Frame-Options` http header on the server that is sending the iframe content, as this can also block `postMessage` calls from _iframe-resizer_ to if set incorrectly.
+The most common cause of this is not placing the [@iframe-resizer/child](/setup#child-page-setup) package inside the iframed page. If this does not fix the problem then check `x-Frame-Options` http header on the server that is sending the iframe content, as this can also block `postMessage` calls from _iframe-resizer_ if set incorrectly.
 
 <!--
 Not having a valid [HTML document type](http://en.wikipedia.org/wiki/Document_type_declaration) in the iframe can also sometimes prevent downsizing. At it's most simplest this can be the following.
@@ -31,15 +31,19 @@ When an iframe is located on your local machine the browser adds extra security 
 
 ### Iframe not downsizing
 
-The most likely cause of this problem is having set the height of an element to be 100% of the page somewhere in your CSS.
+The most likely cause of this problem is having set the height of an element to be 100% of the page somewhere in your CSS or having a footer element absolutely positioned on the bottom of the iframe.
 
-This can often be got around by adding a `data-iframe-size` attribute to the element that you want to define the bottom position of the page.
+These issues can be fixed adding a `data-iframe-size` attribute to the element that you want to define the bottom position of the page.
 
 ### Failed to execute 'postMessage' on 'DOMWindow'
 
 This error occurs when the parent window tries to send a message to the iframe before it has loaded. This library makes multiple attempts to talk to the iframe, so if everything is working then you can safely ignore this error message.
 
-If you're still having problems, or you really want to not ignore the error, then you can try delaying the call to `iframeResize()` until after the `onLoad` event of the iframe has fired.
+If you're still having problems, or you really want to not ignore the error, then you can try delaying the call to `iframeResize()` until after the iframe onload event has been triggered, by setting the `waitForLoad` option to **true**.
+
+```js
+iframeResize({ waitForLoad: true });
+```
 
 ### Iframe has not responded within 5 seconds
 
