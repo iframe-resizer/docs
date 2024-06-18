@@ -133,6 +133,18 @@ type:    integer
 
 Set the number of pixels the iframe content size has to change by, before triggering a resize of the iframe.
 
+### waitForLoad
+
+```
+default: false
+type:    boolean
+```
+
+By default _iframe-resizer_ sends a message to the iframe as soon as it is called, and then tries again when the
+`onload` event of the iframe is triggered. Setting this option to __true__ will disable the first attempt to contact
+the iframe and force it to wait for the load event to fire. This is useful with some web frameworks that create the 
+iframe after the main webpage has loaded.
+
 ### warningTimeout
 
 ```
@@ -140,7 +152,7 @@ default: 5000
 type:    integer
 ```
 
-Set the number of milliseconds after which a warning is logged if the iframe has not responded. Set to `0` to 
+Set the number of milliseconds after which a warning is logged if the iframe has not responded. Set to **0** to 
 suppress warning messages of this type.
 
 ## Events

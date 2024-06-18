@@ -2,7 +2,7 @@
 import JS from '../../components/js-child.astro'
 ---
 
-<h2>parentIframe.getParentProperties()</h2>
+<h2>parentIframe.getParentProps()</h2>
 <table id="data"></table>
 
 <!-- 
@@ -41,7 +41,7 @@ import JS from '../../components/js-child.astro'
 
   window.iFrameResizer = {
     onReady: () => {
-      parentIframe.getParentProperties((parentProps) => {
+      parentIframe.getParentProps((parentProps) => {
         dataTable.innerHTML = Object.entries(parentProps).map(rowParent).join('\n')
       })
     },
