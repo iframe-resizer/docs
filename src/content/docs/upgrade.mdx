@@ -3,6 +3,8 @@ title: Upgrading to Version 5
 description: Upgrading to iframe-resizer 5
 ---
 
+import FeedbackComponent from "/src/components/Feelback.astro";
+
 Version 5 of _iframe-resizer_ drops support for legacy browsers and changes the way content resize events are detected. These changes greatly improves detection of content changes and _iframe-resizer_ can now detect a number of events, such as user `<textarea>` resizing and CSS animation that previous versions struggled with.
 
 These changes, along with further code optimizations, have lead to a large improvement in the performance of this library and it is now possible to have _iframe-resizer_ both detect and keep up with CSS animations that causes the iframe to resize on every animation frame.
@@ -123,3 +125,5 @@ The most common reason for Iframe Resizer to have difficulty resizing, or going 
 ### TypeScript Types
 
 TypeScript Types are now included in the NPM modules for the Parent, Child and React packages.
+
+<FeedbackComponent />

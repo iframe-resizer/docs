@@ -4,6 +4,8 @@ description: Performance optimizing iframe-resizer
 next: Parent Page API
 ---
 
+import FeedbackComponent from "/src/components/Feelback.astro";
+
 On most pages _iframe-resizer_ is able to detect changes in the iframe, recalculate
 the page size and adjust the iframe in sub nanosecond time. This page details the one
 of situation that can impact performance and how to mitigate it.
@@ -35,4 +37,4 @@ If _iframe-resizer_ detects content overflow is having an excessive impact on pe
 it will log a warning to the browser console to advise you to add a `data-iframe-size` to an
 element on your page.
 
-
+<FeedbackComponent />

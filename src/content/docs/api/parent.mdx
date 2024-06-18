@@ -5,6 +5,8 @@ next: Child Page API
 prev: Getting Started
 ---
 
+import FeedbackComponent from "/src/components/Feelback.astro";
+
 The Parent API is for use on the page containing the `<iframe>` tag. It is split into three sections. 
 [Options](#options) contains settings that can be passed when calling iframe-resizer. [Events](#events) 
 are triggered by updates to the iframe, or messages from the iframe. [Methods](#methods) allow you to 
@@ -270,3 +272,5 @@ Tell the iframe to resize itself.
 
 Send data to the containing page, `message` can be any data type that can be serialized into JSON. The `targetOrigin` 
 option is used to restrict where the message is sent to, in case your iframe navigates away to another domain.
+
+<FeedbackComponent />
