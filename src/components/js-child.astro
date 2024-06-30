@@ -1,9 +1,11 @@
 <script>
 
   try {
-    const { color } = top.getComputedStyle(top.document.body)
+    const { color } = top?.getComputedStyle(top.document.body)
 
-    document.body.style.color = color
+    if (color) {
+      document.body.style.color = color
+    }
   } catch (e) {
   }
   
