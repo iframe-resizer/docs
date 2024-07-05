@@ -1,0 +1,43 @@
+---
+title: Performance
+description: Performance optimizing iframe-resizer
+---
+
+import FeedbackComponent from "/src/components/Feelback.astro";
+
+On most pages _iframe-resizer_ is able to detect changes in the iframe, recalculate
+the page size and adjust the iframe in sub nanosecond time. This page details the one
+of situation that can impact performance and how to mitigate it.
+
+## Content outside of the body element
+
+By default _iframe-resizer_ uses the size of the `<body/>` element to calculate the size
+of the iframe's content. However, if it detects that there is content outside of the body,
+then _iframe-resizer_ will fall back to checking the position of every visible element on
+the page.
+
+In some cases, such as anchoring content to the base of the iframe, this can prevent the
+iframe from downsizing, as the content is now bound to the size of the window, rather
+than the content.
+
+To address the issues raised by content overflow, you have two options.
+
+1. Adjust CSS and page design to keep all elements inside of the body element.
+
+2. Explicitly designate which page element should be used to track the page size, by directly 
+   adding a `data-iframe-size` attribute or using the [sizeSelector](/api/child#sizeselector) 
+   option to specify the elements to be used for sizing the content. 
+   
+   With both methods you can specify multiple elements and the one that returns the highest 
+   value will be used each time the page size is calculated. However, these should be used 
+   sparingly, as the more elements selected on the page, the greater the amount of work 
+   required to calculate the page size. 
+   
+   It may also be useful to set the [offset](/api/parent#offset) option, which allows
+   the adjustment of the returned size value from the iframe.
+
+If _iframe-resizer_ detects content overflow is having an excessive impact on performance,
+it will log a warning to the browser console to advise you to add a `data-iframe-size` to an
+element on your page.
+
+<FeedbackComponent />
