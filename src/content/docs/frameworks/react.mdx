@@ -13,7 +13,7 @@ Install this package with the following command.
 
 <Install package="@iframe-resizer/react" bun />
 
-You will also need to ensure that the [@iframe-resizer/child](/setup#child-page-setup)
+You will also need to ensure that the [@iframe-resizer/child](/setup/child)
 package has been loaded into every page that loads into the iframe.
 
 ## Usage
@@ -55,7 +55,7 @@ below the iframe once it has completed loading and undergone it's initial
 sizing.
 
 The `waitForLoad` option defers sending a message to the iframe until after
-the `onload` event fires on the iframe. If their is any possibility that the
+the `onload` event fires on the iframe. If there is any possibility that the
 iframe content could load before the JavaScript runs, then you should set 
 this option to **false**. This is only likely to be an issue with server
 side rendering.
@@ -64,7 +64,7 @@ side rendering.
 
 ## Child page
 
-You will then need to install the [@iframe-resizer/child](/setup#child-page-setup)
+You will then need to install the [@iframe-resizer/child](/setup/child)
 package on every page in the iframe.
 
 ## API Differences

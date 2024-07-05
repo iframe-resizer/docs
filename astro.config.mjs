@@ -58,23 +58,27 @@ export default defineConfig({
           link: "licenses",
         },
         {
-          label: "Setup",
-          link: "setup",
-        },
-        {
-          label: "Performance",
-          link: "performance",
-        },
-        {
-          label: "API",
+          label: "Getting Started",
           items: [
             {
-              label: "Parent Page",
-              link: "/api/parent",
+              label: "Setup Parent Page",
+              link: "/setup/parent",
             },
             {
-              label: "Child Page",
-              link: "/api/child",
+              label: "Setup Child Page",
+              link: "/setup/child",
+            },
+            {
+              label: "Performance",
+              link: "performance",
+            },
+            {
+              label: "Troubleshooting",
+              link: "troubleshooting",
+            },
+            {
+              label: "Upgrade to V5",
+              link: "upgrade",
             },
           ],
         },
@@ -104,10 +108,6 @@ export default defineConfig({
             //   label: "Framework API",
             //   link: "/frameworks/api",
             // },
-            {
-              label: "Framework API",
-              link: "/frameworks/api",
-            },
           ],
         },
         {
@@ -122,18 +122,27 @@ export default defineConfig({
               link: "/guides/google_apps_script",
             },
           ],
-        }, 
+        },
+        {
+          label: "API",
+          items: [
+            {
+              label: "Parent Page API",
+              link: "/api/parent",
+            },
+            {
+              label: "Child Page API",
+              link: "/api/child",
+            },
+            {
+              label: "Framework API",
+              link: "/frameworks/api",
+            },
+          ],
+        },
         {
           label: "Accessibility",
           link: "accessibility",
-        },
-        {
-          label: "Troubleshooting",
-          link: "troubleshooting",
-        },
-        {
-          label: "Upgrade to V5",
-          link: "upgrade",
         },
         // {
         //   label: "Reference",

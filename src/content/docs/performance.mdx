@@ -1,7 +1,6 @@
 ---
 title: Performance
 description: Performance optimizing iframe-resizer
-next: Parent Page API
 ---
 
 import FeedbackComponent from "/src/components/Feelback.astro";
@@ -13,7 +12,7 @@ of situation that can impact performance and how to mitigate it.
 ## Content outside of the body element
 
 By default _iframe-resizer_ uses the size of the `<body/>` element to calculate the size
-of the iframe's content. However, if it detects that their is content outside of the body,
+of the iframe's content. However, if it detects that there is content outside of the body,
 then _iframe-resizer_ will fall back to checking the position of every visible element on
 the page.
 
