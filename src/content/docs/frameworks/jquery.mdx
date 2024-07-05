@@ -13,27 +13,49 @@ Download and install this package with one of the following options.
 
 <Install package="@iframe-resizer/jquery" cdn download />
 
-You will also need to ensure that the [@iframe-resizer/child](/setup#child-page-setup) package has been loaded into the iframe.
+You will also need to ensure that the [@iframe-resizer/child](/setup#child-page-setup)
+package has been loaded into the iframe.
 
 ## Usage
 
-Use jQuery to find the iframes on the page and then pass them to the `iframeResize()` method. The plugin will automatically filter out any non-iframe elements returned by jQuery.
+Use jQuery to find the iframes on the page and then pass them to the `iframeResize()`
+method. The plugin will automatically filter out any non-iframe elements returned
+by jQuery.
 
 ```js
+<style>
+  iframe {
+    width: 100%;
+    height: 100vh;
+  }
+</style>
+<iframe id="myIframe" src="http://anotherdomain.com/iframe.html"></iframe>
 <script src="/node_modules/jquery/jquery.js"></script>
 <script src="/node_modules/iframe-resizer/jquery/index.umd.js"></script>
 <script>
-  $('iframe').iframeResize({ license: 'xxxx' });
+  $('iframe').iframeResize({ license: 'xxxx', waitForLoad: true });
 </script>
 ```
 
-You can pass any of the standard Parent API [options](/api/parent#options) and [events](/api/parent#events) via this plugin.
+You can pass any of the standard Parent API [options](/api/parent#options)
+and [events](/api/parent#events) via this plugin.
+
+Setting the initial height of the iframe to `100vh` makes the loading in of
+the iframe appear smoother to the user, as they will only see the content
+below the iframe once it has completed loading and undergone it's initial
+sizing.
+
+The `waitForLoad` option defers sending a message to the iframe until after
+the `onload` event fires on the iframe. If their is any possibility that the
+iframe content could load before the JavaScript runs, then you should set 
+this option to **false**.
 
 <License />
 
 ## Child page
 
-You will then need to install the [@iframe-resizer/child](/setup#child-page-setup) package on the page in the iframe.
+You will then need to install the [@iframe-resizer/child](/setup#child-page-setup)
+package on the page in the iframe.
 
 Once everything is setup, keep an eye on the [browser console](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools),
 as _iframe-resizer_ will warn about any potential issues it detects and provide advice 

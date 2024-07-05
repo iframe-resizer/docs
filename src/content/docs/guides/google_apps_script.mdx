@@ -41,9 +41,10 @@ window.addEventListener(
       iframeResize(
         {
           checkOrigin: event.origin,
-          offsetHeight: 19,
+          offset: 19,
           license: "xxxx",
           postMessageTarget: event.source,
+          waitForLoad: true,
         },
         "#myGasIframe"
       );
@@ -53,7 +54,12 @@ window.addEventListener(
 );
 ```
 
-The value for `offsetHeight` may need to be adjusted based on the content of your GAS app.
+The value for `offset` may need to be adjusted based on the content of your GAS app.
+
+The `waitForLoad` option defers sending a message to the iframe until after
+the `onload` event fires on the iframe. If their is any possibility that the
+iframe content could load before the JavaScript runs, then you should set 
+this option to **false**.
 
 <License />
 

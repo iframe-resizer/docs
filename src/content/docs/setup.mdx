@@ -56,10 +56,15 @@ to 100% and have the height scale to fit the content.
     height: 100vh;
   }
 </style>
+
 <iframe id="myIframe" src="http://anotherdomain.com/iframe.html"></iframe>
+
 <script src="/node_modules/@iframe-resizer/parent/index.umd.js"></script>
 <script>
-  iframeResize({ license: "xxxx" });
+  iframeResize({ 
+    license: 'xxxx',
+    waitForLoad: true,
+  }, '#myIframe' );
 </script>
 ```
   </TabItem>
@@ -71,12 +76,13 @@ to 100% and have the height scale to fit the content.
     height: 100vh;
   }
 </style>
+
 <iframe id="myIframe" src="http://anotherdomain.com/iframe.html"></iframe>
 ```
 ```js
 import iframeResize from '@iframe-resizer/parent'
 
-iframeResize({ license: "xxxx" });
+iframeResize({ license: 'xxxx', waitForLoad: true }, '#myIframe' );
 
 ````
 </TabItem>
@@ -88,13 +94,14 @@ iframeResize({ license: "xxxx" });
     height: 100vh;
   }
 </style>
+
 <iframe id="myIframe" src="http://anotherdomain.com/iframe.html"></iframe>
 ````
 
 ```js
 const iframeResize = require("@iframe-resizer/parent");
 
-iframeResize({ license: "xxxx" });
+iframeResize({ license: 'xxxx', waitForLoad: true }, '#myIframe' );
 ```
   </TabItem>
   <TabItem label="jsDeliver CDN">
@@ -105,10 +112,15 @@ iframeResize({ license: "xxxx" });
     height: 100vh;
   }
 </style>
+
 <iframe id="myIframe" src="http://anotherdomain.com/iframe.html"></iframe>
+
 <script src="https://cdn.jsdelivr.net/npm/@iframe-resizer/parent"></script>
 <script>
-  iframeResize({ license: "xxxx" });
+  iframeResize({ 
+    license: 'xxxx',
+    waitForLoad: true,
+  }, '#myIframe');
 </script>
 ```
   </TabItem>
@@ -120,6 +132,11 @@ Setting the initial height of the iframe to `100vh` makes the loading in of
 the iframe appear smoother to the user, as they will only see the content
 below the iframe once it has completed loading and undergone it's initial
 sizing.
+
+The `waitForLoad` option defers sending a message to the iframe until after
+the `onload` event fires on the iframe. If their is any possibility that the
+iframe content could load before the JavaScript runs, then you should set 
+this option to **false**.
 
 <License />
 
