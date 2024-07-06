@@ -68,10 +68,10 @@ export default defineConfig({
               label: "Setup Child Page",
               link: "/setup/child",
             },
-            // {
-            //   label: "Performance",
-            //   link: "performance",
-            // },
+            {
+              label: "Performance",
+              link: "performance",
+            },
             {
               label: "Troubleshooting",
               link: "troubleshooting",
