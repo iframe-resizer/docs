@@ -3,26 +3,38 @@ title: Performance
 description: Performance optimizing iframe-resizer
 ---
 
+import { Aside } from "@astrojs/starlight/components";
 import FeedbackComponent from "/src/components/Feelback.astro";
 
 On most pages _iframe-resizer_ is able to detect changes in the iframe, recalculate
-the page size and adjust the iframe in sub nanosecond time. This page details the one
-of situation that can impact performance and how to mitigate it.
+the page size and adjust the iframe in sub nanosecond time. The time it takes to
+recalculate the size of the iframe is monitored by _iframe-resizer_ and unless it
+tells you it has detected an issue with your page content, you can skip the rest
+of this page.
 
 ## Content outside of the body element
 
-By default _iframe-resizer_ uses the size of the `<body/>` element to calculate the size
-of the iframe's content. However, if it detects that there is content outside of the body,
-then _iframe-resizer_ will fall back to checking the position of every visible element on
-the page.
+<Aside type="note" title="">
+  Version 5.2 onwards of **_iframe-resizer_** includes a newer size detection algorithm that
+  greatly improves the performance of the page size calculations with overflowing content. 
+  If you are on an older version you should upgrade before implementing the advise below.
+</Aside>
 
-In some cases, such as anchoring content to the base of the iframe, this can prevent the
-iframe from downsizing, as the content is now bound to the size of the window, rather
-than the content.
+By default _iframe-resizer_ uses the size of the `<html>` element to calculate the size
+of the iframe's content. However, if there are page elements, that due to CSS
+cause content to not be fully contained within the root document element, then this can 
+lead to the `<html>` element to not correctly reflect the iframe's content size.
 
-To address the issues raised by content overflow, you have two options.
+To overcome this, _iframe-resizer_ maintains a realtime [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
+of page element that don't 100% intersect with the root document element by using the
+[intersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
+browser API. This set of non-intersecting elements is then used to check the overall content size.
 
-1. Adjust CSS and page design to keep all elements inside of the body element.
+In the unlikely event that you have a large number of overflowing or not fully intersecting elements
+on the page, it may take an few milliseconds to calculate the page size. In this situation you have
+two options to improve performance.
+
+1. Adjust CSS and page design to keep most page elements inside of the `<body>` element.
 
 2. Explicitly designate which page element should be used to track the page size, by directly 
    adding a `data-iframe-size` attribute or using the [sizeSelector](/api/child#sizeselector) 
@@ -36,7 +48,7 @@ To address the issues raised by content overflow, you have two options.
    It may also be useful to set the [offsetSize](/api/parent#offsetSize) option, which allows
    the adjustment of the returned size value from the iframe.
 
-If _iframe-resizer_ detects content overflow is having an excessive impact on performance,
+If _iframe-resizer_ detects page content is having an excessive impact on performance,
 it will log a warning to the browser console to advise you to add a `data-iframe-size` to an
 element on your page.
 
