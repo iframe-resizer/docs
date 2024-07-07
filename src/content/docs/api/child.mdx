@@ -31,13 +31,16 @@ With options that can be set in both the parent page and in the iframe, then the
 ### offsetSize
 
 ```
-default: 0
+default: undefined
 type:    integer
 ```
 
 Modify the computed size of the iframe. This is useful if the page in the iframe returns a size value that is 
 constantly slightly different to how you want the iframe to be sized. This can be set to a positive or
 negative value.
+
+**Note:** Setting this value in the iframe will override any value set in the parent page. Set to `0` to disable
+this option in the parent page.
 
 ### sizeSelector
 
