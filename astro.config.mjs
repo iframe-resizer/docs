@@ -50,16 +50,16 @@ export default defineConfig({
       },
       sidebar: [
         {
-          label: "Introduction",
-          link: "introduction",
-        },
-        {
-          label: "Licenses",
-          link: "licenses",
-        },
-        {
           label: "Getting Started",
           items: [
+            {
+              label: "Introduction",
+              link: "introduction",
+            },
+            {
+              label: "Licenses",
+              link: "licenses",
+            },
             {
               label: "Setup Parent Page",
               link: "/setup/parent",
