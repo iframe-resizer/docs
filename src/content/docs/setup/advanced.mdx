@@ -1,0 +1,54 @@
+---
+title: Advanced Setup
+description: Advanced setup options for iframe-resizer
+---
+
+import FeedbackComponent from "/src/components/Feelback.astro";
+
+On most pages _iframe-resizer_ is able to detect changes in the iframe, recalculate
+the page size and adjust the iframe in sub nanosecond time. In a few rare edge cases,
+it might need a little help.
+
+## Avoid viewport sizing units
+
+When creating page content, the use of viewport sizing units (`vh`, `vw`, `vmax` and `vmin`)
+and percentage sizing units (`%`) in CSS can quickly cause problems when used to size page
+elements in the same direction as the iframe is being resized. 
+
+Ether your iframe will 
+be blocked from downsizing, as the content size is now based on the iframe size. Or potentially 
+it can cause a resizing loop, where the iframe changing size causes the content to change size,
+which then in turn triggers an update to the iframes size.
+
+## Custom page size
+
+The following three options allow you to adjust how the content size is calculated.
+
+### <span class="option">data-iframe-size</span>
+
+By adding a `data-iframe-size` attribute to any HTML element on the page, you can tell
+_iframe-resizer_ to use that element to calculate the page size. Where their is more
+than one element with the attribute, then the element with the largest value will be
+used.
+
+### <span class="option">sizeSelector</span>
+
+This option can be set via the [Child Page API settings](/api/child#settings)
+and allows you to use a CSS Selector to add the `data-iframe-size` attribute
+to elements on the page. When the page content changes, this will be rerun to
+ensure this setting remains up to date.
+
+### <span class="option">offsetSize</span>
+
+Available in both the Parent and Child pages, this option allows you to adjust the
+calculated page size. It can be provide with a positive or negative value.
+
+## Performance
+
+If _iframe-resizer_ gives you a warning about performance, then the first two
+options above can also be used to limit the total number of page elements that
+require inspection to calculate the page size. This will greatly improve 
+performance on pages where you have a lot of content that has overflowed the
+root document element.
+
+<FeedbackComponent />
