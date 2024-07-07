@@ -22,8 +22,12 @@ which then in turn triggers an update to the iframes size.
 
 ## Custom page size
 
+<<<<<<< HEAD
 The following three options allow you to adjust how the content size is calculated by targeting
 which page elements are used in the calculations and then adjusting the returned value.
+=======
+The following three options allow you to adjust how the content size is calculated.
+>>>>>>> ec14a82 (Add advanced setup)
 
 ### <span class="option">data-iframe-size</span>
 
@@ -44,4 +48,15 @@ ensure this setting remains up to date.
 Available in both the Parent and Child pages, this option allows you to adjust the
 calculated page size. It can be provide with a positive or negative value.
 
+<<<<<<< HEAD
+=======
+## Performance
+
+If _iframe-resizer_ gives you a warning about performance, then the first two
+options above can also be used to limit the total number of page elements that
+require inspection to calculate the page size. This will greatly improve 
+performance on pages where you have a lot of content that has overflowed the
+root document element.
+
+>>>>>>> ec14a82 (Add advanced setup)
 <FeedbackComponent />
