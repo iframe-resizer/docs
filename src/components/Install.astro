@@ -12,19 +12,19 @@ const props = Astro.props;
 ---
 
 <Tabs>
-  <TabItem label="NPM">
+  <TabItem label="npm">
     <Code code={`npm install ${props.package} --save`} lang="bash" />
+  </TabItem>
+  <TabItem label="pnpm">
+    <Code code={`pnpm add ${props.package}`} lang="bash" />
   </TabItem>
   <TabItem label="Yarn">
     <Code code={`yarn add ${props.package}`} lang="bash" />
   </TabItem>
-  <TabItem label="PNPM">
-    <Code code={`pnpm add ${props.package}`} lang="bash" />
-  </TabItem>
   {(props.bun === true) && <TabItem label="Bun">
     <Code code={`bun add ${props.package}`} lang="bash" />
   </TabItem> }
-  {(props.cdn === true) && <TabItem label="jsDeliver CDN">
+  {(props.cdn === true) && <TabItem label="jsDeliver">
     <Code code={`<script src="https://cdn.jsdelivr.net/npm/${props.package}"></script>`} lang="js" />
   </TabItem>}
   {(props.download === true) && <TabItem label="Download">
