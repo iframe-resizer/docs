@@ -10,16 +10,19 @@ import JS from '/src/components/js-child.astro'
     font-weight: lighter;
   }
 
-  #textArea {
+  textarea {
+    width: 40vw;
+    height: 5rem;
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    resize: vertical;
   }
 
 </style>
 
-<textarea id="textArea">
+<textarea>
  Resize me
 </textarea>
 
