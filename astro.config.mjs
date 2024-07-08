@@ -72,10 +72,10 @@ export default defineConfig({
               label: "Advanced Setup",
               link: "/setup/advanced",
             },
-            // {
-            //   label: "Performance",
-            //   link: "performance",
-            // },
+            {
+              label: "Performance",
+              link: "performance",
+            },
             {
               label: "Troubleshooting",
               link: "troubleshooting",
