@@ -41,6 +41,43 @@
   --ir-color-secondary: #985d3b;
 }
 
+.gitStars {
+  white-space:nowrap;
+  border:solid 1px var(--ir-color-primary);
+  border-radius: 7px;
+  height: 2rem;
+}
+
+.gitStars a {
+  color: var(--ir-color-primary);
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: flex;
+  padding-right: 7px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.gitStars a span{
+  position: relative; 
+  top: 1px;
+}
+
+.gitStars svg {
+  color: var(--ir-color-primary);
+  font-size: 1em;
+  width: 1em;
+  height: 1em;
+  margin: 7px 14px 7px 7px;
+}
+
+.gitStars svg::after,
+.gitStars svg::before {
+ border-width: 0;
+ border-style: solid;
+ border-color: #eaf0e8;
+}
+
 .sub-heading {
   color: var(--ir-color-secondary)
 }
