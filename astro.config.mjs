@@ -69,6 +69,10 @@ export default defineConfig({
               link: "/setup/child",
             },
             {
+              label: "Advanced Setup",
+              link: "/setup/advanced",
+            },
+            {
               label: "Performance",
               link: "performance",
             },
