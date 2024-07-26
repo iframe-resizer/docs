@@ -1,122 +1,128 @@
 ---
 import JS from '/src/components/js-child.astro'
 ---
+<html>
+  <head>
+    <title>Horizontal</title>
 
+    <style>
+      #outer {
+        border-right: solid 5px white;
+      }
 
-<style>
-  #outer {
-    border-right: solid 5px white;
-  }
+      .frame {
+        border: 3px inset;
+        height: 187px !important;
+        padding: 0 20px;
+      }
 
-  .frame {
-    border: 3px inset;
-    height: 187px !important;
-    padding: 0 20px;
-  }
+      body {
+        margin:0;
+        font-family: Roboto, sans-serif;
+        font-weight: lighter;
+      }
+        
+      p {
+        margin: 0 0 5px;
+      }
 
-  body {
-    margin:0;
-    font-family: Roboto, sans-serif;
-    font-weight: lighter;
-  }
-    
-  p {
-    margin: 0 0 5px;
-  }
+      th {
+        vertical-align: top;
+        text-align: right;
+        padding: 5px 0;
+      }
+      td {
+        padding: 3px 0;
+      }
+      tr {
+        border-top: dashed 1px #900;
+      }
 
-  th {
-    vertical-align: top;
-    text-align: right;
-    padding: 5px 0;
-  }
-  td {
-    padding: 3px 0;
-  }
-  tr {
-    border-top: dashed 1px #900;
-  }
+      table table th {
+        width: 110px;
+        padding: 0;
+      }
+      table table td {
+        padding: 0 0 0 10px;
+      }
 
-  table table th {
-    width: 110px;
-    padding: 0;
-  }
-  table table td {
-    padding: 0 0 0 10px;
-  }
+      #bar {
+        height: 20px;
+        width: 400px;
+        background-color: rgb(135, 248, 180);
+        padding: 0;
+        z-index: -2;
+        margin-right: 5px;
+      }
 
-  #bar {
-    height: 20px;
-    width: 400px;
-    background-color: rgb(135, 248, 180);
-    padding: 0;
-    z-index: -2;
-    margin-right: 5px;
-  }
+      #abs {
+        position: absolute;
+        padding: 0px;
+        margin-right:-1px;
+        height: 140px;
+        align-content: center;
+        vertical-align: middle;
+        background-color: wheat !important;
+        color: black;
+        animation-direction: alternate;
+        animation-duration: 6s;
+        animation-iteration-count: infinite;
+        animation-name: animate;
+        z-index: -1;
+      }
 
-  #abs {
-    position: absolute;
-    padding: 0px;
-    margin-right:-1px;
-    height: 140px;
-    align-content: center;
-    vertical-align: middle;
-    background-color: wheat !important;
-    color: black;
-    animation-direction: alternate;
-    animation-duration: 6s;
-    animation-iteration-count: infinite;
-    animation-name: animate;
-    z-index: -1;
-  }
+      #abs p {
+        margin: -10px 0 0 20px;
+        width: 300px;
+      }
 
-  #abs p {
-    margin: -10px 0 0 20px;
-    width: 300px;
-  }
+      #bar,
+      #abs {
+        margin-left: -20px;
+      }
 
-  #bar,
-  #abs {
-    margin-left: -20px;
-  }
+      @keyframes animate {
+        from {
+          width: 310px;
+        }
 
-  @keyframes animate {
-    from {
-      width: 310px;
-    }
+        to {
+          width: 722px;
+        }
+      }
+    </style>
 
-    to {
-      width: 722px;
-    }
-  }
-</style>
+  </head>
+  <body>
+    <!-- 
+      The data-iframe-size attribute tells iframe-resizer to use this element
+      to calculate the height of the iframe, when the content overflows the
+      <body> element.     
+    -->
+    <div id="outer">
+      <div class="frame">
+        <div data-iframe-size id="bar"></div>
 
-<!-- 
-  The data-iframe-size attribute tells iframe-resizer to use this element
-  to calculate the height of the iframe, when the content overflows the
-  <body> element.     
--->
-<div id="outer">
-  <div class="frame">
-    <div data-iframe-size id="bar"></div>
-
-    <div data-iframe-size id="abs">
-      <p>
-        This element animates between 310px and 720px wide using CSS keyframes.
-        <br/><br/>
-        The iframe width is capped to 100% of the containing element width.
-      </p>
+        <div data-iframe-size id="abs">
+          <p>
+            This element animates between 310px and 720px wide using CSS keyframes.
+            <br/><br/>
+            The iframe width is capped to 100% of the containing element width.
+          </p>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<script>
-  const { backgroundColor } = top.getComputedStyle(top.document.body)
-  const { style } = window.document.getElementById('outer')
-  style.borderColor = backgroundColor
-  // style.borderRightWidth = '1px'
-  document.body.style.background = `${backgroundColor} !important`
+    <script>
+      const { backgroundColor } = top.getComputedStyle(top.document.body)
+      const { style } = window.document.getElementById('outer')
+      style.borderColor = backgroundColor
+      // style.borderRightWidth = '1px'
+      document.body.style.background = `${backgroundColor} !important`
 
-</script>
+    </script>
 
 
-<JS/>
+    <JS/>
+  </body>
+</html>
