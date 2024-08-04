@@ -12,7 +12,8 @@ const title = 'Examples'
   <style>
      iframe {
       width: 100%; 
-      border: 3px inset
+      border: 3px inset;
+      background-color: transparent;
     }
 
     iframe#horizontal {
@@ -36,6 +37,7 @@ const title = 'Examples'
   <Tabs>
     <TabItem label="Vertical">
       <iframe 
+        allowTransparency="true"
         id="vertical"
         class="vertical"
         src="/examples/animate"
@@ -45,6 +47,7 @@ const title = 'Examples'
     </TabItem>
     <TabItem label="Horizontal">
       <iframe 
+        allowTransparency="true"
         id="horizontal"
         src="/examples/horizontal" 
         title="Horizontal Example">
@@ -52,6 +55,7 @@ const title = 'Examples'
     </TabItem>
     <TabItem label="TextArea">
       <iframe 
+        allowTransparency="true"
         id="textarea"
         class="vertical"
         src="/examples/textarea" 
@@ -60,6 +64,7 @@ const title = 'Examples'
     </TabItem>
     <TabItem label="Hover">
       <iframe
+        allowTransparency="true"
         id="hover"
         class="vertical"
         src="/examples/hover" 
@@ -68,6 +73,7 @@ const title = 'Examples'
     </TabItem>
     <!-- <TabItem label="Footer">
       <iframe 
+        allowTransparency="true"
         id="footer"
         class="vertical"
         src="/examples/footer" 

@@ -2,129 +2,137 @@
 import JS from '/src/components/js-child.astro'
 ---
 
-<h2>parentIframe.getParentProps()</h2>
-<table id="data"></table>
-
-<!-- 
-  The data-iframe-size attribute tells iframe-resizer to use this element
-  to calculate the height of the iframe, when the content overflows the
-  <body> element.     
--->
-<div id="abs">
-  <p>
-    This is an absolute positioned element that will animate to 
-    a height of 800px using CSS keyframes. 
-  </p>
-</div>
-
-<JS/>
-<script>
-  const dataTable = document.getElementById('data')
-  
-  const row = ([key, value]) => `
-    <tr>
-      <th class="astro-462sifux">${key}</th>
-      <td class="astro-462sifux">${value}</td>
-    </tr>`
-
-  const rowParent = ([key, info]) => {
-    delete info.x
-    delete info.y
-  
-    return `<tr>
-      <th class="astro-462sifux">${key}</th>
-      <td>
-        <table class="astro-462sifux">${Object.entries(info).map(row).join('\n')}</table>
-      </td>
-    </tr>`
-  }
-
-  window.iFrameResizer = {
-    onReady: () => {
-      parentIframe.getParentProps((parentProps) => {
-        dataTable.innerHTML = Object.entries(parentProps).map(rowParent).join('\n')
-      })
-    },
-  }
-</script>
-
-
-<style>
-  body {
-    margin:14px 10px;
-    font-family: Roboto, sans-serif;
-    font-weight: lighter;
-  }
-
-  h2 {
-    font-weight: lighter;  
-  }
-
-  p {
-    padding: 14px 218px 0 0;
-    margin: 0 0 5px;
-  }
-
-  th {
-    vertical-align: top;
-    text-align: right;
-    padding: 5px 0;
-  }
-  td {
-    padding: 4px 0;
-  }
-  tr{
-    border-top: dashed 1px #900;
-  }
-
-  table#data table {
-   margin: 2px 0 10px;
-  }
-  table#data table th {
-    font-weight: normal;
-    width: 110px !important;
-    padding: 0;
-  }
-  table#data table td {
-    padding: 0 0 0 10px;
-  }
-
-  #abs {
-    position: absolute;
-    padding: 0 2px 0 12px;
-    top: 0;
-    right: 0;
-    width: 200px;
-    overflow: hidden;
-    background-color: wheat;
-    color: brown;
-    letter-spacing: 0.01em;
-    line-height: 1.4em;
-    font-weight: 500;
-    animation-direction: alternate;
-    animation-duration: 10s;
-    animation-iteration-count: infinite;
-    animation-name: animate;
-    z-index: -10;
-  }
-
-  #abs p {
-    margin:  0;
-    width: 180px;
-  }
-
-  h2 {
-    margin: -5px 0 20px;
-  }
-
-  @keyframes animate {
-    from {
-      height: 145px;
-      
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Animate Example</title>
+    <style>
+    body {
+      margin:14px 10px;
+      font-family: Roboto, sans-serif;
+      font-weight: lighter;
+      background-color: transparent;
     }
 
-    to {
-      height: 798px;
+    h2 {
+      font-weight: lighter;  
     }
-  }
-</style>
+
+    p {
+      padding: 14px 218px 0 0;
+      margin: 0 0 5px;
+    }
+
+    th {
+      vertical-align: top;
+      text-align: right;
+      padding: 5px 0;
+    }
+    td {
+      padding: 4px 0;
+    }
+    tr{
+      border-top: dashed 1px #900;
+    }
+
+    table#data table {
+    margin: 2px 0 10px;
+    }
+    table#data table th {
+      font-weight: normal;
+      width: 110px !important;
+      padding: 0;
+    }
+    table#data table td {
+      padding: 0 0 0 10px;
+    }
+
+    #abs {
+      position: absolute;
+      padding: 0 2px 0 12px;
+      top: 0;
+      right: 0;
+      width: 200px;
+      overflow: hidden;
+      background-color: wheat;
+      color: brown;
+      letter-spacing: 0.01em;
+      line-height: 1.4em;
+      font-weight: 500;
+      animation-direction: alternate;
+      animation-duration: 10s;
+      animation-iteration-count: infinite;
+      animation-name: animate;
+      z-index: -10;
+    }
+
+    #abs p {
+      margin:  0;
+      width: 180px;
+    }
+
+    h2 {
+      margin: -5px 0 20px;
+    }
+
+    @keyframes animate {
+      from {
+        height: 145px;
+        
+      }
+
+      to {
+        height: 798px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h2>parentIframe.getParentProps()</h2>
+  <table id="data"></table>
+
+  <!-- 
+    The data-iframe-size attribute tells iframe-resizer to use this element
+    to calculate the height of the iframe, when the content overflows the
+    <body> element.     
+  -->
+  <div id="abs">
+    <p>
+      This is an absolute positioned element that will animate to 
+      a height of 800px using CSS keyframes. 
+    </p>
+  </div>
+
+  <JS/>
+  <script>
+    const dataTable = document.getElementById('data')
+    
+    const row = ([key, value]) => `
+      <tr>
+        <th class="astro-462sifux">${key}</th>
+        <td class="astro-462sifux">${value}</td>
+      </tr>`
+
+    const rowParent = ([key, info]) => {
+      delete info.x
+      delete info.y
+    
+      return `<tr>
+        <th class="astro-462sifux">${key}</th>
+        <td>
+          <table class="astro-462sifux">${Object.entries(info).map(row).join('\n')}</table>
+        </td>
+      </tr>`
+    }
+
+    window.iFrameResizer = {
+      onReady: () => {
+        parentIframe.getParentProps((parentProps) => {
+          dataTable.innerHTML = Object.entries(parentProps).map(rowParent).join('\n')
+        })
+      },
+    }
+  </script>
+</body>
+</html>
