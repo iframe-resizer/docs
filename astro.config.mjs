@@ -43,6 +43,7 @@ export default defineConfig({
       },
       customCss: ["./src/styles/theme.css", "@fontsource/audiowide/400.css"],
       components: {
+        Head: "./src/components/Head.astro",
         SocialIcons: "./src/components/socials.astro",
       },
       social: {
