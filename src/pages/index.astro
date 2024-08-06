@@ -4,6 +4,7 @@ import Footer from '../components/Footer.astro';
 import logo from '../assets/logo-home.svg';
 
 const title = 'IFRAME-RESIZER';
+const description = 'Keep iframes sized to their content';
 const template = 'splash';
 
 const hero = {
@@ -25,7 +26,7 @@ const hero = {
 
 ---
 
-<StarlightPage frontmatter={{ title, template, hero }}  hasSidebar={false}>
+<StarlightPage frontmatter={{ title, description, template, hero }}  hasSidebar={false}>
 
 <section class="w-full">
   <div id="features" class="container grid grid-cols-1 md:grid-cols-3 gap-6" style="max-width:100%">

@@ -3,6 +3,7 @@ import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import Footer from '../components/Footer.astro';
 
 const title = 'Privacy Policy';
+const description = 'This website does not store any personal data. It does not use cookies or any other tracking technologies.';
 
 const headings =  [
   { depth:2, slug: '1', text: '1. Storage of Data'},
@@ -13,7 +14,7 @@ const headings =  [
 
 ---
 
-<StarlightPage frontmatter={{ title }}  hasSidebar={false} headings={headings}>
+<StarlightPage frontmatter={{ title, description }}  hasSidebar={false} headings={headings}>
   <p>Last updated: May 01, 2024</p>
 
   <h2 id="1">1. Storage of Data</h2>

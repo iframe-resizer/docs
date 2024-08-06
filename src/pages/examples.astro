@@ -5,10 +5,11 @@ import { Tabs, TabItem } from "@astrojs/starlight/components";
 import JS from '../components/js-parent.astro'
 
 const title = 'Examples'
+const description = 'Examples of iframe-resizer working with various different types of content'
 ---
 
 
-<StarlightPage frontmatter={{ title }} >
+<StarlightPage frontmatter={{ title, description }} >
   <style>
      iframe {
       width: 100%; 
