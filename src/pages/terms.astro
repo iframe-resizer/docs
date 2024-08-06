@@ -3,7 +3,7 @@ import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import Footer from '../components/Footer.astro';
 
 const title = 'Terms and Conditions';
-const description = 'These terms and conditions for the use of iframe-resizer.';
+const description = 'These terms and conditions for the use of iframe-resizer.com’s Website.';
 
 const headings = [
   { depth:2, slug: '1', text: '1. License'},
@@ -13,7 +13,7 @@ const headings = [
 ]
 ---
 
-<StarlightPage frontmatter={{ title }}  hasSidebar={false} headings={headings}>
+<StarlightPage frontmatter={{ title, description }}  hasSidebar={false} headings={headings}>
   <p>
     These terms and conditions outline the rules and regulations for the use of iframe-resizer.com’s Website.
   </p>

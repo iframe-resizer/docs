@@ -2,6 +2,7 @@
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 
 const title = 'Commercial Software License Agreement';
+const description = 'TSoftware License Agreement for iframe-resizer.';
 
 const headings =  [
   { depth:2, slug: '1', text: '1. Definitions'},
@@ -21,7 +22,7 @@ const headings =  [
 ]
 ---
 
-<StarlightPage frontmatter={{ title }}  hasSidebar={false} headings={headings}>
+<StarlightPage frontmatter={{ title, description }}  hasSidebar={false} headings={headings}>
   <p>
     This Software License Agreement (the “Agreement”) is between David J. Bradshaw (“DJB”) 
     and You (including your agents and affiliates), a commercial licensee of DJB's software. 
