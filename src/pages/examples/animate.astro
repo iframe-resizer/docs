@@ -129,7 +129,7 @@ import JS from '/src/components/js-child.astro'
     window.iFrameResizer = {
       onReady: () => {
         parentIframe.getParentProps((parentProps) => {
-          dataTable.firstChild.remove()
+          dataTable.firstChild.remove()  // Prevent memory leak
           dataTable.innerHTML = Object.entries(parentProps).map(rowParent).join('\n')
         })
       },
