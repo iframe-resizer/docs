@@ -48,12 +48,12 @@ scale to fit the content.
   <IframeResizer
     license="xxxx"
     src="http://anotherdomain.com/iframe.html"
-    class="iframe"
+    @on-ready="() => console.log('onReady')"
   />
 </template>
 
 <style scoped>
-  .iframe {
+  iframe {
     width: 100%;
     height: 100vh;
   }
