@@ -92,7 +92,7 @@ export default defineConfig({
           items: [
             {
               label: "Overview",
-              link: "/frameworks/overview",
+              link: "/frameworks",
             },
             {
               label: "React",
@@ -132,6 +132,10 @@ export default defineConfig({
           label: "API",
           items: [
             {
+              label: "Overview",
+              link: "/api",
+            },
+            {
               label: "Parent Page API",
               link: "/api/parent",
             },
@@ -141,7 +145,7 @@ export default defineConfig({
             },
             {
               label: "Framework API",
-              link: "/frameworks/api",
+              link: "/api/framework",
             },
           ],
         },
