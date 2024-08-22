@@ -4,6 +4,7 @@ description: Parent page api for iframe-resizer
 prev: APIs
 ---
 
+import { Aside } from "@astrojs/starlight/components";
 import FeedbackComponent from "/src/components/Feelback.astro";
 
 The Parent API is for use on the page containing the `<iframe>` tag. It is split into three sections. 
@@ -75,8 +76,6 @@ values: 'horizontal' || 'vertical' || 'none'
 
 Set the direction in which you want the iframe to automatically scale to the content size.
 
-import { Aside } from "@astrojs/starlight/components";
-
 <Aside type="tip" title="Horizontal Resizing">
   When setting the direction to `horizontal` it is best to avoid floating or
   positioning elements to the right side of the page, as this can interfere with
@@ -133,6 +132,12 @@ type:    integer
 ```
 
 Set the number of pixels the iframe content size has to change by, before triggering a resize of the iframe.
+
+<Aside type="caution" title="">
+  You should not normally need to use this option, other than for debugging. If the iframe is in a resizing
+  loop, then this is an indication that their is an issue in your CSS, that is causing the content to always
+  scale to a size larger than the current viewport.
+</Aside>
 
 ### waitForLoad
 
