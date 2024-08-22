@@ -21,13 +21,11 @@ The following is a simplified version of the jQuery plugin. This example first u
 import connectResizer from "@iframe-resizer/parent-core";
 
 window.jQuery.fn.iframeResize = function (options) {
-  const connectWithOptions = connectResizer(options);
+  const connectWithOptions = connectResizer(options)
+  const init = (i, el) => connectWithOptions(el)
 
-  return this
-    .filter("iframe")
-    .each(connectWithOptions)
-    .end();
-};
+  return this.filter('iframe').each(init).end()
+}
 ```
 
 The actual `@iframe-resizer/jquery` plugin provides a few more [safety checks](https://github.com/davidjbradshaw/iframe-resizer/blob/master/packages/jquery/plugin.js) to help inexperienced users get up and running.
