@@ -166,7 +166,7 @@ and passes a callback that logs them to the console and then disables further up
 
 ```js
 const disableParentProperties = 
-  parentIframe.getParentProps(parentProps) => {
+  parentIframe.getParentProps((parentProps) => {
     console.log('Parent Page Props', parentProps)
     disableParentProperties()
   })
