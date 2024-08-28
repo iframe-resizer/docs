@@ -169,7 +169,7 @@ The following callback events can be passed to _iframe-resizer_ on the parent pa
 ### onClose
 
 ```js
-onClose: (iframeID) => boolean;
+onClose: (iframeID) => boolean
 ```
 
 Called before the iframe is closed via `parentIframe.close()` method. Returning `false` will prevent the iframe 
@@ -178,7 +178,7 @@ from closing.
 ### onClosed
 
 ```js
-onClosed: (iframeID) => undefined;
+onClosed: (iframeID) => void
 ```
 
 Called after the iframe is closed via `parentIframe.close()` method.
@@ -186,7 +186,7 @@ Called after the iframe is closed via `parentIframe.close()` method.
 ### onMessage
 
 ```js
-onMessage: ({ iframe, message }) => undefined;
+onMessage: ({ iframe, message }) => void
 ```
 
 Receives messages posted from the iframe with the `parentIframe.sendMessage()` method.
@@ -194,7 +194,7 @@ Receives messages posted from the iframe with the `parentIframe.sendMessage()` m
 ### onMouseEnter
 
 ```js
-onMouseEnter: ({ iframe, height, width, type }) => undefined;
+onMouseEnter: ({ iframe, height, width, type }) => void
 ```
 
 Function called after the mouse enters the iframe. Passes `messageData` object containing the **iframe**, 
@@ -203,7 +203,7 @@ Function called after the mouse enters the iframe. Passes `messageData` object c
 ### onMouseLeave
 
 ```js
-onMouseLeave: ({ iframe, height, width, type }) => undefined;
+onMouseLeave: ({ iframe, height, width, type }) => void
 ```
 
 Function called after the mouse leaves the iframe. Passes `messageData` object containing the **iframe**, 
@@ -212,7 +212,7 @@ Function called after the mouse leaves the iframe. Passes `messageData` object c
 ### onReady
 
 ```js
-onReady: (iframe) => undefined;
+onReady: (iframe) => void
 ```
 
 Called after initial setup.
@@ -220,7 +220,7 @@ Called after initial setup.
 ### onResized
 
 ```js
-onResized: ({ iframe, height, width, type }) => undefined;
+onResized: ({ iframe, height, width, type }) => void
 ```
 
 Function called after iframe resized. Passes `messageData` object containing the **iframe**, **height**, 
@@ -229,7 +229,7 @@ Function called after iframe resized. Passes `messageData` object containing the
 ### onScroll
 
 ```js
-onScroll: ({ iframe, top, left, }) => [true | false];
+onScroll: ({ iframe, top, left, }) => boolean
 ```
 
 Called before the page is repositioned after a request from the iframe, due to either an in page link, or a direct

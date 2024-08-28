@@ -83,14 +83,16 @@ The following events can be included in the [Settings](#settings) object attache
 ```
 
 ### onMessage
-
-    type: function (message)
+```js
+onMessage: (message) => void
+```
 
 Receive message posted from the parent page with the `iframe.iframeResizer.sendMessage()` method.
 
 ### onReady
-
-    type: function()
+```js
+onReady: () => void
+```
 
 This function is called once _iframe-resizer_ has been initialized after receiving a call from the parent 
 page. If you need to call any of the following methods during page load, then they should be called from 
