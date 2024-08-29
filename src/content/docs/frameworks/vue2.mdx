@@ -3,34 +3,77 @@
  description: Vue2 example
  ---
 
- Create the following Vue directive
+import Install from '/src/components/Install.astro';
+import License from '/src/components/License.astro';
+import FeedbackComponent from "/src/components/Feelback.astro";
 
- ```js
- import Vue from "vue";
- import connectResizer from "@iframe-resizer/core";
 
- Vue.directive("iframeResizer", {
-   bind: function (el, { value = {} }) {
-     connectResizer(value)(el);
-   },
-   unbind: function (el) {
-     el.iframeResizer.disconnect();
-   },
- });
- ```
+For versions of Vue later than 2.6, it is recommended to use the [Vue3 component](/frameworks/vue3), 
+which provides access to the full feature set of _iframe-resizer_.
 
- and then include it on your page as follows.
+## Install
 
- ```html
- <iframe
-   v-iframeResizer
-   license="xxxx"
-   width="100%"
-   height="100vh'
-   src="myiframe.html"
-   frameborder="0"
- ></iframe>
+Install the core [_iframe-resizer_ API](/api/framework) with the following command.
+
+<Install package="@iframe-resizer/core" />
+
+You will also need to ensure that the [@iframe-resizer/child](/setup/child)
+package has been loaded into every page that loads into the iframe.
+
+## Create Vue2 Directive
+
+Create the following Vue directive, which will give you basic _iframe-resizer_ functionality.
+
+```js
+import Vue from "vue";
+import connectResizer from "@iframe-resizer/core";
+
+Vue.directive("iframeResizer", {
+  bind: function (el, { value = {} }) {
+    connectResizer(value)(el);
+  },
+  unbind: function (el) {
+    el.iframeResizer.disconnect();
+  },
+});
+```
+
+and then include it on your page as follows.
+
+```html
+<iframe
+  v-iframeResizer
+  license="xxxx"
+  src="myiframe.html"
+  frameborder="0"
+></iframe>
+
+<style>
+iframe {
+  width: 100%;
+  height: 100vh;
+}
+</style>
  ```
 
  - Thanks to [Aldebaran Desombergh](https://github.com/davidjbradshaw/iframe-resizer/issues/513#issuecomment-538333854) for this example.
    
+Setting the initial height of the iframe to `100vh` makes the loading in of
+the iframe appear smoother to the user, as they will only see the content
+below the iframe once it has completed loading and undergone it's initial
+sizing.
+
+<License />
+
+## Child page
+
+You will then need to install the [@iframe-resizer/child](/setup/child)
+package on every page in the iframe.
+
+Once everything is setup, keep an eye on the [browser console](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools),
+as _iframe-resizer_ will warn about any potential issues it detects and provide advice 
+on how to fix them. For more details on using _iframe-resizer_ see the 
+[Advanced Setup](/setup/advanced/) and [Trouble Shooting](/troubleshooting) sections 
+of this guide.
+
+<FeedbackComponent />
