@@ -11,14 +11,13 @@ import FeedbackComponent from "/src/components/Feelback.astro";
 For versions of Vue later than 2.6, it is recommended to use the [Vue3 component](/frameworks/vue3), 
 which provides access to the full feature set of _iframe-resizer_.
 
-## Install
+## Install Framework API
 
-Install the core [_iframe-resizer_ API](/api/framework) with the following command.
+Install the core _iframe-resizer_ [Framework API](/api/framework) with the following command.
 
 <Install package="@iframe-resizer/core" />
 
-You will also need to ensure that the [@iframe-resizer/child](/setup/child)
-package has been loaded into every page that loads into the iframe.
+
 
 ## Create Vue2 Directive
 
@@ -45,7 +44,7 @@ and then include it on your page as follows.
   v-iframeResizer
   license="xxxx"
   src="myiframe.html"
-  frameborder="0"
+  waitForLoad
 ></iframe>
 
 <style>
