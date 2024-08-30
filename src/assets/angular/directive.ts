@@ -84,11 +84,7 @@ export class IframeResizerDirective {
     license: "",
   }
 
-  @Input() debug: boolean = false
-
-  constructor(private elementRef: ElementRef) {
-    if (this.debug) console.debug("[IframeResizerDirective].constructor")
-  }
+  constructor(private elementRef: ElementRef) {}
 
   ngOnInit() {}
 
@@ -139,7 +135,6 @@ export class IframeResizerDirective {
   }
 
   ngOnDestroy() {
-    if (this.debug) console.debug("ngOnDestroy")
     this.resizer?.disconnect()
   }
 
