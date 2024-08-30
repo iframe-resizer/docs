@@ -102,17 +102,14 @@ export default defineConfig({
               label: "Vue",
               link: "/frameworks/vue3",
             },
-            // { label: "Vue 2", link: "/frameworks/vue2" },
+            {
+              label: "Angular",
+              link: "/frameworks/angular",
+            },
             {
               label: "jQuery",
               link: "/frameworks/jquery",
             },
-            // { label: "Angular", link: "/frameworks/angular" },
-            // https://iframe-resizer.com/frameworks/wordpress/
-            // {
-            //   label: "Framework API",
-            //   link: "/frameworks/api",
-            // },
           ],
         },
         {

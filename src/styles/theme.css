@@ -41,6 +41,10 @@
   --ir-color-secondary: #985d3b;
 }
 
+code {
+  max-height: max(60vh, 512px) !important;
+}
+
 .gitStars {
   white-space:nowrap;
   border:solid 1px var(--ir-color-primary);

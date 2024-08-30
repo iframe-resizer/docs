@@ -1,0 +1,65 @@
+---
+title: Angular
+description: Angular Directive example
+---
+
+import Install from '/src/components/Install.astro'
+import License from '/src/components/License.astro'
+import { Code } from '@astrojs/starlight/components'
+import { Tabs, TabItem } from "@astrojs/starlight/components"
+import FeedbackComponent from "/src/components/Feelback.astro"
+
+import directive from '/src/assets/angular/directive.ts?raw'
+import html from '/src/assets/angular/example.html?raw'
+import ts from '/src/assets/angular/example.ts?raw'
+
+
+This guide explains how to create an Angular Directive for _iframe-resizer_ using the [Framework API](/api/frameworks).
+
+## Install Framework API
+
+Install the core _iframe-resizer_ [Framework API](/api/framework) with the following command.
+
+<Install package="@iframe-resizer/core" />
+
+## Create Angular Directive
+
+Create the following directive, which expose the full _iframe-resizer_ feature set.
+
+<Code lang="ts" title="iframe-resizer-directive.js" code={directive} />
+
+## Setup on Parent Page
+
+You can then include it on your parent page as follows, using the [options](/api/parent#options) and 
+[events](/api/parent#events) as detailed in the [Parent Page API](/api/parent).
+
+<Tabs>
+  <TabItem label="HTML">
+    <Code lang="html" title="parent-page.html" code={html} />
+  </TabItem>
+  <TabItem label="TypeScript">
+    <Code lang="ts" title="parent-page.ts" code={ts} />
+  </TabItem>
+</Tabs>
+
+ - _Thanks to [Bjørn Håkon](https://github.com/bjornoss) for this example._
+   
+Setting the initial height of the iframe to `100vh` makes the loading in of
+the iframe appear smoother to the user, as they will only see the content
+below the iframe once it has completed loading and undergone it's initial
+sizing.
+
+<License />
+
+## Child page
+
+You will then need to install the [@iframe-resizer/child](/setup/child)
+package on every page in the iframe.
+
+Once everything is setup, keep an eye on the [browser console](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools),
+as _iframe-resizer_ will warn about any potential issues it detects and provide advice 
+on how to fix them. For more details on using _iframe-resizer_ see the 
+[Advanced Setup](/setup/advanced/) and [Trouble Shooting](/troubleshooting) sections 
+of this guide.
+
+<FeedbackComponent />
