@@ -57,7 +57,11 @@ document.querySelectorAll('a').forEach((a) => {
       return trackLink("Console")
 
     case href.includes("Set Theory"):
-      return trackLink("Set Theory")
+      return trackLink("Set_theory")
+
+    case href.includes("higher_order"):
+      return trackLink("High Order Function")
+
 
     case href.includes("http"):
       return trackLink(`External Link: ${href}`)
