@@ -70,6 +70,10 @@ export default defineConfig({
               link: "/setup/child",
             },
             {
+              label: "Content Guidelines",
+              link: "content_guidelines",
+            },
+            {
               label: "Advanced Setup",
               link: "/setup/advanced",
             },

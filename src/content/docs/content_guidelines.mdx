@@ -1,0 +1,54 @@
+---
+title: Iframe Content Guidelines
+description: Creating resizable content
+---
+
+import FeedbackComponent from "/src/components/Feelback.astro";
+
+When creating content for your iframe, the vast majority of pages will work without any
+changes. This page details a few minor considerations you should be aware of to avoid
+unexpected behavers.  
+
+### Footers
+
+Many websites, including this site's homepage, have page footers anchored to the bottom of 
+the page, so that the footer adapts to the size of the window. In an iframe that scales to
+it's content, these techniques are not necessary as the viewport will now come to meet the 
+footer, so it can be placed in the document, like any other content.
+
+Having a bottom floating footer is likely to prevent the iframe from being able to downsize,
+as their will always be content at the bottom of the page.
+
+If you are unable to change how your footer works, then the [Advanced Setup Guide](/setup/advanced)
+explains how you can manually select a custom page element to calculate the content size from.
+
+### Viewpoint Sizing Units
+
+When creating page content, the use of viewport sizing units (`vh`, `vw`, `vmax` and `vmin`)
+in CSS can quickly cause problems when used to size page elements in the same direction as 
+the iframe is being resized. 
+
+Ether your iframe will 
+be blocked from downsizing, as the content size is now based on the iframe size. Or potentially 
+it can cause a resizing loop, where the iframe changing size causes the content to change size,
+which then in turn triggers an update to the iframes size.
+
+### Overflowing Elements
+
+When page elements are taken out of the default document flow, or overflow the document body,
+they can potentially impact the size of the iframe and many need individually checking for
+position to calculate the content size. To mitigate having to check large numbers of page
+element, _iframe-resizer_ uses the browsers Observer APIs to reduce the `set` of checkable
+page elements as much a possible, but you should still be mindful that an excessively large
+number of overflown elements could have an impact on page performance.
+
+Enabling the `log:true` option, will output details of when overflown elements are detected
+and used to calculate the size of the iframe to the [console](https://developers.google.com/chrome-developer-tools/docs/console#opening_the_console). 
+It will detail the number of elements checked, the time taken, and the element used to
+calculate the content size.
+
+If you need to reduce the number of elements checked, then the [Advanced Setup Guide](/setup/advanced)
+details how you can manually select which page elements are used.
+
+
+<FeedbackComponent />
