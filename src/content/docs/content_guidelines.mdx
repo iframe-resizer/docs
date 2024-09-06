@@ -38,9 +38,9 @@ which then in turn triggers an update to the iframes size.
 When page elements are taken out of the default document flow, or overflow the document body,
 they can potentially impact the size of the iframe and many need individually checking for
 position to calculate the content size. To mitigate having to check large numbers of page
-element, _iframe-resizer_ uses the browsers Observer APIs to reduce the _Set_ of checkable
-page elements as much a possible, but you should still be mindful that an excessively large
-number of overflown elements could have an impact on page performance.
+element, _iframe-resizer_ uses the browsers Observer APIs to reduce the <span class="fig">Set</span>
+of checkable page elements as much a possible, but you should still be mindful that an 
+excessively large number of overflown elements could have an impact on page performance.
 
 Enabling the `log:true` option, will output details of when overflown elements are detected
 and used to calculate the size of the iframe to the [console](https://developers.google.com/chrome-developer-tools/docs/console#opening_the_console). 

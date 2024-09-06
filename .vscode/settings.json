@@ -17,5 +17,6 @@
     "vmax",
     "vmin",
     "VRVHUUQS"
-  ]
+  ],
+  "angular.enable-strict-mode-prompt": false
 }

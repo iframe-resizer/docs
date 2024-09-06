@@ -45,6 +45,13 @@ code {
   max-height: max(60vh, 512px) !important;
 }
 
+.fig {
+  font-size: 1.2em;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: oblique;
+  line-height: 1em;
+}
+
 .gitStars {
   white-space:nowrap;
   border:solid 1px var(--ir-color-primary);
