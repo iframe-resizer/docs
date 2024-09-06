@@ -45,6 +45,12 @@ code {
   max-height: max(60vh, 512px) !important;
 }
 
+code[dir="auto"]{
+  font-size: .85em;
+  /* font-weight: normal; */
+  line-height: 1em;
+}
+
 .fig {
   font-size: 1.2em;
   font-family: 'Times New Roman', Times, serif;
