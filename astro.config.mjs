@@ -8,6 +8,21 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   site: "https://iframe-resizer.com",
+  redirects: {
+    angular: "/frameworks/angular",
+    react: "/frameworks/react",
+    jquery: "/frameworks/jquery",
+    vue: "/frameworks/vue3",
+    vue2: "/frameworks/vue2",
+    vue3: "/frameworks/vue3",
+    wordpress: "/guides/wordpress",
+    perf: "/setup/advanced#performance",
+    setup: "/setup/parent",
+    "frameworks/api": "/api/framework",
+    "frameworks/overview": "/api",
+    "/examples/&quot;&gt;examples": "/examples",
+    "/upgrade&nbsp;for&nbsp;more&nbsp;details": "/upgrade",
+  },
   integrations: [
     react(),
     starlightLinksValidator(),
