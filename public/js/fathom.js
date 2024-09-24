@@ -62,7 +62,6 @@ document.querySelectorAll('a').forEach((a) => {
     case href.includes("higher_order"):
       return trackLink("High Order Function")
 
-
     case href.includes("http"):
       return trackLink(`External Link: ${href}`)
 
