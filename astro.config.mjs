@@ -22,6 +22,9 @@ export default defineConfig({
     "frameworks/overview": "/api",
     "/examples/&quot;&gt;examples": "/examples",
     "/upgrade&nbsp;for&nbsp;more&nbsp;details": "/upgrade",
+    "/pricing/n": "/pricing",
+    "/perf%3C/%3E.": "/perf",
+    "/setup/%3C/%3E": "/setup",
   },
   integrations: [
     react(),
