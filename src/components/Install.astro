@@ -11,7 +11,7 @@ export interface Props {
 const props = Astro.props;
 ---
 
-<Tabs>
+<Tabs syncKey="package-manager">
   <TabItem label="npm">
     <Code code={`npm install ${props.package} --save`} lang="bash" />
   </TabItem>
