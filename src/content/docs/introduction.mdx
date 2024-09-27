@@ -6,7 +6,7 @@ description: Keep same and cross-domain iframes sized to their content
 import FeedbackComponent from "/src/components/Feelback.astro";
 
 The _iframe-resizer_ library aims to take away the pain points with using iframes. 
-It will resize your iframe to match the size of your content and then monitor the 
+It will resize your iframe to match the exact size of your content and then monitor the 
 iframe to ensure that it is always the perfect size.
 
 ### Reliable Resizing
@@ -14,7 +14,10 @@ iframe to ensure that it is always the perfect size.
 Modern browsers still do not provide a single consistently reliable method to calculate 
 page content size. To overcome this limitation, _iframe-resizer_ automatically inspects 
 your page and selects the best value for your content every time it detects something
-changed in the page.
+changed in the page. 
+
+The iframe size is calculated using a range of browser values and when necessary 
+it falls back to using _iframe-resizer's_ own custom content size detection algorithm.
 
 ### High Performance
 
