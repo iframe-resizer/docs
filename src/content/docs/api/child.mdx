@@ -169,11 +169,13 @@ the parent page. The following example requests the properties from the parent p
 and passes a callback that logs them to the console and then disables further updates.
 
 ```js
-const disableParentProperties = 
-  parentIframe.getParentProps((parentProps) => {
-    console.log('Parent Page Props', parentProps)
-    disableParentProperties()
-  })
+function logParentProps() {
+  const disableParentProps = 
+    parentIframe.getParentProps((parentProps) => {
+      disableParentProps()
+      console.log('Parent Props:', parentProps)
+    })
+}
 ```
 
 ### scrollBy(<span class="args">x, y</span>)
