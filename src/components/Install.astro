@@ -1,6 +1,8 @@
 ---
 import { Tabs, TabItem } from "@astrojs/starlight/components"
 import { Code } from 'astro-expressive-code/components'
+import { VERSION } from "./version";
+
 export interface Props {
 	package: string;
   download: boolean;
@@ -25,7 +27,7 @@ const props = Astro.props;
     <Code code={`bun add ${props.package}`} lang="bash" />
   </TabItem> }
   {(props.cdn === true) && <TabItem label="jsDeliver">
-    <Code code={`<script src="https://cdn.jsdelivr.net/npm/${props.package}"></script>`} lang="js" />
+    <Code code={`<script src="https://cdn.jsdelivr.net/npm/${props.package}@${VERSION}"></script>`} lang="js" />
   </TabItem>}
   {(props.download === true) && <TabItem label="Download">
       <b>Download</b>  <a href="https://github.com/davidjbradshaw/iframe-resizer/raw/master/iframe-resizer.zip">
