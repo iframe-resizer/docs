@@ -4,6 +4,7 @@ description: Getting started with iframe-resizer
 ---
 
 import { Tabs, TabItem } from "@astrojs/starlight/components";
+import { Code } from 'astro-expressive-code/components'
 import Install from "/src/components/Install.astro";
 import License from "/src/components/License.astro";
 import FeedbackComponent from "/src/components/Feelback.astro";
@@ -106,7 +107,7 @@ iframeResize({ license: 'xxxx', waitForLoad: true }, '#myIframe' );
 ```
   </TabItem>
   <TabItem label="jsDeliver CDN">
-```html
+<Code code={`
 <style>
   iframe {
     width: 100%;
@@ -116,15 +117,15 @@ iframeResize({ license: 'xxxx', waitForLoad: true }, '#myIframe' );
 
 <iframe id="myIframe" src="http://anotherdomain.com/iframe.html"></iframe>
 
-// replace '@latest' below with the version you wish to use.
-<script src="https://cdn.jsdelivr.net/npm/@iframe-resizer/parent@latest"></script>
+<!-- replace '@${VERSION}' below with the version you wish to use. -->
+<script src="https://cdn.jsdelivr.net/npm/@iframe-resizer/parent@${VERSION}"></script>
 <script>
   iframeResize({ 
     license: 'xxxx',
     waitForLoad: true,
   }, '#myIframe');
 </script>
-```
+`} lang="html" />
   </TabItem>
 </Tabs>
 

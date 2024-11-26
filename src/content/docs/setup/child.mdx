@@ -5,9 +5,12 @@ next: Content Guidelines
 ---
 
 import { Tabs, TabItem } from "@astrojs/starlight/components";
+import { Code } from 'astro-expressive-code/components'
+
 import Install from "/src/components/Install.astro";
 import License from "/src/components/License.astro";
 import FeedbackComponent from "/src/components/Feelback.astro";
+import VERSION from "/src/components/version";
 
 The child page needs to load it's own JavaScript package into the iframe, in order to enable communication
 with the [parent page](/setup/parent). The **@iframe-resizer/child** package is a small self-contained
@@ -49,13 +52,13 @@ require('@iframe-resizer/child')
 ```
   </TabItem>
   <TabItem label="jsDeliver CDN">
-```html
+<Code code={`
 <script
-  src="https://cdn.jsdelivr.net/npm/@iframe-resizer/child"
+  src="https://cdn.jsdelivr.net/npm/@iframe-resizer/child@${VERSION}"
   type="text/javascript"
   async
 ></script>
-```
+`} lang="html" />
   </TabItem>
 </Tabs>
 {/* <!-- prettier-ignore-end --> */}
