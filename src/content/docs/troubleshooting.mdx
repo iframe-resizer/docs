@@ -5,58 +5,83 @@ description: Fix common issues
 
 import FeedbackComponent from "/src/components/Feelback.astro";
 
-The first steps to investigate any problem is to make sure you are using the latest version and then check the [JavaScript Console](https://developers.google.com/chrome-developer-tools/docs/console#opening_the_console). _iframe-resizer_ will output the details of any issues it detects and give advise on how to fix them.
+The first steps to investigate any problem is to make sure you are using the latest version and then check the 
+[JavaScript Console](https://developers.google.com/chrome-developer-tools/docs/console#opening_the_console). _iframe-resizer_
+will output the details of any issues it detects and give advise on how to fix them.
 
-Solutions for the most common problems are outlined in this section. If you need further help, then please ask questions on [StackOverflow](http://stackoverflow.com/questions/tagged/iframe-resizer) with the `iframe-resizer` tag.
+Solutions for the most common problems are outlined in this section. If you need further help, then please ask questions on
+[StackOverflow](http://stackoverflow.com/questions/tagged/iframe-resizer) with the `iframe-resizer` tag.
 
-Bug reports and pull requests are welcome on the [issue tracker](https://github.com/davidjbradshaw/iframe-resizer/issues). Please read the [contributing guidelines](https://github.com/davidjbradshaw/iframe-resizer/blob/master/CONTRIBUTING.md) before opening a ticket, as this will ensure a faster resolution.
+Bug reports and pull requests are welcome on the [issue tracker](https://github.com/davidjbradshaw/iframe-resizer/issues).
+Please read the [contributing guidelines](https://github.com/davidjbradshaw/iframe-resizer/blob/master/CONTRIBUTING.md)
+before opening a ticket, as this will ensure a faster resolution.
+
+### Iframe not downsizing
+
+When the iframe has difficulty downsizing the root cause will be one of two different types of CSS issue. Which can be either
+due to having absolutely positioned elements anchored to the bottom of the page, or through the use of Viewport Sizing Units.
+The [Iframe Content Guidelines](/content_guidelines) section explains both of these issues and how to mitigate them.
+
+To find out which element on the page is causing the issue, you can enable the `log` option and it will output the HTML element 
+being used to calculate the page size to the browser console, each time the page updates.
+
+```js
+iframeResize({ log: true })
+```
+
+If for some reason you are unable to fix the CSS on the page, as a fallback you can manually selected which page element
+to use for page size calculation with the `data-iframe-size` attribute. The [Advanced Setup](/setup/advanced) guide explains the
+different ways that this can be applied to the page.
+
+### IFrame not resizing
+
+The most common cause of this is not placing the [@iframe-resizer/child](/setup/child) package inside the iframed page. If 
+this does not fix the problem then check `x-Frame-Options` http header on the server that is sending the iframe content, as 
+this can also block `postMessage` calls from _iframe-resizer_ if set incorrectly.
 
 ### Multiple IFrames on one page
 
 When the resizer does not work using multiple IFrames on one page, make sure that each iframe has a unique id.
 
-### IFrame not resizing
-
-The most common cause of this is not placing the [@iframe-resizer/child](/setup/child) package inside the iframed page. If this does not fix the problem then check `x-Frame-Options` http header on the server that is sending the iframe content, as this can also block `postMessage` calls from _iframe-resizer_ if set incorrectly.
-
 ### Localhost 127.0.0.1 and file:///
 
-When an iframe is located on your local machine the browser adds extra security restrictions to cross-domain iframes. These can stop _iframe-resizer_ from functioning. If you need to test something locally, then it is best to use the external IP Address of the machine.
-
-### Iframe not downsizing
-
-The most likely cause of this problem is having set the height of an element to be 100% of the page somewhere in your CSS or having a footer element absolutely positioned on the bottom of the iframe.
-
-These issues can be fixed adding a `data-iframe-size` attribute to the element that you want to define the bottom position of the page.
+When an iframe is located on your local machine the browser adds extra security restrictions to cross-domain iframes. 
+These can stop _iframe-resizer_ from functioning. If you need to test something locally, then it is best to use the 
+external IP Address of the machine.
 
 ### Failed to execute 'postMessage' on 'DOMWindow'
 
-This error occurs when the parent window tries to send a message to the iframe before it has loaded. This library makes multiple attempts to talk to the iframe, so if everything is working then you can safely ignore this error message.
+This error occurs when the parent window tries to send a message to the iframe before it has loaded. This library makes 
+multiple attempts to talk to the iframe, so if everything is working then you can safely ignore this error message.
 
-If you're still having problems, or you really want to not ignore the error, then you can try delaying the call to `iframeResize()` until after the iframe onload event has been triggered, by setting the `waitForLoad` option to **true**.
+If you're still having problems, or you really want to not ignore the error, then you can try delaying the call to `iframeResize()` 
+until after the iframe onload event has been triggered, by setting the `waitForLoad` option to **true**.
 
 ```js
-iframeResize({ waitForLoad: true });
+iframeResize({ waitForLoad: true })
 ```
 
 ### Iframe has not responded within 5 seconds
 
 This error happens when the iframe is slow to respond, or is blocked from responding to the request from the parent page.
 
-If everything is working, then this message can be ignored, or if you prefer you can set a longer timeout. On the other hand if you are not getting a response and the child package has been loaded in the iframe, then you need to check that iframe has not been sandboxed, either by setting options on the `<iframe>` tag, or with the `x-Frame-Options` http header of the iframe.
+If everything is working, then this message can be ignored, or if you prefer you can set a longer timeout. On the other hand 
+if you are not getting a response and the child package has been loaded in the iframe, then you need to check that iframe has 
+not been sandboxed, either by setting options on the `<iframe>` tag, or with the `x-Frame-Options` http header of the iframe.
 
 ### ParentIframe not found errors
 
-The `parentIframe` object is created once the iframe has been initially resized. If you wish to use it during page load you will need call it from the [onReady()](/api/child#onready) startup event handler.
+The `parentIframe` object is created once the iframe has been initially resized. If you wish to use it during page load you 
+will need call it from the [onReady()](/api/child#onready) startup event handler.
 
 ```html
 <script>
   window.iframeResizer = {
     onReady() {
-      const myId = window.parentIframe.getId();
-      console.log("The ID of the iframe in the parent page is: " + myId);
+      const myId = window.parentIframe.getId()
+      console.log("The ID of the iframe in the parent page is: " + myId)
     },
-  };
+  }
 </script>
 ```
 
@@ -68,22 +93,26 @@ the Parent Page API to adjust how scrolling works to you own requirements.
 
 ### PDF and OpenDocument files
 
-It is not possible to add the required JavaScript to PDF and ODF files. However, you can get around this limitation by using [ViewerJS](http://viewerjs.org) to render these files inside a HTML page, that also contains the iframe [@iframe-resizer/child](/setup/child) package.
+It is not possible to add the required JavaScript to PDF and ODF files. However, you can get around this limitation 
+by using [ViewerJS](http://viewerjs.org) to render these files inside a HTML page, that also contains the iframe 
+[@iframe-resizer/child](/setup/child) package.
 
 ### Unexpected message received error
 
-By default the origin of incoming messages is checked against the `src` attribute of the iframe. If they don't match an error is thrown. This behavior can be disabled by setting the [checkOrigin](/api/parent#checkorigin) option to **false**.
+By default the origin of incoming messages is checked against the `src` attribute of the iframe. If they don't match 
+an error is thrown. This behavior can be disabled by setting the [checkOrigin](/api/parent#checkorigin) option to **false**.
 
 ```js
-iframeResize({ checkOrigin: false });
+iframeResize({ checkOrigin: false })
 ```
 
 ### Width not resizing
 
-By default only changes in height are detected, if you want to calculate the width instead then you need to set the [direction](/api/parent#direction) option to **'horizontal'**.
+By default only changes in height are detected, if you want to calculate the width instead then you need to set the 
+[direction](/api/parent#direction) option to **'horizontal'**.
 
 ```js
-iframeResize({ direction: "horizontal" });
+iframeResize({ direction: "horizontal" })
 ```
 
 <FeedbackComponent />
