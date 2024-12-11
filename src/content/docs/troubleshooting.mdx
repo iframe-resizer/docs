@@ -18,9 +18,10 @@ before opening a ticket, as this will ensure a faster resolution.
 
 ### Iframe not downsizing
 
-When the iframe has difficulty downsizing the root cause will be one of two different types of CSS issue. Which can be either
-due to having absolutely positioned elements anchored to the bottom of the page, or through the use of Viewport Sizing Units.
-The [Iframe Content Guidelines](/content_guidelines) section explains both of these issues and how to mitigate them.
+When the iframe has difficulty downsizing the root cause will normmally be one of two different types of CSS issue. The most 
+common cause is having absolutely positioned elements anchored to the bottom or left side of the page. The other common cause 
+is using Viewport or Percentage Sizing Units on the same axes that _iframe-resizer_ is controlling. The 
+[Iframe Content Guidelines](/content_guidelines) section explains both of these issues and how to mitigate them.
 
 To find out which element on the page is causing the issue, you can enable the `log` option and it will output the HTML element 
 being used to calculate the page size to the browser console, each time the page updates.
@@ -29,9 +30,9 @@ being used to calculate the page size to the browser console, each time the page
 iframeResize({ log: true })
 ```
 
-If for some reason you are unable to fix the CSS on the page, as a fallback you can manually selected which page element
-to use for page size calculation with the `data-iframe-size` attribute. The [Advanced Setup](/setup/advanced) guide explains the
-different ways that this can be applied to the page.
+If for some reason you are unable to fix the CSS on the page, as a fallback you can manually select which page element to 
+use for page size calculation with the `data-iframe-size` attribute. The [Advanced Setup](/setup/advanced) guide explains 
+the different ways that this can be applied to the page.
 
 ### IFrame not resizing
 
