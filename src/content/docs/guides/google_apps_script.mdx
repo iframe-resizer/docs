@@ -35,24 +35,21 @@ Once it has received the contained references from the GAS app iframe, these can
 be passed along to _iframe-resizer_ as follows.
 
 ```js
-window.addEventListener(
-  "message",
-  (event) => {
-    if (event.data === "gasFrame") {
-      iframeResize(
-        {
-          checkOrigin: event.origin,
-          offsetSize: 19,
-          license: "xxxx",
-          postMessageTarget: event.source,
-          waitForLoad: false,
-        },
-        "#myGasIframe"
-      )
-    }
-  },
-  false
-)
+const startIframeResizer = (event) => {
+  if (event.data ! == "gasFrame") return
+
+  const options = {
+    checkOrigin: event.origin,
+    offsetSize: 19,
+    license: "xxxx",
+    postMessageTarget: event.source,
+    waitForLoad: false,
+  }
+
+  iframeResize(options, "#myGasIframe")
+}
+
+window.addEventListener("message", startIframeResizer, false)
 ```
 
 The value for `offsetSize` may need to be adjusted based on the content of your GAS app.
