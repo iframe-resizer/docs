@@ -35,7 +35,7 @@ Once it has received the contained references from the GAS app iframe, these can
 be passed along to _iframe-resizer_ as follows.
 
 ```js
-const startIframeResizer = (event) => {
+function startIframeResizer(event) {
   if (event.data !== "gasFrame") return
 
   const options = {
