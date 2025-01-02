@@ -54,11 +54,6 @@ window.addEventListener("message", startIframeResizer, false)
 
 The value for `offsetSize` may need to be adjusted based on the content of your GAS app.
 
-The `waitForLoad` option defers sending a message to the iframe until after
-the `onload` event fires on the iframe. If their is any possibility that the
-iframe content could load before the JavaScript runs, then you should set 
-this option to **false**.
-
 <License example />
 
 Once everything is setup, keep an eye on the [browser console](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools),
