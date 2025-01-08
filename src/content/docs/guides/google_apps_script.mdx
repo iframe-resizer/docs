@@ -47,9 +47,11 @@ function startIframeResizer(event) {
   }
 
   iframeResize(options, "#myGasIframe")
+
+  window.removeEventListener("message", startIframeResizer)
 }
 
-window.addEventListener("message", startIframeResizer, false)
+window.addEventListener("message", startIframeResizer)
 ```
 
 The value for `offsetSize` may need to be adjusted based on the content of your GAS app.
