@@ -16,29 +16,47 @@ Bug reports and pull requests are welcome on the [issue tracker](https://github.
 Please read the [contributing guidelines](https://github.com/davidjbradshaw/iframe-resizer/blob/master/CONTRIBUTING.md)
 before opening a ticket, as this will ensure a faster resolution.
 
-### Iframe not downsizing
-
-When the iframe has difficulty downsizing the root cause will normmally be one of two different types of CSS issue. The most 
-common cause is having absolutely positioned elements anchored to the bottom or left side of the page. The other common cause 
-is using Viewport or Percentage Sizing Units on the same axes that _iframe-resizer_ is controlling. The 
-[Iframe Content Guidelines](/content_guidelines) section explains both of these issues and how to mitigate them.
-
-To find out which element on the page is causing the issue, you can enable the `log` option and it will output the HTML element 
-being used to calculate the page size to the browser console, each time the page updates.
-
-```js
-iframeResize({ log: true })
-```
-
-If for some reason you are unable to fix the CSS on the page, as a fallback you can manually select which page element to 
-use for page size calculation with the `data-iframe-size` attribute. The [Advanced Setup](/setup/advanced) guide explains 
-the different ways that this can be applied to the page.
-
 ### IFrame not resizing
 
 The most common cause of this is not placing the [@iframe-resizer/child](/setup/child) package inside the iframed page. If 
 this does not fix the problem then check `x-Frame-Options` http header on the server that is sending the iframe content, as 
 this can also block `postMessage` calls from _iframe-resizer_ if set incorrectly.
+
+### Iframe not downsizing
+
+There are a few different things that can cause the iframe to have difficulty downsizing when the content changes,
+the most common issues are caused by either having the browser fallback to the legacy 
+[Quirks Mode](https://developer.mozilla.org/en-US/docs/Web/HTML/Quirks_Mode_and_Standards_Mode) or a couple of 
+different CSS pattens that don't translate into a dynamically resizing webpage.
+
+#### Quirks Mode
+
+When the browser enters Quirks Mode it is unable to reliably update the size of containing elements, when the
+content in the page changes. This can prevent _iframe-resizer_ from correctly detecting that the page size has
+changed. To ensure you page is running in the modern Standards Mode, you should ensure it has the following 
+doctype and that the HTML is [valid](https://validator.w3.org/).
+
+```html
+<!doctype html>
+```
+
+#### CSS 
+
+The most common  is having **absolutely positioned elements anchored to the bottom of the page**,  or using 
+**Viewport / Percentage Sizing Units on the same axes that _iframe-resizer_ 
+is controlling**. The [Iframe Content Guidelines](/content_guidelines) section explains both of these issues
+ and how to mitigate them.
+
+To find out which element on the page is causing the issue, you can enable the `log` option and it will output
+the HTML element being used to calculate the page size to the browser console, each time the page updates.
+
+```js
+iframeResize({ log: true })
+```
+
+If for some reason you are unable to fix the CSS on the page, as a fallback you can manually select which page 
+element to use for page size calculation with the `data-iframe-size` attribute. The 
+[Advanced Setup](/setup/advanced) guide explains the different ways that this can be applied to the page.
 
 ### Multiple IFrames on one page
 
