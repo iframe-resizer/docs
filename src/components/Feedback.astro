@@ -1,11 +1,11 @@
 ---
 export interface Props {
 	name: string;
-  inital: string;
+  initial: string;
   contact?: string;
 }
 
-const { name, inital, contact } = Astro.props;
+const { name, initial, contact } = Astro.props;
 ---
 
 
@@ -16,7 +16,7 @@ const { name, inital, contact } = Astro.props;
     </p>
     <div class="flex items-center" >
     <span class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full mr-3" >
-      <span class="text-white flex h-full w-full items-center justify-center rounded-full bg-muted" style="background-color:#985d3b;border-radius: 9999px;">{inital}</span>
+      <span class="text-white flex h-full w-full items-center justify-center rounded-full bg-muted" style="background-color:#985d3b;border-radius: 9999px;">{initial}</span>
     </span>
   <div >
   <h3 class="text-gray-800 dark:text-gray-200" style="font-size:1.1rem">{name}</h3>
