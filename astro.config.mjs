@@ -27,6 +27,7 @@ export default defineConfig({
     "/pricing/n": "/pricing",
     "/perf%3C/%3E.": "/perf",
     "/setup/%3C/%3E": "/setup",
+    "quirks-mode": "/troubleshooting#iframe-not-downsizing",
   },
   integrations: [
     react(),
