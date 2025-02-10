@@ -42,10 +42,11 @@ doctype and that the HTML is [valid](https://validator.w3.org/).
 
 #### CSS 
 
-The most common  is having **absolutely positioned elements anchored to the bottom of the page**,  or using 
-**Viewport / Percentage Sizing Units on the same axes that _iframe-resizer_ 
-is controlling**. The [Iframe Content Guidelines](/content_guidelines) section explains both of these issues
- and how to mitigate them.
+Their are two CSS pattens that should be avoided in the iframe, as they will prevent the page size shrinking
+when changes are made to the content, of the window is resized. The first is having **absolutely positioned 
+elements anchored to the bottom of the page**, and the second is using **Viewport / Percentage Sizing Units 
+on the same axes that _iframe-resizer_ is controlling**. The [Iframe Content Guidelines](/content_guidelines) 
+section explains both of these issues and how to mitigate them.
 
 To find out which element on the page is causing the issue, you can enable the `log` option and it will output
 the HTML element being used to calculate the page size to the browser console, each time the page updates.
