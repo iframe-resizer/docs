@@ -19,6 +19,7 @@ export default defineConfig({
     perf: "/setup/advanced#performance",
     setup: "/setup/parent",
     getting_started: "/introduction",
+    buy: "/pricing",
     "frameworks/api": "/api/framework",
     "frameworks/overview": "/api",
     "/examples/&quot;&gt;examples": "/examples",
