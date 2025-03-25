@@ -40,12 +40,6 @@ export type iframeResizerOptions = {
   warningTimeout?: number
   onClose?(iframeId: string): void
   onClosed?(iframeId: string): void
-  onMouseEnter?(data: IFrameMouseData): void
-  onMouseLeave?(data: IFrameMouseData): void
-  onReady?(iframe: IFrameComponent): void
-  onMessage?(data: IFrameMessageData): void
-  onResized?(data: IFrameResizedData): void
-  onScroll?(data: IFrameScrollData): boolean
 }
 
 @Directive({
