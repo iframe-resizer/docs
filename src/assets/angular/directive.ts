@@ -6,7 +6,7 @@ import {
   ElementRef,
 } from "@angular/core"
 
-// @ts-ignore types declared below
+// @ts-expect-error types declared below
 import connectResizer from "@iframe-resizer/core"
 
 export type iframeResizerObject = {
