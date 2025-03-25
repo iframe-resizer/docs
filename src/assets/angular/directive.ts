@@ -6,6 +6,7 @@ import {
   ElementRef,
 } from "@angular/core"
 
+// @ts-ignore types declared below
 import connectResizer from "@iframe-resizer/core"
 
 export type iframeResizerObject = {
@@ -37,6 +38,14 @@ export type iframeResizerOptions = {
   scrolling?: boolean | "omit"
   tolerance?: number
   warningTimeout?: number
+  onClose?(iframeId: string): void
+  onClosed?(iframeId: string): void
+  onMouseEnter?(data: IFrameMouseData): void
+  onMouseLeave?(data: IFrameMouseData): void
+  onReady?(iframe: IFrameComponent): void
+  onMessage?(data: IFrameMessageData): void
+  onResized?(data: IFrameResizedData): void
+  onScroll?(data: IFrameScrollData): boolean
 }
 
 @Directive({
