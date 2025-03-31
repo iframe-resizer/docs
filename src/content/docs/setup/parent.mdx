@@ -28,12 +28,12 @@ Download and install the parent page package with one of the following options..
 ## Usage
 
 This library provided the function `iframeResize()` which accepts a config object and one or 
-more iframes. Iframes can be passed via either CSS selector or reference. All these values
+more iframes. Iframes can be passed via either CSS iframeSelector or reference. All these values
 are optional and if no iframe is provided, then it will bind _iframe-resizer_ to all iframes
 currently contained on the page.
 
 ```js
-const iframes = iframeResize( [{options}], [css selector] || [iframe] )
+const iframes = iframeResize( [{options}], [css iframeSelector] || [iframe] )
 ```
 
 Once the setup has run, an array of the iframes that have had _iframe-resizer_
@@ -65,8 +65,9 @@ to 100% and have the height scale to fit the content.
 <script>
   iframeResize({ 
     license: 'xxxx',
+    log: true,
     waitForLoad: true,
-  }, '#myIframe' );
+  }, '#myIframe' )
 </script>
 ```
   </TabItem>
@@ -84,7 +85,15 @@ to 100% and have the height scale to fit the content.
 ```js
 import iframeResize from '@iframe-resizer/parent'
 
-iframeResize({ license: 'xxxx', waitForLoad: true }, '#myIframe' );
+const options = { 
+  license: 'xxxx', 
+  log: true,
+  waitForLoad: true,
+}
+
+const iframeSelector = '#myIframe'
+
+iframeResize(options, iframeSelector)
 
 ````
 </TabItem>
@@ -101,9 +110,17 @@ iframeResize({ license: 'xxxx', waitForLoad: true }, '#myIframe' );
 ````
 
 ```js
-const iframeResize = require("@iframe-resizer/parent");
+const iframeResize = require("@iframe-resizer/parent")
 
-iframeResize({ license: 'xxxx', waitForLoad: true }, '#myIframe' );
+const options = { 
+  license: 'xxxx', 
+  log: true,
+  waitForLoad: true,
+}
+
+const selector = '#myIframe'
+
+iframeResize(options, iframeSelector)
 ```
   </TabItem>
   <TabItem label="jsDeliver CDN">
@@ -122,8 +139,9 @@ iframeResize({ license: 'xxxx', waitForLoad: true }, '#myIframe' );
 <script>
   iframeResize({ 
     license: 'xxxx',
+    log: true,
     waitForLoad: true,
-  }, '#myIframe');
+  }, '#myIframe')
 </script>
 `} lang="html" />
   </TabItem>

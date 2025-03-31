@@ -16,17 +16,7 @@ interact with _iframe-resizer_ after the initial resizing.
 
 The following options can be passed to _iframe-resizer_ on the parent page.
 
-### License
-
-```
-type:    string
-```
-
-**Commercial** Enter the key provided with the [purchased](/pricing) commercial license.
-
-**Open Source** If you are using _iframe-resizer_ on an open-source site or project, then you can use it 
-for free under the terms of the [Gnu Public License V3](/gpl). To accept these terms set the license to `GPLv3`.
-
+{/* 
 ### bodyBackground
 
 ```
@@ -55,6 +45,7 @@ type:    string || number
 
 Override the default body padding style in the iframe. A string can be any valid value for the CSS margin 
 attribute, for example '8px 3em'. A number value is converted into px.
+*/}
 
 ### checkOrigin
 
@@ -97,6 +88,29 @@ type:    boolean
 When enabled in page linking inside the iframe and from the iframe to the parent page will be enabled.
 
 <sup>*</sup> This option is available in the  Professional, Business and Open-source editions.
+
+### license
+
+```
+type:    string
+```
+
+**Commercial** Enter the key provided with the [purchased](/pricing) commercial license.
+
+**Open Source** If you are using _iframe-resizer_ on an open-source site or project, then you can use it 
+for free under the terms of the [Gnu Public License V3](/gpl). To accept these terms set the license to `GPLv3`.
+
+### log
+
+```
+default: false
+type:    boolean
+```
+
+Enable logging to the console.
+
+> _The console output uses [auto-console-log](https://www.npmjs.com/package/auto-console-group) to 
+> automatically group messages by event._
 
 ### offsetSize
 
