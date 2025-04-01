@@ -28,6 +28,18 @@ The following Settings can be set from within the iframe page by creating a `win
 
 With options that can be set in both the parent page and in the iframe, then the setting in the iframe takes preference. 
 
+### ignoreSelector
+
+```
+default: ''
+type:    string
+```
+
+Use a CSS Selector to specify which elements should be ignored when calculating the content size in the iframe.
+All descendant elements of an ignored element are also removed from the size calculation. 
+
+Alternatively you can directly add a `data-iframe-ignore` attribute to an element to achieve the same effect.
+
 ### offsetSize
 
 ```
@@ -189,6 +201,10 @@ Scroll the parent page to the coordinates x and y.
 ### scrollToOffset(<span class="args">x, y</span>)
 
 Scroll the parent page to the coordinates x and y relative to the position of the iframe.
+
+### setOffsetSize(span class="args">Number</span>)
+
+Modify the returned size of the iframe. This can be either a positive or negative value.
 
 ### sendMessage(<span class="args">message, [targetOrigin]</span>)
 
