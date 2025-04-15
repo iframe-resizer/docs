@@ -48,7 +48,11 @@ width to 100% and have the height scale to fit the content.
 
 <script src="/wp-admin/js/iframe-resizer.parent.js"></script>
 <script>
-  iframeResize({ license: 'xxxx', waitForLoad: true }, '#myIframe');
+  iframeResize({ 
+    license: 'xxxx',
+    log: 'collapsed',
+    waitForLoad: true,
+  }, '#myIframe');
 </script>
 ```
   </TabItem>

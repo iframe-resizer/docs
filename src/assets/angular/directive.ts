@@ -34,6 +34,7 @@ export type iframeResizerOptions = {
   direction?: "vertical" | "horizontal" | "none"
   inPageLinks?: boolean
   license: string
+  log?: boolean | "collapsed" | "expanded"
   offsetSize?: number
   scrolling?: boolean | "omit"
   tolerance?: number
