@@ -5,9 +5,13 @@ description: Creating resizable content
 
 import FeedbackComponent from "/src/components/Feelback.astro";
 
-When creating content for your iframe, the vast majority of pages will work without any
-changes. This page details a few minor considerations you should be aware of to avoid
-unexpected behavers.  
+On a traditional webpage it is sometimes useful to scale the content to meet
+the size of the page, however, when using _iframe-resizer_ the page is scaled to meet
+the content. This inversion of the layout sizing paradigm can occasionally create some unexpected
+results, as the content and the page both compete to adjust their size to meet the other.
+
+Whilst the vast majority of pages will work without any changes. This page details the most 
+common scenarios you should be aware of to avoid unexpected behavers.  
 
 ### Footers
 
@@ -42,7 +46,7 @@ element, _iframe-resizer_ uses the browsers Observer APIs to reduce the <span cl
 of checkable page elements as much a possible, but you should still be mindful that an 
 excessively large number of overflown elements could have an impact on page performance.
 
-Enabling the `log:true` option, will output details of when overflown elements are detected
+Enabling the `log: 'expanded'` option, will output details of when overflown elements are detected
 and used to calculate the size of the iframe to the [console](https://developers.google.com/chrome-developer-tools/docs/console#opening_the_console). 
 It will detail the number of elements checked, the time taken, and the element used to
 calculate the content size.

@@ -4,8 +4,8 @@ description: GAS Guide
 next: APIs
 ---
 
-import License from "/src/components/License.astro";
-import FeedbackComponent from "/src/components/Feelback.astro";
+import License from '/src/components/License.astro';
+import FeedbackComponent from '/src/components/Feelback.astro';
 
 The [Google Apps Script](https://www.google.com/script/start/) platform creates a nested
 iframe between your app and the page it is host on. This creates a unique challenge for
@@ -36,7 +36,7 @@ be passed along to _iframe-resizer_ as follows.
 
 ```js
 function startIframeResizer(event) {
-  if (event.data !== "gasFrame") return
+  if (event.data !== 'gasFrame') return
 
   const options = {
     checkOrigin: event.origin,
@@ -47,12 +47,12 @@ function startIframeResizer(event) {
     waitForLoad: false,
   }
 
-  iframeResize(options, "#myGasIframe")
+  iframeResize(options, '#myGasIframe')
 
-  window.removeEventListener("message", startIframeResizer)
+  window.removeEventListener('message', startIframeResizer)
 }
 
-window.addEventListener("message", startIframeResizer)
+window.addEventListener('message', startIframeResizer)
 ```
 
 The value for `offsetSize` may need to be adjusted based on the content of your GAS app.

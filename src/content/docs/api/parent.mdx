@@ -87,7 +87,7 @@ type:    boolean
 
 When enabled in page linking inside the iframe and from the iframe to the parent page will be enabled.
 
-<sup>*</sup> This option is available in the  Professional, Business and Open-source editions.
+_<sup>*</sup> This option is available in the  Professional and Business editions._
 
 ### license
 
@@ -103,14 +103,14 @@ for free under the terms of the [Gnu Public License V3](/gpl). To accept these t
 ### log
 
 ```
-default: false
-type:    boolean | 'collapsed' | 'expanded'
+type:    'collapsed' | 'expanded'
 ```
 
-Enable logging to the console.
+Enable logging to the browser [console](https://developers.google.com/chrome-developer-tools/docs/console#opening_the_console). The output can be set to either a `collapsed` or `expanded` view.
 
-> _The console output uses [auto-console-log](https://www.npmjs.com/package/auto-console-group) to 
-> automatically group messages by event._
+<Aside type="tip" title="auto-console-log">
+  To improve the readability of the log output, _iframe-resizer_ uses [auto-console-log](https://www.npmjs.com/package/auto-console-group) to automatically group messages by each frame of the event loop.
+</Aside>
 
 ### offsetSize
 
@@ -122,8 +122,7 @@ type:    integer
 Modify the computed size of the iframe. This is useful if the page in the iframe returns a size value 
 that is consistently slightly different to how you want the iframe to be sized.
 
-<sup>\*</sup> This value can also be set on a per page basis in the iframe.
-
+_<sup>\*</sup> This value can also be set on a per page basis in the iframe._
 
 ### scrolling
 
@@ -150,7 +149,7 @@ Set the number of pixels the iframe content size has to change by, before trigge
 <Aside type="caution" title="">
   You should not normally need to use this option, other than for debugging. If the iframe is in a resizing
   loop, then this is an indication that their is an issue in your CSS, which is causing the content to always
-  scale to a size larger than the current viewport.
+  scale to a size larger than the current viewport. See the [Content Guidelines](/content_guidelines) section for more details on how to resolve such issues.
 </Aside>
 
 ### waitForLoad
@@ -282,7 +281,7 @@ Disconnect _iframe-resizer_ from the iframe. This method MUST to be called, befo
 
 Move to anchor in the iframe.
 
-### resize()
+### resize(<span class="args">[height]</span>)
 
 Tell the iframe to resize itself.
 

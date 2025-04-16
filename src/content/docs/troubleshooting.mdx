@@ -16,7 +16,7 @@ Bug reports and pull requests are welcome on the [issue tracker](https://github.
 Please read the [contributing guidelines](https://github.com/davidjbradshaw/iframe-resizer/blob/master/CONTRIBUTING.md)
 before opening a ticket, as this will ensure a faster resolution.
 
-### IFrame not resizing
+### Iframe not resizing
 
 The most common cause of this is not placing the [@iframe-resizer/child](/setup/child) package inside the iframed page. If 
 this does not fix the problem then check `x-Frame-Options` http header on the server that is sending the iframe content, as 
@@ -52,16 +52,16 @@ To find out which element on the page is causing the issue, you can enable the `
 the HTML element being used to calculate the page size to the browser console, each time the page updates.
 
 ```js
-iframeResize({ log: true })
+iframeResize({ log: 'expanded' })
 ```
 
 If for some reason you are unable to fix the CSS on the page, as a fallback you can manually select which page 
 element to use for page size calculation with the `data-iframe-size` attribute. The 
 [Advanced Setup](/setup/advanced) guide explains the different ways that this can be applied to the page.
 
-### Multiple IFrames on one page
+### Multiple iframes on one page
 
-When the resizer does not work using multiple IFrames on one page, make sure that each iframe has a unique id.
+When the resizer does not work using multiple iframes on one page, make sure that each iframe has a unique id.
 
 ### Localhost 127.0.0.1 and file:///
 
@@ -109,7 +109,7 @@ will need call it from the [onReady()](/api/child#onready) startup event handler
 
 The scrolling events in _iframe-resizer_ aim to mimic how they work by default in the parent page. If this
 is not the behavior that you want, then you can use the [onScroll](/api/parent#onscroll) event handler in
-the Parent Page API to adjust how scrolling works to you own requirements.
+the [Parent Page API](/api/parent) to adjust how scrolling works to you own requirements.
 
 ### PDF and OpenDocument files
 

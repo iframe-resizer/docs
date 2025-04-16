@@ -15,7 +15,7 @@ This guide takes you through setting up the parent and then child pages in WordP
 Download the latest version of  <a href="https://github.com/davidjbradshaw/iframe-resizer/raw/master/iframe-resizer.zip">iframe-resizer.zip</a>.
 This contains three JavaScript files, for the parent page you can choose between the vanilla JS (<b>iframe-resizer.parent.js</b>) 
  and jQuery (<b>iframe-resizer.jquery.js</b>) versions. Finally the third file (<b>iframe-resizer.child.js</b>)
-needs placing in every page shown in your iframe.
+needs placing on every page shown in your iframe.
 
 You then need to upload these files to `/wp-admin/js` on your WordPress server and ensure they have public read access.
 
@@ -70,7 +70,11 @@ width to 100% and have the height scale to fit the content.
 
 <script src="/wp-admin/js/iframe-resizer.jquery.js"></script>
 <script>
-  $('#myIframe').iframeResize({ license: "xxxx", waitForLoad: true });
+  $('#myIframe').iframeResize({
+    license: 'xxxx',
+    log: 'collapsed',
+    waitForLoad: true
+  });
 </script>
 ```
   </TabItem>

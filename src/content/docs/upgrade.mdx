@@ -50,7 +50,7 @@ parent page DOM.
 The new **getParentProps** method now groups values into three objects that contain information about the containing iframe tag, the parent document object, and the parent viewport.
 
 ```js
-  // iframe.getBoundingRect()
+  // iframe.getBoundingClientRect()
   iframe: {
     width
     height
@@ -83,13 +83,13 @@ Use of the old method will trigger a deprecation warning in the console.
 
 ### The <span class="option">onInit()</span> method has been renamed to <span class="option">onReady()</span>
 
-The `onInit()` method in the Parent Page API has been deprecated in favour of `onReady()`. This brings the parent page and iframe names for this event inline with each other. 
+The `onInit()` method in the [Parent Page API](/api/parent) has been deprecated in favour of `onReady()`. This brings the parent page and iframe names for this event inline with each other. 
 
 Use of `onInit()` will trigger a deprecation warning in the console.
 
 ### The <span class="option">size()</span> method has been renamed to <span class="option">resize()</span>
 
-The `size()` method in the Child Page API has been deprecated in favour of `resize()`. This brings the child page name in line with the Parent Page API. 
+The `size()` method in the [Child Page API](/api/child) has been deprecated in favour of `resize()`. This brings the child page name in line with the Parent Page API. 
 
 Use of `size()` will trigger a deprecation warning in the console.
 
