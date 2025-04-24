@@ -42,6 +42,10 @@ Use of the old values will trigger a deprecation warning.
 
 This new option allow you to adjust the value returned by the iframe for the dimension you are resizing, it can have either a positive or negative value.
 
+### New <span class="option">onBeforeResize()</span> event
+
+The `onBeforeResize(newSize)` event allows you to modify or replace the content size value, before it is sent to the parent page. This method replaces being able to set a custom size function on `heightCalculationMethod` or `widthCalculationMethod` options in the iframe.
+
 ### New <span class="option">getParentProps()</span> method replaces <span class="option">getPageInfo()</span>
 
 The `getPageInfo()` method as been deprecated in favor of the new `getParentProps()` method. Since it was first added to _iframe-resizer_ **getPageInfo** has been extended and extended and become a mishmash of properties from the 

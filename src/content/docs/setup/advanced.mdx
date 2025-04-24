@@ -12,8 +12,9 @@ it might need a little help.
 
 ## Custom page size
 
-The following three options allow you to adjust how the content size is calculated by targeting
-which page elements are used in the calculations and then adjusting the returned value.
+The following options allow you to adjust how the content size is calculated by 
+targeting which page elements are used in the calculations and then adjusting 
+the returned value.
 
 ### <span class="option">data-iframe-size</span>
 
@@ -31,8 +32,13 @@ ensure this setting remains up to date.
 
 ### <span class="option">offsetSize</span>
 
-Available in both the Parent and Child pages, this option allows you to adjust the
-calculated page size. It can be provide with a positive or negative value.
+Available in both the Parent and Child pages, this option allows you to adjust
+the calculated page size. It can be provide with a positive or negative value.
+
+### <span class="option">onBeforeResize()</span>
+
+The `onBeforeResize(newSize)` event allows you to modify or replace the content
+size value, before it is sent to the parent page.
 
 ## Performance
 

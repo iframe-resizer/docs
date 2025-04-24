@@ -94,14 +94,21 @@ The following events can be included in the [Settings](#settings) object attache
 </script>
 ```
 
-### onMessage
+### onBeforeResize(<span class="args">newSize</span>)
+```js
+onBeforeResize: (newSize) => Number
+```
+
+This function is called after the page size is recalculated and the new value is passed in. This allows you to modify the value or substitute it with your own value. If the returned value is different from the current iframe size, a message to update the size will be sent to the parent page.
+
+### onMessage(<span class="args">message</span>)
 ```js
 onMessage: (message) => void
 ```
 
 Receive message posted from the parent page with the `iframe.iframeResizer.sendMessage()` method.
 
-### onReady
+### onReady()
 ```js
 onReady: () => void
 ```
