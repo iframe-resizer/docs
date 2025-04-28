@@ -16,7 +16,9 @@ In addition to this, _iframe-resizer 5_ contains a number of other improvements 
 
 The main change has been to split the single package that contained both the parent and child JavaScript files into two separate packages, called `@iframe-resizer/parent` and `@iframe-resizer/child`. The jQuery plugin has also been split out into `@iframe-resizer/jquery` and the React version renamed to `@iframe-resizer/react`.
 
-These new packages are designed to be drop in replacements for the previous version and in most situations will work without further code changes. Where the API has changed, the deprecated feature will trigger a waring in the browser console with advise on how to update your code.
+These new packages are designed to be drop in replacements for the previous version and in most situations will work without further code changes. The parent and child pages can be upgraded independently from one another, as both packages are backwards compatible with previous versions.
+
+Where the API has changed, the deprecated feature will trigger a waring in the browser console with advise on how to update your code.
 
 ## API Changes
 
