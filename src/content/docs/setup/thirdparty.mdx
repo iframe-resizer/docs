@@ -1,0 +1,33 @@
+---
+title: Third Party Parent Pages
+description: Setting up your iframe on a third party website
+---
+
+import { Code } from '@astrojs/starlight/components'
+
+import FeedbackComponent from "/src/components/Feelback.astro"
+import loader from '/src/assets/third-party/load-iframe.js?raw'
+
+Creating a resizable iframe for use on third party or client website is a common use case for _iframe-resizer_.
+
+#### Create Script
+The recommended approach is to host a JS file on your site, based on the following example javascript. This code will create your iframe and then configure _iframe-resizer_.
+
+<Code lang="ts" title="load-iframe.js" code={loader} />
+
+This approach simplifies the setup for your client sites and allows you to control the version of 
+_iframe-resizer_ in use on both the parent and child pages in the future.
+
+It is recommend that you minify this code using either [Terser](https://terser.org/) or 
+[UglifyJS](https://skalman.github.io/UglifyJS-online/).
+
+#### Include Script
+
+Once you have deployed the above script to your server, you can then ask external client websites to simply include the following on their page, at the location they wish to place the iframe.
+
+```html
+<script async src="https://your-domain.com/load-iframe.js">
+```
+ This will then create the iframe and configure _iframe-resizer_ on their page.
+
+<FeedbackComponent />

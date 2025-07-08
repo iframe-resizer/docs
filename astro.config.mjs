@@ -96,6 +96,10 @@ export default defineConfig({
               link: "content_guidelines",
             },
             {
+              label: "Third Party Parent Page",
+              link: "/setup/thirdparty",
+            },
+            {
               label: "Advanced Setup",
               link: "/setup/advanced",
             },
