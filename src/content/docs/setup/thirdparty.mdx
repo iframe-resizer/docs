@@ -9,9 +9,12 @@ import FeedbackComponent from "/src/components/Feelback.astro"
 import loader from '/src/assets/third-party/load-iframe.js?raw'
 
 Creating a resizable iframe for use on third party or client website is a common use case for _iframe-resizer_.
+This page guides you through how to setup this up in a way that allows you to control how _iframe-resizer_ runs
+after it has been included on another parties website.
 
 #### Create Script
-The recommended approach is to host a JS file on your site, based on the following example javascript. This code will create your iframe and then configure _iframe-resizer_.
+The recommended approach is to host a JS file on your site, based on the following example javascript. 
+This code will create your iframe and then configure _iframe-resizer_.
 
 <Code lang="ts" title="load-iframe.js" code={loader} />
 
@@ -23,7 +26,8 @@ It is recommend that you minify this code using either [Terser](https://terser.o
 
 #### Include Script
 
-Once you have deployed the above script to your server, you can then ask external client websites to simply include the following on their page, at the location they wish to place the iframe.
+Once you have deployed the above script to your server, you can then ask external client websites
+to simply include the following on their page, at the location they wish to place the iframe.
 
 ```html
 <script async src="https://your-domain.com/load-iframe.js">
