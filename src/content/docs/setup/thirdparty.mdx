@@ -1,20 +1,24 @@
 ---
-title: Third Party Parent Pages
-description: Setting up your iframe on a third party website
+title: Use With Third Party Websites
+description: Setting up your iframe on a third party websites
 ---
 
-import { Code } from '@astrojs/starlight/components'
+import { Tabs, TabItem } from '@astrojs/starlight/components'
+import { Code } from 'astro-expressive-code/components'
 
 import FeedbackComponent from "/src/components/Feelback.astro"
 import loader from '/src/assets/third-party/load-iframe.js?raw'
+import VERSION from "/src/components/version"
 
-Creating a resizable iframe for use on third party or client website is a common use case for _iframe-resizer_.
-This page guides you through how to setup this up in a way that allows you to control how _iframe-resizer_ runs
-after it has been included on another parties website.
+The _iframe-resizer_ library has been designed to be a zero impact guest on third party or client websites.
+This page guides you through how to setup _iframe-resizer_ in a way that allows you to control how the library
+runs after it has been included on another parties website.
 
-#### Create Script
+## Parent Page
+
+### Create Script
 The recommended approach is to host a JS file on your site, based on the following example javascript. 
-This code will create your iframe and then configure _iframe-resizer_.
+This code will create your iframe, then load and configure _iframe-resizer_.
 
 <Code lang="ts" title="load-iframe.js" code={loader} />
 
@@ -24,14 +28,54 @@ _iframe-resizer_ in use on both the parent and child pages in the future.
 It is recommend that you minify this code using either [Terser](https://terser.org/) or 
 [UglifyJS](https://skalman.github.io/UglifyJS-online/).
 
-#### Include Script
+### Include Script
 
 Once you have deployed the above script to your server, you can then ask external client websites
 to simply include the following on their page, at the location they wish to place the iframe.
 
+{/* <!-- prettier-ignore-start --> */}
+
+<Tabs>
+  <TabItem label="HTML">
 ```html
 <script async src="https://your-domain.com/load-iframe.js">
 ```
+  </TabItem>
+
+</Tabs>
+{/* <!-- prettier-ignore-end --> */}
  This will then create the iframe and configure _iframe-resizer_ on their page.
+
+## Child Page
+
+When displaying a third party iframe on your own site. You just need to ask the provider to include the child package 
+anywhere on each of their webpages that you are displaying in your iframe. This can be either from your website, or 
+_jsDeliver_. Self hosting this script has the advantage that you can upgrade to a future version without having to
+have the other party make changes to their site.
+
+{/* <!-- prettier-ignore-start --> */}
+
+<Tabs>
+  <TabItem label="HTML">
+```html
+<script
+  src="https://your-site.com/node_modules/@iframe-resizer/child/index.umd.js"
+  async  
+></script>
+```
+  </TabItem>
+  <TabItem label="jsDeliver CDN">
+<Code code={`
+<script
+  src="https://cdn.jsdelivr.net/npm/@iframe-resizer/child@${VERSION}"
+  async
+></script>
+`} lang="html" />
+  </TabItem>
+</Tabs>
+{/* <!-- prettier-ignore-end --> */}
+
+The child package is designed to be a good guest on the sites that host it. As such it will not initialize until
+having first received a message from the parent page.
 
 <FeedbackComponent />
