@@ -20,6 +20,7 @@ export default defineConfig({
     setup: "/setup/parent",
     getting_started: "/introduction",
     buy: "/pricing",
+    "/setup/thirdparty": "/setup/third_party",
     "frameworks/api": "/api/framework",
     "frameworks/overview": "/api",
     "/examples/&quot;&gt;examples": "/examples",
