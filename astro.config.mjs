@@ -97,7 +97,7 @@ export default defineConfig({
             },
             {
               label: "Use With Third Party Sites",
-              link: "/setup/thirdparty",
+              link: "/setup/third_party",
             },
             {
               label: "Advanced Setup",
