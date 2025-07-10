@@ -62,21 +62,12 @@ an array of URLs or disable this option.
 
 ```
 default: 'vertical'
-values: 'horizontal' || 'vertical' || 'none'
+values: 'vertical' || 'horizontal' || 'both' || 'none'
 ```
 
 Set the direction in which you want the iframe to automatically scale to the content size.
 
-<Aside type="tip" title="Horizontal Resizing">
-  When setting the direction to `horizontal` it is best to avoid floating or
-  positioning elements to the right side of the page, as this can interfere with
-  working out the content width.
-
-If you must have elements on the right of the page, then you may need to tell
-_iframe-resizer_ which page element to use to calculated the width by adding a `data-iframe-size`
-attribute.
-
-</Aside>
+When setting this option, you may need to tell _iframe-resizer_ which page element to use to calculated the content size by adding a [`data-iframe-size`](/setup/advanced#data-iframe-size) attribute.
 
 ### inPageLinks
 
