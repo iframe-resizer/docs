@@ -20,7 +20,7 @@ the returned value.
 
 By adding a `data-iframe-size` attribute to any HTML element on the page, you can tell
 _iframe-resizer_ to use that element to calculate the page size. Where their is more
-than one element with the attribute, then the element with the largest value will be
+than one element with this attribute, the element with the largest value will be
 used.
 
 ### <span class="option">sizeSelector</span>
@@ -33,7 +33,7 @@ ensure this setting remains up to date.
 ### <span class="option">offsetSize</span>
 
 Available in both the Parent and Child pages, this option allows you to adjust
-the calculated page size. It can be provide with a positive or negative value.
+the calculated page size. It can be used with either a positive or negative value.
 
 ### <span class="option">onBeforeResize()</span>
 
@@ -48,7 +48,7 @@ The most common use cases for this are Overlays and Modal Backdrops.
 ### <span class="option">data-iframe-ignore</span>
 
 Adding a `data-iframe-ignore` attribute to any HTML element on the page, will remove
-the element and its descendants from the <span class="fig">Set</span> of overflown 
+that element and all it's descendants from the <span class="fig">Set</span> of overflown 
 elements that have their size monitored by _iframe-resizer_.
 
 ### <span class="option">ignoreSelector</span>
