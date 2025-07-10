@@ -69,6 +69,10 @@ Set the direction in which you want the iframe to automatically scale to the con
 
 When setting this option, you may need to tell _iframe-resizer_ which page element to use to calculated the content size by adding a [`data-iframe-size`](/setup/advanced#data-iframe-size) attribute.
 
+<Aside type="tip">
+  In most cases you should configure one of the dimensions of the iframe to a percentage size and let this library update the other dimension. Selecting the `both` option will require you to manually control the size of your content in order to avoid unexpected results.
+</Aside>
+
 ### inPageLinks
 
 ```
