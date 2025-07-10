@@ -40,6 +40,24 @@ the calculated page size. It can be provide with a positive or negative value.
 The `onBeforeResize(newSize)` event allows you to modify or replace the content
 size value, before it is sent to the parent page.
 
+## Ignoring page elements
+
+Occasionally it can be useful to ignore page elements from the page size calculation.
+The most common use cases for this are Overlays and Modal Backdrops.
+
+### <span class="option">data-iframe-ignore</span>
+
+Adding a `data-iframe-ignore` attribute to any HTML element on the page, will remove
+the element and its descendants from the <span class="fig">Set</span> of overflown 
+elements that have their size monitored by _iframe-resizer_.
+
+### <span class="option">ignoreSelector</span>
+
+This option can be set via the [Child Page API settings](/api/child#settings)
+and allows you to use a CSS Selector to add the `data-iframe-ignore` attribute
+to elements on the page. When the page content changes, this will be rerun to
+ensure this setting remains up to date.
+
 ## Performance
 
 If _iframe-resizer_ gives you a warning about performance, then the first two
