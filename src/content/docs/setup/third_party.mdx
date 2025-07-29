@@ -14,11 +14,23 @@ The _iframe-resizer_ library has been designed to be a zero impact guest on thir
 This page guides you through how to setup _iframe-resizer_ in a way that allows you to control how the library
 runs after it has been included on another party's website.
 
-## Parent Page
+## Sharing an iframe with third parties
 
-### Create Script
-The recommended approach is to host a JS file on your site, based on the following example javascript. 
-This code will create your iframe, then load and configure _iframe-resizer_.
+This is a quick setup guide that details how to create a simple javascript file that you can share with
+third parties that wish to include you iframe on their own sites. This approach allows you to update
+how iframe-resizer is configured, without having to go back to your clients and ask them to make changes
+to their sites.
+
+### License
+
+Set the license key in your pages displayed in the iframe. This will need to be included alongside the [child page](/setup/child) javascript file.
+
+```js
+window.iframeResizer = { license: "xxxx" }
+```
+
+### Create setup script
+This code will create your iframe with the link to your content, then load and configure _iframe-resizer_.
 
 <Code lang="ts" title="load-iframe.js" code={loader} />
 
@@ -28,7 +40,7 @@ _iframe-resizer_ in use on both the parent and child pages in the future.
 It is recommend that you minify this code using either [Terser](https://terser.org/) or 
 [UglifyJS](https://skalman.github.io/UglifyJS-online/).
 
-### Include Script
+### Share the script
 
 Once you have deployed the above script to your server, you can then ask external client websites
 to simply include the following on their page, at the location they wish to place the iframe.
@@ -46,10 +58,12 @@ to simply include the following on their page, at the location they wish to plac
 {/* <!-- prettier-ignore-end --> */}
  This will then create the iframe and configure _iframe-resizer_ on their page.
 
-## Child Page
+## Include third party content on your site
 
 When displaying a third party iframe on your own site. You just need to ask the provider to include the child package 
-anywhere on each of their webpages that you are displaying in your iframe. This can be either from your website, or 
+anywhere on each of their webpages that you are displaying in your iframe. 
+
+This can be either from your website, or 
 _jsDeliver_. Self hosting this script has the advantage that you can upgrade to a future version without having to
 have the other party make changes to their site.
 

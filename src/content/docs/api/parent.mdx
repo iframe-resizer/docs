@@ -98,6 +98,11 @@ type:    string
 **Open Source** If you are using _iframe-resizer_ on an open-source site or project, then you can use it 
 for free under the terms of the [Gnu Public License V3](/gpl). To accept these terms set the license to `GPLv3`.
 
+<Aside type="tip">
+  This field can also be set on the [Child Page](/api/child#license). Which is useful when you have third-parties
+  hosting your iframe on their own sites.
+</Aside>
+
 ### log
 
 ```
@@ -106,7 +111,7 @@ type:    'collapsed' | 'expanded'
 
 Enable logging to the browser [console](https://developers.google.com/chrome-developer-tools/docs/console#opening_the_console). The output can be set to either a `collapsed` or `expanded` view.
 
-<Aside type="tip" title="auto-console-log">
+<Aside type="tip">
   To improve the readability of the log output, _iframe-resizer_ uses [auto-console-log](https://www.npmjs.com/package/auto-console-group) to automatically group messages by each frame of the event loop.
 </Aside>
 
@@ -177,19 +182,19 @@ suppress warning messages of this type.
 The following callback events can be passed to _iframe-resizer_ on the parent page, as part of the 
 [options](#options) object.
 
-### onClose
+### onBeforeClose
 
 ```js
-onClose: (iframeID) => boolean
+onBeforeClose: (iframeID) => boolean
 ```
 
 Called before the iframe is closed via `parentIframe.close()` method. Returning `false` will prevent the iframe 
 from closing.
 
-### onClosed
+### onAfterClose
 
 ```js
-onClosed: (iframeID) => void
+onAfterClose: (iframeID) => void
 ```
 
 Called after the iframe is closed via `parentIframe.close()` method.

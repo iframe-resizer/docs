@@ -5,7 +5,6 @@
   const site = 'https://your-domain.com'
   const content = 'iframe-content.html'
   const parentScript = 'node_modules/@iframe-resizer/parent/index.umd.min.js'
-  const license = 'your license key'
 
   // Create the iframe
   const iframe = document.createElement('iframe')
@@ -14,7 +13,7 @@
   iframe.style.height = height
 
   // Prepare options for iframe-resizer
-  const options = { license, log, waitForLoad: true }
+  const options = { log, waitForLoad: true }
 
   // Load iframe-resizer parent script
   const script = document.createElement('script')
