@@ -42,7 +42,7 @@
 }
 
 code {
-  max-height: max(60vh, 512px) !important;
+  max-height: max(62vh, 512px) !important;
 }
 
 code[dir="auto"]{

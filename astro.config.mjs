@@ -93,12 +93,12 @@ export default defineConfig({
               link: "/setup/child",
             },
             {
-              label: "Content Guidelines",
-              link: "content_guidelines",
-            },
-            {
               label: "Use With Third Party Sites",
               link: "/setup/third_party",
+            },
+            {
+              label: "Content Guidelines",
+              link: "content_guidelines",
             },
             {
               label: "Advanced Setup",
