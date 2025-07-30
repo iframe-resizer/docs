@@ -182,6 +182,14 @@ suppress warning messages of this type.
 The following callback events can be passed to _iframe-resizer_ on the parent page, as part of the 
 [options](#options) object.
 
+### onAfterClose
+
+```js
+onAfterClose: (iframeID) => void
+```
+
+Called after the iframe is closed via `parentIframe.close()` method.
+
 ### onBeforeClose
 
 ```js
@@ -190,14 +198,6 @@ onBeforeClose: (iframeID) => boolean
 
 Called before the iframe is closed via `parentIframe.close()` method. Returning `false` will prevent the iframe 
 from closing.
-
-### onAfterClose
-
-```js
-onAfterClose: (iframeID) => void
-```
-
-Called after the iframe is closed via `parentIframe.close()` method.
 
 ### onMessage
 
