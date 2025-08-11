@@ -1,5 +1,5 @@
 ---
-title: Use With Third Party Websites
+title: Sharing an iframe
 description: Setting up your iframe on a third party websites
 ---
 
@@ -8,14 +8,7 @@ import { Code } from 'astro-expressive-code/components'
 
 import FeedbackComponent from "/src/components/Feelback.astro"
 import loader from '/src/assets/third-party/load-iframe.js?raw'
-import guest from '/src/assets/third-party/guest-iframe.js?raw'
 import VERSION from "/src/components/version"
-
-This page guides you through how to setup _iframe-resizer_ in a way that allows you to control how the library
-runs after it has been included on another party's website. You can use _iframe-resizer_ to either include
-third party content on your own site, or share you content in an iframe on other parties sites.
-
-## Sharing an iframe with third parties
 
 This is a quick setup guide that details how to create a simple javascript file that you can share with
 third parties that wish to include you iframe on their own sites. 
@@ -33,7 +26,7 @@ Set the license key in your pages displayed in the iframe. This will need to be 
 window.iframeResizer = { license: 'xxxx' }
 ```
 
-### Create setup script
+### Create a setup script
 This code will create your iframe with the link to your content, then load and configure _iframe-resizer_.
 
 <Code lang="ts" title="load-iframe.js" code={loader} />
@@ -41,7 +34,7 @@ This code will create your iframe with the link to your content, then load and c
 It is recommend that you minify this code using either [Terser](https://terser.org/) or 
 [UglifyJS](https://skalman.github.io/UglifyJS-online/).
 
-### Share the script
+### Share the setup script
 
 Once you have deployed the above script to your server, you can then ask external client websites
 to simply include the following on their page, at the location they wish to place the iframe.
@@ -58,36 +51,3 @@ to simply include the following on their page, at the location they wish to plac
 </Tabs>
 {/* <!-- prettier-ignore-end --> */}
  This will then create the iframe and configure _iframe-resizer_ on their page.
-
-## Include third party content on your site
-
-When displaying a third party iframe on your own site. You just need to ask the provider to include the child package 
-anywhere on each of their webpages that you are displaying in your iframe. 
-
-### Create setup script
-This code will create your iframe with the link to your content, then load and configure _iframe-resizer_.
-
-<Code lang="ts" title="guest-iframe.js" code={guest} />
-
-### Share the script
-
-Once you have deployed the above script to your server, you can then ask external client websites
-to simply include the following on their page, at the location they wish to place the iframe.
-
-{/* <!-- prettier-ignore-start --> */}
-
-<Tabs>
-  <TabItem label="HTML">
-```html
-<script async src="https://your-domain.com/guest-iframe.js">
-```
-  </TabItem>
-
-</Tabs>
-{/* <!-- prettier-ignore-end --> */}
-
-The child package is designed to be a good guest on the sites that host it. As such it will not initialize until
-having first received a message from the parent page.
-
-
-<FeedbackComponent />

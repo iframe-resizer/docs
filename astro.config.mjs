@@ -92,10 +92,10 @@ export default defineConfig({
               label: "Setup Child Page",
               link: "/setup/child",
             },
-            {
-              label: "Use With Third Party Sites",
-              link: "/setup/third_party",
-            },
+            // {
+            //   label: "Use With Third Party Sites",
+            //   link: "/setup/third_party",
+            // },
             {
               label: "Content Guidelines",
               link: "content_guidelines",
@@ -115,6 +115,19 @@ export default defineConfig({
             {
               label: "Upgrade to V5",
               link: "upgrade",
+            },
+          ],
+        },
+        {
+          label: "Use With Third Party Sites",
+          items: [
+            {
+              label: "Share an iframe",
+              link: "/third_party/share",
+            },
+            {
+              label: "Include an iframe",
+              link: "/third_party/include",
             },
           ],
         },

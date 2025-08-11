@@ -1,0 +1,49 @@
+---
+title: Include an iframe
+description: Setting up your iframe on a third party websites
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components'
+import { Code } from 'astro-expressive-code/components'
+
+import FeedbackComponent from "/src/components/Feelback.astro"
+import include from '/src/assets/third-party/include-iframe.js?raw'
+import VERSION from "/src/components/version"
+
+This is a quick setup guide that details how to create a simple javascript file that you can share with
+third parties that are providing your site with their iframe. 
+
+This approach simplifies the setup for your supplier site and allows you to control the version of _iframe-resizer_ 
+in use on both the parent and child pages in the future, without having to go back to your supplier and ask them to
+ make changes to their site.
+
+When displaying a third party iframe on your own site. You just need to ask the provider to include the following
+script on every page they present in the iframe.
+
+### Create a setup script
+This code will create your iframe with the link to your content, then load and configure _iframe-resizer_.
+
+<Code lang="ts" title="include-iframe.js" code={include} />
+
+### Share the setup script
+
+Once you have deployed the above script to your server, you can then ask external supplier websites
+to simply include the following on their page, at the location they wish to place the iframe.
+
+{/* <!-- prettier-ignore-start --> */}
+
+<Tabs>
+  <TabItem label="HTML">
+```html
+<script async src="https://your-domain.com/include-iframe.js">
+```
+  </TabItem>
+
+</Tabs>
+{/* <!-- prettier-ignore-end --> */}
+
+The child package is designed to be a good guest on the sites that host it. As such it will not initialize until
+having first received a message from the parent page.
+
+
+<FeedbackComponent />
