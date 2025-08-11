@@ -1,0 +1,1 @@
+import"./hoisted.DN8xFvYr.js";const{backgroundColor:o}=top.getComputedStyle(top.document.body),{style:t}=window.document.getElementById("outer");t.borderColor=o;document.body.style.background=`${o} !important`;

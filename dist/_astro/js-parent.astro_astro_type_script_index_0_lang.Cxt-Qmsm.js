@@ -1,0 +1,1 @@
+const o=/^((?!chrome|android).)*safari/i.test(navigator.userAgent),i=o?2:0,e=getComputedStyle(document.body).backgroundColor;window.iframeResize({log:!0,license:"GPLv3",bodyBackground:e,direction:"horizontal",tolerance:i},"#horizontal");window.iframeResize({log:!0,license:"GPLv3",bodyBackground:e,offsetSize:-2},".vertical");
