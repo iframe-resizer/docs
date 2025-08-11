@@ -3,7 +3,7 @@ import starlight from "@astrojs/starlight";
 import starlightLinksValidator from "starlight-links-validator";
 import react from "@astrojs/react";
 
-import tailwind from "@astrojs/tailwind";
+// import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
@@ -34,10 +34,10 @@ export default defineConfig({
   integrations: [
     react(),
     starlightLinksValidator(),
-    tailwind({
-      // Disable the default base styles:
-      applyBaseStyles: false,
-    }),
+    // tailwind({
+    //   // Disable the default base styles:
+    //   applyBaseStyles: false,
+    // }),
     starlight({
       head: [
         // Fathom analytics script tag.
@@ -69,9 +69,12 @@ export default defineConfig({
         Head: "./src/components/Head.astro",
         SocialIcons: "./src/components/socials.astro",
       },
-      social: {
-        github: "https://github.com/davidjbradshaw/iframe-resizer",
-      },
+      social: [
+        { icon: 'github', label: 'GitHub', href: 'https://github.com/davidjbradshaw/iframe-resizer' }
+      ],
+      // social: {
+      //   github: "https://github.com/davidjbradshaw/iframe-resizer",
+      // },
       sidebar: [
         {
           label: "Getting Started",
