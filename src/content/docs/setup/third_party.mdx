@@ -8,7 +8,7 @@ import { Code } from 'astro-expressive-code/components'
 
 import FeedbackComponent from "/src/components/Feelback.astro"
 import loader from '/src/assets/third-party/load-iframe.js?raw'
-import guest from '/src/assets/third-party/guest-iframe.js?raw'
+import include from '/src/assets/third-party/include-iframe.js?raw'
 import VERSION from "/src/components/version"
 
 This page guides you through how to setup _iframe-resizer_ in a way that allows you to control how the library
@@ -67,7 +67,7 @@ anywhere on each of their webpages that you are displaying in your iframe.
 ### Create setup script
 This code will create your iframe with the link to your content, then load and configure _iframe-resizer_.
 
-<Code lang="ts" title="guest-iframe.js" code={guest} />
+<Code lang="ts" title="include-iframe.js" code={include} />
 
 ### Share the script
 
