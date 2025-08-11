@@ -1,18 +1,17 @@
 ---
-import type { Props } from '@astrojs/starlight/props'
-import Default from '@astrojs/starlight/components/Head.astro'
+import type { StarlightRouteData } from '@astrojs/starlight/route-data';
+import Default from '@astrojs/starlight/components/Head.astro';
 
-// Get the URL of the generated image for the current page using its
-// ID and replace the file extension with `.png`.
+// Get the URL of the generated image for the current page using starlightRoute.id
 const ogImageUrl = new URL(
-  `/og/${Astro.props.id.replace(/\.\w+$/, '.png').replace(/^\./, 'index.')}`.replace(/\/\./, '/index.'),
+  `/og/${Astro.locals.starlightRoute.id.replace(/\.\w+$/, '.png').replace(/^\./, 'index.')}`.replace(/\/\./, '/index.'),
   Astro.site,
-)
+);
 ---
 
-<!-- Render the default <Head/> component. -->
-<Default {...Astro.props}><slot /></Default>
+<!-- Render the default Starlight Head component -->
+<Default><slot /></Default>
 
-<!-- Render the <meta/> tags for the Open Graph images. -->
+<!-- Add Open Graph and Twitter meta tags -->
 <meta property="og:image" content={ogImageUrl} />
 <meta name="twitter:image" content={ogImageUrl} />
