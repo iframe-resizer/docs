@@ -278,7 +278,7 @@ body h3{
 
 
 .feelback-container {
-    margin: -2rem auto;
+    margin: 1ex auto -2em;
     --max-width: 400px !important;
     position: relative;
     top: 1.2rem;
