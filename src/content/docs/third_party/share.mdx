@@ -1,5 +1,5 @@
 ---
-title: Sharing an iframe
+title: Sharing an iframe with third parties
 description: Setting up your iframe on a third party websites
 ---
 
@@ -8,7 +8,7 @@ import { Code } from 'astro-expressive-code/components'
 
 import FeedbackComponent from "/src/components/Feelback.astro"
 import loader from '/src/assets/third-party/load-iframe.js?raw'
-import VERSION from "/src/components/version"
+import config from '/src/assets/third-party/config.js?raw'
 
 This is a quick setup guide that details how to create a simple javascript file that you can share with
 third parties that wish to include you iframe on their own sites. 
@@ -19,12 +19,11 @@ in use on both the parent and child pages in the future, without having to go ba
 
 ### License
 
-Set the license key in your pages displayed in the iframe. This will need to be included alongside the
-[child page](/setup/child) javascript file.
+Set the _License Key_, along side any other _Settings_ and _Events_ you wish to use from the 
+[Child Page API](/api/child).  This will need to be included alongside the
+[child page](/setup/child) javascript file on every page you display in the iframe.
 
-```js
-window.iframeResizer = { license: 'xxxx' }
-```
+<Code lang="ts" title="config.js" code={config} />
 
 ### Create a setup script
 This code will create your iframe with the link to your content, then load and configure _iframe-resizer_.
@@ -51,3 +50,5 @@ to simply include the following on their page, at the location they wish to plac
 </Tabs>
 {/* <!-- prettier-ignore-end --> */}
  This will then create the iframe and configure _iframe-resizer_ on their page.
+
+<FeedbackComponent />
