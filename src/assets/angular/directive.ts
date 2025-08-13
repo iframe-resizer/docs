@@ -99,7 +99,8 @@ export class IframeResizerDirective {
 
       onClose: (iframeID: any) => {
         console.warn(
-          `[iframe-resizer/angular][${this.elementRef.nativeElement?.id}] Close event ignored, to remove the iframe update your Angular component.`
+          `[iframe-resizer/angular][${this.elementRef.nativeElement?.id}]`,
+          'Close event ignored, to remove the iframe update Angular component'
         )
         return false
       },

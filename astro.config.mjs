@@ -2,8 +2,8 @@ import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import starlightLinksValidator from "starlight-links-validator";
 import react from "@astrojs/react";
+import tailwindcss from "@tailwindcss/vite";
 
-import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
@@ -20,7 +20,8 @@ export default defineConfig({
     setup: "/setup/parent",
     getting_started: "/introduction",
     buy: "/pricing",
-    "/setup/thirdparty": "/setup/third_party",
+    "/setup/thirdparty": "/third_party/share",
+    "/setup/third_party": "/third_party/share",
     "frameworks/api": "/api/framework",
     "frameworks/overview": "/api",
     "/examples/&quot;&gt;examples": "/examples",
@@ -31,13 +32,12 @@ export default defineConfig({
     "/setup/%3C/%3E": "/setup",
     "quirks-mode": "/troubleshooting#iframe-not-downsizing",
   },
+  vite: {
+    plugins: [tailwindcss()],
+  },
   integrations: [
     react(),
     starlightLinksValidator(),
-    tailwind({
-      // Disable the default base styles:
-      applyBaseStyles: false,
-    }),
     starlight({
       head: [
         // Fathom analytics script tag.
@@ -64,14 +64,23 @@ export default defineConfig({
         src: "/public/logo.svg",
         // alt: "iframe-resizer",
       },
-      customCss: ["./src/styles/theme.css", "@fontsource/audiowide/400.css"],
+      customCss: [
+        "./src/styles/tailwind.css",
+        "./src/styles/theme.css",
+        "./src/styles/utils.css",
+        "@fontsource/audiowide/400.css",
+      ],
       components: {
         Head: "./src/components/Head.astro",
         SocialIcons: "./src/components/socials.astro",
       },
-      social: {
-        github: "https://github.com/davidjbradshaw/iframe-resizer",
-      },
+      social: [
+        {
+          icon: "github",
+          label: "GitHub",
+          href: "https://github.com/davidjbradshaw/iframe-resizer",
+        },
+      ],
       sidebar: [
         {
           label: "Getting Started",

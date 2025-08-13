@@ -6,6 +6,11 @@ import Contact from '../components/Contact.astro';
 import Faq from '../components/Faq.astro';
 import Footer from '../components/Footer.astro';
 
+import "../styles/global.css";
+import "../styles/tailwind.css";
+import "../styles/theme.css";
+import "../styles/utils.css";
+
 export const title = 'Pricing for iframe-resizer';
 export const description = 'Find the right license for your project';
 const template = 'splash';
@@ -76,10 +81,10 @@ const template = 'splash';
 
   <div class="text-center" style="font-weight:600;font-size:1.2rem;margin: -2ex 0 4ex;color:#985d3b">Find the right license for your project</div>
 
-  <div id="priceGrid" class="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-6xl mx-auto px-4">
+  <div id="priceGrid" class="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-6xl mx-auto px-4" style="width:calc(100% - 5ex);margin: 3ex auto 0">
     <div class="rounded-lg shadow-lg dark:bg-gray-950 border-2 border-primary" style="border-color: var(--sl-color-gray-5)">
       <div class="p-6 border-b border-gray-200 dark:border-gray-800" style="border-color: var(--sl-color-gray-5);border-bottom-width:0;padding-bottom: 0.4em">
-        <h3 class="text-2xl font-bold">Solo <span class="text-4xl font-bold float-right">$16</span></h3>
+        <h3 class="text-3xl font-bold">Solo <span class="text-4xl font-bold float-right">$16</span></h3>
         <div class="flex items-baseline my-4  subline">
           <span class="rounded-full font-bold">&nbsp;</span>
         </div>
@@ -125,7 +130,7 @@ const template = 'splash';
     </div>
     <div class="rounded-lg shadow-lg dark:bg-gray-950 border-2 border-primary" style="margin-top:0;border-color: var(--sl-color-accent);">
       <div class="p-6 border-b border-gray-200 dark:border-gray-800" style="border-color: var(--sl-color-accent);border-bottom-width:0;padding-bottom: 0.4em">
-        <h3 class="text-2xl font-bold">Professional <span class="text-4xl font-bold float-right">$76</span></h3>
+        <h3 class="text-3xl font-bold">Professional <span class="text-4xl font-bold float-right">$76</span></h3>
         <div class="flex items-baseline my-4 justify-center subline" style="z-index: 100;">
           <span class="rounded-full font-bold" style="white-space: nowrap; background-color: var(--sl-color-accent); padding: 0 0.8em 0 1em;font-weight: 600;color: var(--sl-color-black);letter-spacing: 0.02em;">Most popular</span>
         </div>
@@ -145,7 +150,7 @@ const template = 'splash';
           </li>
           <li>
             <Tick />
-            Unlimited external iframes
+            External iframes
           </li>
           <li>
             <Tick />
@@ -172,7 +177,7 @@ const template = 'splash';
     </div>
     <div class="rounded-lg shadow-lg dark:bg-gray-950 border-2 border-primary" style="margin-top:0;border-color: var(--sl-color-gray-5)">
       <div class="p-6 border-b  dark:border-gray-800"  style="border-color: var(--sl-color-gray-5);border-bottom-width:0;padding-bottom: 0.4em">
-        <h3 class="text-2xl font-bold">Business <span class="text-4xl font-bold float-right">$486</span></h3>
+        <h3 class="text-3xl font-bold">Business <span class="text-4xl font-bold float-right">$486</span></h3>
         <div class="flex items-baseline my-4 subline">
           <span class="rounded-full font-bold">&nbsp;</span>
         </div>
@@ -191,7 +196,7 @@ const template = 'splash';
           </li>
           <li>
             <Tick />
-            Unlimited external iframes
+            External iframes
           </li>
           <li>
             <Tick />
@@ -330,11 +335,11 @@ const template = 'splash';
   </style>
 
 
-  <table id="compare" style="width:100%">
+  <table id="compare" style="width:calc(100% - 5ex);margin: 3ex auto 0">
     <thead>
       <tr>
         <td></td>
-        <th>Open Source</th>
+        <th><nobr>Open Source</nobr></th>
         <th>Solo</th>
         <th>Professional</th>
         <th>Business</th>
@@ -362,13 +367,13 @@ const template = 'splash';
         <th>Number of Domains</th>
         <td>Unlimited</td>
         <td>1 website with<br /> local iframes</td>
-        <td>8 websites and<br/>unlimited external iframes</td>
+        <td>8 websites with<br/> external iframes</td>
         <td>Unlimited</td>
         <td>Unlimited</td>
       </tr>
       <tr>
         <th>Extended API</th>
-        <td><Tick/></td>
+        <td>―</td>
         <td>―</td>
         <td><Tick/></td>
         <td><Tick/></td>
@@ -376,7 +381,7 @@ const template = 'splash';
       </tr>
       <tr>
         <th>Fix in pages linking</th>
-        <td><Tick/></td>
+        <td>―</td>
         <td>―</td>
         <td><Tick/></td>
         <td><Tick/></td>
@@ -432,7 +437,7 @@ const template = 'splash';
 
   <style>
     #faq {
-      margin-top: 7ex;
+      margin: 7ex 6ex 0;
     }
 
     #faq h3 {
@@ -452,7 +457,7 @@ const template = 'splash';
 
   <section id="faq">
     <div class="mt-16 space-y-2 text-center" style="margin-top: 4rem">
-      <h2 class="text-3xl font-bold sm:text-4xl md:text-5xl">Frequently Asked Questions</h2>
+      <h2 class="text-2xl font-bold sm:text-4xl md:text-5xl">Frequently Asked Questions</h2>
       <p class="sub-heading " style="margin: 0 0 2rem;font-weight:600">Answers to the most common questions about licensing</p>
     </div>
     <Faq question="Can I try iframe-resizer before buying it?">
