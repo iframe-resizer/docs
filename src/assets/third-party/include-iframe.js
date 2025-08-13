@@ -1,14 +1,14 @@
-;  (function () {
+; (function () {
   // URL of your site
   const yourSite = 'https://your-domain.com'
 
-  // Options for iframe-resizer
+  // Path to the iframe-resizer child script
+  const childScript = 'node_modules/@iframe-resizer/child/index.umd.min.js'
+
+  // Options for iframe-resizer  (See Child Page API for more details)
   window.iframeResizer = {
     targetOrigin: yourSite,
   }
-
-  // Path to the iframe-resizer child script
-  const childScript = 'node_modules/@iframe-resizer/child/index.umd.min.js'
 
   // Load iframe-resizer child script
   const script = document.createElement('script')
