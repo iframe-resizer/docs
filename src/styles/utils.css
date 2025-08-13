@@ -42,7 +42,7 @@ code[dir="auto"]{
   font-size: 1em;
   width: 1em;
   height: 1em;
-  margin: 7px 14px 7px 7px;
+  margin: 7px;
 }
 
 .gitStars svg::after,
