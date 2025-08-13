@@ -81,7 +81,7 @@ const template = 'splash';
 
   <div class="text-center" style="font-weight:600;font-size:1.2rem;margin: -2ex 0 4ex;color:#985d3b">Find the right license for your project</div>
 
-  <div id="priceGrid" class="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-6xl mx-auto px-4">
+  <div id="priceGrid" class="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-6xl mx-auto px-4" style="width:calc(100% - 5ex);margin: 3ex auto 0">
     <div class="rounded-lg shadow-lg dark:bg-gray-950 border-2 border-primary" style="border-color: var(--sl-color-gray-5)">
       <div class="p-6 border-b border-gray-200 dark:border-gray-800" style="border-color: var(--sl-color-gray-5);border-bottom-width:0;padding-bottom: 0.4em">
         <h3 class="text-3xl font-bold">Solo <span class="text-4xl font-bold float-right">$16</span></h3>
@@ -150,7 +150,7 @@ const template = 'splash';
           </li>
           <li>
             <Tick />
-            Unlimited external iframes
+            External iframes
           </li>
           <li>
             <Tick />
@@ -196,7 +196,7 @@ const template = 'splash';
           </li>
           <li>
             <Tick />
-            Unlimited external iframes
+            External iframes
           </li>
           <li>
             <Tick />
@@ -335,11 +335,11 @@ const template = 'splash';
   </style>
 
 
-  <table id="compare" style="width:100%">
+  <table id="compare" style="width:calc(100% - 5ex);margin: 3ex auto 0">
     <thead>
       <tr>
         <td></td>
-        <th>Open Source</th>
+        <th><nobr>Open Source</nobr></th>
         <th>Solo</th>
         <th>Professional</th>
         <th>Business</th>
@@ -367,7 +367,7 @@ const template = 'splash';
         <th>Number of Domains</th>
         <td>Unlimited</td>
         <td>1 website with<br /> local iframes</td>
-        <td>8 websites and<br/>unlimited external iframes</td>
+        <td>8 websites with<br/> external iframes</td>
         <td>Unlimited</td>
         <td>Unlimited</td>
       </tr>
@@ -437,7 +437,7 @@ const template = 'splash';
 
   <style>
     #faq {
-      margin-top: 7ex;
+      margin: 7ex 6ex 0;
     }
 
     #faq h3 {
