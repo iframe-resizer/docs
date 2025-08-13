@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import starlightLinksValidator from "starlight-links-validator";
 import react from "@astrojs/react";
+import tailwindcss from "@tailwindcss/vite";
 
 
 // https://astro.build/config
@@ -29,6 +30,9 @@ export default defineConfig({
     "/perf%3C/%3E.": "/perf",
     "/setup/%3C/%3E": "/setup",
     "quirks-mode": "/troubleshooting#iframe-not-downsizing",
+  },
+  vite: {
+    plugins: [tailwindcss()],
   },
   integrations: [
     react(),
@@ -59,13 +63,22 @@ export default defineConfig({
         src: "/public/logo.svg",
         // alt: "iframe-resizer",
       },
-      customCss: ["./src/styles/theme.css", "@fontsource/audiowide/400.css"],
+      customCss: [
+        "./src/styles/tailwind.css",
+        "./src/styles/theme.css",
+        "./src/styles/utils.css",
+        "@fontsource/audiowide/400.css",
+      ],
       components: {
         Head: "./src/components/Head.astro",
         SocialIcons: "./src/components/socials.astro",
       },
       social: [
-        { icon: 'github', label: 'GitHub', href: 'https://github.com/davidjbradshaw/iframe-resizer' }
+        {
+          icon: "github",
+          label: "GitHub",
+          href: "https://github.com/davidjbradshaw/iframe-resizer",
+        },
       ],
       sidebar: [
         {
