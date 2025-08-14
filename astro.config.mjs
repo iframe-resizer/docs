@@ -11,9 +11,6 @@ export default defineConfig({
     prefetchAll: true,
     defaultStrategy: "hover",
   },
-  experimental: {
-    clientPrerender: true,
-  },
   site: "https://iframe-resizer.com",
   redirects: {
     angular: "/frameworks/angular",
