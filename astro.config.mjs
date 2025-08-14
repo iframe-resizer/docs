@@ -7,6 +7,13 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: "hover",
+  },
+  experimental: {
+    clientPrerender: true,
+  },
   site: "https://iframe-resizer.com",
   redirects: {
     angular: "/frameworks/angular",
