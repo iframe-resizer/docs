@@ -1,10 +1,51 @@
 ---
 ---
 
-<span id="stars" class="-ml-2"> &nbsp; &nbsp; &nbsp; &nbsp;  </span>
+<span id="stars" style="width: 4ex"> ----- </span>
 <script>
+  function saveDataWithTimestamp(key, value) {
+    const data = {
+        value: value,
+        timestamp: Date.now() // milliseconds since epoch
+    };
+    localStorage.setItem(key, JSON.stringify(data));
+  }
+
+  function wasUpdatedInLastHour(key) {
+    const item = localStorage.getItem(key);
+    if (typeof item !== 'string' || !item.startsWith('{')) return false;
+
+    const data = JSON.parse(item);
+    if (
+        typeof data !== 'object' ||
+        data === null ||
+        typeof data.timestamp !== 'number'
+    ) {
+        return false;
+    }
+
+    const oneHour = 60 * 60 * 1000;
+    return (Date.now() - data.timestamp) <= oneHour;
+  }
+
+  function getStoredValue(key) {
+    const item = localStorage.getItem(key);
+    if (typeof item !== 'string' || !item.startsWith('{')) return null;
+
+    const data = JSON.parse(item);
+    if (
+        typeof data !== 'object' ||
+        data === null ||
+        !('value' in data)
+    ) {
+        return null;
+    }
+
+    return data.value;
+  }
+
   function formatNumber(number, decPlaces) {
-  if (!number) return localStorage.getItem("stars") || ''
+  if (!number) return getStoredValue("stars") || ' --- '
   decPlaces = Math.pow(10, decPlaces)
 
   const abbrev = ["K", "M", "B", "T"];
@@ -26,17 +67,22 @@
     }
   }
 
-  if (number) localStorage.setItem("stars", number);
-
   return number;
 }
 
-document.getElementById("stars").innerText = localStorage.getItem("stars") || ' --- '
+document.getElementById("stars").innerText = getStoredValue("stars") || ' --- '
 
-fetch(
-      "https://api.github.com/repos/davidjbradshaw/iframe-resizer"
-    )
-      .then((response) => response.json())
-      .then((data) => formatNumber(data.stargazers_count, 1))
-      .then((stars) => document.getElementById("stars").innerText = stars)
+if (!wasUpdatedInLastHour('stars')) {
+  fetch('https://api.github.com/repos/davidjbradshaw/iframe-resizer')
+    .then(response => response.json())
+    .then(data => {
+      const stars = data.stargazers_count;
+      const formattedStars = formatNumber(stars, 1);
+      document.getElementById("stars").innerText = formattedStars;
+      saveDataWithTimestamp('stars', formattedStars);
+    })
+    .catch(error => {
+      console.error('Error fetching star count:', error);
+    });
+}
 </script>
