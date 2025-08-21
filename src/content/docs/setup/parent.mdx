@@ -12,7 +12,7 @@ import VERSION from "/src/components/version";
 
 The _iframe-resizer_ project is distributed via separate packages for the parent and
 child pages. This guide takes you through setting up the parent page and then on the 
-[next page](/setup/child) their is a guide to setting up child pages.
+[next page](/setup/child) there is a guide to setting up child pages.
 
 In this section we detail how to setup the parent page using the Vanilla JavaScript
 version of _iframe-resizer_. The [framework](/frameworks/overview) section of this
@@ -151,13 +151,14 @@ iframeResize(options, iframeSelector)
 
 Setting the initial height of the iframe to `100vh` makes the loading in of
 the iframe appear smoother to the user, as they will only see the content
-below the iframe once it has completed loading and undergone it's initial
+below the iframe once it has completed loading and undergone its initial
 sizing.
 
 The `waitForLoad` option defers sending a message to the iframe until after
-the `onload` event fires on the iframe. If their is any possibility that the
+the `onload` event fires on the iframe. If there is any possibility that the
 iframe content could load before the JavaScript runs, then you should set 
-this option to **false**.
+this option to **false** to ensure the iframe resizes correctly even if the
+content loads before the script runs.
 
 If you wish to place your iframe on someone elses website, then you should
 follow the [Third Party](/setup/third_party) setup guide.

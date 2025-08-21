@@ -13,9 +13,9 @@ import FeedbackComponent from "/src/components/Feelback.astro";
 import config from '/src/assets/third-party/config.js?raw'
 import VERSION from "/src/components/version";
 
-The child page needs to load it's own JavaScript package into the iframe, in order to enable communication
+The child page needs to load its own JavaScript package into the iframe, in order to enable communication
 with the [parent page](/setup/parent). The **@iframe-resizer/child** package is a small self-contained
-script. It is designed to be a good guest on someone else site and will only start running after receiving
+script. It is designed to be a good guest on someone else's site and will only start running after receiving
 a message from the parent page.
 
 ## Install
@@ -62,10 +62,10 @@ require('@iframe-resizer/child')
 </Tabs>
 {/* <!-- prettier-ignore-end --> */}
 
-Once everything is setup, keep an eye on the [browser console](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools),
+Once everything is set up, keep an eye on the [browser console](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools),
 as _iframe-resizer_ will warn about any potential issues it detects and provide advice 
 on how to fix them. For more details on using _iframe-resizer_ see the 
-[Advanced Setup](/setup/advanced/) and [Trouble Shooting](/troubleshooting) sections 
+[Advanced Setup](/setup/advanced/) and [Troubleshooting](/troubleshooting) sections 
 of this guide.
 
 #### License

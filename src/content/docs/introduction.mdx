@@ -23,7 +23,7 @@ it falls back to using _iframe-resizer's_ own custom content size detection algo
 
 To ensure minimal impact on your site, _iframe-resizer_ is highly optimised and 
 utilizes [Set Theory](https://en.wikipedia.org/wiki/Set_theory) to ensure it only
-checks the page elements that effect the sizing of your iframes. 
+checks the page elements that affect the sizing of your iframes. 
 
 Even on the most complex pages, _iframe-resizer_ can detect changes to both HTML 
 and CSS, calculate the revised content dimensions and update the iframe in sub 
@@ -31,13 +31,13 @@ millisecond time.
 
 ### Cross Domain
 
-Supports both internal (same-domain) and external (cross-domain) iframes via a simple
+Supports both internal (same-origin) and external (cross-origin) iframes via a simple
 JS file that is designed to be a zero impact guest on the sites hosting it.
 
 ### Extended API
 
 Additionally _iframe-resizer_  provides a range of missing browser API features, that
-allows you to securely integrate your iframe content with the parent page.
+enables secure integration of your iframe content with the parent page.
 
 - Scroll the parent page, [relative to the iframe](/api/child#scrolltooffsetx-y) or [parent page's position](/api/child#scrollbyx-y)
 - Provides details of the [position of the iframe](/api/child#getparentpropscallback), the [scroll position](/api/child#getparentpropscallback) and [viewport](/api/child#getparentpropscallback) of the parent page

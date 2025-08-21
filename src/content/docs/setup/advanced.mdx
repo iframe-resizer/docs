@@ -6,7 +6,7 @@ description: Advanced setup options for iframe-resizer
 import FeedbackComponent from "/src/components/Feelback.astro";
 
 On most pages _iframe-resizer_ is able to detect changes in the iframe, recalculate
-the page size and adjust the iframe in sub nanosecond time. In a few rare edge cases,
+the page size and adjust the iframe in sub millisecond time. In a few rare edge cases,
 it might need a little help.
 
 ## Custom page size
@@ -18,7 +18,7 @@ the returned value.
 ### <span class="option">data-iframe-size</span>
 
 By adding a `data-iframe-size` attribute to any HTML element on the page, you can tell
-_iframe-resizer_ to use that element to calculate the page size. Where their is more
+_iframe-resizer_ to use that element to calculate the page size. Where there is more
 than one element with this attribute, the element with the largest value will be
 used.
 
@@ -47,7 +47,7 @@ The most common use cases for this are Overlays and Modal Backdrops.
 ### <span class="option">data-iframe-ignore</span>
 
 Adding a `data-iframe-ignore` attribute to any HTML element on the page, will remove
-that element and all it's descendants from the <span class="fig">Set</span> of overflown 
+that element and all its descendants from the <span class="fig">Set</span> of overflown 
 elements that have their size monitored by _iframe-resizer_.
 
 ### <span class="option">ignoreSelector</span>

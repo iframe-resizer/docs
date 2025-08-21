@@ -10,8 +10,8 @@ import FeedbackComponent from "/src/components/Feelback.astro"
 import loader from '/src/assets/third-party/load-iframe.js?raw'
 import config from '/src/assets/third-party/config.js?raw'
 
-This is a quick setup guide that details how to create a simple javascript file that you can share with
-third parties that wish to include you iframe on their own sites. 
+This is a quick setup guide that details how to create a simple JavaScript file that you can share with
+third parties that wish to include your iframe on their own sites. 
 
 This approach simplifies the setup for your client sites and allows you to control the version of _iframe-resizer_ 
 in use on both the parent and child pages in the future, without having to go back to your clients and ask them to
@@ -19,9 +19,12 @@ in use on both the parent and child pages in the future, without having to go ba
 
 ### License
 
-Set the _License Key_, along side any other _Settings_ and _Events_ you wish to use from the 
-[Child Page API](/api/child).  This will need to be included alongside the
-[child page](/setup/child) javascript file on every page you display in the iframe.
+The license can be provided by either party. Via the parent page page, or if you have a Business / OEM license 
+on the child page. Only one license is needed to cover both sites.
+
+To set the _License Key_ in the iframe, it can be added alongside any other _Settings_ and _Events_ you wish 
+to use from the [Child Page API](/api/child).  This will need to be included alongside the
+[child page](/setup/child) JavaScript file on every page you display in the iframe.
 
 <Code lang="ts" title="config.js" code={config} />
 
