@@ -18,7 +18,7 @@ The returned `resizer` object contains the [Parent Page API methods](/api/parent
 The following is a simplified version of the jQuery plugin. This example first uses `connectResizer()` to create the function `connectWithOptions()`, that we can then use with jQuery's `each()` method after first filtering the array passed by jQuery to ensure it only contains iframes. Finally the `end()` method reverts the filter and passes the original element array back to jQuery.
 
 ```js
-import connectResizer from "@iframe-resizer/parent-core";
+import connectResizer from "@iframe-resizer/core"
 
 window.jQuery.fn.iframeResize = function (options) {
   const connectWithOptions = connectResizer(options)
