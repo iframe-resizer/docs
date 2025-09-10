@@ -11,7 +11,6 @@
   // Options for iframe-resizer
   const options = {
     log: "collapsed",
-    waitForLoad: true,
   }
 
   // iframe configuration

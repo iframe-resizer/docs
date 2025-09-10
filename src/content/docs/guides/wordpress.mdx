@@ -51,7 +51,6 @@ width to 100% and have the height scale to fit the content.
   iframeResize({ 
     license: 'xxxx',
     log: 'collapsed',
-    waitForLoad: true,
   }, '#myIframe');
 </script>
 ```
@@ -73,7 +72,6 @@ width to 100% and have the height scale to fit the content.
   $('#myIframe').iframeResize({
     license: 'xxxx',
     log: 'collapsed',
-    waitForLoad: true
   });
 </script>
 ```
@@ -86,11 +84,6 @@ Setting the initial height of the iframe to `100vh` makes the loading in of
 the iframe appear smoother to the user, as they will only see the content
 below the iframe once it has completed loading and undergone it's initial
 sizing.
-
-The `waitForLoad` option defers sending a message to the iframe until after
-the `onload` event fires on the iframe. If their is any possibility that the
-iframe content could load before the JavaScript runs, then you should set 
-this option to **false**.
 
 <License example />
 

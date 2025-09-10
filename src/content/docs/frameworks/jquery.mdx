@@ -36,7 +36,6 @@ by jQuery.
   $('iframe').iframeResize({ 
     license: 'xxxx',
     log: 'collapsed',
-    waitForLoad: true, 
   })
 </script>
 ```
@@ -46,8 +45,6 @@ by jQuery.
 * You can pass any of the standard Parent API [options](/api/parent#options) and [events](/api/parent#events) via this plugin.
 
 * Setting the initial height of the iframe to `100vh` makes the loading in of the iframe appear smoother to the user, as they will only see the content below the iframe once it has completed loading and undergone it's initial sizing.
-
-* The `waitForLoad` option defers sending a message to the iframe until after the `onload` event fires on the iframe. If their is any possibility that the iframe content could load before the JavaScript runs, then you should set this option to **false**.
 
 <License />
 

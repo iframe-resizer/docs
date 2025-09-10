@@ -66,7 +66,6 @@ to 100% and have the height scale to fit the content.
   iframeResize({ 
     license: 'xxxx',
     log: 'collapsed',
-    waitForLoad: true,
   }, '#myIframe' )
 </script>
 ```
@@ -88,7 +87,6 @@ import iframeResize from '@iframe-resizer/parent'
 const options = { 
   license: 'xxxx',
   log: 'collapsed',
-  waitForLoad: true,
 }
 
 const iframeSelector = '#myIframe'
@@ -115,7 +113,6 @@ const iframeResize = require("@iframe-resizer/parent")
 const options = { 
   license: 'xxxx',
   log: 'collapsed',
-  waitForLoad: true,
 }
 
 const selector = '#myIframe'
@@ -140,7 +137,6 @@ iframeResize(options, iframeSelector)
   iframeResize({ 
     license: 'xxxx',
     log: 'collapsed',
-    waitForLoad: true,
   }, '#myIframe')
 </script>
 `} lang="html" />
@@ -153,12 +149,6 @@ Setting the initial height of the iframe to `100vh` makes the loading in of
 the iframe appear smoother to the user, as they will only see the content
 below the iframe once it has completed loading and undergone its initial
 sizing.
-
-The `waitForLoad` option defers sending a message to the iframe until after
-the `onload` event fires on the iframe. If there is any possibility that the
-iframe content could load before the JavaScript runs, then you should set 
-this option to **false** to ensure the iframe resizes correctly even if the
-content loads before the script runs.
 
 If you wish to place your iframe on someone elses website, then you should
 follow the [Third Party](/setup/third_party) setup guide.
