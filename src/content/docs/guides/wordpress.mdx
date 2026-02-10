@@ -7,21 +7,21 @@ import { Tabs, TabItem } from "@astrojs/starlight/components";
 import License from "/src/components/License.astro";
 import FeedbackComponent from "/src/components/Feelback.astro";
 
-The _iframe-resizer_ project is comprised of separate JS files for the parent and child pages.
+The _iframe-resizer_ project is composed of separate JS files for the parent and child pages.
 This guide takes you through setting up the parent and then child pages in WordPress.
 
 ## Install
 
-Download the latest version of  <a href="https://github.com/davidjbradshaw/iframe-resizer/raw/master/iframe-resizer.zip">iframe-resizer.zip</a>.
-This contains three JavaScript files, for the parent page you can choose between the vanilla JS (<b>iframe-resizer.parent.js</b>) 
- and jQuery (<b>iframe-resizer.jquery.js</b>) versions. Finally the third file (<b>iframe-resizer.child.js</b>)
-needs placing on every page shown in your iframe.
+Download the latest version of <a href="https://github.com/davidjbradshaw/iframe-resizer/raw/master/iframe-resizer.zip">iframe-resizer.zip</a>.
+This contains three JavaScript files. For the parent page, you can choose between the vanilla JS (<b>iframe-resizer.parent.js</b>) 
+and jQuery (<b>iframe-resizer.jquery.js</b>) versions. Finally, the third file (<b>iframe-resizer.child.js</b>)
+needs to be included on every page shown in your iframe.
 
 You then need to upload these files to `/wp-admin/js` on your WordPress server and ensure they have public read access.
 
 ## Parent Page
 
-In this section we detail how to setup the parent page.
+In this section we detail how to set up the parent page.
 
 ### Usage
 
@@ -80,18 +80,17 @@ width to 100% and have the height scale to fit the content.
 
 {/* <!-- prettier-ignore-end --> */}
 
-Setting the initial height of the iframe to `100vh` makes the loading in of
-the iframe appear smoother to the user, as they will only see the content
-below the iframe once it has completed loading and undergone it's initial
-sizing.
+Setting the initial height of the iframe to `100vh` makes loading appear smoother to the user, as they will only see the content
+below the iframe once it has completed loading and undergone its initial
+resizing.
 
 <License example />
 
 ## Child Page
 
-The child page needs to load it's own JavaScript package, to enable communication
+The child page needs to load its own JavaScript package to enable communication
 with the parent page. This is a small self-contained script with no dependencies.
-It is designed to be a good guest on someone else site and will only start running
+It is designed to be a good guest on someone else's site and will only start running
 after receiving a message from the parent page.
 
 ### Usage
@@ -102,10 +101,10 @@ The following line then needs to be added to every page shown in the iframe.
 <script src="/wp-admin/js/iframe-resizer.child.js"></script>
 ```
 
-Once everything is setup, keep an eye on the [browser console](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools),
+Once everything is set up, keep an eye on the [browser console](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools),
 as _iframe-resizer_ will warn about any potential issues it detects and provide advice 
 on how to fix them. For more details on using _iframe-resizer_ see the 
-[Advanced Setup](/setup/advanced/) and [Trouble Shooting](/troubleshooting) sections 
+[Advanced Setup](/setup/advanced/) and [Troubleshooting](/troubleshooting) sections 
 of this guide.
 
 <FeedbackComponent />

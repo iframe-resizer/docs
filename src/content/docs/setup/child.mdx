@@ -19,14 +19,14 @@ a message from the parent page.
 
 ## Install
 
-Download and install the child page package with one of the following options..
+Download and install the child page package with one of the following options.
 
 <Install package="@iframe-resizer/child" download cdn/>
 
 ## Usage
 
-This package just needs to be included on every page that you load into the iframe.
-Where it will quietly listen for a message from the parent page, before initializing
+Include this package on every page that you load into the iframe,
+where it will quietly listen for a message from the parent page before initializing
 itself.
 
 {/* <!-- prettier-ignore-start --> */}
@@ -45,12 +45,12 @@ itself.
 import '@iframe-resizer/child'
 ```
 </TabItem>
-  <TabItem label="Common JS">
+  <TabItem label="CommonJS">
 ```js
 require('@iframe-resizer/child')
 ```
   </TabItem>
-  <TabItem label="jsDeliver CDN">
+  <TabItem label="jsDelivr CDN">
 <Code code={`
 <script
   async
@@ -74,7 +74,7 @@ set the license key on the child page.
 
 ## API
 
-The [Child Page API](/api/child) includes a range of settings, events and methods to 
+The [Child Page API](/api/child) includes a range of settings, events, and methods to 
 enable you to securely interact with both _iframe-resizer_ and the child page.
 
 <FeedbackComponent />

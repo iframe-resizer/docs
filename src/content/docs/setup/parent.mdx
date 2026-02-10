@@ -11,26 +11,26 @@ import FeedbackComponent from "/src/components/Feelback.astro";
 import VERSION from "/src/components/version";
 
 The _iframe-resizer_ project is distributed via separate packages for the parent and
-child pages. This guide takes you through setting up the parent page and then on the 
+child pages. This guide takes you through setting up the parent page, and on the 
 [next page](/setup/child) there is a guide to setting up child pages.
 
-In this section we detail how to setup the parent page using the Vanilla JavaScript
+In this section we detail how to set up the parent page using the vanilla JavaScript
 version of _iframe-resizer_. The [framework](/frameworks/overview) section of this
-guide details how to use _iframe-resizer_ with a range of popular frameworks and 
-their is also a separate version of this guide for [WordPress](/guides/wordpress).
+guide details how to use _iframe-resizer_ with a range of popular frameworks, and 
+there is also a separate version of this guide for [WordPress](/guides/wordpress).
 
 ## Install
 
-Download and install the parent page package with one of the following options..
+Download and install the parent page package with one of the following options.
 
 <Install package="@iframe-resizer/parent" cdn download />
 
 ## Usage
 
-This library provided the function `iframeResize()` which accepts a config object and one or 
-more iframes. Iframes can be passed via either CSS iframeSelector or reference. All these values
-are optional and if no iframe is provided, then it will bind _iframe-resizer_ to all iframes
-currently contained on the page.
+This library provides the function `iframeResize()`, which accepts a config object and one or 
+more iframes. Iframes can be passed via either the CSS `iframeSelector` or an element reference. All values
+are optional. If no iframe is provided, it will bind _iframe-resizer_ to all iframes
+currently on the page.
 
 ```js
 const iframes = iframeResize( [{options}], [css iframeSelector] || [iframe] )
@@ -42,9 +42,8 @@ bound to them is returned.
 ## Typical setup
 
 The normal configuration is to have the iframe resize when the browser window
-changes size or the content of the iframe changes. To set this up you need to
-configure one of the dimensions of the iframe to a percentage and tell the
-library to only update the other dimension. Normally you would set the width
+changes size or the content of the iframe changes. To set this up, set one of the iframe’s
+dimensions to a percentage and tell the library to update only the other dimension. Normally, you set the width
 to 100% and have the height scale to fit the content.
 
 {/* <!-- prettier-ignore-start --> */}
@@ -95,7 +94,7 @@ iframeResize(options, iframeSelector)
 
 ````
 </TabItem>
-  <TabItem label="Common JS">
+  <TabItem label="CommonJS">
 ```html
 <style>
   iframe {
@@ -117,10 +116,10 @@ const options = {
 
 const selector = '#myIframe'
 
-iframeResize(options, iframeSelector)
+iframeResize(options, selector)
 ```
   </TabItem>
-  <TabItem label="jsDeliver CDN">
+  <TabItem label="jsDelivr CDN">
 <Code code={`
 <style>
   iframe {
@@ -145,19 +144,18 @@ iframeResize(options, iframeSelector)
 
 {/* <!-- prettier-ignore-end --> */}
 
-Setting the initial height of the iframe to `100vh` makes the loading in of
-the iframe appear smoother to the user, as they will only see the content
+Setting the initial iframe height to `100vh` makes loading appear smoother to the user, as they will only see the content
 below the iframe once it has completed loading and undergone its initial
-sizing.
+resizing.
 
-If you wish to place your iframe on someone elses website, then you should
+If you wish to place your iframe on someone else’s website, then you should
 follow the [Third Party](/setup/third_party) setup guide.
 
 <License example />
 
 ## API
 
-The [Parent Page API](/api/parent) includes a range of options, events and methods to 
+The [Parent Page API](/api/parent) includes a range of options, events, and methods to 
 enable you to securely interact with both _iframe-resizer_ and the parent page.
 
 <FeedbackComponent />

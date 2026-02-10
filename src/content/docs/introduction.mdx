@@ -1,11 +1,11 @@
 ---
 title: Introduction
-description: Keep same and cross-domain iframes sized to their content
+description: Keep same-origin and cross-origin iframes sized to their content
 ---
 
 import FeedbackComponent from "/src/components/Feelback.astro";
 
-The _iframe-resizer_ library aims to take away the pain points with using iframes. 
+The _iframe-resizer_ library aims to take away the pain points of using iframes. 
 It will resize your iframe to match the exact size of your content and then monitor the 
 iframe to ensure that it is always the perfect size.
 
@@ -13,35 +13,34 @@ iframe to ensure that it is always the perfect size.
 
 Modern browsers still do not provide a single consistently reliable method to calculate 
 page content size. To overcome this limitation, _iframe-resizer_ automatically inspects 
-your page and selects the best value for your content every time it detects something
-changed in the page. 
+your page and selects the best value for your content every time it detects a change
+in the page. 
 
-The iframe size is calculated using a range of browser values and when necessary 
+The iframe size is calculated using a range of browser values and, when necessary, 
 it falls back to using _iframe-resizer's_ own custom content size detection algorithm.
 
 ### High Performance
 
-To ensure minimal impact on your site, _iframe-resizer_ is highly optimised and 
+To ensure minimal impact on your site, _iframe-resizer_ is highly optimized and 
 utilizes [Set Theory](https://en.wikipedia.org/wiki/Set_theory) to ensure it only
 checks the page elements that affect the sizing of your iframes. 
 
 Even on the most complex pages, _iframe-resizer_ can detect changes to both HTML 
-and CSS, calculate the revised content dimensions and update the iframe in sub 
-millisecond time.
+and CSS, calculate the revised content dimensions, and update the iframe in sub‑millisecond time.
 
-### Cross Domain
+### Cross-Domain
 
 Supports both internal (same-origin) and external (cross-origin) iframes via a simple
-JS file that is designed to be a zero impact guest on the sites hosting it.
+JS file that is designed to be a zero-impact guest on the sites hosting it.
 
 ### Extended API
 
-Additionally _iframe-resizer_  provides a range of missing browser API features, that
-enables secure integration of your iframe content with the parent page.
+Additionally, _iframe-resizer_ provides missing browser API features that
+enable secure integration of your iframe content with the parent page.
 
 - Scroll the parent page, [relative to the iframe](/api/child#scrolltooffsetx-y) or [parent page's position](/api/child#scrollbyx-y)
 - Provides details of the [position of the iframe](/api/child#getparentpropscallback), the [scroll position](/api/child#getparentpropscallback) and [viewport](/api/child#getparentpropscallback) of the parent page
-- Fixes [in page linking](/api/parent#inpagelinks) in the iframe and allows links to propagate to the parent page
+- Fixes [in-page linking](/api/parent#inpagelinks) in the iframe and allows links to propagate to the parent page
 - Adds [`onMouseEnter`](/api/parent#onmouseenter) and [`onMouseLeave`](/api/parent#onmouseleave) events to the iframe element
 - Simplified message passing between the [iframe](/api/child#onmessage) and the [parent](/api/parent#onmessage) page
 - Automatic domain authentication
@@ -56,8 +55,8 @@ This version of _iframe-resizer_ has been extensively rewritten to use modern br
 this has enabled significantly better performance and greater accuracy in the detection of
 content resizing events.
 
-With this release, the opportunity has been taken to refresh and simplify the API, if you
-are coming from a previous version then their is an [Upgrade Guide](/upgrade) to explain 
+With this release, we refreshed and simplified the API. If you
+are coming from a previous version, there is an [Upgrade Guide](/upgrade) to explain 
 the changes.
 
 <FeedbackComponent />

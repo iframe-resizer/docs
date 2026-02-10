@@ -1,6 +1,6 @@
 ---
 title: Child Page API
-description: Child page api for iframe-resizer
+description: Child page API for iframe-resizer
 ---
 import { Aside } from "@astrojs/starlight/components";
 import FeedbackComponent from "/src/components/Feelback.astro";
@@ -16,7 +16,7 @@ _iframe-resizer_ after the initial resizing.
 
 ## Settings
 
-The following Settings can be set from within the iframe page by creating a `window.iframeResizer` object on the page.
+The following settings can be set from within the iframe page by creating a `window.iframeResizer` object on the page.
 
 ```html
 <script>
@@ -26,7 +26,7 @@ The following Settings can be set from within the iframe page by creating a `win
 </script>
 ```
 
-With options that can be set in both the parent page and in the iframe, then the setting in the iframe takes preference. 
+If an option is set in both the parent page and the iframe, the iframe setting takes precedence. 
 
 ### ignoreSelector
 
@@ -35,10 +35,10 @@ default: ''
 type:    string
 ```
 
-Use a CSS Selector to specify which elements should be ignored when calculating the content size in the iframe.
+Use a CSS selector to specify which elements should be ignored when calculating the content size in the iframe.
 All descendant elements of an ignored element are also removed from the size calculation. 
 
-Alternatively you can directly add a [`data-iframe-ignore`](/setup/advanced#data-iframe-ignore)  attribute to an element to achieve the same effect.
+Alternatively, you can directly add a [`data-iframe-ignore`](/setup/advanced#data-iframe-ignore) attribute to an element to achieve the same effect.
 
 ### license
 
@@ -48,8 +48,8 @@ type:    string
 
 **Commercial** Enter the key provided with the [purchased](/pricing) commercial license.
 
-**Open Source** If you are using _iframe-resizer_ on an open-source site or project, then you can use it 
-for free under the terms of the [Gnu Public License V3](/gpl). To accept these terms set the license to `GPLv3`.
+**Open Source** If you are using _iframe-resizer_ on an open-source site or project, you can use it 
+for free under the terms of the [GNU General Public License v3](/gpl). To accept these terms, set the license to `GPLv3`.
 
 <Aside type="tip">
   Alternatively this field can be set on the [Parent Page](/api/parent#license).
@@ -76,11 +76,11 @@ default: ''
 type:    string
 ```
 
-Use a CSS Selector to specify which element should be used to calculate the content size in the iframe. When the
+Use a CSS selector to specify which element should be used to calculate the content size in the iframe. When the
 selector returns multiple elements, all of them are inspected and the largest value returned, every time the 
 page updates or resizes.
 
-Alternatively you can directly add a [`data-iframe-size`](/setup/advanced#data-iframe-size)  attribute to an element to achieve the same effect.
+Alternatively, you can directly add a [`data-iframe-size`](/setup/advanced#data-iframe-size) attribute to an element to achieve the same effect.
 
 ### targetOrigin
 
@@ -89,8 +89,8 @@ default: '*'
 type: string
 ```
 
-This option allows you to restrict the domain of the parent page, to prevent other sites mimicking your 
-parent page. This option is really a last line of defense and you should also setup a 
+This option allows you to restrict the domain of the parent page to prevent other sites mimicking your 
+parent page. This option is really a last line of defense, and you should also set up a 
 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP" target="_blank">Content Security Policy</a> 
 on your web server.
 
@@ -121,7 +121,7 @@ This function is called after the page size is recalculated and the new value is
 onMessage: (message) => void
 ```
 
-Receive message posted from the parent page with the `iframe.iframeResizer.sendMessage()` method.
+Receive messages posted from the parent page via the `iframe.iframeResizer.sendMessage()` method.
 
 ### onReady()
 ```js
@@ -134,8 +134,8 @@ this event handler.
 
 ## Methods
 
-These methods are available in the iframe via the `window.parentIframe` object. These method should be
-contained by a test for the `window.parentIframe` object, in case the page is not loaded inside an iframe. 
+These methods are available in the iframe via the `window.parentIframe` object. These methods should be
+wrapped in a check for the existence of the `window.parentIframe` object, in case the page is not loaded inside an iframe. 
 For example:
 
 ```js
@@ -146,7 +146,7 @@ if ("parentIframe" in window) {
 
 ### autoResize(<span class="args">Boolean</span>)
 
-Turn autoResizing of the iframe on and off. Returns bool of current state.
+Turn auto-resizing of the iframe on and off. Returns a boolean of the current state.
 
 ### close()
 
@@ -163,7 +163,7 @@ Returns the [Origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) o
 ### getParentProps(<span class="args">callback</span>)
 
 Ask the containing page for its positioning coordinates. You need to provide a callback which receives an 
-object with the following read only properties:
+object with the following read-only properties:
 
 ```js
 {
@@ -196,7 +196,7 @@ object with the following read only properties:
 }
 ```
 
-Your callback function will be recalled when the parent page is scrolled or resized.
+Your callback function will be called again when the parent page is scrolled or resized.
 
 This method returns a `disable()` function, that you can call to stop updates from
 the parent page. The following example requests the properties from the parent page
@@ -214,7 +214,7 @@ function logParentProps() {
 
 ### moveToAnchor(<span class="args">anchor</span>)
 
-Scroll to an anchor on parent page.
+Scroll to an anchor on the parent page.
 
 ### scrollBy(<span class="args">x, y</span>)
 
@@ -234,14 +234,14 @@ Modify the returned size of the iframe. This can be either a positive or negativ
 
 ### sendMessage(<span class="args">message, [targetOrigin]</span>)
 
-Send data to the containing page, `message` can be any data type that can be serialized into JSON. 
+Send data to the parent page; `message` can be any data type that can be serialized into JSON. 
 The `targetOrigin` option is used to restrict where the message is sent to; to stop an attacker
 mimicking your parent page. See the MDN documentation on 
 [postMessage](https://developer.mozilla.org/en-US/docs/Web/API/Window.postMessage) for more details.
 
 ### resize()
 
-Manually force iframe to resize. If for some reason a change in content size is not detected, this 
+Manually force the iframe to resize. If, for some reason, a change in content size is not detected, this 
 method allows you to nudge _iframe-resizer_ to recalculate the page size.
 
 <FeedbackComponent />

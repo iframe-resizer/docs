@@ -19,9 +19,9 @@ package has been loaded into every page that loads into the iframe.
 
 ## Usage
 
-The `<IframeResizer />` component can be passed all`<iframe>` attributes, along with
+The `<IframeResizer />` component can be passed all `<iframe>` attributes, along with
 _[options](/api/parent#options)_ and _[events](/api/parent#events)_ from _iframe-resizer_. 
-You can also optionally pass a `forwardRef` to gain access to a few _[methods](/api/parent#methods)_
+You can optionally pass a `forwardRef` to gain access to a few _[methods](/api/parent#methods)_
 that provide a simple interface to communicate with the page in the iframe.
 
 ```jsx
@@ -36,7 +36,7 @@ that provide a simple interface to communicate with the page in the iframe.
 ### Typical setup
 
 The normal configuration is to have the iframe resize when the browser window changes
-size or the content of the iframe changes. To set this up you need to configure one
+size or the content of the iframe changes. To set this up, you need to configure one
 of the dimensions of the iframe to a percentage and tell the library to only update
 the other dimension. Normally you would set the width to 100% and have the height
 scale to fit the content.
@@ -52,7 +52,7 @@ scale to fit the content.
 
 Setting the initial height of the iframe to `100vh` makes the loading in of
 the iframe appear smoother to the user, as they will only see the content
-below the iframe once it has completed loading and undergone it's initial
+below the iframe once it has completed loading and undergone its initial
 sizing.
 
 <License />
@@ -99,7 +99,7 @@ Returns a ref to the iframe.
 ## Advanced Example
 
 This is a more advanced configuration, which demonstrates the use of
-_options_, _events_ and _methods_ from the [Parent Page API](/api/parent).
+_options_, _events_, and _methods_ from the [Parent Page API](/api/parent).
 
 ```jsx
 import { useRef, useState } from 'react'

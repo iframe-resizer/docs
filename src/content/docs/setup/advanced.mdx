@@ -5,8 +5,8 @@ description: Advanced setup options for iframe-resizer
 
 import FeedbackComponent from "/src/components/Feelback.astro";
 
-On most pages _iframe-resizer_ is able to detect changes in the iframe, recalculate
-the page size and adjust the iframe in sub millisecond time. In a few rare edge cases,
+On most pages, _iframe-resizer_ is able to detect changes in the iframe, recalculate
+the page size, and adjust the iframe in sub‑millisecond time. In a few rare edge cases,
 it might need a little help.
 
 ## Custom page size
@@ -25,13 +25,13 @@ used.
 ### <span class="option">sizeSelector</span>
 
 This option can be set via the [Child Page API settings](/api/child#settings)
-and allows you to use a CSS Selector to add the `data-iframe-size` attribute
+and allows you to use a CSS selector to add the `data-iframe-size` attribute
 to elements on the page. When the page content changes, this will be rerun to
 ensure this setting remains up to date.
 
 ### <span class="option">offsetSize</span>
 
-Available in both the Parent and Child pages, this option allows you to adjust
+Available on both the parent and child pages, this option allows you to adjust
 the calculated page size. It can be used with either a positive or negative value.
 
 ### <span class="option">onBeforeResize()</span>
@@ -41,25 +41,25 @@ size value, before it is sent to the parent page.
 
 ## Ignoring page elements
 
-Occasionally it can be useful to ignore page elements from the page size calculation.
-The most common use cases for this are Overlays and Modal Backdrops.
+Occasionally, it can be useful to ignore page elements in the page size calculation.
+The most common use cases for this are overlays and modal backdrops.
 
 ### <span class="option">data-iframe-ignore</span>
 
-Adding a `data-iframe-ignore` attribute to any HTML element on the page, will remove
-that element and all its descendants from the <span class="fig">Set</span> of overflown 
+Adding a `data-iframe-ignore` attribute to any HTML element on the page will remove
+that element and all its descendants from the <span class="fig">Set</span> of overflowing 
 elements that have their size monitored by _iframe-resizer_.
 
 ### <span class="option">ignoreSelector</span>
 
 This option can be set via the [Child Page API settings](/api/child#settings)
-and allows you to use a CSS Selector to add the `data-iframe-ignore` attribute
+and allows you to use a CSS selector to add the `data-iframe-ignore` attribute
 to elements on the page. When the page content changes, this will be rerun to
 ensure this setting remains up to date.
 
 ## Performance
 
-If _iframe-resizer_ gives you a warning about performance, then the first two
+If _iframe-resizer_ gives you a warning about performance, the first two
 options above can also be used to limit the total number of page elements that
 require inspection to calculate the page size. This will greatly improve 
 performance on pages where you have a lot of content that has overflown the
