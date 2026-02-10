@@ -1,13 +1,14 @@
 import { OGImageRoute } from "astro-og-canvas"
 
-const pages = await import.meta.glob("/src/pages/**/*.astro", { eager: true })
+const pages = await import.meta.glob("/src/pages/**/*.astro", { eager: true }) as Record<string, any>
 
 Object.keys(pages).forEach((path) => {
-  if (!('title' in pages[path]) || !('description' in pages[path]))
+  if (!("title" in pages[path]) || !("description" in pages[path])) {
     delete pages[path]
+  }
 })
 
-export const { getStaticPaths, GET } = OGImageRoute({
+export const { getStaticPaths, GET } = await OGImageRoute({
   // Tell us the name of your dynamic route segment.
   // In this case it’s `route`, because the file is named `[...route].ts`.
   param: "route",
@@ -16,7 +17,7 @@ export const { getStaticPaths, GET } = OGImageRoute({
   pages,
 
   // Extract `title` and `description` from the glob result’s `frontmatter` property
-  getImageOptions: (_path, page) => ({
+  getImageOptions: (_path: string, page: any) => ({
     // Use the page title and description as the image title and description.
     title: page.title,
     description: page.description,
