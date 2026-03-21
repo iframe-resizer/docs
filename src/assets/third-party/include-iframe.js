@@ -20,5 +20,5 @@
   }
 
   // Insert iframe-resizer child after this script
-  document.currentScript.after(script)
+  document.currentScript.replaceWith(script)
 })()
