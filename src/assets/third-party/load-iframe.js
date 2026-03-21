@@ -34,5 +34,5 @@
   }
 
   // Insert iframe and script files after this script
-  document.currentScript.after(iframe, script)
+  document.currentScript.replaceWith(iframe, script)
 })()
