@@ -13,6 +13,7 @@ export default defineConfig({
   },
   site: "https://iframe-resizer.com",
   redirects: {
+    "my-account": "https://app.lemonsqueezy.com/my-orders",
     angular: "/frameworks/angular",
     react: "/frameworks/react",
     jquery: "/frameworks/jquery",
@@ -26,7 +27,6 @@ export default defineConfig({
     buy: "/pricing",
     checkorigin : "/api/parent#checkorigin",
     "check-origin": "/api/parent#checkorigin",
-    "checkOrigin": "/api/parent#checkorigin",
     "/setup/thirdparty": "/third_party/share",
     "/setup/third_party": "/third_party/share",
     "frameworks/api": "/api/framework",
