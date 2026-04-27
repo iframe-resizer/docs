@@ -35,22 +35,26 @@ import type {
 
 ### IFrameOptions
 
-The configuration object passed to `iframeResize()`. Contains all
-[options](/api/parent#options) and [events](/api/parent#events) supported
+The configuration object passed to [`iframeResize()`](/api/parent). Contains
+all [options](/api/parent#options) and [events](/api/parent#events) supported
 on the parent page.
 
 ### IFrameObject
 
 The resizer instance that is attached to each iframe as
 `iframe.iframeResizer`. Contains the methods documented in the
-[Parent Page API](/api/parent#methods): `close()`, `disconnect()`,
-`getVersion()`, `moveToAnchor()`, and `sendMessage()`.
+[Parent Page API](/api/parent#methods):
+[`close()`](/api/parent#close),
+[`disconnect()`](/api/parent#disconnect),
+[`getVersion()`](/api/parent#getversion),
+[`moveToAnchor()`](/api/parent#movetoanchoranchor), and
+[`sendMessage()`](/api/parent#sendmessagemessage-targetorigin).
 
 ### IFrameComponent
 
 Alias for `HTMLIFrameElement & { iframeResizer: IFrameObject }`. This is
-the type returned by `iframeResize()` and passed as the first argument to
-the [onReady](/api/parent#onready) callback.
+the type returned by [`iframeResize()`](/api/parent) and passed as the first
+argument to the [onReady](/api/parent#onready) callback.
 
 ### IFrameDirection
 
@@ -135,7 +139,8 @@ interface IFrameScrollData {
 
 ### IFrameVersion
 
-Return type of the `getVersion()` method on both the parent and child API.
+Return type of the [`getVersion()`](/api/parent#getversion) method on both
+the parent and child API. Also exported from `@iframe-resizer/child`.
 
 ```ts
 interface IFrameVersion {
@@ -153,24 +158,25 @@ are exported from `@iframe-resizer/child`.
 
 ```ts
 import type {
-  PageOptions,
-  ParentIframe,
-  ParentProps,
+  IFramePageOptions,
+  IFrameParentAPI,
+  IFrameParentProps,
+  IFrameVersion,
 } from '@iframe-resizer/child'
 ```
 
-### PageOptions
+### IFramePageOptions
 
 The shape of the `window.iframeResizer` configuration object. Contains all
 [settings](/api/child#settings) and [events](/api/child#events) that can be
 set on the child page.
 
-### ParentIframe
+### IFrameParentAPI
 
 The object exposed as `window.parentIframe` inside the iframe, containing
 all the methods documented in the [Child Page API](/api/child#methods).
 
-### ParentProps
+### IFrameParentProps
 
 The shape of the object passed to the callback of
 [`getParentProps()`](/api/child#getparentpropscallback).
