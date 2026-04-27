@@ -20,7 +20,7 @@ The following settings can be set from within the iframe page by creating a `win
 
 ```html
 <script>
-  window.iFrameResizer = {
+  window.iframeResizer = {
     targetOrigin: "http://mydomain.com",
   }
 </script>
@@ -86,11 +86,12 @@ Alternatively, you can directly add a [`data-iframe-size`](/setup/advanced#data-
 
 ```
 default: '*'
-type: string
+type: string | string[]
 ```
 
 This option allows you to restrict the domain of the parent page to prevent other sites mimicking your 
-parent page. This option is really a last line of defense, and you should also set up a 
+parent page. Pass a single origin as a string, or an array of allowed origins to support multiple parent
+domains. This option is really a last line of defense, and you should also set up a 
 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP" target="_blank">Content Security Policy</a> 
 on your web server.
 
@@ -101,7 +102,7 @@ The following events can be included in the [Settings](#settings) object attache
 
 ```html
 <script>
-  window.iFrameResizer = {
+  window.iframeResizer = {
     onReady: () => {
       // your code
     },
@@ -162,8 +163,8 @@ Returns the [Origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) o
 
 ### getParentProps(<span class="args">callback</span>)
 
-Ask the containing page for its positioning coordinates. You need to provide a callback which receives an 
-object with the following read-only properties:
+Ask the containing page for its positioning coordinates. You need to provide a callback which receives an
+[`IFrameParentProps`](/api/types#iframeparentprops) object with the following read-only properties:
 
 ```js
 {
@@ -211,6 +212,19 @@ function logParentProps() {
     })
 }
 ```
+
+### getVersion()
+
+Returns the version of both the parent and child page _iframe-resizer_ packages, as an
+[`IFrameVersion`](/api/types#iframeversion) object.
+
+```js
+parentIframe.getVersion()
+// { parent: '6.0.0', child: '6.0.0' }
+```
+
+If the parent page is running an older version of _iframe-resizer_ that does not report its version, the
+`parent` property will be `'legacy'`.
 
 ### moveToAnchor(<span class="args">anchor</span>)
 

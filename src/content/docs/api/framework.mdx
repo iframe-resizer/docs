@@ -5,13 +5,18 @@ description: Creating your own framework component interface
 
 import FeedbackComponent from "/src/components/Feelback.astro";
 
-The `@iframe-resizer/core` package provides a [High Order Function](https://eloquentjavascript.net/05_higher_order.html), that allows you to configure _iframe-resizer_ and then connect a single [HTMLIFrameElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement).
+The `@iframe-resizer/core` package provides a [High Order Function](https://eloquentjavascript.net/05_higher_order.html), that allows you to configure _iframe-resizer_ and then connect a single [HTMLIFrameElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement). The package is written in TypeScript and re-exports every public type and constant — see the [Types](/api/types) page for the full list.
 
-```js
-const resizer = connectResizer(options)(HTMLIFrameElement);
+```ts
+import connectResizer, { type IFrameOptions } from '@iframe-resizer/core'
+
+const options: IFrameOptions = { license: 'xxxx' }
+const resizer = connectResizer(options)(HTMLIFrameElement)
 ```
 
-The returned `resizer` object contains the [Parent Page API methods](/api/parent#methods). This provides methods to disconnect _iframe-resizer_ from the iframe, to enable it to be safely removed from the page.
+The returned `resizer` object is an [`IFrameObject`](/api/types#iframeobject) and exposes the
+[Parent Page API methods](/api/parent#methods). This provides the means to disconnect _iframe-resizer_
+from the iframe, to enable it to be safely removed from the page.
 
 ## Example component
 
@@ -36,11 +41,11 @@ When removing an iframe you MUST first call _iframe-resizer's_ [disconnect()](/a
 
 ## Virtual DOMs
 
-For frameworks, such as React, that make use of a Virtual DOM. their are a couple of considerations.
+For frameworks, such as React, that make use of a Virtual DOM, there are a couple of considerations.
 
 When you add an iframe to a Virtual DOM, you need to ensure that `connectResizer()()` is only called on the first render of the iframe.
 
-Before having a Virtual DOM remove an iframe from the page, _iframe-resizer_ needs to be first disconnect from the iframe. The Parent Page API provides a [disconnect()](/api/parent#disconnect) method to unbind _iframe-resizer_ from the iframe element.
+Before having a Virtual DOM remove an iframe from the page, _iframe-resizer_ needs to be disconnected from the iframe first. The Parent Page API provides a [disconnect()](/api/parent#disconnect) method to unbind _iframe-resizer_ from the iframe element.
 
 The following example of this is a simplified part of the `@iframe-resizer/react` component.
 
@@ -57,7 +62,7 @@ useEffect(() => {
 }, []);
 ```
 
-The full [React component](https://github.com/davidjbradshaw/iframe-resizer/blob/master/packages/react/index.jsx) further demonstrates integration with the [Parent Page API](/api/parent).
+The full [React component](https://github.com/davidjbradshaw/iframe-resizer/blob/master/packages/react/index.tsx) further demonstrates integration with the [Parent Page API](/api/parent).
 
 ## connectResizer vs iframeResize
 
