@@ -1,0 +1,94 @@
+---
+title: Alpine.js
+description: Official iframe-resizer Alpine.js plugin
+---
+
+import Install from '/src/components/Install.astro';
+import License from '/src/components/License.astro';
+import FeedbackComponent from "/src/components/Feelback.astro";
+
+## Install
+
+Install this package with the following command.
+
+<Install package="@iframe-resizer/alpine" bun />
+
+You will also need to ensure that the [@iframe-resizer/child](/setup/child)
+package has been loaded into every page that loads into the iframe.
+
+## Usage
+
+Register the plugin with Alpine before calling `Alpine.start()`, then add the
+`x-iframe-resizer` directive to any `<iframe>` element. The directive accepts
+an Alpine expression that evaluates to an [options](/api/parent#options)
+object.
+
+```html
+<script type="module">
+  import Alpine from 'alpinejs'
+  import IframeResizer from '@iframe-resizer/alpine'
+
+  Alpine.plugin(IframeResizer)
+  Alpine.start()
+</script>
+
+<style>
+  iframe {
+    width: 100%;
+    height: 100vh;
+  }
+</style>
+
+<iframe
+  x-iframe-resizer="{ license: 'xxxx', log: 'collapsed' }"
+  src="http://anotherdomain.com/iframe.html"
+></iframe>
+```
+
+You can also point the directive at any Alpine data property or method.
+
+```html
+<div x-data="{ options: { license: 'xxxx', log: 'collapsed' } }">
+  <iframe
+    x-iframe-resizer="options"
+    src="http://anotherdomain.com/iframe.html"
+  ></iframe>
+</div>
+```
+
+Setting the initial height of the iframe to `100vh` makes the loading in of
+the iframe appear smoother to the user, as they will only see the content
+below the iframe once it has completed loading and undergone its initial
+sizing.
+
+<License />
+
+## Child page
+
+You will then need to add the [@iframe-resizer/child](/setup/child)
+package on every page in the iframe.
+
+## API Differences
+
+The Alpine plugin supports the [Parent Page API](/api/parent) with the
+following differences.
+
+### close()
+
+This method is disabled. To remove the iframe from the page, use Alpine's
+[`x-if`](https://alpinejs.dev/directives/if) directive to conditionally
+render it.
+
+### waitForLoad
+
+This option is enabled by default when using the Alpine directive, to ensure
+_iframe-resizer_ only initializes once Alpine has finished rendering the
+iframe.
+
+Once everything is setup, keep an eye on the [browser console](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools),
+as _iframe-resizer_ will warn about any potential issues it detects and provide advice 
+on how to fix them. For more details on using _iframe-resizer_ see the 
+[Advanced Setup](/setup/advanced/) and [Trouble Shooting](/troubleshooting) sections 
+of this guide.
+
+<FeedbackComponent />

@@ -1,147 +1,161 @@
 ---
-title: Upgrading to Version 5
-description: Upgrading to iframe-resizer 5
+title: Upgrading to Version 6
+description: Upgrading to iframe-resizer 6
 ---
 
+import { Aside } from "@astrojs/starlight/components";
 import FeedbackComponent from "/src/components/Feelback.astro";
 
-Version 5 of _iframe-resizer_ drops support for legacy browsers and changes the way content resize events are detected. These changes greatly improves detection of content changes and _iframe-resizer_ can now detect a number of events, such as user `<textarea>` resizing and CSS animation that previous versions struggled with.
+Version 6 of _iframe-resizer_ is a complete rewrite of the project in TypeScript. The entire library now ships with first‑class type definitions, the framework ecosystem has been greatly expanded, and a number of rarely used options have been removed in favor of the library's auto‑detection logic.
 
-These changes, along with further code optimizations, have lead to a large improvement in the performance of this library and it is now possible to have _iframe-resizer_ both detect and keep up with CSS animations that causes the iframe to resize on every animation frame.
+<Aside type="note" title="Coming from Version 4?">
+  It is recommended to first follow the [Upgrade to V5 guide](https://v5.iframe-resizer.com/upgrade) before applying the changes on this page. The v5 documentation also remains available at [v5.iframe-resizer.com](https://v5.iframe-resizer.com) for reference.
+</Aside>
 
-In addition to this, _iframe-resizer 5_ contains a number of other improvements and minor API changes that are detailed in this guide.
+## TypeScript First
 
-## New NPM Packages
+The entire codebase has been ported to TypeScript and all packages now publish native type definitions. Types are exported directly from each package, rather than via the old `declare module 'iframe-resizer'` namespace that was shipped via DefinitelyTyped.
 
-The main change has been to split the single package that contained both the parent and child JavaScript files into two separate packages, called `@iframe-resizer/parent` and `@iframe-resizer/child`. The jQuery plugin has also been split out into `@iframe-resizer/jquery` and the React version renamed to `@iframe-resizer/react`.
-
-These new packages are designed to be drop in replacements for the previous version and in most situations will work without further code changes. The parent and child pages can be upgraded independently from one another, as both packages are backwards compatible with previous versions.
-
-Where the API has changed, the deprecated feature will trigger a waring in the browser console with advise on how to update your code.
-
-## API Changes
-
-Over the last decade _iframe-resizer_ has had a gradual increase in the number of available configuration options. With _iframe-resizer 5_ the aim has been to reduce and clarify these options in order to reduce complexity of using this library. The library will now auto detect a number of settings and also log advisory warnings to the console where it thinks you should make changes to the config.
-
-### Auto detection of the best content size calculation method
-
-The previous versions of _iframe-resizer_ offered the choice of a wide range of ways to calculate the size of the content in the iframe and it was left to the developer to determine which was the most appropriate by setting the `heightCalculationMethod` or `widthCalculationMethod` options.
-
-With _iframe-resizer 5_, these options have been deprecated and _iframe-resizer_ will now inspect the the page layout to automatically determine which is the best page size calculation method every time the iframe is resized. If it is determined that the best calculation method is `taggedElement` and the page has no tags, an advisory warning will be logged in the console to suggest adding these.
-
-The name of the tag attributes have now been consolidated from `data-iframe-height` and `data-iframe-width`, to the single tag `data-iframe-size`.
-
-Use of the old calculation options or the old tag names will trigger a deprecation warning in the console with advice on how to update your config.
-
-### New <span class="option">direction</span> option replaces <span class="option">sizeHeight</span> / <span class="option">sizeWidth</span> and <span class="option">autoResize</span>
-
-This library has always supported resizing in both directions, but changing the direction confusingly required the setting of multiple different options in the config. This has now been consolidated into the new single `direction` option, which can have the following values: `vertical`, `horizontal`, `both`, or `none`.
-
-Use of the old values will trigger a deprecation warning.
-
-### New <span class="option">offsetSize</span> option
-
-This new option allow you to adjust the value returned by the iframe for the dimension you are resizing, it can have either a positive or negative value.
-
-### New <span class="option">onBeforeResize()</span> event
-
-The `onBeforeResize(newSize)` event allows you to modify or replace the content size value, before it is sent to the parent page. This method replaces being able to set a custom size function on `heightCalculationMethod` or `widthCalculationMethod` options in the iframe.
-
-### New <span class="option">getParentProps()</span> method replaces <span class="option">getPageInfo()</span>
-
-The `getPageInfo()` method as been deprecated in favor of the new `getParentProps()` method. Since it was first added to _iframe-resizer_ **getPageInfo** has been extended and extended and become a mishmash of properties from the 
-parent page DOM.
-
-The new **getParentProps** method now groups values into three objects that contain information about the containing iframe tag, the parent document object, and the parent viewport.
-
-```js
-  // iframe.getBoundingClientRect()
-  iframe: {
-    width
-    height
-    top
-    right
-    bottom
-    left
-  },
-
-  // from document.documentElement
-  document: {
-    scrollWidth
-    scrollHeight
-  },
-
-  // window.visualViewport
-  viewport: {
-    width
-    height
-    offsetLeft
-    offsetTop
-    pageLeft
-    pageTop
-    scale
-  }
-}
+```ts
+import iframeResize, {
+  type IFrameObject,
+  type IFrameOptions,
+  type IFrameResizedData,
+} from '@iframe-resizer/parent'
 ```
 
-Use of the old method will trigger a deprecation warning in the console.
+The [Types](/api/types) page in the API section lists all the types and constants that are exported from `@iframe-resizer/core`, `@iframe-resizer/parent`, and `@iframe-resizer/child`.
 
-### The <span class="option">size()</span> method has been renamed to <span class="option">resize()</span>
+## New Framework Packages
 
-The `size()` method in the [Child Page API](/api/child) has been deprecated in favour of `resize()`. This brings the child page name in line with the Parent Page API. 
+_Iframe-resizer 6_ introduces five new framework integrations in addition to the existing React, Vue, Angular, and jQuery packages.
 
-Use of `size()` will trigger a deprecation warning in the console.
+- [Alpine.js](/frameworks/alpine) — `@iframe-resizer/alpine`
+- [Astro](/frameworks/astro) — `@iframe-resizer/astro`
+- [Solid](/frameworks/solid) — `@iframe-resizer/solid`
+- [Svelte](/frameworks/svelte) — `@iframe-resizer/svelte`
+- [Web Component](/frameworks/web-component) — `@iframe-resizer/web-component`
 
-### The <span class="option">onInit()</span> callback has been renamed to <span class="option">onReady()</span>
+The [Angular](/frameworks/angular) package is now distributed as a proper NPM package, rather than as a directive to be copied into your project.
 
-The `onInit()` callback in the [Parent Page API](/api/parent) has been deprecated in favour of `onReady()`. This brings the parent page and child page names for this event inline with each other. 
+## Breaking Changes
 
-Use of `onInit()` will trigger a deprecation warning in the console.
+### React: `forwardRef` prop replaced with standard `ref`
 
-### The <span class="option">onClose()</span> callback has been renamed to <span class="option">onBeforeClose()</span>
+The `@iframe-resizer/react` component now uses React's standard `ref` prop, rather than the custom `forwardRef` prop used in v5.
 
-The `onClose()` callback in the [Parent Page API](/api/child) has been deprecated in favour of `onBeforeClose()`. 
+```diff
+- <IframeResizer forwardRef={iframeRef} />
++ <IframeResizer ref={iframeRef} />
+```
 
-Use of `onClose()` will trigger a deprecation warning in the console.
+The shape of the ref object itself is unchanged, however the `getElement()` method is now deprecated in favor of `getRef()`, which returns a standard React ref object.
 
-### The <span class="option">onClosed()</span> callback has been renamed to <span class="option">onAfterClose()</span>
+### Vue 2 support dropped
 
-The `onClosed()` callback in the [Parent Page API](/api/child) has been deprecated in favour of `onAfterClose()`. 
+The `@iframe-resizer/vue` package now requires Vue `^3.3.0` and uses the Composition API. If you are still using Vue 2, you can follow the [Vue 2 Directive](/frameworks/vue2) guide, which uses the [Framework API](/api/framework) directly.
 
-Use of `onClosed()` will trigger a deprecation warning in the console.
+### Custom content size calculation methods removed
 
-### Fixed bug where height/width were returned as strings
+In v5, the `heightCalculationMethod` and `widthCalculationMethod` options were deprecated in favor of the new auto‑detection logic. In v6, these options and all of the custom calculation methods have been fully removed. The library now always uses `auto` mode.
 
-The `onResized()`, `onMouseEnter()` and `onMouseLeave()` events were returning `height`/`width` as a strings, this has now been fixed to return numbers.
+The child page methods `setHeightCalculationMethod()` and `setWidthCalculationMethod()` have also been removed.
 
-### The <span class="option">minHeight</span>, <span class="option">minWidth</span>, <span class="option">maxHeight</span> and <span class="option">minWidth</span> options have been removed
+If you have custom sizing requirements, use the [`onBeforeResize()`](/api/child#onbeforeresize) event on the child page to modify or replace the calculated size before it is sent to the parent page.
 
-These settings are no longer required, as all target browsers now support setting these on the iframe via CSS.
+### `@iframe-resizer/legacy` package removed
+
+The legacy backwards‑compatibility bundle that was used to support v4 child pages has been removed. The v6 parent page still works with v4 child pages (via the built‑in legacy support), but the separate `@iframe-resizer/legacy` package is no longer published.
+
+### Naming changes on `window` and iframe
+
+The `window.iFrameResizer` and `window.parentIFrame` objects, along with the `iframe.iFrameResizer` property, have been renamed to use lowercase `f`. The old names are no longer supported.
+
+```diff
+- window.iFrameResizer = { license: 'xxxx' }
++ window.iframeResizer = { license: 'xxxx' }
+
+- window.parentIFrame.sendMessage('hello')
++ window.parentIframe.sendMessage('hello')
+
+- iframe.iFrameResizer.sendMessage('hello')
++ iframe.iframeResizer.sendMessage('hello')
+```
+
+### Parent-side `IFrameObject.resize()` removed
+
+The `resize()` method was removed from the parent‑side `IFrameObject` that is attached to the iframe. Resizing is always driven by the child page, and the child page can trigger a resize manually via [`parentIframe.resize()`](/api/child#resize).
+
+### `IFrameMouseData` shape changed
+
+The `onMouseEnter` and `onMouseLeave` callbacks now receive an object containing `screenX` and `screenY` properties, rather than `height` and `width`.
+
+```diff
+onMouseEnter: ({ iframe, type,
+-  height, width
++  screenX, screenY
+}) => { }
+```
+
+### `IFrameScrollData` shape changed
+
+The `onScroll` callback now receives `top` and `left` properties. The old `x` and `y` properties are still provided for backwards compatibility, but are deprecated and will be removed in a future release.
+
+```diff
+onScroll: ({ iframe,
+-  x, y
++  top, left
+}) => { }
+```
+
+### `onBeforeResize()` return type enforced
+
+The [`onBeforeResize()`](/api/child#onbeforeresize) callback on the child page must now return a `number`. In v5 a return value of `undefined` was silently tolerated, in v6 this will be flagged by the TypeScript compiler.
+
+### Child `resize()` parameter types
+
+The [`parentIframe.resize()`](/api/child#resize) method now accepts `number` parameters for `customHeight` and `customWidth`. Previously these were loosely typed as strings.
+
+## New Features
+
+### `bodyBackground`, `bodyMargin`, and `bodyPadding` options
+
+Three new parent page options have been added to allow you to override the default CSS of the body element in the iframe. See the [Parent Page API](/api/parent#options) for details.
+
+### Numeric shorthand for `log`
+
+The `log` option now accepts numeric values, which can be useful when enabling logging from a URL parameter or environment variable.
+
+```js
+iframeResize({
+  log: 2, // 0 = disabled, 1 = collapsed, 2 = expanded
+})
+```
+
+The constants `LOG_DISABLED`, `LOG_COLLAPSED`, and `LOG_EXPANDED` are also exported from `@iframe-resizer/core`.
+
+### `getVersion()` method
+
+A new `getVersion()` method is available on both the parent and child API. It returns an object containing the version of both pages, which is useful for diagnostics.
+
+```js
+iframe.iframeResizer.getVersion()
+// { parent: '6.0.0', child: '6.0.0' }
+```
+
+### Multiple `targetOrigin` values
+
+The child page [`targetOrigin`](/api/child#targetorigin) setting now accepts an array of origins, to allow the iframe to be embedded on multiple parent domains whilst still restricting `postMessage` to a known allow-list.
+
+### Automatic `<title>` detection
+
+Changes to the `<title>` element inside the iframe are now automatically detected and propagated to the parent page, where they are mirrored onto the iframe's `title` attribute.
 
 ## Other Improvements
 
-In addition to the above API changes, _iframe-resizer 5_ includes the following other enhancements.
-
-### Direct communication for same domain iframes
-
-_Iframe-resizer_ now detects when the iframe is on the same domain as the parent page, and will then pass messages directly via the browser DOM. This provides an additional performance improvement over always using `postMessage()`, which is now only used for cross-domain iframes.
-
-### Improved content resize detection
-
-Dropping support for legacy browsers, has allowed version 5 to use the latest browser APIs to detect content changes, this greatly improves both performance and event detection, whilst also eliminating the issue of one change being picked up by multiple different browser events.
-
-### Visibility checking
-
-The visibility of both the iframe and the parent page are now observed, using the 
-[Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API). 
-This allows resizing to be disabled while the iframe is not visible to the user.
-
-### Ensures CSS sizing of iframe html and body tags set to auto
-
-The most common reason for Iframe Resizer to have difficulty resizing, or going into an endless loop of resizing, is the `<html>` and/or `<body>` elements having a size set on them by CSS. Iframe Resizer now inspects these elements and ensures that the height and width is set to `auto`.
-
-### TypeScript Types
-
-TypeScript Types are now included in the NPM modules for the Parent, Child and React packages.
+- Integration tests have been expanded to cover every framework package.
+- Unit test coverage has been raised to 99%.
+- The build system has been migrated from Rollup to a hybrid Vite / Rollup setup.
+- All packages now have consistent type definitions sourced from a single location.
 
 <FeedbackComponent />

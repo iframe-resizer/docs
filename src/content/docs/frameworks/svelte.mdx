@@ -1,0 +1,143 @@
+---
+title: Svelte
+description: Official iframe-resizer Svelte component
+---
+
+import Install from '/src/components/Install.astro';
+import License from '/src/components/License.astro';
+import FeedbackComponent from "/src/components/Feelback.astro";
+
+## Install
+
+Install this package with the following command.
+
+<Install package="@iframe-resizer/svelte" bun />
+
+You will also need to ensure that the [@iframe-resizer/child](/setup/child)
+package has been loaded into every page that loads into the iframe.
+
+## Usage
+
+The `<IframeResizer />` component accepts the supported
+[options](/api/parent#options) from _iframe-resizer_ as props. Standard
+`<iframe>` attributes (such as `src` and `id`) are forwarded to the
+underlying element.
+
+### Typical setup
+
+The normal configuration is to have the iframe resize when the browser window changes
+size or the content of the iframe changes. To set this up, you need to configure one
+of the dimensions of the iframe to a percentage and tell the library to only update
+the other dimension. Normally you would set the width to 100% and have the height
+scale to fit the content.
+
+```svelte
+<script>
+  import IframeResizer from '@iframe-resizer/svelte'
+</script>
+
+<IframeResizer
+  license="xxxx"
+  log="collapsed"
+  src="http://anotherdomain.com/iframe.html"
+/>
+
+<style>
+  iframe {
+    width: 100%;
+    height: 100vh;
+  }
+</style>
+```
+
+Setting the initial height of the iframe to `100vh` makes the loading in of
+the iframe appear smoother to the user, as they will only see the content
+below the iframe once it has completed loading and undergone its initial
+sizing.
+
+<License />
+
+## Child page
+
+You will then need to add the [@iframe-resizer/child](/setup/child)
+package on every page in the iframe.
+
+## Events
+
+_Iframe-resizer_ events are surfaced as Svelte events using the `on:` prefix.
+
+```svelte
+<script>
+  import IframeResizer from '@iframe-resizer/svelte'
+
+  function handleReady(event) {
+    console.log('ready', event.detail)
+  }
+
+  function handleResized(event) {
+    console.log('resized', event.detail)
+  }
+</script>
+
+<IframeResizer
+  license="xxxx"
+  src="http://anotherdomain.com/iframe.html"
+  on:ready={handleReady}
+  on:resized={handleResized}
+/>
+```
+
+The following events are dispatched:
+
+| Event | _iframe-resizer_ equivalent |
+| --- | --- |
+| `ready` | [onReady](/api/parent#onready) |
+| `message` | [onMessage](/api/parent#onmessage) |
+| `resized` | [onResized](/api/parent#onresized) |
+
+## Methods
+
+To call methods on the component, `bind:this` to an instance variable.
+
+```svelte
+<script>
+  import IframeResizer from '@iframe-resizer/svelte'
+
+  let resizer
+
+  function send() {
+    resizer.sendMessage('Hello from the parent page')
+  }
+</script>
+
+<IframeResizer
+  bind:this={resizer}
+  license="xxxx"
+  src="child.html"
+/>
+
+<button on:click={send}>Send message</button>
+```
+
+### moveToAnchor(<span class="args">anchor</span>)
+
+Move to an anchor in the iframe.
+
+### sendMessage(<span class="args">message, [targetOrigin]</span>)
+
+Send data to the iframe. See the [Parent Page API](/api/parent#sendmessagemessage-targetorigin) for details.
+
+## API Differences
+
+### close()
+
+This method is disabled. To remove the iframe from the page, use Svelte's
+conditional rendering (`{#if}`) to remove the component.
+
+Once everything is setup, keep an eye on the [browser console](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools),
+as _iframe-resizer_ will warn about any potential issues it detects and provide advice 
+on how to fix them. For more details on using _iframe-resizer_ see the 
+[Advanced Setup](/setup/advanced/) and [Trouble Shooting](/troubleshooting) sections 
+of this guide.
+
+<FeedbackComponent />
