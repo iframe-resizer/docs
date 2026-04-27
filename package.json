@@ -10,8 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/react": "^5.0.1",
-    "@astrojs/starlight": "^0.38.2",
+    "@astrojs/react": "^5.0.4",
+    "@astrojs/starlight": "^0.38.4",
     "@astrojs/starlight-tailwind": "^5.0.0",
     "@babel/runtime": "^7.29.2",
     "@fontsource/audiowide": "^5.2.7",
@@ -20,7 +20,7 @@
     "@tailwindcss/vite": "^4.2.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "astro": "^6.0.8",
+    "astro": "^6.1.9",
     "astro-feelback": "^0.3.4",
     "astro-og-canvas": "^0.10.1",
     "prop-types": "^15.8.1",
