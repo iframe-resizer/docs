@@ -49,7 +49,7 @@ attribute, for example `'8px 3em'`. A number value is converted into px.
 
 ```
 default: true
-type:    boolean | string[] 
+type:    boolean | string[]
 ```
 
 When set to true, only allow incoming messages from the domain listed in the `src` property of the iframe
@@ -211,7 +211,7 @@ onMessage: ({ iframe, message }) => void
 ```
 
 Receives messages posted from the iframe with the `parentIframe.sendMessage()` method.
-Passes a [`IFrameMessageData`](/api/types#iframemessagedata) object containing the **iframe** and
+Passes an [`IFrameMessageData`](/api/types#iframemessagedata) object containing the **iframe** and
 the **message**.
 
 ### onMouseEnter
@@ -220,7 +220,7 @@ the **message**.
 onMouseEnter: ({ iframe, screenX, screenY, type }) => void
 ```
 
-Function called after the mouse enters the iframe. Passes a [`IFrameMouseData`](/api/types#iframemousedata) object containing the **iframe**,
+Function called after the mouse enters the iframe. Passes an [`IFrameMouseData`](/api/types#iframemousedata) object containing the **iframe**,
 **screenX**, **screenY** and the **type** of event that triggered the callback.
 
 ### onMouseLeave
@@ -229,7 +229,7 @@ Function called after the mouse enters the iframe. Passes a [`IFrameMouseData`](
 onMouseLeave: ({ iframe, screenX, screenY, type }) => void
 ```
 
-Function called after the mouse leaves the iframe. Passes a [`IFrameMouseData`](/api/types#iframemousedata) object containing the **iframe**,
+Function called after the mouse leaves the iframe. Passes an [`IFrameMouseData`](/api/types#iframemousedata) object containing the **iframe**,
 **screenX**, **screenY** and the **type** of event that triggered the callback.
 
 ### onReady
@@ -247,7 +247,7 @@ Called after initial setup. Passes the [`IFrameComponent`](/api/types#iframecomp
 onResized: ({ iframe, height, width, type }) => void
 ```
 
-Function called after iframe resized. Passes a [`IFrameResizedData`](/api/types#iframeresizeddata) object containing the **iframe**, **height**, 
+Function called after iframe resized. Passes an [`IFrameResizedData`](/api/types#iframeresizeddata) object containing the **iframe**, **height**,
 **width** and the **type** of event that triggered the iframe to resize.
 
 ### onScroll
@@ -258,7 +258,7 @@ onScroll: ({ iframe, top, left, }) => boolean
 
 Called before the page is repositioned after a request from the iframe, due to either an in‑page link or a direct
 request from either [parentIframe.scrollTo()](/api/child#scrolltox-y) or 
-[parentIframe.scrollToOffset()](/api/child#scrolltooffsetx-y). Passes a
+[parentIframe.scrollToOffset()](/api/child#scrolltooffsetx-y). Passes an
 [`IFrameScrollData`](/api/types#iframescrolldata) object containing the **iframe**, **top**, and **left**.
 If this function returns **false**, it will stop
 the library from repositioning the page, so that you can implement your own custom scrolling instead.
@@ -286,6 +286,12 @@ iframeResize({
 
 Once the iframe has been initialized, an [`IFrameObject`](/api/types#iframeobject) is bound to it as
 `iframe.iframeResizer`. The following methods are available.
+
+### close()
+
+Remove the iframe from the parent page. The [`onBeforeClose`](#onbeforeclose) callback is called first
+and can prevent closing by returning `false`; the [`onAfterClose`](#onafterclose) callback is called once
+the iframe has been removed.
 
 ### disconnect()
 
