@@ -23,7 +23,7 @@ there is also a separate version of this guide for [WordPress](/guides/wordpress
 
 Download and install the parent page package with one of the following options.
 
-<Install package="@iframe-resizer/parent" cdn download />
+<Install package="@iframe-resizer/parent" cdn download parent/>
 
 ## Usage
 
@@ -51,34 +51,29 @@ to 100% and have the height scale to fit the content.
 <Tabs syncKey="version">
   <TabItem label="Vanilla JS">
 ```html
-<style>
-  iframe {
-    width: 100%;
-    height: 100vh;
-  }
-</style>
+<iframe 
+  id="myIframe"
+  src="http://anotherdomain.com/iframe.html"
+  style="width: 100%; height: 100vh;"
+></iframe>
 
-<iframe id="myIframe" src="http://anotherdomain.com/iframe.html"></iframe>
+<script type="module">
+  import iframeResize from '/node_modules/@iframe-resizer/parent/index.umd.js'
 
-<script src="/node_modules/@iframe-resizer/parent/index.umd.js"></script>
-<script>
   iframeResize({ 
     license: 'xxxx',
     log: 'collapsed',
-  }, '#myIframe' )
+  }, '#myIframe')
 </script>
 ```
   </TabItem>
   <TabItem label="ES Modules">
 ```html
-<style>
-  iframe {
-    width: 100%;
-    height: 100vh;
-  }
-</style>
-
-<iframe id="myIframe" src="http://anotherdomain.com/iframe.html"></iframe>
+<iframe 
+  id="myIframe"
+  src="http://anotherdomain.com/iframe.html"
+  style="width: 100%; height: 100vh;"
+></iframe>
 ```
 ```js
 import iframeResize from '@iframe-resizer/parent'
@@ -96,14 +91,11 @@ iframeResize(options, iframeSelector)
 </TabItem>
   <TabItem label="CommonJS">
 ```html
-<style>
-  iframe {
-    width: 100%;
-    height: 100vh;
-  }
-</style>
-
-<iframe id="myIframe" src="http://anotherdomain.com/iframe.html"></iframe>
+<iframe 
+  id="myIframe"
+  src="http://anotherdomain.com/iframe.html"
+  style="width: 100%; height: 100vh;"
+></iframe>
 ````
 
 ```js
@@ -121,22 +113,20 @@ iframeResize(options, selector)
   </TabItem>
   <TabItem label="jsDelivr CDN">
 <Code code={`
-<style>
-  iframe {
-    width: 100%;
-    height: 100vh;
-  }
-</style>
+<iframe 
+    id="myIframe"
+    src="http://anotherdomain.com/iframe.html"
+    style="width: 100%; height: 100vh;"
+></iframe>
 
-<iframe id="myIframe" src="http://anotherdomain.com/iframe.html"></iframe>
+<script type="module">
+    // Replace '@${VERSION}' below with the version you wish to use
+    import iframeResize from 'https://cdn.jsdelivr.net/npm/@iframe-resizer/parent@${VERSION}'
 
-<!-- replace '@${VERSION}' below with the version you wish to use. -->
-<script src="https://cdn.jsdelivr.net/npm/@iframe-resizer/parent@${VERSION}"></script>
-<script>
-  iframeResize({ 
-    license: 'xxxx',
-    log: 'collapsed',
-  }, '#myIframe')
+    iframeResize({ 
+      license: 'xxxx',
+      log: 'collapsed',
+    }, '#myIframe')
 </script>
 `} lang="html" />
   </TabItem>

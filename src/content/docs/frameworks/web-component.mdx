@@ -18,7 +18,7 @@ or any JavaScript framework that renders directly to the DOM.
 
 Install this package with the following command.
 
-<Install package="@iframe-resizer/web-component" cdn download bun />
+<Install package="@iframe-resizer/web-component" cdn download async />
 
 You will also need to ensure that the [@iframe-resizer/child](/setup/child)
 package has been loaded into every page that loads into the iframe.
@@ -35,35 +35,24 @@ _iframe-resizer_ option is forwarded to the underlying `<iframe>` element.
 <Tabs syncKey="version">
   <TabItem label="Vanilla JS">
 ```html
-<style>
-  iframe-resizer iframe {
-    width: 100%;
-    height: 100vh;
-  }
-</style>
+<script async src="/node_modules/@iframe-resizer/web-component/index.umd.js"></script>
 
 <iframe-resizer
   license="xxxx"
   log="collapsed"
   src="http://anotherdomain.com/iframe.html"
+  style="width: 100%; height: 100vh;"
 ></iframe-resizer>
 
-<script src="/node_modules/@iframe-resizer/web-component/index.umd.js"></script>
 ```
   </TabItem>
   <TabItem label="ES Modules">
 ```html
-<style>
-  iframe-resizer iframe {
-    width: 100%;
-    height: 100vh;
-  }
-</style>
-
 <iframe-resizer
   license="xxxx"
   log="collapsed"
   src="http://anotherdomain.com/iframe.html"
+  style="width: 100%; height: 100vh;"
 ></iframe-resizer>
 ```
 ```js
@@ -72,17 +61,11 @@ import '@iframe-resizer/web-component'
   </TabItem>
   <TabItem label="CommonJS">
 ```html
-<style>
-  iframe-resizer iframe {
-    width: 100%;
-    height: 100vh;
-  }
-</style>
-
 <iframe-resizer
   license="xxxx"
   log="collapsed"
   src="http://anotherdomain.com/iframe.html"
+  style="width: 100%; height: 100vh;"
 ></iframe-resizer>
 ```
 ```js
@@ -91,27 +74,23 @@ require('@iframe-resizer/web-component')
   </TabItem>
   <TabItem label="jsDelivr CDN">
 <Code code={`
-<style>
-  iframe-resizer iframe {
-    width: 100%;
-    height: 100vh;
-  }
-</style>
+<script async type="module">
+    // Replace '@${VERSION}' below with the version you wish to use.
+    import 'https://cdn.jsdelivr.net/npm/@iframe-resizer/web-component@${VERSION}'
+</script>
 
 <iframe-resizer
-  license="xxxx"
-  log="collapsed"
-  src="http://anotherdomain.com/iframe.html"
+    license="xxxx"
+    log="collapsed"
+    src="http://anotherdomain.com/iframe.html"
+    style="width: 100%; height: 100vh;"
 ></iframe-resizer>
-
-<!-- replace '@${VERSION}' below with the version you wish to use. -->
-<script src="https://cdn.jsdelivr.net/npm/@iframe-resizer/web-component@${VERSION}"></script>
 `} lang="html" />
   </TabItem>
 </Tabs>
 
 {/* <!-- prettier-ignore-end --> */}
-
+<br/>
 Setting the initial height of the iframe to `100vh` makes the loading in of
 the iframe appear smoother to the user, as they will only see the content
 below the iframe once it has completed loading and undergone its initial
@@ -180,13 +159,6 @@ space‑separated string.
   src="http://anotherdomain.com/iframe.html"
 ></iframe-resizer>
 ```
-
-## API Differences
-
-### close()
-
-This method is disabled. To remove the iframe from the page, remove the
-`<iframe-resizer>` element from the DOM.
 
 Once everything is setup, keep an eye on the [browser console](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools),
 as _iframe-resizer_ will warn about any potential issues it detects and provide advice 

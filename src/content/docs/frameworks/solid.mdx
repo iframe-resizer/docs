@@ -99,18 +99,6 @@ Move to an anchor in the iframe.
 
 Send data to the iframe. See the [Parent Page API](/api/parent#sendmessagemessage-targetorigin) for details.
 
-## API Differences
-
-### close()
-
-This method is disabled. To remove the iframe from the page, use Solid's
-conditional rendering (`<Show>` or similar) to remove the component.
-
-### disconnect()
-
-This method is not required. _Iframe-resizer_ is disconnected automatically
-via Solid's `onCleanup` lifecycle hook when the component is removed.
-
 Once everything is setup, keep an eye on the [browser console](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools),
 as _iframe-resizer_ will warn about any potential issues it detects and provide advice 
 on how to fix them. For more details on using _iframe-resizer_ see the 

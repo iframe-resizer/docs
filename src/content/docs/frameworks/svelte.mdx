@@ -40,16 +40,10 @@ scale to fit the content.
   license="xxxx"
   log="collapsed"
   src="http://anotherdomain.com/iframe.html"
+  style="width: 100%; height: 100vh;"
 />
-
-<style>
-  iframe {
-    width: 100%;
-    height: 100vh;
-  }
-</style>
 ```
-
+<br/>
 Setting the initial height of the iframe to `100vh` makes the loading in of
 the iframe appear smoother to the user, as they will only see the content
 below the iframe once it has completed loading and undergone its initial
@@ -126,13 +120,6 @@ Move to an anchor in the iframe.
 ### sendMessage(<span class="args">message, [targetOrigin]</span>)
 
 Send data to the iframe. See the [Parent Page API](/api/parent#sendmessagemessage-targetorigin) for details.
-
-## API Differences
-
-### close()
-
-This method is disabled. To remove the iframe from the page, use Svelte's
-conditional rendering (`{#if}`) to remove the component.
 
 Once everything is setup, keep an eye on the [browser console](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools),
 as _iframe-resizer_ will warn about any potential issues it detects and provide advice 

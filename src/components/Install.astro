@@ -4,10 +4,12 @@ import { Code } from 'astro-expressive-code/components'
 import VERSION from '/src/components/version'
 
 export interface Props {
-	package: string;
-  download: boolean;
-  cdn: boolean;
-  bun: boolean;
+	package?: string;
+  download?: boolean;
+  cdn?: boolean;
+  bun?: boolean;
+  parent?: boolean;
+  async?: boolean;
 }
 
 const props = Astro.props;
@@ -27,7 +29,10 @@ const props = Astro.props;
     <Code code={`bun add ${props.package}`} lang="bash" />
   </TabItem> }
   {(props.cdn === true) && <TabItem label="jsDeliver">
-    <Code code={`<script src="https://cdn.jsdelivr.net/npm/${props.package}@${VERSION}"></script>`} lang="js" />
+    <Code code={`<script ${(props.async === true) ? 'async ' : ''}type="module">
+  // Replace '@${VERSION}' below with the version you wish to use.
+  import ${(props.parent === true) ? 'iframeResize from ' : ''}\'https://cdn.jsdelivr.net/npm/${props.package}@${VERSION}\'
+</script>`} lang="html" />
   </TabItem>}
   {(props.download === true) && <TabItem label="Download">
       <b>Download</b>  <a href="https://github.com/davidjbradshaw/iframe-resizer/raw/master/iframe-resizer.zip">

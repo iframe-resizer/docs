@@ -23,15 +23,15 @@ method. The plugin will automatically filter out any non-iframe elements returne
 by jQuery.
 
 ```js
-<style>
-  iframe {
-    width: 100%;
-    height: 100vh;
-  }
-</style>
-<iframe id="myIframe" src="http://anotherdomain.com/iframe.html"></iframe>
 <script src="/node_modules/jquery/jquery.js"></script>
 <script src="/node_modules/iframe-resizer/jquery/index.umd.js"></script>
+
+<iframe 
+  id="myIframe" 
+  src="http://anotherdomain.com/iframe.html"
+  style="width: 100%; height: 100vh;"
+></iframe>
+
 <script>
   $('iframe').iframeResize({ 
     license: 'xxxx',

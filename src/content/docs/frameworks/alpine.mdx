@@ -32,16 +32,10 @@ object.
   Alpine.start()
 </script>
 
-<style>
-  iframe {
-    width: 100%;
-    height: 100vh;
-  }
-</style>
-
 <iframe
   x-iframe-resizer="{ license: 'xxxx', log: 'collapsed' }"
   src="http://anotherdomain.com/iframe.html"
+  style="width: 100%; height: 100vh;"
 ></iframe>
 ```
 
@@ -52,6 +46,7 @@ You can also point the directive at any Alpine data property or method.
   <iframe
     x-iframe-resizer="options"
     src="http://anotherdomain.com/iframe.html"
+    style="width: 100%; height: 100vh;"
   ></iframe>
 </div>
 ```
@@ -67,23 +62,6 @@ sizing.
 
 You will then need to add the [@iframe-resizer/child](/setup/child)
 package on every page in the iframe.
-
-## API Differences
-
-The Alpine plugin supports the [Parent Page API](/api/parent) with the
-following differences.
-
-### close()
-
-This method is disabled. To remove the iframe from the page, use Alpine's
-[`x-if`](https://alpinejs.dev/directives/if) directive to conditionally
-render it.
-
-### waitForLoad
-
-This option is enabled by default when using the Alpine directive, to ensure
-_iframe-resizer_ only initializes once Alpine has finished rendering the
-iframe.
 
 Once everything is setup, keep an eye on the [browser console](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools),
 as _iframe-resizer_ will warn about any potential issues it detects and provide advice 
