@@ -7,9 +7,9 @@ prev: APIs
 import { Aside } from "@astrojs/starlight/components";
 import FeedbackComponent from "/src/components/Feelback.astro";
 
-The Parent API is for use on the page containing the `<iframe>` tag. It is split into three sections. 
-[Options](#options) contains settings that can be passed when calling iframe-resizer. [Events](#events) 
-are triggered by updates to the iframe, or messages from the iframe. [Methods](#methods) allow you to 
+The Parent API is for use on the page containing the `<iframe>` tag. It is split into three sections.
+[Options](#options) contains settings that can be passed when calling iframe-resizer. [Events](#events)
+are triggered by updates to the iframe, or messages from the iframe. [Methods](#methods) allow you to
 interact with _iframe-resizer_ after the initial resizing.
 
 ## Options
@@ -32,7 +32,7 @@ default: null
 type:    string | number
 ```
 
-Override the default body margin style in the iframe. A string can be any valid value for the CSS margin 
+Override the default body margin style in the iframe. A string can be any valid value for the CSS margin
 attribute, for example `'8px 3em'`. A number value is converted into px.
 
 ### bodyPadding
@@ -42,7 +42,7 @@ default: null
 type:    string | number
 ```
 
-Override the default body padding style in the iframe. A string can be any valid value for the CSS padding 
+Override the default body padding style in the iframe. A string can be any valid value for the CSS padding
 attribute, for example `'8px 3em'`. A number value is converted into px.
 
 ### checkOrigin
@@ -53,7 +53,7 @@ type:    boolean | string[]
 ```
 
 When set to true, only allow incoming messages from the domain listed in the `src` property of the iframe
-tag. If your iframe navigates between different domains, ports or protocols; then you will need to provide 
+tag. If your iframe navigates between different domains, ports or protocols; then you will need to provide
 an array of URLs or disable this option.
 
 ### direction
@@ -65,12 +65,12 @@ values: 'vertical' | 'horizontal' | 'both' | 'none'
 
 Set the direction in which you want the iframe to automatically scale to the content size.
 
-When setting this option, you may need to tell _iframe-resizer_ which page element to use to calculate the 
+When setting this option, you may need to tell _iframe-resizer_ which page element to use to calculate the
 content size by adding one or more [`data-iframe-size`](/setup/advanced#data-iframe-size) attributes.
 
 <Aside type="tip">
   In most cases you should set one of the dimensions of the iframe to a percentage size and then configure
-  _iframe-resizer_ to control the other dimension. Selecting the `both` option will require you to manually 
+  _iframe-resizer_ to control the other dimension. Selecting the `both` option will require you to manually
   control one of the dimensions of your iframe's content size, in order to avoid unexpected results.
 </Aside>
 
@@ -93,7 +93,7 @@ type:    string
 
 **Commercial** Enter the key provided with the [purchased](/pricing) commercial license.
 
-**Open Source** If you are using _iframe-resizer_ on an open-source site or project, you can use it 
+**Open Source** If you are using _iframe-resizer_ on an open-source site or project, you can use it
 for free under the terms of the [GNU General Public License v3](/gpl). To accept these terms, set the license to `GPLv3`.
 
 <Aside type="tip">
@@ -127,7 +127,7 @@ default: 0
 type:    integer
 ```
 
-Modify the computed size of the iframe. This is useful if the page in the iframe returns a size value 
+Modify the computed size of the iframe. This is useful if the page in the iframe returns a size value
 that is consistently slightly different to how you want the iframe to be sized.
 
 _<sup>\*</sup> This value can also be set on a per page basis in the iframe._
@@ -169,7 +169,7 @@ type:    boolean
 
 By default _iframe-resizer_ sends a message to the iframe as soon as it is called, and then tries again when the
 `onload` event of the iframe is triggered. Setting this option to __true__ will disable the first attempt to contact
-the iframe and force it to wait for the load event to fire. This is useful with some web frameworks that create the 
+the iframe and force it to wait for the load event to fire. This is useful with some web frameworks that create the
 iframe after the main webpage has loaded.
 
 ### warningTimeout
@@ -179,12 +179,12 @@ default: 5000
 type:    integer
 ```
 
-Set the number of milliseconds after which a warning is logged if the iframe has not responded. Set to **0** to 
+Set the number of milliseconds after which a warning is logged if the iframe has not responded. Set to **0** to
 suppress warning messages of this type.
 
 ## Events
 
-The following callback events can be passed to _iframe-resizer_ on the parent page, as part of the 
+The following callback events can be passed to _iframe-resizer_ on the parent page, as part of the
 [options](#options) object.
 
 ### onAfterClose
@@ -201,7 +201,7 @@ Called after the iframe is closed via `parentIframe.close()` method.
 onBeforeClose: (iframeID) => boolean
 ```
 
-Called before the iframe is closed via `parentIframe.close()` method. Returning `false` will prevent the iframe 
+Called before the iframe is closed via `parentIframe.close()` method. Returning `false` will prevent the iframe
 from closing.
 
 ### onMessage
@@ -257,13 +257,13 @@ onScroll: ({ iframe, top, left, }) => boolean
 ```
 
 Called before the page is repositioned after a request from the iframe, due to either an in‑page link or a direct
-request from either [parentIframe.scrollTo()](/api/child#scrolltox-y) or 
+request from either [parentIframe.scrollTo()](/api/child#scrolltox-y) or
 [parentIframe.scrollToOffset()](/api/child#scrolltooffsetx-y). Passes an
 [`IFrameScrollData`](/api/types#iframescrolldata) object containing the **iframe**, **top**, and **left**.
 If this function returns **false**, it will stop
 the library from repositioning the page, so that you can implement your own custom scrolling instead.
 
-The following example shows how to adjust the scroll point. This can be useful if you have a sticky header on your 
+The following example shows how to adjust the scroll point. This can be useful if you have a sticky header on your
 page and you need to ensure the target scroll point does not get covered by your header.
 
 ```js
@@ -316,7 +316,7 @@ Move to an anchor in the iframe.
 
 ### sendMessage(<span class="args">message, [targetOrigin]</span>)
 
-Send data to the iframe; `message` can be any data type that can be serialized into JSON. The `targetOrigin` 
+Send data to the iframe; `message` can be any data type that can be serialized into JSON. The `targetOrigin`
 option is used to restrict where the message is sent, in case your iframe navigates to another domain.
 
 <FeedbackComponent />

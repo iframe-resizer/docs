@@ -12,7 +12,7 @@ iframe between your app and the page it is host on. This creates a unique challe
 _iframe-resizer_, as it needs to be able to talk directly with the iframe it is using to
 calculate the page size from.
 
-This can be overcome by providing _iframe-resizer_ some hints on where it can find the 
+This can be overcome by providing _iframe-resizer_ some hints on where it can find the
 nested iframe, in order to establish communication between the parent page and your GAS App.
 
 ### Child Page
@@ -31,7 +31,7 @@ package to your GAS app.
 ### Parent Page
 
 The parent page needs to wait to receive the above message before starting _iframe-resizer_.
-Once it has received the contained references from the GAS app iframe, these can then 
+Once it has received the contained references from the GAS app iframe, these can then
 be passed along to _iframe-resizer_ as follows.
 
 ```js
@@ -59,9 +59,9 @@ The value for `offsetSize` may need to be adjusted based on the content of your 
 <License example />
 
 Once everything is setup, keep an eye on the [browser console](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools),
-as _iframe-resizer_ will warn about any potential issues it detects and provide advice 
-on how to fix them. For more details on using _iframe-resizer_ see the 
-[Advanced Setup](/setup/advanced/) and [Trouble Shooting](/troubleshooting) sections 
+as _iframe-resizer_ will warn about any potential issues it detects and provide advice
+on how to fix them. For more details on using _iframe-resizer_ see the
+[Advanced Setup](/setup/advanced/) and [Trouble Shooting](/troubleshooting) sections
 of this guide.
 
 <FeedbackComponent />

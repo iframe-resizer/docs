@@ -5,20 +5,20 @@ description: Creating resizable content
 
 import FeedbackComponent from "/src/components/Feelback.astro";
 
-Whilst the vast majority of pages will work without any changes, this page details the most 
+Whilst the vast majority of pages will work without any changes, this page details the most
 common scenarios you should be aware of to avoid unexpected behaviors.
 
 On a traditional webpage it is sometimes useful to scale the content to meet
 the size of the page, however, when using _iframe-resizer_ the page is scaled to meet
 the content. This inversion of the layout sizing paradigm can occasionally create some
-unexpected results, as the content and the page both compete to adjust their size to 
+unexpected results, as the content and the page both compete to adjust their size to
 meet the other.
 
 ### Footers
 
-Many webpages, including this site's homepage, have page footers anchored to the bottom of 
+Many webpages, including this site's homepage, have page footers anchored to the bottom of
 the page, so that the footer adapts to the size of the window. In an iframe that scales to
-its content, these techniques are not necessary as the viewport will now come to meet the 
+its content, these techniques are not necessary as the viewport will now come to meet the
 footer, so it can be placed in the document, like any other content.
 
 Having a bottom floating footer is likely to prevent the iframe from being able to downsize,
@@ -30,10 +30,10 @@ explains how you can manually select a custom page element to calculate the cont
 ### Viewpoint Sizing Units
 
 When creating page content, the use of viewport sizing units (`vh`, `vw`, `vmax` and `vmin`)
-in CSS can quickly cause problems when used to size page elements in the same direction as 
-the iframe is being resized. 
+in CSS can quickly cause problems when used to size page elements in the same direction as
+the iframe is being resized.
 
-Either your iframe will be blocked from downsizing, as the content size is now based on the 
+Either your iframe will be blocked from downsizing, as the content size is now based on the
 iframe size. Or potentially it can cause a resizing loop, where the iframe changing size causes
 the content to change size, which then in turn triggers an update to the iframes size.
 
@@ -43,16 +43,16 @@ You should therefore only use relative or fixed sizing units, such as `em` and `
 
 When page elements are taken out of the default document flow, or overflow the document body,
 they can potentially impact the size of the iframe and may need individually checking for
-position to calculate the content size. 
+position to calculate the content size.
 
-To mitigate having to check large numbers of page element, _iframe-resizer_ uses the browsers 
-Observer APIs to reduce the <span class="fig">Set</span> of checkable page elements as much as 
+To mitigate having to check large numbers of page element, _iframe-resizer_ uses the browsers
+Observer APIs to reduce the <span class="fig">Set</span> of checkable page elements as much as
 possible, but you should still be mindful that an excessively large number of overflown elements
 could have an impact on page performance.
 
 Enabling the `log: 'expanded'` option, will output details of when overflown elements are detected
 and used to calculate the size of the iframe to the
-[console](https://developers.google.com/chrome-developer-tools/docs/console#opening_the_console). 
+[console](https://developers.google.com/chrome-developer-tools/docs/console#opening_the_console).
 It will detail the number of elements checked, the time taken, and the element used to
 calculate the content size.
 

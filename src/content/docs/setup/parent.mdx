@@ -11,12 +11,12 @@ import FeedbackComponent from "/src/components/Feelback.astro";
 import VERSION from "/src/components/version";
 
 The _iframe-resizer_ project is distributed via separate packages for the parent and
-child pages. This guide takes you through setting up the parent page, and on the 
+child pages. This guide takes you through setting up the parent page, and on the
 [next page](/setup/child) there is a guide to setting up child pages.
 
 In this section we detail how to set up the parent page using the vanilla JavaScript
 version of _iframe-resizer_. The [framework](/frameworks/overview) section of this
-guide details how to use _iframe-resizer_ with a range of popular frameworks, and 
+guide details how to use _iframe-resizer_ with a range of popular frameworks, and
 there is also a separate version of this guide for [WordPress](/guides/wordpress).
 
 ## Install
@@ -27,13 +27,13 @@ Download and install the parent page package with one of the following options.
 
 ## Usage
 
-This library provides the function `iframeResize()`, which accepts a config object and one or 
+This library provides the function `iframeResize()`, which accepts a config object and one or
 more iframes. Iframes can be passed via either the CSS `iframeSelector` or an element reference. All values
 are optional. If no iframe is provided, it will bind _iframe-resizer_ to all iframes
 currently on the page.
 
 ```js
-const iframes = iframeResize( [{options}], [css iframeSelector] || [iframe] )
+const iframes = iframeResize( [{options}], [css iframeSelector] | [iframe] )
 ```
 
 Once the setup has run, an array of the iframes that have had _iframe-resizer_
@@ -51,7 +51,7 @@ to 100% and have the height scale to fit the content.
 <Tabs syncKey="version">
   <TabItem label="Vanilla JS">
 ```html
-<iframe 
+<iframe
   id="myIframe"
   src="http://anotherdomain.com/iframe.html"
   style="width: 100%; height: 100vh;"
@@ -60,7 +60,7 @@ to 100% and have the height scale to fit the content.
 <script type="module">
   import iframeResize from '/node_modules/@iframe-resizer/parent/index.umd.js'
 
-  iframeResize({ 
+  iframeResize({
     license: 'xxxx',
     log: 'collapsed',
   }, '#myIframe')
@@ -69,7 +69,7 @@ to 100% and have the height scale to fit the content.
   </TabItem>
   <TabItem label="ES Modules">
 ```html
-<iframe 
+<iframe
   id="myIframe"
   src="http://anotherdomain.com/iframe.html"
   style="width: 100%; height: 100vh;"
@@ -78,7 +78,7 @@ to 100% and have the height scale to fit the content.
 ```js
 import iframeResize from '@iframe-resizer/parent'
 
-const options = { 
+const options = {
   license: 'xxxx',
   log: 'collapsed',
 }
@@ -91,7 +91,7 @@ iframeResize(options, iframeSelector)
 </TabItem>
   <TabItem label="CommonJS">
 ```html
-<iframe 
+<iframe
   id="myIframe"
   src="http://anotherdomain.com/iframe.html"
   style="width: 100%; height: 100vh;"
@@ -101,7 +101,7 @@ iframeResize(options, iframeSelector)
 ```js
 const iframeResize = require("@iframe-resizer/parent")
 
-const options = { 
+const options = {
   license: 'xxxx',
   log: 'collapsed',
 }
@@ -113,7 +113,7 @@ iframeResize(options, selector)
   </TabItem>
   <TabItem label="jsDelivr CDN">
 <Code code={`
-<iframe 
+<iframe
     id="myIframe"
     src="http://anotherdomain.com/iframe.html"
     style="width: 100%; height: 100vh;"
@@ -123,7 +123,7 @@ iframeResize(options, selector)
     // Replace '@${VERSION}' below with the version you wish to use
     import iframeResize from 'https://cdn.jsdelivr.net/npm/@iframe-resizer/parent@${VERSION}'
 
-    iframeResize({ 
+    iframeResize({
       license: 'xxxx',
       log: 'collapsed',
     }, '#myIframe')
@@ -145,7 +145,7 @@ follow the [Third Party](/setup/third_party) setup guide.
 
 ## API
 
-The [Parent Page API](/api/parent) includes a range of options, events, and methods to 
+The [Parent Page API](/api/parent) includes a range of options, events, and methods to
 enable you to securely interact with both _iframe-resizer_ and the parent page.
 
 <FeedbackComponent />

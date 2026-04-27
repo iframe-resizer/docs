@@ -5,7 +5,7 @@ description: Fix common issues
 
 import FeedbackComponent from "/src/components/Feelback.astro";
 
-The first steps to investigate any problem is to make sure you are using the latest version and then check the 
+The first steps to investigate any problem is to make sure you are using the latest version and then check the
 [JavaScript Console](https://developers.google.com/chrome-developer-tools/docs/console#opening_the_console). _iframe-resizer_
 will output the details of any issues it detects and give advise on how to fix them.
 
@@ -18,34 +18,34 @@ before opening a ticket, as this will ensure a faster resolution.
 
 ### Iframe not resizing
 
-The most common cause of this is not placing the [@iframe-resizer/child](/setup/child) package inside the iframed page. If 
-this does not fix the problem then check `x-Frame-Options` http header on the server that is sending the iframe content, as 
+The most common cause of this is not placing the [@iframe-resizer/child](/setup/child) package inside the iframed page. If
+this does not fix the problem then check `x-Frame-Options` http header on the server that is sending the iframe content, as
 this can also block `postMessage` calls from _iframe-resizer_ if set incorrectly.
 
 ### Iframe not downsizing
 
 There are a few different things that can cause the iframe to have difficulty downsizing when the content changes,
-the most common issues are caused by either having the browser fallback to the legacy 
-[Quirks Mode](https://developer.mozilla.org/en-US/docs/Web/HTML/Quirks_Mode_and_Standards_Mode) or a couple of 
+the most common issues are caused by either having the browser fallback to the legacy
+[Quirks Mode](https://developer.mozilla.org/en-US/docs/Web/HTML/Quirks_Mode_and_Standards_Mode) or a couple of
 different CSS pattens that don't translate into a dynamically resizing webpage.
 
 #### Quirks Mode
 
 When the browser enters Quirks Mode it is unable to reliably update the size of containing elements, when the
 content in the page changes. This can prevent _iframe-resizer_ from correctly detecting that the page size has
-changed. To ensure you page is running in the modern Standards Mode, it should start with the following 
+changed. To ensure you page is running in the modern Standards Mode, it should start with the following
 doctype and contain [valid](https://validator.w3.org/) HTML.
 
 ```html
 <!doctype html>
 ```
 
-#### CSS 
+#### CSS
 
 There are two CSS pattens that are best avoided in the iframe, as they can prevent the page size shrinking
-when changes are made to the content, or the window is resized. The first patten is having **absolutely positioned 
-elements anchored to the bottom of the page**, and the second is using **Viewport / Percentage Sizing Units 
-on the same axes that _iframe-resizer_ is controlling**. The [Iframe Content Guidelines](/content_guidelines) 
+when changes are made to the content, or the window is resized. The first patten is having **absolutely positioned
+elements anchored to the bottom of the page**, and the second is using **Viewport / Percentage Sizing Units
+on the same axes that _iframe-resizer_ is controlling**. The [Iframe Content Guidelines](/content_guidelines)
 section explains both of these issues and how to mitigate them.
 
 To find out which element on the page is causing the issue, you can enable the `log` option and it will output
@@ -55,8 +55,8 @@ the HTML element being used to calculate the page size to the browser console, e
 iframeResize({ log: 'expanded' })
 ```
 
-If for some reason you are unable to fix the CSS on the page, as a fallback you can manually select which page 
-element to use for page size calculation with the `data-iframe-size` attribute. The 
+If for some reason you are unable to fix the CSS on the page, as a fallback you can manually select which page
+element to use for page size calculation with the `data-iframe-size` attribute. The
 [Advanced Setup](/setup/advanced) guide explains the different ways that this can be applied to the page.
 
 ### Multiple iframes on one page
@@ -65,16 +65,16 @@ When the resizer does not work using multiple iframes on one page, make sure tha
 
 ### Localhost 127.0.0.1 and file:///
 
-When an iframe is located on your local machine the browser adds extra security restrictions to cross-domain iframes. 
-These can stop _iframe-resizer_ from functioning. If you need to test something locally, then it is best to use the 
+When an iframe is located on your local machine the browser adds extra security restrictions to cross-domain iframes.
+These can stop _iframe-resizer_ from functioning. If you need to test something locally, then it is best to use the
 external IP Address of the machine.
 
 ### Failed to execute 'postMessage' on 'DOMWindow'
 
-This error occurs when the parent window tries to send a message to the iframe before it has loaded. This library makes 
+This error occurs when the parent window tries to send a message to the iframe before it has loaded. This library makes
 multiple attempts to talk to the iframe, so if everything is working then you can safely ignore this error message.
 
-If you're still having problems, or you really want to not ignore the error, then you can try delaying the call to `iframeResize()` 
+If you're still having problems, or you really want to not ignore the error, then you can try delaying the call to `iframeResize()`
 until after the iframe onload event has been triggered, by setting the `waitForLoad` option to **true**.
 
 ```js
@@ -85,13 +85,13 @@ iframeResize({ waitForLoad: true })
 
 This error happens when the iframe is slow to respond, or is blocked from responding to the request from the parent page.
 
-If everything is working, then this message can be ignored, or if you prefer you can set a longer timeout. On the other hand 
-if you are not getting a response and the child package has been loaded in the iframe, then you need to check that iframe has 
+If everything is working, then this message can be ignored, or if you prefer you can set a longer timeout. On the other hand
+if you are not getting a response and the child package has been loaded in the iframe, then you need to check that iframe has
 not been sandboxed, either by setting options on the `<iframe>` tag, or with the `x-Frame-Options` http header of the iframe.
 
 ### ParentIframe not found errors
 
-The `parentIframe` object is created once the iframe has been initially resized. If you wish to use it during page load you 
+The `parentIframe` object is created once the iframe has been initially resized. If you wish to use it during page load you
 will need call it from the [onReady()](/api/child#onready) startup event handler.
 
 ```html
@@ -113,13 +113,13 @@ the [Parent Page API](/api/parent) to adjust how scrolling works to you own requ
 
 ### PDF and OpenDocument files
 
-It is not possible to add the required JavaScript to PDF and ODF files. However, you can get around this limitation 
-by using [ViewerJS](http://viewerjs.org) to render these files inside a HTML page, that also contains the iframe 
+It is not possible to add the required JavaScript to PDF and ODF files. However, you can get around this limitation
+by using [ViewerJS](http://viewerjs.org) to render these files inside a HTML page, that also contains the iframe
 [@iframe-resizer/child](/setup/child) package.
 
 ### Unexpected message received error
 
-By default the origin of incoming messages is checked against the `src` attribute of the iframe. If they don't match 
+By default the origin of incoming messages is checked against the `src` attribute of the iframe. If they don't match
 an error is thrown. This behavior can be disabled by setting the [checkOrigin](/api/parent#checkorigin) option to **false**.
 
 ```js
@@ -128,7 +128,7 @@ iframeResize({ checkOrigin: false })
 
 ### Width not resizing
 
-By default only changes in height are detected, if you want to calculate the width instead then you need to set the 
+By default only changes in height are detected, if you want to calculate the width instead then you need to set the
 [direction](/api/parent#direction) option to **'horizontal'**.
 
 ```js
