@@ -69,7 +69,7 @@ export default defineConfig({
         },
       ],
       title: "iframe-resizer",
-      description: "Keepiframes sized to their content",
+      description: "Keep iframes sized to their content",
       favicon: "/favicon.ico",
       logo: {
         src: "./src/assets/logo-cropped.svg",

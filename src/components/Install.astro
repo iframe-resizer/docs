@@ -29,9 +29,9 @@ const props = Astro.props;
     <Code code={`bun add ${props.package}`} lang="bash" />
   </TabItem> }
   {(props.cdn === true) && <TabItem label="jsDeliver">
-    <Code code={`<script ${(props.async === true) ? 'async ' : ''}type="module">
+    <Code code={`<script${(props.async === true) ? ' async' : ''} type="module">
   // Replace '@${VERSION}' below with the version you wish to use.
-  import ${(props.parent === true) ? 'iframeResize from ' : ''}\'https://cdn.jsdelivr.net/npm/${props.package}@${VERSION}\'
+  import ${(props.parent === true) ? 'iframeResize from ' : ''}'https://cdn.jsdelivr.net/npm/${props.package}@${VERSION}'
 </script>`} lang="html" />
   </TabItem>}
   {(props.download === true) && <TabItem label="Download">
