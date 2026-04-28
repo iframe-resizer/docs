@@ -52,10 +52,10 @@ require('@iframe-resizer/child')
   </TabItem>
   <TabItem label="jsDelivr CDN">
 <Code code={`
-<script
-    async
-    src="https://cdn.jsdelivr.net/npm/@iframe-resizer/child@${VERSION}"
-></script>
+<script async type="module">
+    // Replace '${VERSION}' below with the version you wish to use
+    import '//cdn.jsdelivr.net/npm/@iframe-resizer/child@${VERSION}/+esm'
+</script>
 `} lang="html" />
   </TabItem>
 </Tabs>
