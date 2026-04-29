@@ -23,7 +23,7 @@ there is also a separate version of this guide for [WordPress](/guides/wordpress
 
 Download and install the parent page package with one of the following options.
 
-<Install package="@iframe-resizer/parent" cdn download parent/>
+<Install package="@iframe-resizer/parent" bun cdn badge download parent/>
 
 ## Usage
 
@@ -78,14 +78,10 @@ to 100% and have the height scale to fit the content.
 ```js
 import iframeResize from '@iframe-resizer/parent'
 
-const options = {
+iframeResize({
   license: 'xxxx',
   log: 'collapsed',
-}
-
-const selector = '#myIframe'
-
-iframeResize(options, selector)
+}, '#myIframe')
 
 ````
 </TabItem>
@@ -101,14 +97,10 @@ iframeResize(options, selector)
 ```js
 const iframeResize = require("@iframe-resizer/parent")
 
-const options = {
+iframeResize({
   license: 'xxxx',
   log: 'collapsed',
-}
-
-const selector = '#myIframe'
-
-iframeResize(options, selector)
+}, '#myIframe')
 ```
   </TabItem>
   <TabItem label="jsDelivr CDN">
@@ -119,7 +111,7 @@ iframeResize(options, selector)
     style="width: 100%; height: 100vh;"
 ></iframe>
 
-<script type="module">
+<script async type="module">
     // Replace '@${VERSION}' below with the version you wish to use
     import iframeResize from '//cdn.jsdelivr.net/npm/@iframe-resizer/parent@${VERSION}/+esm'
 

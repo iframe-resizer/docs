@@ -10,6 +10,7 @@ export interface Props {
   bun?: boolean;
   parent?: boolean;
   async?: boolean;
+  badge?: boolean;
 }
 
 const props = Astro.props;
@@ -30,7 +31,7 @@ const props = Astro.props;
   </TabItem> }
   {(props.cdn === true) && <TabItem label="jsDeliver">
     <a style="margin: 0 20px" target="_blank" href={`https://www.jsdelivr.com/package/npm/${props.package}`}>
-      <img src={`//data.jsdelivr.com/v1/package/npm/${props.package}/badge`} alt="jsDelivr" style="float: right;position: relative; top: 4px;"/>
+      {(props.badge === true) && <img src={`//data.jsdelivr.com/v1/package/npm/${props.package}/badge`} alt="jsDelivr" style="float: right;position: relative; top: 4px;"/>}
       https://www.jsdelivr.com/package/npm/{props.package}
     </a>
   </TabItem>}

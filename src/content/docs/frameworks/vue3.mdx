@@ -53,16 +53,10 @@ scale to fit the content.
     license='xxxx'
     log="collapsed"
     src="http://anotherdomain.com/iframe.html"
+    style="width: 100%; height: 100vh;"
     @on-ready="() => console.log('onReady')"
   />
 </template>
-
-<style scoped>
-  iframe {
-    width: 100%;
-    height: 100vh;
-  }
-</style>
 ```
 
 Setting the initial height of the iframe to `100vh` makes the loading in of
