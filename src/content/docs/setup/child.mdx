@@ -21,7 +21,7 @@ a message from the parent page.
 
 Download and install the child page package with one of the following options.
 
-<Install package="@iframe-resizer/child" download cdn/>
+<Install package="@iframe-resizer/child" async download cdn bun badge/>
 
 ## Usage
 
@@ -52,18 +52,18 @@ require('@iframe-resizer/child')
   </TabItem>
   <TabItem label="jsDelivr CDN">
 <Code code={`
-<script
-  async
-  src="https://cdn.jsdelivr.net/npm/@iframe-resizer/child@${VERSION}"
-></script>
+<script async type="module">
+    // Replace '${VERSION}' below with the version you wish to use
+    import '//cdn.jsdelivr.net/npm/@iframe-resizer/child@${VERSION}/+esm'
+</script>
 `} lang="html" />
   </TabItem>
 </Tabs>
 {/* <!-- prettier-ignore-end --> */}
 
 Once everything is set up, keep an eye on the [browser console](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools),
-as _iframe-resizer_ will warn about any potential issues it detects and provide advice 
-on how to fix them. 
+as _iframe-resizer_ will warn about any potential issues it detects and provide advice
+on how to fix them.
 
 #### License
 
@@ -74,7 +74,7 @@ set the license key on the child page.
 
 ## API
 
-The [Child Page API](/api/child) includes a range of settings, events, and methods to 
+The [Child Page API](/api/child) includes a range of settings, events, and methods to
 enable you to securely interact with both _iframe-resizer_ and the child page.
 
 <FeedbackComponent />

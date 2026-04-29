@@ -1,0 +1,108 @@
+---
+title: Astro
+description: Official iframe-resizer Astro component
+---
+
+import Install from '/src/components/Install.astro';
+import License from '/src/components/License.astro';
+import FeedbackComponent from "/src/components/Feelback.astro";
+
+## Install
+
+Install this package with the following command.
+
+<Install package="@iframe-resizer/astro" bun />
+
+You will also need to ensure that the [@iframe-resizer/child](/setup/child)
+package has been loaded into every page that loads into the iframe.
+
+## Usage
+
+Import the `IframeResizer` component into any `.astro` file. It accepts all
+standard `<iframe>` attributes as well as the supported [options](/api/parent#options)
+from _iframe-resizer_.
+
+```astro
+---
+import IframeResizer from '@iframe-resizer/astro'
+---
+
+<IframeResizer
+  license="xxxx"
+  log="collapsed"
+  src="http://anotherdomain.com/iframe.html"
+  style="width: 100%; height: 100vh;"
+/>
+```
+
+Setting the initial height of the iframe to `100vh` makes the loading in of
+the iframe appear smoother to the user, as they will only see the content
+below the iframe once it has completed loading and undergone its initial
+sizing.
+
+<License />
+
+## Child page
+
+You will then need to add the [@iframe-resizer/child](/setup/child)
+package on every page in the iframe.
+
+## Events
+
+Astro components cannot accept function props at runtime, so _iframe-resizer_
+events are surfaced as custom DOM events dispatched on the `<iframe>`
+element. Listen for them from client-side script.
+
+```astro
+<IframeResizer
+  id="myIframe"
+  license="xxxx"
+  src="http://anotherdomain.com/iframe.html"
+/>
+
+<script>
+  const iframe = document.getElementById('myIframe')
+
+  iframe?.addEventListener('iframe-resizer:ready', (event) => {
+    console.log('ready', event.detail)
+  })
+
+  iframe?.addEventListener('iframe-resizer:resized', (event) => {
+    console.log('resized', event.detail)
+  })
+
+  iframe?.addEventListener('iframe-resizer:message', (event) => {
+    console.log('message', event.detail)
+  })
+</script>
+```
+
+The following custom events are dispatched:
+
+| Event | _iframe-resizer_ equivalent |
+| --- | --- |
+| `iframe-resizer:ready` | [onReady](/api/parent#onready) |
+| `iframe-resizer:message` | [onMessage](/api/parent#onmessage) |
+| `iframe-resizer:resized` | [onResized](/api/parent#onresized) |
+| `iframe-resizer:scroll` | [onScroll](/api/parent#onscroll) |
+| `iframe-resizer:mouseenter` | [onMouseEnter](/api/parent#onmouseenter) |
+| `iframe-resizer:mouseleave` | [onMouseLeave](/api/parent#onmouseleave) |
+
+Each event's `detail` property contains the same data as the equivalent
+_iframe-resizer_ callback.
+
+## View Transitions
+
+The Astro component integrates automatically with
+[View Transitions](https://docs.astro.build/en/guides/view-transitions/).
+_Iframe-resizer_ is disconnected before the swap and reconnected after, to
+prevent duplicate listeners and to ensure that any new iframe on the
+incoming page is wired up correctly.
+
+Once everything is setup, keep an eye on the [browser console](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools),
+as _iframe-resizer_ will warn about any potential issues it detects and provide advice
+on how to fix them. For more details on using _iframe-resizer_ see the
+[Advanced Setup](/setup/advanced/) and [Trouble Shooting](/troubleshooting) sections
+of this guide.
+
+<FeedbackComponent />

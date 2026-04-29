@@ -1,53 +1,65 @@
 ---
 title: Angular
-description: Angular Directive example
+description: Official iframe-resizer Angular directive
 ---
 
-import { Code } from '@astrojs/starlight/components'
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import Install from '/src/components/Install.astro';
+import License from '/src/components/License.astro';
+import FeedbackComponent from "/src/components/Feelback.astro";
 
-import Install from '/src/components/Install.astro'
-import License from '/src/components/License.astro'
-import FeedbackComponent from "/src/components/Feelback.astro"
+## Install
 
-import directive from '/src/assets/angular/directive.ts?raw'
-import html from '/src/assets/angular/example.html?raw'
-import ts from '/src/assets/angular/example.ts?raw'
+Install this package with the following command.
 
+<Install package="@iframe-resizer/angular" bun />
 
-This guide explains how to create an Angular Directive for _iframe-resizer_ using the [Framework API](/api/framework).
+You will also need to ensure that the [@iframe-resizer/child](/setup/child)
+package has been loaded into every page that loads into the iframe.
 
-## Install Framework API
+## Usage
 
-Install the core _iframe-resizer_ [Framework API](/api/framework) with the following command.
+The package exports a standalone `IframeResizerDirective` which can be
+imported directly into any standalone component. It attaches to any
+`<iframe>` element via the `iframe-resizer` attribute and takes a single
+`options` input containing the _iframe-resizer_
+[options](/api/parent#options) and the license key.
 
-<Install package="@iframe-resizer/core" />
+### Typical setup
 
-## Create Angular Directive
+The normal configuration is to have the iframe resize when the browser window changes
+size or the content of the iframe changes. To set this up, you need to configure one
+of the dimensions of the iframe to a percentage and tell the library to only update
+the other dimension. Normally you would set the width to 100% and have the height
+scale to fit the content.
 
-Create the following directive, which exposes the full _iframe-resizer_ feature set.
+```ts
+import { Component } from '@angular/core'
+import { IframeResizerDirective } from '@iframe-resizer/angular'
 
-<Code lang="ts" title="iframe-resizer-directive.ts" code={directive} />
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [IframeResizerDirective],
+  template: `
+    <iframe
+      iframe-resizer
+      [options]="options"
+      src="http://anotherdomain.com/iframe.html"
+      style="width: 100%; height: 100vh;"
+    ></iframe>
+  `,
+})
+export class AppComponent {
+  options = {
+    license: 'xxxx',
+    log: 'collapsed',
+  }
+}
+```
 
-## Setup on Parent Page
-
-You can then include it on your parent page as follows, using the [options](/api/parent#options) and 
-[events](/api/parent#events) as detailed in the [Parent Page API](/api/parent).
-
-<Tabs>
-  <TabItem label="HTML">
-    <Code lang="html" title="parent-page.html" code={html} />
-  </TabItem>
-  <TabItem label="TypeScript">
-    <Code lang="ts" title="parent-page.ts" code={ts} />
-  </TabItem>
-</Tabs>
-
- - _Thanks to [Bjørn Håkon](https://github.com/bjornoss) for this example._
-   
 Setting the initial height of the iframe to `100vh` makes the loading in of
 the iframe appear smoother to the user, as they will only see the content
-below the iframe once it has completed loading and undergone it's initial
+below the iframe once it has completed loading and undergone its initial
 sizing.
 
 <License />
@@ -57,10 +69,110 @@ sizing.
 You will then need to add the [@iframe-resizer/child](/setup/child)
 package on every page in the iframe.
 
+## Events
+
+_Iframe-resizer_ events are surfaced as Angular output bindings.
+
+```ts
+import { Component } from '@angular/core'
+import type {
+  IFrameComponent,
+  IFrameMessageData,
+  IFrameResizedData,
+} from '@iframe-resizer/angular'
+import { IframeResizerDirective } from '@iframe-resizer/angular'
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [IframeResizerDirective],
+  template: `
+    <iframe
+      iframe-resizer
+      [options]="options"
+      (onReady)="handleReady($event)"
+      (onMessage)="handleMessage($event)"
+      (onResized)="handleResized($event)"
+      src="http://anotherdomain.com/iframe.html"
+    ></iframe>
+  `,
+})
+export class AppComponent {
+  options = { license: 'xxxx' }
+
+  handleReady(iframe: IFrameComponent) { /* ... */ }
+  handleMessage(data: IFrameMessageData) { /* ... */ }
+  handleResized(data: IFrameResizedData) { /* ... */ }
+}
+```
+
+The following outputs are available:
+
+| Output | _iframe-resizer_ equivalent |
+| --- | --- |
+| `onReady` | [onReady](/api/parent#onready) |
+| `onBeforeClose` | [onBeforeClose](/api/parent#onbeforeclose) |
+| `onMessage` | [onMessage](/api/parent#onmessage) |
+| `onMouseEnter` | [onMouseEnter](/api/parent#onmouseenter) |
+| `onMouseLeave` | [onMouseLeave](/api/parent#onmouseleave) |
+| `onResized` | [onResized](/api/parent#onresized) |
+| `onScroll` | [onScroll](/api/parent#onscroll) |
+
+## Methods
+
+Query the directive with `@ViewChild(IframeResizerDirective)` to access
+the available methods.
+
+```ts
+import { Component, ViewChild } from '@angular/core'
+import { IframeResizerDirective } from '@iframe-resizer/angular'
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [IframeResizerDirective],
+  template: `
+    <iframe
+      iframe-resizer
+      [options]="options"
+      src="child.html"
+    ></iframe>
+    <button (click)="send()">Send message</button>
+  `,
+})
+export class AppComponent {
+  options = { license: 'xxxx' }
+
+  @ViewChild(IframeResizerDirective) resizer!: IframeResizerDirective
+
+  send() {
+    this.resizer.sendMessage('Hello from the parent page')
+  }
+}
+```
+
+If you have more than one iframe on the page, attach a template reference
+to each iframe and query by that reference:
+
+```ts
+@ViewChild('myIframe', { read: IframeResizerDirective })
+resizer!: IframeResizerDirective
+```
+
+### moveToAnchor(<span class="args">anchor</span>)
+
+Move to an anchor in the iframe.
+
+### sendMessage(<span class="args">message, [targetOrigin]</span>)
+
+Send data to the iframe. See the [Parent Page API](/api/parent#sendmessagemessage-targetorigin) for details.
+
 Once everything is setup, keep an eye on the [browser console](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools),
-as _iframe-resizer_ will warn about any potential issues it detects and provide advice 
-on how to fix them. For more details on using _iframe-resizer_ see the 
-[Advanced Setup](/setup/advanced/) and [Trouble Shooting](/troubleshooting) sections 
+as _iframe-resizer_ will warn about any potential issues it detects and provide advice
+on how to fix them. For more details on using _iframe-resizer_ see the
+[Advanced Setup](/setup/advanced/) and [Trouble Shooting](/troubleshooting) sections
 of this guide.
+
+ - _Thanks to [Bjørn Håkon](https://github.com/bjornoss) for originally contributing the Angular directive._
 
 <FeedbackComponent />

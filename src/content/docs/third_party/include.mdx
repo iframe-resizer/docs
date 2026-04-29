@@ -13,14 +13,14 @@ import include from '/src/assets/third-party/include-iframe.js?raw'
 import VERSION from "/src/components/version"
 
 This is a quick setup guide that details how to create a simple JavaScript file that you can share with
-third parties that are providing your site with their iframe. 
+third parties that are providing your site with their iframe.
 
 <Aside type="tip">
   This guide will set up iframe-resizer for use on a single parent page. If the iframe is used by multiple sites,
   then you should instead follow the [Share an iframe](/third_party/share) guide,
 </Aside>
 
-This approach simplifies the setup for your supplier site and allows you to control the version of _iframe-resizer_ 
+This approach simplifies the setup for your supplier site and allows you to control the version of _iframe-resizer_
 in use on both the parent and child pages in the future, without having to go back to your supplier and ask them to
  make changes to their site.
 
@@ -32,7 +32,7 @@ This code will create your iframe with the link to your content, then load and c
 
 <Code lang="ts" title="include-iframe.js" code={include} />
 
-It is recommended that you minify this code using either [Terser](https://terser.org/) or 
+It is recommended that you minify this code using either [Terser](https://terser.org/) or
 [UglifyJS](https://skalman.github.io/UglifyJS-online/).
 
 ### Share the setup script
@@ -53,7 +53,7 @@ to simply include the following on each page they show in the iframe.
 {/* <!-- prettier-ignore-end --> */}
 
 Once the script is deployed and included by your third-party providers, their iframes will be ready for
-seamless integration onto your site. 
+seamless integration onto your site.
 
 To complete the setup, follow the steps in the [Parent Page](/setup/parent) setup guide. This will
 enable communication between the iframe and the parent page, ensuring proper resizing and functionality.

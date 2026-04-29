@@ -1,0 +1,169 @@
+---
+title: Web Component
+description: Official iframe-resizer Web Component
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+import { Code } from 'astro-expressive-code/components'
+import Install from '/src/components/Install.astro';
+import License from '/src/components/License.astro';
+import FeedbackComponent from "/src/components/Feelback.astro";
+import VERSION from "/src/components/version";
+
+The `@iframe-resizer/web-component` package registers a framework-agnostic
+`<iframe-resizer>` custom element, which can be used anywhere in your HTML
+or any JavaScript framework that renders directly to the DOM.
+
+## Install
+
+Install this package with the following command.
+
+<Install package="@iframe-resizer/web-component" cdn download async />
+
+You will also need to ensure that the [@iframe-resizer/child](/setup/child)
+package has been loaded into every page that loads into the iframe.
+
+## Usage
+
+Importing the package registers the `<iframe-resizer>` element with the
+browser. All supported [options](/api/parent#options) can be passed as
+attributes on the element. Any attribute that is not a recognised
+_iframe-resizer_ option is forwarded to the underlying `<iframe>` element.
+
+{/* <!-- prettier-ignore-start --> */}
+
+<Tabs syncKey="version">
+  <TabItem label="Vanilla JS">
+```html
+<script async src="/node_modules/@iframe-resizer/web-component/index.umd.js"></script>
+
+<iframe-resizer
+  license="xxxx"
+  log="collapsed"
+  src="http://anotherdomain.com/iframe.html"
+  style="width: 100%; height: 100vh;"
+></iframe-resizer>
+
+```
+  </TabItem>
+  <TabItem label="ES Modules">
+```html
+<iframe-resizer
+  license="xxxx"
+  log="collapsed"
+  src="http://anotherdomain.com/iframe.html"
+  style="width: 100%; height: 100vh;"
+></iframe-resizer>
+```
+```js
+import '@iframe-resizer/web-component'
+```
+  </TabItem>
+  <TabItem label="CommonJS">
+```html
+<iframe-resizer
+  license="xxxx"
+  log="collapsed"
+  src="http://anotherdomain.com/iframe.html"
+  style="width: 100%; height: 100vh;"
+></iframe-resizer>
+```
+```js
+require('@iframe-resizer/web-component')
+```
+  </TabItem>
+  <TabItem label="jsDelivr CDN">
+<Code code={`
+<script async type="module">
+    // Replace '@${VERSION}' below with the version you wish to use.
+    import '//cdn.jsdelivr.net/npm/@iframe-resizer/web-component@${VERSION}/+esm'
+</script>
+
+<iframe-resizer
+    license="xxxx"
+    log="collapsed"
+    src="http://anotherdomain.com/iframe.html"
+    style="width: 100%; height: 100vh;"
+></iframe-resizer>
+`} lang="html" />
+  </TabItem>
+</Tabs>
+
+{/* <!-- prettier-ignore-end --> */}
+<br/>
+Setting the initial height of the iframe to `100vh` makes the loading in of
+the iframe appear smoother to the user, as they will only see the content
+below the iframe once it has completed loading and undergone its initial
+sizing.
+
+<License />
+
+## Child page
+
+You will then need to add the [@iframe-resizer/child](/setup/child)
+package on every page in the iframe.
+
+## Events
+
+_Iframe-resizer_ events are dispatched as custom DOM events on the
+`<iframe-resizer>` element.
+
+```js
+const element = document.querySelector('iframe-resizer')
+
+element.addEventListener('iframe-resizer:ready', (event) => {
+  console.log('ready', event.detail)
+})
+
+element.addEventListener('iframe-resizer:resized', (event) => {
+  console.log('resized', event.detail)
+})
+```
+
+The following custom events are dispatched:
+
+| Event | _iframe-resizer_ equivalent |
+| --- | --- |
+| `iframe-resizer:ready` | [onReady](/api/parent#onready) |
+| `iframe-resizer:message` | [onMessage](/api/parent#onmessage) |
+| `iframe-resizer:resized` | [onResized](/api/parent#onresized) |
+| `iframe-resizer:scroll` | [onScroll](/api/parent#onscroll) |
+| `iframe-resizer:mouseenter` | [onMouseEnter](/api/parent#onmouseenter) |
+| `iframe-resizer:mouseleave` | [onMouseLeave](/api/parent#onmouseleave) |
+
+Each event's `detail` property contains the same data as the equivalent
+_iframe-resizer_ callback.
+
+## Methods
+
+The element exposes an `iframeResizer` property that returns the
+underlying [IFrameObject](/api/parent#methods), allowing you to call
+`sendMessage()`, `moveToAnchor()`, and `getVersion()` directly.
+
+```js
+const element = document.querySelector('iframe-resizer')
+
+element.iframeResizer.sendMessage('Hello from the parent page')
+```
+
+## Array options
+
+Options that accept an array of values (such as
+[`checkOrigin`](/api/parent#checkorigin)) can be passed as a
+space‑separated string.
+
+```html
+<iframe-resizer
+  license="xxxx"
+  checkorigin="https://example.com https://other.example.com"
+  src="http://anotherdomain.com/iframe.html"
+></iframe-resizer>
+```
+
+Once everything is setup, keep an eye on the [browser console](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools),
+as _iframe-resizer_ will warn about any potential issues it detects and provide advice
+on how to fix them. For more details on using _iframe-resizer_ see the
+[Advanced Setup](/setup/advanced/) and [Trouble Shooting](/troubleshooting) sections
+of this guide.
+
+<FeedbackComponent />

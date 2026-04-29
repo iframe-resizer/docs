@@ -1,0 +1,203 @@
+---
+title: Types
+description: TypeScript type definitions exported by iframe-resizer
+---
+
+import { Aside } from "@astrojs/starlight/components";
+import FeedbackComponent from "/src/components/Feelback.astro";
+
+_Iframe-resizer_ is written in TypeScript and ships first-class type
+definitions with every package. This page lists the types and constants
+you can import from `@iframe-resizer/core`, `@iframe-resizer/parent`, and
+`@iframe-resizer/child`.
+
+## Parent-side types
+
+These types describe the shape of the [Parent Page API](/api/parent) and
+are exported from `@iframe-resizer/core`. They are also re-exported from
+`@iframe-resizer/parent` and every official framework package.
+
+```ts
+import type {
+  IFrameComponent,
+  IFrameDirection,
+  IFrameLogOption,
+  IFrameMessageData,
+  IFrameMouseData,
+  IFrameObject,
+  IFrameOptions,
+  IFrameResizedData,
+  IFrameScrollData,
+  IFrameScrollOption,
+  IFrameVersion,
+} from '@iframe-resizer/core'
+```
+
+### IFrameOptions
+
+The configuration object passed to [`iframeResize()`](/api/parent). Contains
+all [options](/api/parent#options) and [events](/api/parent#events) supported
+on the parent page.
+
+### IFrameObject
+
+The resizer instance that is attached to each iframe as
+`iframe.iframeResizer`. Contains the methods documented in the
+[Parent Page API](/api/parent#methods):
+[`close()`](/api/parent#close),
+[`disconnect()`](/api/parent#disconnect),
+[`getVersion()`](/api/parent#getversion),
+[`moveToAnchor()`](/api/parent#movetoanchoranchor), and
+[`sendMessage()`](/api/parent#sendmessagemessage-targetorigin).
+
+### IFrameComponent
+
+Alias for `HTMLIFrameElement & { iframeResizer: IFrameObject }`. This is
+the type returned by [`iframeResize()`](/api/parent) and passed as the first
+argument to the [onReady](/api/parent#onready) callback.
+
+### IFrameDirection
+
+Union type describing the legal values for the
+[`direction`](/api/parent#direction) option.
+
+```ts
+type IFrameDirection = 'vertical' | 'horizontal' | 'none' | 'both'
+```
+
+### IFrameLogOption
+
+Union type describing the legal values for the [`log`](/api/parent#log)
+option.
+
+```ts
+type IFrameLogOption = boolean | 'expanded' | 'collapsed' | number
+```
+
+### IFrameScrollOption
+
+Union type describing the legal values for the
+[`scrolling`](/api/parent#scrolling) option.
+
+```ts
+type IFrameScrollOption = boolean | 'auto' | 'omit'
+```
+
+### IFrameMessageData
+
+Argument passed to the [onMessage](/api/parent#onmessage) callback.
+
+```ts
+interface IFrameMessageData {
+  iframe: IFrameComponent
+  message: unknown
+}
+```
+
+### IFrameMouseData
+
+Argument passed to the [onMouseEnter](/api/parent#onmouseenter) and
+[onMouseLeave](/api/parent#onmouseleave) callbacks.
+
+```ts
+interface IFrameMouseData {
+  iframe: IFrameComponent
+  screenX: number
+  screenY: number
+  type: string
+}
+```
+
+### IFrameResizedData
+
+Argument passed to the [onResized](/api/parent#onresized) callback.
+
+```ts
+interface IFrameResizedData {
+  iframe: IFrameComponent
+  height: number
+  width: number
+  type: string
+}
+```
+
+### IFrameScrollData
+
+Argument passed to the [onScroll](/api/parent#onscroll) callback.
+
+```ts
+interface IFrameScrollData {
+  iframe: IFrameComponent
+  top: number
+  left: number
+  /** @deprecated Use `left` instead. */
+  x: number
+  /** @deprecated Use `top` instead. */
+  y: number
+}
+```
+
+### IFrameVersion
+
+Return type of the [`getVersion()`](/api/parent#getversion) method on both
+the parent and child API. Also exported from `@iframe-resizer/child`.
+
+```ts
+interface IFrameVersion {
+  parent: SemVer | 'legacy'
+  child: SemVer | 'legacy'
+}
+
+type SemVer = `${number}.${number}.${number}${string}`
+```
+
+## Child-side types
+
+These types describe the shape of the [Child Page API](/api/child) and
+are exported from `@iframe-resizer/child`.
+
+```ts
+import type {
+  IFramePageOptions,
+  IFrameParentAPI,
+  IFrameParentProps,
+  IFrameVersion,
+} from '@iframe-resizer/child'
+```
+
+### IFramePageOptions
+
+The shape of the `window.iframeResizer` configuration object. Contains all
+[settings](/api/child#settings) and [events](/api/child#events) that can be
+set on the child page.
+
+### IFrameParentAPI
+
+The object exposed as `window.parentIframe` inside the iframe, containing
+all the methods documented in the [Child Page API](/api/child#methods).
+
+### IFrameParentProps
+
+The shape of the object passed to the callback of
+[`getParentProps()`](/api/child#getparentpropscallback).
+
+## Constants
+
+The following named constants are exported from `@iframe-resizer/core`
+for use with the [`log`](/api/parent#log) option.
+
+```ts
+import {
+  LOG_DISABLED,
+  LOG_COLLAPSED,
+  LOG_EXPANDED,
+} from '@iframe-resizer/core'
+```
+
+| Constant | Value |
+| --- | --- |
+| `LOG_DISABLED` | `0` |
+| `LOG_COLLAPSED` | `1` |
+| `LOG_EXPANDED` | `2` |
+
+<FeedbackComponent />

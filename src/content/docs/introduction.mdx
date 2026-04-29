@@ -5,27 +5,27 @@ description: Keep same-origin and cross-origin iframes sized to their content
 
 import FeedbackComponent from "/src/components/Feelback.astro";
 
-The _iframe-resizer_ library aims to take away the pain points of using iframes. 
-It will resize your iframe to match the exact size of your content and then monitor the 
+The _iframe-resizer_ library aims to take away the pain points of using iframes.
+It will resize your iframe to match the exact size of your content and then monitor the
 iframe to ensure that it is always the perfect size.
 
 ### Reliable Resizing
 
-Modern browsers still do not provide a single consistently reliable method to calculate 
-page content size. To overcome this limitation, _iframe-resizer_ automatically inspects 
+Modern browsers still do not provide a single consistently reliable method to calculate
+page content size. To overcome this limitation, _iframe-resizer_ automatically inspects
 your page and selects the best value for your content every time it detects a change
-in the page. 
+in the page.
 
-The iframe size is calculated using a range of browser values and, when necessary, 
+The iframe size is calculated using a range of browser values and, when necessary,
 it falls back to using _iframe-resizer's_ own custom content size detection algorithm.
 
 ### High Performance
 
-To ensure minimal impact on your site, _iframe-resizer_ is highly optimized and 
+To ensure minimal impact on your site, _iframe-resizer_ is highly optimized and
 utilizes [Set Theory](https://en.wikipedia.org/wiki/Set_theory) to ensure it only
-checks the page elements that affect the sizing of your iframes. 
+checks the page elements that affect the sizing of your iframes.
 
-Even on the most complex pages, _iframe-resizer_ can detect changes to both HTML 
+Even on the most complex pages, _iframe-resizer_ can detect changes to both HTML
 and CSS, calculate the revised content dimensions, and update the iframe in sub‑millisecond time.
 
 ### Cross-Domain
@@ -46,7 +46,7 @@ enable secure integration of your iframe content with the parent page.
 - Automatic domain authentication
 - Enhanced [Accessibility](/accessibility)
 
-When combined with [viewer.js](https://viewerjs.org) it can even resize iframes 
+When combined with [viewer.js](https://viewerjs.org) it can even resize iframes
 containing PDF and ODF documents.
 
 ## Version 5
@@ -56,7 +56,7 @@ this has enabled significantly better performance and greater accuracy in the de
 content resizing events.
 
 With this release, we refreshed and simplified the API. If you
-are coming from a previous version, there is an [Upgrade Guide](/upgrade) to explain 
+are coming from a previous version, there is an [Upgrade Guide](/upgrade) to explain
 the changes.
 
 <FeedbackComponent />

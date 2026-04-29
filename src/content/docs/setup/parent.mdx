@@ -11,29 +11,29 @@ import FeedbackComponent from "/src/components/Feelback.astro";
 import VERSION from "/src/components/version";
 
 The _iframe-resizer_ project is distributed via separate packages for the parent and
-child pages. This guide takes you through setting up the parent page, and on the 
+child pages. This guide takes you through setting up the parent page, and on the
 [next page](/setup/child) there is a guide to setting up child pages.
 
 In this section we detail how to set up the parent page using the vanilla JavaScript
 version of _iframe-resizer_. The [framework](/frameworks/overview) section of this
-guide details how to use _iframe-resizer_ with a range of popular frameworks, and 
+guide details how to use _iframe-resizer_ with a range of popular frameworks, and
 there is also a separate version of this guide for [WordPress](/guides/wordpress).
 
 ## Install
 
 Download and install the parent page package with one of the following options.
 
-<Install package="@iframe-resizer/parent" cdn download />
+<Install package="@iframe-resizer/parent" bun cdn badge download parent/>
 
 ## Usage
 
-This library provides the function `iframeResize()`, which accepts a config object and one or 
+This library provides the function `iframeResize()`, which accepts a config object and one or
 more iframes. Iframes can be passed via either the CSS `iframeSelector` or an element reference. All values
 are optional. If no iframe is provided, it will bind _iframe-resizer_ to all iframes
 currently on the page.
 
 ```js
-const iframes = iframeResize( [{options}], [css iframeSelector] || [iframe] )
+const iframes = iframeResize( [{options}], [css iframeSelector] | [iframe] )
 ```
 
 Once the setup has run, an array of the iframes that have had _iframe-resizer_
@@ -51,95 +51,78 @@ to 100% and have the height scale to fit the content.
 <Tabs syncKey="version">
   <TabItem label="Vanilla JS">
 ```html
-<style>
-  iframe {
-    width: 100%;
-    height: 100vh;
-  }
-</style>
-
-<iframe id="myIframe" src="http://anotherdomain.com/iframe.html"></iframe>
-
 <script src="/node_modules/@iframe-resizer/parent/index.umd.js"></script>
+
+<iframe
+  id="myIframe"
+  src="http://anotherdomain.com/iframe.html"
+  style="width: 100%; height: 100vh;"
+></iframe>
+
 <script>
-  iframeResize({ 
+  iframeResize({
     license: 'xxxx',
     log: 'collapsed',
-  }, '#myIframe' )
+  }, '#myIframe')
 </script>
 ```
   </TabItem>
   <TabItem label="ES Modules">
 ```html
-<style>
-  iframe {
-    width: 100%;
-    height: 100vh;
-  }
-</style>
-
-<iframe id="myIframe" src="http://anotherdomain.com/iframe.html"></iframe>
+<iframe
+  id="myIframe"
+  src="http://anotherdomain.com/iframe.html"
+  style="width: 100%; height: 100vh;"
+></iframe>
 ```
 ```js
 import iframeResize from '@iframe-resizer/parent'
 
-const options = { 
+iframeResize({
   license: 'xxxx',
   log: 'collapsed',
-}
-
-const iframeSelector = '#myIframe'
-
-iframeResize(options, iframeSelector)
+}, '#myIframe')
 
 ````
 </TabItem>
   <TabItem label="CommonJS">
 ```html
-<style>
-  iframe {
-    width: 100%;
-    height: 100vh;
-  }
-</style>
-
-<iframe id="myIframe" src="http://anotherdomain.com/iframe.html"></iframe>
+<iframe
+  id="myIframe"
+  src="http://anotherdomain.com/iframe.html"
+  style="width: 100%; height: 100vh;"
+></iframe>
 ````
 
 ```js
 const iframeResize = require("@iframe-resizer/parent")
 
-const options = { 
+iframeResize({
   license: 'xxxx',
   log: 'collapsed',
-}
-
-const selector = '#myIframe'
-
-iframeResize(options, selector)
+}, '#myIframe')
 ```
   </TabItem>
   <TabItem label="jsDelivr CDN">
 <Code code={`
-<style>
-  iframe {
-    width: 100%;
-    height: 100vh;
-  }
-</style>
+<iframe
+    id="myIframe"
+    src="http://anotherdomain.com/iframe.html"
+    style="width: 100%; height: 100vh;"
+></iframe>
 
-<iframe id="myIframe" src="http://anotherdomain.com/iframe.html"></iframe>
+<script async type="module">
+    // Replace '@${VERSION}' below with the version you wish to use
+    import iframeResize from '//cdn.jsdelivr.net/npm/@iframe-resizer/parent@${VERSION}/+esm'
 
-<!-- replace '@${VERSION}' below with the version you wish to use. -->
-<script src="https://cdn.jsdelivr.net/npm/@iframe-resizer/parent@${VERSION}"></script>
-<script>
-  iframeResize({ 
-    license: 'xxxx',
-    log: 'collapsed',
-  }, '#myIframe')
+    iframeResize({
+      license: 'xxxx',
+      log: 'collapsed',
+    }, '#myIframe')
 </script>
 `} lang="html" />
   </TabItem>
+
 </Tabs>
 
 {/* <!-- prettier-ignore-end --> */}
@@ -155,7 +138,7 @@ follow the [Third Party](/setup/third_party) setup guide.
 
 ## API
 
-The [Parent Page API](/api/parent) includes a range of options, events, and methods to 
+The [Parent Page API](/api/parent) includes a range of options, events, and methods to
 enable you to securely interact with both _iframe-resizer_ and the parent page.
 
 <FeedbackComponent />
