@@ -29,7 +29,7 @@ export default defineConfig({
     setup: "/setup/parent",
     getting_started: "/introduction",
     buy: "/pricing",
-    checkorigin : "/api/parent#checkorigin",
+    checkorigin: "/api/parent#checkorigin",
     "check-origin": "/api/parent#checkorigin",
     "/setup/thirdparty": "/third_party/share",
     "/setup/third_party": "/third_party/share",
@@ -114,10 +114,6 @@ export default defineConfig({
               label: "Setup Child Page",
               link: "/setup/child",
             },
-            // {
-            //   label: "Use With Third Party Sites",
-            //   link: "/setup/third_party",
-            // },
             {
               label: "Content Guidelines",
               link: "content_guidelines",
@@ -126,10 +122,10 @@ export default defineConfig({
               label: "Advanced Setup",
               link: "/setup/advanced",
             },
-            // {
-            //   label: "Performance",
-            //   link: "performance",
-            // },
+            {
+              label: "Accessibility",
+              link: "accessibility",
+            },
             {
               label: "Troubleshooting",
               link: "troubleshooting",
@@ -239,10 +235,6 @@ export default defineConfig({
               link: "/api/types",
             },
           ],
-        },
-        {
-          label: "Accessibility",
-          link: "accessibility",
         },
         // {
         //   label: "Reference",

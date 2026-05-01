@@ -18,8 +18,12 @@ with multiple `<iframe>` elements or interactive content like video or audio.
 ### Automated Title Attribute
 
 Where iframes are missing the `title` attribute, _iframe-resizer_ will automatically set it using
-the text contained within the `<title>` element of the iframe's content. This ensures the `title`
-attribute is always up to date and accurately reflects the page currently displayed within the iframe.
+the text contained within the `<title>` element of the iframe's content. 
+
+Future changes to the iframe's
+`<title>` element will automatically be reflected in the in the iframe's `title` attribute. This 
+ensures the that`title` value for both the page and the iframe element are always up to date and 
+in-sync with each other
 
 For example:
 
