@@ -7,7 +7,7 @@ import { Aside } from "@astrojs/starlight/components";
 import FeedbackComponent from "/src/components/Feelback.astro";
 
 _Iframe-resizer_ is written in TypeScript and ships first-class type
-definitions with every package. This page lists the types and constants
+definitions with every package. This page lists the types
 you can import from `@iframe-resizer/core`, `@iframe-resizer/parent`, and
 `@iframe-resizer/child`.
 
@@ -180,24 +180,5 @@ all the methods documented in the [Child Page API](/api/child#methods).
 
 The shape of the object passed to the callback of
 [`getParentProps()`](/api/child#getparentpropscallback).
-
-## Constants
-
-The following named constants are exported from `@iframe-resizer/core`
-for use with the [`log`](/api/parent#log) option.
-
-```ts
-import {
-  LOG_DISABLED,
-  LOG_COLLAPSED,
-  LOG_EXPANDED,
-} from '@iframe-resizer/core'
-```
-
-| Constant | Value |
-| --- | --- |
-| `LOG_DISABLED` | `0` |
-| `LOG_COLLAPSED` | `1` |
-| `LOG_EXPANDED` | `2` |
 
 <FeedbackComponent />
