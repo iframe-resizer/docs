@@ -234,6 +234,10 @@ export default defineConfig({
               label: "Types",
               link: "/api/types",
             },
+            {
+              label: "Constants",
+              link: "/api/constants",
+            },
           ],
         },
         // {
