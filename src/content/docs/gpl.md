@@ -11,7 +11,7 @@ the license key `GPLv3`.
 iframeResize({ license: "GPLv3" });
 ```
 
-For more information about version 3 of the GPL see: 
+For more information about version 3 of the GPL see:
 [https://www.gnu.org/licenses/quick-guide-gplv3.html](https://www.gnu.org/licenses/quick-guide-gplv3.html).
 
 ```txt

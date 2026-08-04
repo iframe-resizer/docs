@@ -4,9 +4,9 @@ description: Official iframe-resizer React component
 prev: Frameworks
 ---
 
-import Install from '/src/components/Install.astro';
-import License from '/src/components/License.astro';
-import FeedbackComponent from "/src/components/Feelback.astro";
+import Install from '../../../components/Install.astro';
+import License from '../../../components/License.astro';
+import FeedbackComponent from "../../../components/Feelback.astro";
 
 ## Install
 
@@ -20,7 +20,7 @@ package has been loaded into every page that loads into the iframe.
 ## Usage
 
 The `<IframeResizer />` component can be passed all `<iframe>` attributes, along with
-_[options](/api/parent#options)_ and _[events](/api/parent#events)_ from _iframe-resizer_. 
+_[options](/api/parent#options)_ and _[events](/api/parent#events)_ from _iframe-resizer_.
 You can optionally pass a `forwardRef` to gain access to a few _[methods](/api/parent#methods)_
 that provide a simple interface to communicate with the page in the iframe.
 
@@ -50,12 +50,12 @@ scale to fit the content.
 />
 ```
 
+<License />
+
 Setting the initial height of the iframe to `100vh` makes the loading in of
 the iframe appear smoother to the user, as they will only see the content
 below the iframe once it has completed loading and undergone its initial
 sizing.
-
-<License />
 
 ## Child page
 
@@ -83,14 +83,6 @@ export default () => {
     <IframeResizer forwardRef={iframeRef} />
   )
 ```
-
-### disconnect()
-
-This method is not available, use React to remove the iframe from the page.
-
-### getElement()
-
-Returns the iframe element.
 
 ### getRef()
 
