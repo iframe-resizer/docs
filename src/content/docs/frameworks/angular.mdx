@@ -118,6 +118,15 @@ The following outputs are available:
 | `onResized` | [onResized](/api/parent#onresized) |
 | `onScroll` | [onScroll](/api/parent#onscroll) |
 
+The directive runs _iframe-resizer_ outside Angular's zone, so messages from
+the iframe don't run change detection. An output re-enters the zone when it
+emits, so your handlers update the page as normal.
+
+If the same app also calls `iframeResize()` from `@iframe-resizer/parent`, the
+two share one message listener, set up by whichever connects first. Call
+`iframeResize()` inside `NgZone.runOutsideAngular()`, and wrap any of its
+callbacks that change the page in `NgZone.run()`.
+
 ## Methods
 
 Query the directive with `@ViewChild(IframeResizerDirective)` to access
