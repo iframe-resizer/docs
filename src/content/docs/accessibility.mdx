@@ -1,25 +1,29 @@
 ---
-title: Accessibility 
+title: Accessibility
 description: Accessibility in iframe-resizer
 ---
 
-import FeedbackComponent from "/src/components/Feelback.astro";
+import FeedbackComponent from "../../components/Feelback.astro";
 
-Modern browsers have very good accessibility support for iframes, and this can be further enhanced 
-to aid users navigating with assistive technology, such as screen readers, by using the 
+Modern browsers have very good accessibility support for iframes, and this can be further enhanced
+to aid users navigating with assistive technology, such as screen readers, by using the
 [title attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title) on an
 `<iframe>` to label its contained content.
 
-Having a `title` attribute allows screen readers to announce the purpose of the iframe without 
-requiring users to navigate into it. This saves time and reduces confusion, especially on pages 
+Having a `title` attribute allows screen readers to announce the purpose of the iframe without
+requiring users to navigate into it. This saves time and reduces confusion, especially on pages
 with multiple `<iframe>` elements or interactive content like video or audio.
 
 
 ### Automated Title Attribute
 
 Where iframes are missing the `title` attribute, _iframe-resizer_ will automatically set it using
-the text contained within the `<title>` element of the iframe's content. This ensures the `title`
-attribute is always up to date and accurately reflects the page currently displayed within the iframe.
+the text contained within the `<title>` element of the iframe's content. 
+
+Future changes to the iframe's
+`<title>` element will automatically be reflected in the in the iframe's `title` attribute. This 
+ensures the that`title` value for both the page and the iframe element are always up to date and 
+in-sync with each other
 
 For example:
 

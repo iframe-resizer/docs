@@ -71,6 +71,13 @@ a[aria-current="true"]{
   font-weight: 600 !important;
 }
 
+a.site-title span{
+  font-size: 1.6rem !important;
+  opacity: 0.9;
+  position: relative;
+  top: -1px;
+}
+
 a.site-title,
 main a {
   font-weight: 600 !important;

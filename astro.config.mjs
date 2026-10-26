@@ -13,8 +13,13 @@ export default defineConfig({
   },
   site: "https://iframe-resizer.com",
   redirects: {
+    alpine: "/frameworks/alpine",
     angular: "/frameworks/angular",
+    astro: "/frameworks/astro",
     react: "/frameworks/react",
+    solid: "/frameworks/solid",
+    svelte: "/frameworks/svelte",
+    "web-component": "/frameworks/web-component",
     jquery: "/frameworks/jquery",
     vue: "/frameworks/vue3",
     vue2: "/frameworks/vue2",
@@ -24,7 +29,7 @@ export default defineConfig({
     setup: "/setup/parent",
     getting_started: "/introduction",
     buy: "/pricing",
-    checkorigin : "/api/parent#checkorigin",
+    checkorigin: "/api/parent#checkorigin",
     "check-origin": "/api/parent#checkorigin",
     "/setup/thirdparty": "/third_party/share",
     "/setup/third_party": "/third_party/share",
@@ -64,10 +69,10 @@ export default defineConfig({
         },
       ],
       title: "iframe-resizer",
-      description: "Keep same and cross domain iframes sized to their content",
+      description: "Keep iframes sized to their content",
       favicon: "/favicon.ico",
       logo: {
-        src: "/public/logo.svg",
+        src: "./src/assets/logo-cropped.svg",
         // alt: "iframe-resizer",
       },
       customCss: [
@@ -78,6 +83,7 @@ export default defineConfig({
       ],
       components: {
         Head: "./src/components/Head.astro",
+        Sidebar: "./src/components/Sidebar.astro",
         SocialIcons: "./src/components/socials.astro",
       },
       social: [
@@ -90,6 +96,7 @@ export default defineConfig({
       sidebar: [
         {
           label: "Getting Started",
+          collapsed: true,
           items: [
             {
               label: "Introduction",
@@ -107,10 +114,6 @@ export default defineConfig({
               label: "Setup Child Page",
               link: "/setup/child",
             },
-            // {
-            //   label: "Use With Third Party Sites",
-            //   link: "/setup/third_party",
-            // },
             {
               label: "Content Guidelines",
               link: "content_guidelines",
@@ -119,22 +122,23 @@ export default defineConfig({
               label: "Advanced Setup",
               link: "/setup/advanced",
             },
-            // {
-            //   label: "Performance",
-            //   link: "performance",
-            // },
+            {
+              label: "Accessibility",
+              link: "accessibility",
+            },
             {
               label: "Troubleshooting",
               link: "troubleshooting",
             },
             {
-              label: "Upgrade to V5",
+              label: "Upgrade to V6",
               link: "upgrade",
             },
           ],
         },
         {
           label: "Use With Third Party Sites",
+          collapsed: true,
           items: [
             {
               label: "Share an iframe",
@@ -148,31 +152,53 @@ export default defineConfig({
         },
         {
           label: "Frameworks and Libraries",
+          collapsed: true,
           items: [
             {
               label: "Overview",
               link: "/frameworks",
             },
             {
-              label: "React",
-              link: "/frameworks/react",
-            },
-            {
-              label: "Vue",
-              link: "/frameworks/vue3",
+              label: "Alpine.js",
+              link: "/frameworks/alpine",
             },
             {
               label: "Angular",
               link: "/frameworks/angular",
             },
             {
+              label: "Astro",
+              link: "/frameworks/astro",
+            },
+            {
               label: "jQuery",
               link: "/frameworks/jquery",
+            },
+            {
+              label: "React",
+              link: "/frameworks/react",
+            },
+            {
+              label: "Solid",
+              link: "/frameworks/solid",
+            },
+            {
+              label: "Svelte",
+              link: "/frameworks/svelte",
+            },
+            {
+              label: "Vue",
+              link: "/frameworks/vue3",
+            },
+            {
+              label: "Web Component",
+              link: "/frameworks/web-component",
             },
           ],
         },
         {
           label: "Platform Guides",
+          collapsed: true,
           items: [
             {
               label: "WordPress",
@@ -186,6 +212,7 @@ export default defineConfig({
         },
         {
           label: "API",
+          collapsed: true,
           items: [
             {
               label: "Overview",
@@ -203,11 +230,15 @@ export default defineConfig({
               label: "Framework API",
               link: "/api/framework",
             },
+            {
+              label: "Types",
+              link: "/api/types",
+            },
+            {
+              label: "Constants",
+              link: "/api/constants",
+            },
           ],
-        },
-        {
-          label: "Accessibility",
-          link: "accessibility",
         },
         // {
         //   label: "Reference",

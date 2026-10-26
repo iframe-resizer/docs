@@ -7,15 +7,15 @@ export interface Props {
 
 const props = Astro.props;
 ---
-<Aside title="Commercial licence" >
-  To use <i>iframe-resizer</i> in a closed source website or application, you need to
+<Aside type="tip" title="Commercial License" onclick="window.location='/pricing'">
+  To use <i>iframe-resizer</i> in a closed source website or application, you can 
   purchase a one time license key. See the <b><a href="/pricing">pricing</a></b> page for
   details.
 </Aside>
 
-<Aside type="tip" title="Open source licence" >
-  For non-comercial open source projects, <i>iframe-resizer</i> is free to use under the Gnu Public License. 
-  To confirm that you are using it in a compatable project set the license to <b>GPLv3</b>.
+<Aside title="Open Source License" >
+  For fully open source projects, <i>iframe-resizer</i> is free to use under the GNU Public License. 
+  To confirm that you are using it in a compatible project set the license to <b>GPLv3</b>.
  {(props.example === true) && 
   <Code code="iframeResize({ license: 'GPLv3' })" lang="js" />}
 </Aside>
